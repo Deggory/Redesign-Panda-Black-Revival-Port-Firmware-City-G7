@@ -1,0 +1,36 @@
+# Upstream clones (reproduce with 02_REFERENCE/REFERENCE_SOURCES.md)
+02_REFERENCE/hardware/
+02_REFERENCE/harness_tester_challenge/
+02_REFERENCE/neo/
+02_REFERENCE/opendbc/
+02_REFERENCE/openpilot/
+02_REFERENCE/openpilot-docs/
+02_REFERENCE/panda/
+02_REFERENCE/panda_full/
+02_REFERENCE/panda_jungle/
+02_REFERENCE/panda_legacy_f4/
+
+# Python
+05_SCRIPTS/.venv/
+__pycache__/
+*.pyc
+
+# Third-party binaries (Freerouting 2.5.0, GPL - download from github.com/freerouting/freerouting)
+05_SCRIPTS/tools/freerouting/*.jar
+
+# Freerouting / KiCad temporaries
+06_REPORTS/en/
+en/
+06_REPORTS/tmp_*.json
+*.kicad_pcb-bak
+*.kicad_sch-bak
+*-backups/
+fp-info-cache
+~*.lck
+*.lck
+
+# Local backups
+99_BACKUPS/
+
+# embedded VS Code local-history repo inside the baseline copy
+01_BASELINE/original_copy/BlackPanda/kicad_project/.history/
