@@ -15,11 +15,11 @@
      38.7
     ],
     [
-     101.0,
+     118.5,
      38.7
     ],
     [
-     101.0,
+     118.5,
      47.6
     ],
     [
@@ -28,16 +28,16 @@
     ],
     [
      123.5,
-     71.5
+     76.5
     ],
     [
      96.1,
-     71.5
+     76.5
     ]
    ]
   },
   "cleanup_duplicates_removed": 0,
-  "cleanup_fragments_removed": 121,
+  "cleanup_fragments_removed": 46,
   "C": {
    "routed": [
     [
@@ -62,7 +62,7 @@
      "C23",
      25,
      "escape1.2",
-     4.67
+     4.84
     ],
     [
      "C24",
@@ -73,8 +73,26 @@
     [
      "L5",
      15,
-     "L",
-     2.77
+     "reto",
+     3.01
+    ],
+    [
+     "L5",
+     17,
+     "reto",
+     3.01
+    ],
+    [
+     "C41",
+     15,
+     "reto",
+     4.93
+    ],
+    [
+     "C42",
+     17,
+     "reto",
+     5.55
     ],
     [
      "C44",
@@ -86,13 +104,25 @@
      "C43",
      35,
      "reto",
-     4.17
+     4.81
     ],
     [
      "FB1",
      36,
+     "L",
+     6.78
+    ],
+    [
+     "C45",
+     7,
      "reto",
-     4.45
+     2.12
+    ],
+    [
+     "C46",
+     13,
+     "L",
+     2.92
     ],
     [
      "C49",
@@ -161,32 +191,22 @@
      4.44
     ],
     [
+     "C63",
+     8,
+     "reto",
+     4.7
+    ],
+    [
      "Y1",
      25,
-     "contorno x=107.97",
-     4.77
+     "contorno x=107.91",
+     4.71
     ]
    ],
    "skipped_to_freerouting": [
     [
-     "C41",
-     "colisão: keepout"
-    ],
-    [
-     "C42",
-     "colisão: keepout"
-    ],
-    [
      "C38",
-     "colisão: pad U7.28"
-    ],
-    [
-     "C45",
-     "colisão: keepout"
-    ],
-    [
-     "C46",
-     "em F.Cu -> Freerouting"
+     "colisão: pad U7.26"
     ],
     [
      "C47",
@@ -202,20 +222,16 @@
     ],
     [
      "C60",
-     "colisão: keepout"
+     "colisão: pad C45.2"
     ],
     [
      "C62",
      "colisão: pad C54.2"
-    ],
-    [
-     "C63",
-     "colisão: keepout"
     ]
    ]
   },
   "V": {
-   "ok": 41,
+   "ok": 43,
    "detail": [
     [
      "C39.2",
@@ -237,16 +253,16 @@
      "C23.2",
      "ok",
      [
-      108.762,
-      71.092
+      108.639,
+      71.374
      ]
     ],
     [
      "C24.2",
      "ok",
      [
-      101.975,
-      71.293
+      102.609,
+      71.529
      ]
     ],
     [
@@ -269,68 +285,64 @@
      "C41.2",
      "ok",
      [
-      113.665,
-      71.9
+      111.564,
+      73.887
      ]
     ],
     [
      "C42.2",
      "ok",
      [
-      116.246,
-      72.302
+      109.422,
+      75.402
      ]
     ],
     [
      "C43.2",
      "ok",
      [
-      98.849,
-      72.515
+      101.43,
+      73.687
      ]
     ],
     [
      "C44.2",
      "ok",
      [
-      100.347,
-      70.975
+      100.913,
+      71.075
      ]
     ],
     [
      "C38.2",
      "ok",
      [
-      95.867,
-      69.109
+      106.622,
+      75.331
      ]
     ],
     [
      "C45.2",
-     "sem espaço"
+     "ok",
+     [
+      116.357,
+      69.879
+     ]
     ],
     [
      "C46.2",
-     "ok",
-     [
-      109.835,
-      68.769
-     ]
+     "sem espaço"
     ],
     [
      "C47.2",
-     "ok",
-     [
-      109.226,
-      70.142
-     ]
+     "sem espaço"
     ],
     [
      "C48.2",
      "ok",
      [
-      101.358,
-      70.826
+      100.985,
+      71.477
      ]
     ],
     [
@@ -369,8 +381,8 @@
      "C53.2",
      "ok",
      [
-      113.82,
-      43.126
+      113.921,
+      42.061
      ]
     ],
     [
@@ -425,8 +437,8 @@
      "C60.2",
      "ok",
      [
-      120.056,
-      72.258
+      116.01,
+      74.207
      ]
     ],
     [
@@ -449,8 +461,8 @@
      "C63.2",
      "ok",
      [
-      121.134,
-      72.583
+      114.079,
+      73.567
      ]
     ],
     [
@@ -463,7 +475,11 @@
     ],
     [
      "C47.1",
-     "sem espaço"
+     "ok",
+     [
+      109.292,
+      66.083
+     ]
     ],
     [
      "C48.1",
@@ -473,16 +489,16 @@
      "C49.1",
      "ok",
      [
-      96.388,
-      62.176
+      96.231,
+      64.269
      ]
     ],
     [
      "C50.1",
      "ok",
      [
-      95.92,
-      54.953
+      95.597,
+      56.847
      ]
     ],
     [
@@ -491,7 +507,11 @@
     ],
     [
      "C52.1",
-     "sem espaço"
+     "ok",
+     [
+      101.615,
+      44.502
+     ]
     ],
     [
      "C53.1",
@@ -541,13 +561,17 @@
      "C59.1",
      "ok",
      [
-      109.7,
-      38.623
+      107.566,
+      37.344
      ]
     ],
     [
      "C60.1",
-     "sem espaço"
+     "ok",
+     [
+      116.441,
+      72.245
+     ]
     ],
     [
      "C61.1",
@@ -569,135 +593,380 @@
      "C63.1",
      "ok",
      [
-      121.977,
-      70.952
+      114.54,
+      72.246
      ]
     ],
     [
      "FB1.2",
      "ok",
      [
-      97.051,
-      72.489
+      99.533,
+      75.413
      ]
     ]
    ],
    "u7_gnd_vias": [
     [
      6,
+     "fora",
      1.2,
-     0
+     -0.25
     ],
     [
      12,
-     "sem espaço"
-    ],
-    [
-     14,
-     "sem espaço"
-    ],
-    [
-     18,
-     1.5,
+     "dentro",
+     1.4,
      0
     ],
     [
-     21,
-     "sem espaço"
+     14,
+     "dentro",
+     1.4,
+     0
     ],
     [
-     22,
-     "sem espaço"
+     18,
+     "fora",
+     1.5,
+     0.5
     ],
     [
-     23,
-     "sem espaço"
-    ],
-    [
-     24,
-     "sem espaço"
+     "21+22+23+24",
+     "dentro",
+     1.4,
+     0
     ],
     [
      33,
-     "sem espaço"
+     "dentro",
+     1.4,
+     0
     ],
     [
      34,
-     1.2,
+     "dentro",
+     1.4,
      0
     ],
     [
      41,
+     "fora",
      1.2,
      0.25
     ],
     [
      55,
-     "sem espaço"
+     "dentro",
+     1.4,
+     0
     ],
     [
      69,
+     "fora",
      1.2,
      -0.25
     ],
     [
      80,
+     "fora",
      2.6,
      0
     ],
     [
      89,
+     "fora",
      1.2,
      0.5
     ],
     [
      104,
+     "fora",
      1.5,
      0
     ],
     [
      118,
-     "sem espaço"
+     "fora",
+     3.5,
+     -0.25
     ],
     [
      128,
+     "fora",
      2.2,
      -0.25
     ],
     [
      141,
+     "fora",
      1.2,
      0.25
     ]
-   ]
+   ],
+   "u7_gnd_fail_reasons": {
+    "6": {
+     "track +3V3": 2
+    },
+    "12": {
+     "keepout": 54,
+     "pad SW1.2": 9
+    },
+    "14": {
+     "keepout": 30,
+     "track VLXSMPS": 12,
+     "pad L5.1": 16,
+     "pad SW1.2": 5
+    },
+    "18": {
+     "track VFBSMPS": 3
+    },
+    "21": {
+     "fora ponte": [
+      "track HSE_IN",
+      "track HSE_IN",
+      "track HSE_IN",
+      "track HSE_IN",
+      "track HSE_IN"
+     ],
+     "track +3V3": 1
+    },
+    "33": {
+     "fora ponte": [
+      "track HSE_OUT"
+     ]
+    },
+    "34": {
+     "pad C48.1": 18,
+     "pad C44.1": 12,
+     "track HSE_OUT": 3,
+     "track VDDA": 13,
+     "pad R17.1": 3,
+     "pad C24.1": 5,
+     "pad U5.3": 6,
+     "pad U5.4": 3
+    },
+    "41": {
+     "track +3V3": 1
+    },
+    "55": {
+     "fora ponte": [
+      "track +3V3"
+     ]
+    },
+    "69": {
+     "track VCAP": 2
+    },
+    "80": {
+     "pad U6.4": 19,
+     "pad C3.1": 12,
+     "track +3V3": 5
+    },
+    "89": {
+     "pad R5.2": 3
+    },
+    "118": {
+     "pad R9.2": 4,
+     "track USB_PWR": 20,
+     "pad R9.1": 2,
+     "pad C55.1": 24,
+     "track +5V": 6
+    },
+    "128": {
+     "pad D10.1": 22,
+     "pad C31.2": 3,
+     "track +5V": 1,
+     "pad C56.1": 3
+    },
+    "141": {
+     "track VCAP": 1
+    }
+   },
+   "u7_3v3_vias": [
+    [
+     "7+8",
+     "fora",
+     1.8,
+     -0.25
+    ],
+    [
+     13,
+     "fora",
+     3.5,
+     0
+    ],
+    [
+     16,
+     "fora",
+     1.8,
+     0
+    ],
+    [
+     19,
+     "dentro",
+     1.4,
+     0
+    ],
+    [
+     32,
+     "dentro",
+     1.4,
+     -0.25
+    ],
+    [
+     42,
+     "fora",
+     1.2,
+     -0.25
+    ],
+    [
+     56,
+     "fora",
+     1.2,
+     1.0
+    ],
+    [
+     "70+71",
+     "dentro",
+     2.4,
+     0
+    ],
+    [
+     79,
+     "fora",
+     4.0,
+     0.25
+    ],
+    [
+     "90+91+92",
+     "dentro",
+     2.4,
+     0
+    ],
+    [
+     105,
+     "fora",
+     1.2,
+     -0.25
+    ],
+    [
+     106,
+     "fora",
+     1.2,
+     0
+    ],
+    [
+     119,
+     "fora",
+     1.8,
+     1.0
+    ],
+    [
+     129,
+     "fora",
+     1.2,
+     0.75
+    ],
+    [
+     "142+143+144",
+     "dentro",
+     1.4,
+     0
+    ]
+   ],
+   "u7_3v3_fail_reasons": {
+    "7": {
+     "keepout": 28,
+     "track GND": 12
+    },
+    "13": {
+     "keepout": 42,
+     "track VLXSMPS": 4,
+     "pad L5.1": 8
+    },
+    "16": {
+     "track VLXSMPS": 8,
+     "track VFBSMPS": 6,
+     "pad C47.2": 2,
+     "keepout": 2
+    },
+    "19": {
+     "pad C47.2": 20,
+     "track HSE_IN": 6,
+     "track VFBSMPS": 9,
+     "pad C23.1": 16,
+     "pad L5.2": 21,
+     "pad C23.2": 9
+    },
+    "32": {
+     "fora ponte": [
+      "track HSE_OUT"
+     ],
+     "track GND": 2
+    },
+    "42": {
+     "track GND": 2
+    },
+    "56": {
+     "pad C2.2": 5,
+     "track GND": 2
+    },
+    "70": {
+     "fora ponte": [
+      "track GND",
+      "track GND"
+     ],
+     "pad U12.8": 10,
+     "track +5V": 44
+    },
+    "79": {
+     "pad C3.2": 5,
+     "track GND": 6,
+     "pad U6.4": 11,
+     "pad C3.1": 30,
+     "pad U6.3": 8,
+     "pad C52.2": 4
+    },
+    "90": {
+     "pad R5.2": 8,
+     "pad U6.9": 103,
+     "pad U6.5": 69,
+     "pad U6.6": 33,
+     "pad U6.7": 30,
+     "pad C10.2": 37,
+     "pad C10.1": 45
+    },
+    "105": {
+     "track GND": 2
+    },
+    "119": {
+     "track USB_PWR": 20,
+     "pad R9.2": 4,
+     "track +5V": 1
+    },
+    "129": {
+     "pad D10.1": 5
+    },
+    "142": {
+     "fora ponte": [
+      "track GND",
+      "track GND"
+     ]
+    }
+   }
   },
   "L": {
    "can_tracks_locked": 64,
    "can_vias_baseline": [],
-   "baseline_items_temp_locked": 352
+   "baseline_items_temp_locked": 442
   },
   "X": {
-   "unrouted_before": 114,
-   "dsn_exported": true,
-   "dsn_small_via_removed": true,
-   "freerouting_rc": 0,
-   "freerouting_s": 6498.8,
-   "freerouting_tail": [
-    "    - C41-1  ->  L5-1",
-    "  Net 'VDDA' (1 unrouted connection):",
-    "    - U7-35  ->  U7-36",
-    "2026-10-23 13:34:19.072 INFO   [554714\\751F84] Auto-routing stage completed: started with 162 unrouted nets, completed in 6484.74 seconds, final score: 873.60 (32 unrouted and 98 violations), using 461.45 total CPU seconds, 202.16 GB total allocated, and 305.4 MB peak heap usage.",
-    "2026-10-23 13:34:20.506 INFO   [554714\\751F84] Skipping optimization stage: the board has 32 unrouted connection(s) (optimizer only runs on completely routed boards).",
-    "2026-10-23 13:34:20.524 INFO   [554714\\751F84] Job '554714\\751F84' finished with state: COMPLETED (elapsed: 1 hour 48 minutes 9.25 seconds, finished at UTC: 2026-10-23T16:34:20.523677600Z).",
-    "2026-10-23 13:34:20.557 INFO   Saving output file 'C:\\Users\\costabr\\Downloads\\openpilot\\HybridPanda_v2_20261022_1616\\06_REPORTS\\HybridPanda_step5b.ses' (SES)...",
-    "2026-10-23 13:34:20.564 INFO   Successfully saved output file 'C:\\Users\\costabr\\Downloads\\openpilot\\HybridPanda_v2_20261022_1616\\06_REPORTS\\HybridPanda_step5b.ses' (51734 bytes)."
-   ],
-   "ses_imported": true
+   "unrouted_before": 83
   },
   "F": {
-   "unrouted_after": 30,
-   "tracks": 1012,
-   "vias": 154
+   "unrouted_after": 70,
+   "tracks": 612,
+   "vias": 128
   }
  },
  "warnings": []

@@ -28,6 +28,7 @@ REPORT = os.path.join(ROOT, "06_REPORTS", "step5b_route.json")
 JAVA = r"C:\Program Files\Java\jdk-25.0.4.1\bin\java.exe"
 FR_JAR = os.path.join(ROOT, "05_SCRIPTS", "tools", "freerouting", "freerouting-2.5.0.jar")
 NO_FR = "--no-freerouting" in sys.argv
+INNER_POWER = "--inner-power" in sys.argv   # proibir In1/In2 ao autorouter (baseline usa In1/In2 p/ sinais; default: permitido)
 FR_PASSES = int(sys.argv[sys.argv.index("--passes") + 1]) if "--passes" in sys.argv else 60
 
 report = {"phases": {}, "warnings": []}
@@ -90,11 +91,14 @@ if z3:
     z = z3[0]
     poly = pcbnew.SHAPE_POLY_SET()
     poly.NewOutline()
-    # faixa antiga (96.1-101 x 38.7-64.3) + bloco sob o U7, abaixo das zonas +5V In1 (y<=47.4)
-    for v in [(96.1, 38.7), (101.0, 38.7), (101.0, 47.6), (123.5, 47.6), (123.5, 71.5), (96.1, 71.5)]:
+    # faixa antiga (96.1-101 x 38.7-64.3) + bloco sob o U7 inteiro (fileira norte y=45.9 incluída);
+    # x<=118.5 acima de y=47.6 para não disputar com a zona +5V In1 de prioridade 1 (x>=119, y 42.9-47.4);
+    # a zona +5V In1 de prioridade 5 (108.9-122.9 x 45.0-46.7) prevalece sobre esta (prioridade 4)
+    Z3_OUTLINE = [(96.1, 38.7), (118.5, 38.7), (118.5, 47.6), (123.5, 47.6), (123.5, 76.5), (96.1, 76.5)]
+    for v in Z3_OUTLINE:
         poly.Append(mm(v))
     z.SetOutline(poly)
-    report["phases"]["Z"] = {"+3V3_In1_outline": [(96.1, 38.7), (101.0, 38.7), (101.0, 47.6), (123.5, 47.6), (123.5, 71.5), (96.1, 71.5)]}
+    report["phases"]["Z"] = {"+3V3_In1_outline": Z3_OUTLINE}
 else:
     W("zona +3V3 In1 não encontrada")
 
@@ -103,6 +107,8 @@ def _touch(pt, layer, it, me):
     if it.m_Uuid.AsString() == me.m_Uuid.AsString(): return False
     if it.GetClass() == "PCB_VIA": return it.GetPosition() == pt
     if it.GetClass() in ("PCB_TRACK", "PCB_ARC"): return it.GetLayer() == layer and (it.GetStart() == pt or it.GetEnd() == pt)
+    if it.GetClass() == "ZONE":  # ponta dentro do cobre vertido da mesma net (stub pad -> zona do baseline)
+        return it.IsOnLayer(layer) and it.GetFilledPolysList(layer).Contains(pt)
     return it.IsOnLayer(layer) and it.HitTest(pt)
 frag_removed = 0
 _seen = set()
@@ -120,9 +126,12 @@ for _ in range(30):
         for p in f.Pads(): pads_by_net.setdefault(p.GetNetCode(), []).append(p)
     trk_by_net = {}
     for t in board.GetTracks(): trk_by_net.setdefault(t.GetNetCode(), []).append(t)
+    zones_by_net = {}
+    for z in board.Zones():
+        if not z.GetIsRuleArea(): zones_by_net.setdefault(z.GetNetCode(), []).append(z)
     for t in list(board.GetTracks()):
         if t.IsLocked() or t.GetClass() == "PCB_VIA" or re.match(r"BUS\w+_[HL]$", t.GetNetname()): continue
-        items = trk_by_net.get(t.GetNetCode(), []) + pads_by_net.get(t.GetNetCode(), [])
+        items = trk_by_net.get(t.GetNetCode(), []) + pads_by_net.get(t.GetNetCode(), []) + zones_by_net.get(t.GetNetCode(), [])
         if not (any(_touch(t.GetStart(), t.GetLayer(), i, t) for i in items) and any(_touch(t.GetEnd(), t.GetLayer(), i, t) for i in items)):
             board.RemoveNative(t); frag_removed += 1; dirty = True
     for t in list(board.GetTracks()):
@@ -189,7 +198,7 @@ CRIT = [  # (cap ref, cap pad, U7 pin, width)
     ("C39", 1, 68, 0.3), ("C40", 1, 140, 0.3),            # VCAP
     ("Y1", 1, 25, 0.2), ("Y1", 3, 26, 0.2),               # HSE
     ("C23", 1, 25, 0.2), ("C24", 1, 26, 0.2),             # HSE load caps
-    ("L5", 1, 15, 0.3), ("C41", 1, 15, 0.3), ("C42", 1, 17, 0.25),  # SMPS
+    ("L5", 1, 15, 0.3), ("L5", 2, 17, 0.3), ("C41", 1, 15, 0.3), ("C42", 1, 17, 0.25),  # SMPS (C42.1 passa pelo pad L5.2, mesma net)
     ("C44", 1, 36, 0.2), ("C43", 1, 35, 0.2), ("FB1", 1, 36, 0.2),  # VDDA
     ("C38", 1, 27, 0.2),                                  # NRST
 ]
@@ -286,8 +295,13 @@ def _axis(c):
     return ax, (1 if (d.x if ax[0] else d.y) > 0 else -1)
 def _off(c, ax, sg, along, lat):
     return VECTOR2I(c.x + int(FromMM(along) * ax[0] * sg + FromMM(lat) * -ax[1]), c.y + int(FromMM(along) * ax[1] * sg + FromMM(lat) * ax[0]))
-def _try_gnd(pin, group, ax, sg, knee_d, dists, tag):
-    """tenta knee+via na direção sg (+1 = para fora do U7, -1 = por baixo do corpo, em B.Cu)."""
+def _in_3v3_plane(pos):
+    return bool(z3) and z3[0].Outline().Contains(pos)
+def _try_gnd(pin, group, ax, sg, knee_d, dists, tag, nc=None, reasons=None, plane=None):
+    """tenta knee+via na direção sg (+1 = para fora do U7, -1 = por baixo do corpo, em B.Cu).
+    nc/reasons/plane: net alvo (default GND), dict de motivos, teste 'via cai no plano' (default: sempre)."""
+    gnd_nc = nc if nc is not None else globals()["gnd_nc"]
+    U7_GND_REASONS = reasons if reasons is not None else globals()["U7_GND_REASONS"]
     knees = [_off(pad("U7", g).GetPosition(), ax, sg, knee_d, 0) for g in group]
     pre = [(pad("U7", g).GetPosition(), k) for g, k in zip(group, knees)]
     if len(group) > 1: pre.append((knees[0], knees[-1]))  # ponte entre as pontas
@@ -298,6 +312,7 @@ def _try_gnd(pin, group, ax, sg, knee_d, dists, tag):
         for lat in (0, 0.25, -0.25, 0.5, -0.5, 0.75, -0.75, 1.0, -1.0):
             for k in knees:  # a via pode sair de qualquer pino do grupo
                 pos = _off(k, ax, sg, dist - knee_d, lat)
+                if plane is not None and not plane(pos): continue
                 hv = via_collides(pos, 0.6, gnd_nc, 0.12) or seg_collides(k, pos, 0.25, pcbnew.B_Cu, gnd_nc, 0.1)
                 if hv: U7_GND_REASONS.setdefault(pin, {}); U7_GND_REASONS[pin][hv] = U7_GND_REASONS[pin].get(hv, 0) + 1; continue
                 for s, t in pre: add_track(s, t, 0.25, pcbnew.B_Cu, gnd_nc)
@@ -316,6 +331,21 @@ for i, pin in enumerate(U7_GND):
     if r is None: r = _try_gnd(pin, group, ax, -sg, 0.6, (1.4, 1.7, 2.0, 2.4, 2.8), "dentro-k0.6")
     u7v.append(r if r else (pin, "sem espaço"))
 U7_GND_RESULT = u7v
+# idem para os pinos +3V3 do U7 (via para o plano +3V3 em In1; pinos consecutivos partilham uma via)
+U7_3V3 = [7, 8, 13, 16, 19, 32, 42, 56, 70, 71, 79, 90, 91, 92, 105, 106, 119, 129, 142, 143, 144]
+V3_GROUPS = {7: [7, 8], 8: None, 70: [70, 71], 71: None, 90: [90, 91, 92], 91: None, 92: None, 142: [142, 143, 144], 143: None, 144: None}
+v3_nc = net("+3V3").GetNetCode(); u7v3 = []; U7_3V3_REASONS = {}
+for i, pin in enumerate(U7_3V3):
+    if V3_GROUPS.get(pin, 0) is None: continue
+    c = pad("U7", pin).GetPosition()
+    ax, sg = _axis(c)
+    group = V3_GROUPS.get(pin) or [pin]
+    kw = dict(nc=v3_nc, reasons=U7_3V3_REASONS, plane=_in_3v3_plane)
+    r = _try_gnd(pin, group, ax, sg, 0.9, (1.2, 1.5, 1.8, 2.2, 2.6, 3.0, 3.5, 4.0, 4.5), "fora", **kw)
+    if r is None: r = _try_gnd(pin, group, ax, -sg, 0.9, (1.4, 1.7, 2.0, 2.4, 2.8, 3.2), "dentro", **kw)
+    if r is None: r = _try_gnd(pin, group, ax, -sg, 0.6, (1.4, 1.7, 2.0, 2.4, 2.8, 3.2), "dentro-k0.6", **kw)
+    u7v3.append(r if r else (pin, "sem espaço"))
+U7_3V3_RESULT = u7v3
 vias = []
 GND_PADS = [("C39", 2), ("C40", 2), ("C23", 2), ("C24", 2), ("Y1", 2), ("Y1", 4), ("C41", 2), ("C42", 2), ("C43", 2), ("C44", 2), ("C38", 2)]
 GND_PADS += [(r, 2) for r in dec_pins]
@@ -326,7 +356,7 @@ for ref in list(dec_pins) + ["FB1"]:
     if ref in fps:
         p = pad(ref, 2 if ref == "FB1" else 1)
         if p.GetNetname() == "+3V3": vias.append(stitch_via(p, "+3V3", "%s.%s" % (ref, p.GetNumber())))
-report["phases"]["V"] = {"ok": sum(1 for v in vias if v[1] == "ok"), "detail": vias, "u7_gnd_vias": U7_GND_RESULT, "u7_gnd_fail_reasons": U7_GND_REASONS}
+report["phases"]["V"] = {"ok": sum(1 for v in vias if v[1] == "ok"), "detail": vias, "u7_gnd_vias": U7_GND_RESULT, "u7_gnd_fail_reasons": U7_GND_REASONS, "u7_3v3_vias": U7_3V3_RESULT, "u7_3v3_fail_reasons": U7_3V3_REASONS}
 
 
 # ---------------------------------------------------------------- L: travar trilhas baseline CAN H/L (sem via, F.Cu)
@@ -367,6 +397,10 @@ print("DSN", pcbnew.ExportSpecctraDSN(b, sys.argv[2]))
     with open(DSN, encoding="utf-8") as f: dsn = f.read()
     dsn2 = re.sub(r'(\(via(?: "Via\[0-3\]_\d+:\d+_um")+\))', lambda m: m.group(1).replace(' "Via[0-3]_450:250_um"', ''), dsn, count=1)
     report["phases"]["X"]["dsn_small_via_removed"] = dsn2 != dsn
+    # camadas internas = planos (+3V3 em In1, GND em In2): só o baseline pode tê-las; o autorouter não
+    dsn3 = re.sub(r'\(layer (In[12]\.Cu)(\s*)\(type signal\)', r'(layer \1\2(type power)', dsn2) if INNER_POWER else dsn2
+    report["phases"]["X"]["dsn_inner_layers_power"] = len(re.findall(r'\(type power\)', dsn3))
+    dsn2 = dsn3
     with open(DSN, "w", encoding="utf-8") as f: f.write(dsn2)
     cmd = [JAVA, "-jar", FR_JAR, "-l", "en", "--gui.enabled=false", "-de", DSN, "-do", SES,
            "--router.autorouter.max_passes=%d" % FR_PASSES, "--router.plane_nets=GND", "--router.via_costs=80", "--router.automatic_neckdown=false", "--router.result_json=" + os.path.join(ROOT, "06_REPORTS", "step5b_fr_result.json")]

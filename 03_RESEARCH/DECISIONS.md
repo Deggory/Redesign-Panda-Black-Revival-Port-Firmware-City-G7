@@ -108,3 +108,25 @@ Formato: ID | data | decisão | alternativas | evidência | status.
 - Data: 2026-10-23
 - Fato: datasheet NXP TJA1042 (R3v2 §3.1, [F]): "timing guaranteed for data rates up to 5 Mbit/s in the CAN FD fast phase"; pinagem HVSON8 TXD1/GND2/VCC3/RXD4/VIO5/CANL6/CANH7/STB8 igual ao footprint do baseline. Alternativas documentadas: TCAN1042HGV-Q1 (provável pino-compatível, NV), MCP2562FD (NV), TCAN1044V (NÃO pino-compatível). Substitui a hipótese "Substituído" da tabela híbrida (STEP 3 §f/§g). A linha "Transceivers" passa a **Reaproveitado**.
 - Status: ATIVA.
+
+## D-21 — MCU U7 (LQFP-144) montado em B.Cu
+- Data: 2026-10-24
+- Fato: a região do F413 em F.Cu (≈ 10 × 10 mm úteis) não comporta o LQFP-144 (22 × 22 mm c/ courtyard) sem deslocar os conectores OBD/USB e o GPS. B.Cu sob a região do F413 está livre de componentes no baseline; U7 colocado em (109,5; 56,6) rot 90 em B.Cu, com desacoplamento (C4x..C6x), VCAP (C45/C46) e cristal Y1/C23/C24 no mesmo lado. Gerado por `step5_update_pcb.py` (idempotente a partir de `.baseline`).
+- Riscos: montagem dupla-face (custo SMT); as STLs de caixa do baseline assumiam B.Cu sem componentes altos (ver D-24).
+- Status: ATIVA.
+
+## D-22 — Interpretação das distâncias da regra 0x05 (VCAP/cristal/desacoplamento)
+- Data: 2026-10-24
+- Fato: as distâncias "< 2 mm VCAP", "< 4 mm cristal" são medidas **pad-a-pad** (borda da ilha do capacitor → borda do pad do U7), não centro-a-centro, pois é o comprimento de trilha que importa (indutância). Valores obtidos: VCAP 1,25/1,34 mm; cristal 1,64–3,28 mm; SMPS C41.1→L5 1,94 mm, C42.1→L5 2,68 mm (`06_REPORTS/step5_update_pcb.json` → `distances_cc`).
+- Status: ATIVA.
+
+## D-23 — Roteamento: trilhas críticas por script + Freerouting 2.5.0 (60 passes) + corretor orientado por DRC
+- Data: 2026-10-24
+- Fato: `step5b_route.py` roteia por script as trilhas críticas (VCAP, cristal, SMPS, desacoplamento, vias GND do U7 — inclusive sob o corpo do LQFP), trava todas as trilhas/vias do baseline e exporta DSN sem as zonas não-GND; Freerouting (headless, Java 25) fecha o restante; `step5c_fix_unrouted.py` fecha os `unconnected_items` restantes lendo o JSON do `kicad-cli pcb drc`. 200 passes (108 min) não melhoram vs. 60 (≈ 8 min). Restringir In1/In2 a `(type power)` **piorou** (29 vs. 17 não-roteadas) — o próprio baseline usa In1 (48) e In2 (34) para sinais; mantido como flag `--inner-power` (default OFF). Correção colateral: `seg_collides` agora respeita a camada das keepouts (áreas de regra só-F.Cu do SW1 bloqueavam B.Cu indevidamente).
+- Status: ATIVA.
+
+## D-24 — Placa ampliada +5 mm ao sul (Edge.Cuts y_max 73,76 → 78,76)
+- Data: 2026-10-24
+- Fato: a fileira sul do U7 (y = 67,26) ficava a 6,5 mm da borda, disputando espaço com Y1/C23/C24, L5/C41/C42, C45/C60/C63, SW1, Q1/Q2, D14. Autorização do usuário: "se precisar aumentar a area da pcb, nao tem problema" / "ja falei que se precisar aumentar a board, pode aumentar". Implementado na fase E de `step5_update_pcb.py`: todos os pontos do polígono Edge.Cuts com y > y_mid deslocados +5 mm (cantos arredondados preservados). Zonas GND/+3V3 estendidas até a nova borda.
+- Consequência: as STLs de caixa em `01_BASELINE` **não servem mais** (desvio mecânico; nova caixa é tarefa fora do escopo STEP 1–9).
+- Status: ATIVA.

@@ -163,6 +163,8 @@ def build_index():
             idx[p.GetNetCode()].append(("pad", p))
     for t in board.GetTracks():
         idx[t.GetNetCode()].append(("trk", t))
+    for z in board.Zones():
+        if not z.GetIsRuleArea(): idx[z.GetNetCode()].append(("zone", z))
     return idx
 
 def touches(pt, layer, item, self_item):
@@ -172,6 +174,8 @@ def touches(pt, layer, item, self_item):
     if item.GetClass() == "PCB_TRACK" or item.GetClass() == "PCB_ARC":
         if item.GetLayer() != layer: return False
         return item.GetStart() == pt or item.GetEnd() == pt
+    if item.GetClass() == "ZONE":  # stub do baseline que termina dentro do cobre vertido da mesma net
+        return item.IsOnLayer(layer) and item.GetFilledPolysList(layer).Contains(pt)
     # pad
     if not item.IsOnLayer(layer): return False
     return item.HitTest(pt)
@@ -194,7 +198,8 @@ def cleanup_dangling():
             if t.GetClass() != "PCB_VIA": continue
             items = [x for _, x in idx[t.GetNetCode()] if x is not t]
             attached = sum(1 for it in items if it.GetClass() in ("PCB_TRACK", "PCB_ARC") and (it.GetStart() == t.GetPosition() or it.GetEnd() == t.GetPosition()))
-            if attached < 2 and not any(it.GetClass() == "PCB_PAD" and it.HitTest(t.GetPosition()) for it in items):
+            if attached < 2 and not any(it.GetClass() == "PCB_PAD" and it.HitTest(t.GetPosition()) for it in items) \
+                    and not (attached == 1 and any(it.GetClass() == "ZONE" and any(it.IsOnLayer(L) and it.GetFilledPolysList(L).Contains(t.GetPosition()) for L in (pcbnew.F_Cu, pcbnew.In1_Cu, pcbnew.In2_Cu, pcbnew.B_Cu)) for it in items)):
                 board.RemoveNative(t); dangling_removed += 1; dirty = True
         if not dirty: break
 cleanup_dangling()
@@ -210,6 +215,25 @@ report["phases"]["C"] = {"changed_nets": sorted(changed_nets), "tracks_removed":
                          "tracks_renamed": renamed_tracks, "dangling_removed": dangling_removed,
                          "orphan_nets": orphans,
                          "tracks_left": len(board.GetTracks())}
+
+# ------------------------------------------------------------------ phase E: alargar a placa para o sul
+# (usuário autorizou aumentar a área; a fileira sul do U7 ficava a 6,5 mm da borda, com cristal + SMPS + Q1/Q2)
+BOARD_GROW_S = 5.0   # mm acrescentados na borda inferior (y+)
+_grow = {"dy": BOARD_GROW_S, "edge_points_moved": 0, "edge_before": None, "edge_after": None}
+for d in board.GetDrawings():
+    if d.GetLayerName() != "Edge.Cuts" or d.GetShape() != pcbnew.SHAPE_T_POLY: continue
+    bb0 = board.GetBoardEdgesBoundingBox(); _grow["edge_before"] = (mm(bb0.GetBottom()))
+    ymid = (bb0.GetTop() + bb0.GetBottom()) // 2
+    poly = d.GetPolyShape()
+    for oi in range(poly.OutlineCount()):
+        ol = poly.Outline(oi)
+        for i in range(ol.PointCount()):
+            p = ol.CPoint(i)
+            if p.y > ymid:   # só o lado sul: estica os lados retos, preserva os cantos arredondados
+                ol.SetPoint(i, pcbnew.VECTOR2I(p.x, p.y + pcbnew.FromMM(BOARD_GROW_S))); _grow["edge_points_moved"] += 1
+    d.SetPolyShape(poly)
+_grow["edge_after"] = mm(board.GetBoardEdgesBoundingBox().GetBottom())
+report["phases"]["E"] = _grow
 
 # ------------------------------------------------------------------ phase D
 fps = {f.GetReference(): f for f in board.GetFootprints()}
@@ -364,24 +388,34 @@ for ref, pin in (("C39", 68), ("C40", 140)):
 report["phases"]["D"]["vcap_note"] = "3 pinos VCAP (68,103,140), 2 capacitores no esquemático: pino 103 alimentado por trilha — verificar DS13311 §6.3.2 (um 2,2 µF por pino?)"
 
 # --- D5 (before decoupling, for priority): SMPS L5 (VLXSMPS 15 -> VFBSMPS 17), C41 220p, C42 10u
-place_near_pin("L5", 16, 3.0); record("L5", 15, cap_pin_on_net("L5", "VLXSMPS"))
+# L5 com os pads LATERAIS (paralelos à fileira): pad1 VLXSMPS sob o pino 15, pad2 VFBSMPS sob o pino 17
+place_near_pin("L5", 16, 3.0)
+_lf = fps["L5"]; _lw = (mm(_lf.GetPosition().x), mm(_lf.GetPosition().y)); _lrot = _lf.GetOrientationDegrees()
+for extra in (90, 270):
+    place(_lf, _lw[0], _lw[1], _lrot + extra, MCU_LAYER)
+    if dist(pad_pos("L5", cap_pin_on_net("L5", "VLXSMPS")), u7_pads["15"]) <= dist(pad_pos("L5", cap_pin_on_net("L5", "VFBSMPS")), u7_pads["15"]): break
+try_place(_lf, _lw, _lf.GetOrientationDegrees(), MCU_LAYER)
+record("L5", 15, cap_pin_on_net("L5", "VLXSMPS")); record("L5", 17, cap_pin_on_net("L5", "VFBSMPS"))
 _lp = (mm(fps["L5"].GetPosition().x), mm(fps["L5"].GetPosition().y))
 _w, (_ux, _uy) = outward(16, 2.4)
 _px, _py = -_uy, _ux
-for ref, pin, sgn, rot_add in (("C41", 15, -1, 0), ("C42", 17, +1, 0)):
-    # both caps on the side AWAY from the crystal (pins 25/26 are 4 mm further along the row)
-    lat = 2.6 if ref == "C41" else 5.2
-    cands_ = [(_lp[0] + _px * s * lat, _lp[1] + _py * s * lat) for s in (-1, 1)]
-    w = max(cands_, key=lambda c: dist(c, u7_pads["25"]))
+# C41 (220 pF, VLXSMPS) e C42 (10 µF, VFBSMPS) ambos ABAIXO do L5 (para fora), cada um sob o seu pad do L5:
+# deixa livre o corredor do pino 13 (+3V3) para a via ao sul da keepout do SW1 (y > 70.16)
+_lvlx = pad_pos("L5", cap_pin_on_net("L5", "VLXSMPS")); _lvfb = pad_pos("L5", cap_pin_on_net("L5", "VFBSMPS"))
+_c41_side = (_lvlx[0] + _ux * 1.6, _lvlx[1] + _uy * 1.6)
+_c42_pos = (_lvfb[0] + _ux * 2.4, _lvfb[1] + _uy * 2.4)
+for ref, pin, w, rot_base in (("C41", 15, _c41_side, two_pin_rot(_ux, _uy)), ("C42", 17, _c42_pos, two_pin_rot(_ux, _uy))):
     f = fps[ref]
     if f.GetLayer() != MCU_LAYER: f.SetLayerAndFlip(MCU_LAYER)
-    for cand in (two_pin_rot(_ux, _uy), two_pin_rot(_ux, _uy) + 180):
+    hot = cap_pin_on_net(ref, "VLXSMPS" if pin == 15 else "VFBSMPS")
+    tgt = pad_pos("L5", cap_pin_on_net("L5", "VLXSMPS" if pin == 15 else "VFBSMPS"))
+    for cand in (rot_base, rot_base + 180):
         place(f, w[0], w[1], cand, MCU_LAYER)
-        hot = cap_pin_on_net(ref, "VLXSMPS" if pin == 15 else "VFBSMPS")
-        ph = f.FindPadByNumber(hot).GetPosition(); po = f.FindPadByNumber("2" if hot == "1" else "1").GetPosition()
-        if dist((mm(ph.x), mm(ph.y)), u7_pads[str(pin)]) <= dist((mm(po.x), mm(po.y)), u7_pads[str(pin)]): break
+        ph = pad_pos(ref, hot); po = pad_pos(ref, "2" if hot == "1" else "1")
+        if dist(ph, tgt) <= dist(po, tgt): break
     try_place(f, w, f.GetOrientationDegrees(), MCU_LAYER, radius_step=0.4, max_r=5)
-    record(ref, pin, cap_pin_on_net(ref, "VLXSMPS" if pin == 15 else "VFBSMPS"))
+    record(ref, pin, hot)
+    distances_cc[f"{ref}.{hot}->L5"] = round(dist(pad_pos(ref, hot), tgt), 2)
 
 # --- D4: crystal Y1 between its load caps; caps hug the pad row (rule: < 4 mm to OSC pins)
 want, (ux, uy) = outward(25, 3.75)
@@ -567,6 +601,8 @@ report["phases"]["E"] = {"collisions": coll, "outside_edge": outside, "pad_gap_m
 pcbnew.ZONE_FILLER(board).Fill(board.Zones())
 pcbnew.SaveBoard(PCB, board)
 report["saved"] = PCB
+# o snapshot do step5b (routing) passa a ser esta saída: descarta o antigo
+if os.path.exists(PCB + ".step5a"): os.remove(PCB + ".step5a"); report["step5a_snapshot_reset"] = True
 with open(REPORT, "w", encoding="utf-8") as fh:
     json.dump(report, fh, indent=2, ensure_ascii=False)
 print(json.dumps({k: report["phases"][k] for k in ("A", "C")}, ensure_ascii=False)[:1500])
