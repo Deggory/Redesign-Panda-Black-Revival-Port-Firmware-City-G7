@@ -28,6 +28,7 @@ REPORT = os.path.join(ROOT, "06_REPORTS", "step5b_route.json")
 JAVA = r"C:\Program Files\Java\jdk-25.0.4.1\bin\java.exe"
 FR_JAR = os.path.join(ROOT, "05_SCRIPTS", "tools", "freerouting", "freerouting-2.5.0.jar")
 NO_FR = "--no-freerouting" in sys.argv
+FR_PASSES = int(sys.argv[sys.argv.index("--passes") + 1]) if "--passes" in sys.argv else 60
 
 report = {"phases": {}, "warnings": []}
 W = report["warnings"].append
@@ -140,7 +141,8 @@ base_tracks = list(board.GetTracks())
 def seg_collides(a, b, width, layer, netcode, clearance=0.12):
     shp = pcbnew.SHAPE_SEGMENT(a, b, FromMM(width))
     for z in KEEPOUTS:
-        if z.Outline().Collide(shp, FromMM(0.1)): return "keepout"
+        # keepout só vale na própria camada (os do SW1 são F.Cu-only)
+        if z.GetDoNotAllowTracks() and z.IsOnLayer(layer) and z.Outline().Collide(shp, FromMM(0.1)): return "keepout"
     for p in all_pads:
         if p.GetNetCode() == netcode or not p.IsOnLayer(layer): continue
         if p.GetEffectiveShape(layer).Collide(shp, FromMM(clearance)): return "pad %s.%s" % (p.GetParentFootprint().GetReference(), p.GetNumber())
@@ -153,7 +155,7 @@ KEEPOUTS = [z for z in board.Zones() if z.GetIsRuleArea()] + [z for fp in board.
 def via_collides(pos, dia, netcode, clearance=0.15):
     shp = pcbnew.SHAPE_CIRCLE(pos, FromMM(dia / 2))
     for z in KEEPOUTS:
-        if z.Outline().Collide(shp, FromMM(clearance)): return "keepout"
+        if z.GetDoNotAllowVias() and z.Outline().Collide(shp, FromMM(clearance)): return "keepout"
     for p in all_pads:
         if p.GetNetCode() == netcode: continue
         for l in (pcbnew.F_Cu, pcbnew.In1_Cu, pcbnew.In2_Cu, pcbnew.B_Cu):
@@ -224,7 +226,7 @@ for ref, cp, pin, w in CRIT:
         d = VECTOR2I(b.x - u7c.x, b.y - u7c.y)
         ax = (1, 0) if abs(d.x) > abs(d.y) else (0, 1)
         sg = 1 if (d.x if ax[0] else d.y) > 0 else -1
-        for e in (0.9, 1.2, 1.5, 1.9):
+        for e in (0.9, 1.2, 1.5, 1.9, 2.4, 3.0, 3.6):
             m1 = VECTOR2I(b.x + int(FromMM(e) * ax[0] * sg), b.y + int(FromMM(e) * ax[1] * sg))
             for m2 in (VECTOR2I(a.x, m1.y), VECTOR2I(m1.x, a.y)):
                 segs = [(b, m1), (m1, m2), (m2, a)]
@@ -263,7 +265,7 @@ def stitch_via(p, netname, label):
     ang0 = math.atan2(d.y, d.x)
     for k in (0, 1, -1, 2, -2, 3, -3, 4):
         ang = ang0 + k * math.pi / 4
-        for dist in (0.75, 0.95, 1.2):
+        for dist in (0.75, 0.95, 1.2, 1.5, 1.9):
             pos = VECTOR2I(int(c.x + FromMM(dist) * math.cos(ang)), int(c.y + FromMM(dist) * math.sin(ang)))
             if via_collides(pos, 0.7, nc): continue
             lay = pcbnew.B_Cu if p.IsOnLayer(pcbnew.B_Cu) and not p.IsOnLayer(pcbnew.F_Cu) else pcbnew.F_Cu
@@ -272,6 +274,48 @@ def stitch_via(p, netname, label):
             return (label, "ok", pt(pos))
     return (label, "sem espaço")
 
+# vias GND de escape para os pinos GND do U7 (pitch 0.5 mm não permite spoke térmico da zona)
+import math
+U7_GND = [6, 12, 14, 18, 21, 22, 23, 24, 33, 34, 41, 55, 69, 80, 89, 104, 118, 128, 141]
+gnd_nc = net("GND").GetNetCode(); u7v = []; U7_GND_REASONS = {}
+# grupos de pinos GND consecutivos: uma ponte na ponta dos pads + uma via só
+GND_GROUPS = {21: [21, 22, 23, 24], 22: None, 23: None, 24: None}
+def _axis(c):
+    d = VECTOR2I(c.x - u7c.x, c.y - u7c.y)
+    ax = (1, 0) if abs(d.x) > abs(d.y) else (0, 1)
+    return ax, (1 if (d.x if ax[0] else d.y) > 0 else -1)
+def _off(c, ax, sg, along, lat):
+    return VECTOR2I(c.x + int(FromMM(along) * ax[0] * sg + FromMM(lat) * -ax[1]), c.y + int(FromMM(along) * ax[1] * sg + FromMM(lat) * ax[0]))
+def _try_gnd(pin, group, ax, sg, knee_d, dists, tag):
+    """tenta knee+via na direção sg (+1 = para fora do U7, -1 = por baixo do corpo, em B.Cu)."""
+    knees = [_off(pad("U7", g).GetPosition(), ax, sg, knee_d, 0) for g in group]
+    pre = [(pad("U7", g).GetPosition(), k) for g, k in zip(group, knees)]
+    if len(group) > 1: pre.append((knees[0], knees[-1]))  # ponte entre as pontas
+    hp = [seg_collides(s, t, 0.25, pcbnew.B_Cu, gnd_nc, 0.1) for s, t in pre]
+    if any(hp):
+        U7_GND_REASONS.setdefault(pin, {})["%s ponte" % tag] = [h for h in hp if h]; return None
+    for dist in dists:
+        for lat in (0, 0.25, -0.25, 0.5, -0.5, 0.75, -0.75, 1.0, -1.0):
+            for k in knees:  # a via pode sair de qualquer pino do grupo
+                pos = _off(k, ax, sg, dist - knee_d, lat)
+                hv = via_collides(pos, 0.6, gnd_nc, 0.12) or seg_collides(k, pos, 0.25, pcbnew.B_Cu, gnd_nc, 0.1)
+                if hv: U7_GND_REASONS.setdefault(pin, {}); U7_GND_REASONS[pin][hv] = U7_GND_REASONS[pin].get(hv, 0) + 1; continue
+                for s, t in pre: add_track(s, t, 0.25, pcbnew.B_Cu, gnd_nc)
+                add_via(pos, gnd_nc, 0.6, 0.3); add_track(k, pos, 0.25, pcbnew.B_Cu, gnd_nc)
+                return (pin if len(group) == 1 else "+".join(map(str, group)), tag, dist, lat)
+    return None
+for i, pin in enumerate(U7_GND):
+    if GND_GROUPS.get(pin, 0) is None: continue  # coberto pela ponte do grupo
+    c = pad("U7", pin).GetPosition()
+    ax, sg = _axis(c)
+    group = GND_GROUPS.get(pin) or [pin]
+    dists = (1.2, 1.5, 1.8, 2.2, 2.6, 3.0, 3.5) if i % 2 == 0 else (1.5, 1.2, 1.8, 2.2, 2.6, 3.0, 3.5)
+    r = _try_gnd(pin, group, ax, sg, 0.9, dists, "fora")
+    # fallback: via sob o corpo do LQFP (lado B.Cu, sem componentes), ponta interna dos pads em ~0.74 mm
+    if r is None: r = _try_gnd(pin, group, ax, -sg, 0.9, (1.4, 1.7, 2.0, 2.4, 2.8), "dentro")
+    if r is None: r = _try_gnd(pin, group, ax, -sg, 0.6, (1.4, 1.7, 2.0, 2.4, 2.8), "dentro-k0.6")
+    u7v.append(r if r else (pin, "sem espaço"))
+U7_GND_RESULT = u7v
 vias = []
 GND_PADS = [("C39", 2), ("C40", 2), ("C23", 2), ("C24", 2), ("Y1", 2), ("Y1", 4), ("C41", 2), ("C42", 2), ("C43", 2), ("C44", 2), ("C38", 2)]
 GND_PADS += [(r, 2) for r in dec_pins]
@@ -282,29 +326,8 @@ for ref in list(dec_pins) + ["FB1"]:
     if ref in fps:
         p = pad(ref, 2 if ref == "FB1" else 1)
         if p.GetNetname() == "+3V3": vias.append(stitch_via(p, "+3V3", "%s.%s" % (ref, p.GetNumber())))
-report["phases"]["V"] = {"ok": sum(1 for v in vias if v[1] == "ok"), "detail": vias}
+report["phases"]["V"] = {"ok": sum(1 for v in vias if v[1] == "ok"), "detail": vias, "u7_gnd_vias": U7_GND_RESULT, "u7_gnd_fail_reasons": U7_GND_REASONS}
 
-# vias GND de escape para os pinos GND do U7 (pitch 0.5 mm não permite spoke térmico da zona)
-import math
-U7_GND = [6, 12, 14, 18, 21, 22, 23, 24, 33, 34, 41, 55, 69, 80, 89, 104, 118, 128, 141]
-gnd_nc = net("GND").GetNetCode(); u7v = []
-for i, pin in enumerate(U7_GND):
-    p = pad("U7", pin); c = p.GetPosition()
-    d = VECTOR2I(c.x - u7c.x, c.y - u7c.y)
-    ax = (1, 0) if abs(d.x) > abs(d.y) else (0, 1)
-    sg = 1 if (d.x if ax[0] else d.y) > 0 else -1
-    done = False
-    px_, py_ = -ax[1], ax[0]
-    dists = (1.2, 1.5, 1.8, 2.2, 2.6) if i % 2 == 0 else (1.5, 1.2, 1.8, 2.2, 2.6)
-    for dist in dists:
-        for lat in (0, 0.25, -0.25, 0.5, -0.5):
-            knee = VECTOR2I(c.x + int(FromMM(0.9) * ax[0] * sg), c.y + int(FromMM(0.9) * ax[1] * sg))
-            pos = VECTOR2I(c.x + int(FromMM(dist) * ax[0] * sg + FromMM(lat) * px_), c.y + int(FromMM(dist) * ax[1] * sg + FromMM(lat) * py_))
-            if via_collides(pos, 0.6, gnd_nc, 0.12) or seg_collides(c, knee, 0.25, pcbnew.B_Cu, gnd_nc, 0.1) or seg_collides(knee, pos, 0.25, pcbnew.B_Cu, gnd_nc, 0.1): continue
-            add_via(pos, gnd_nc, 0.6, 0.3); add_track(c, knee, 0.25, pcbnew.B_Cu, gnd_nc); add_track(knee, pos, 0.25, pcbnew.B_Cu, gnd_nc); u7v.append((pin, dist, lat)); done = True; break
-        if done: break
-    if not done: u7v.append((pin, "sem espaço"))
-report["phases"]["V"]["u7_gnd_vias"] = u7v
 
 # ---------------------------------------------------------------- L: travar trilhas baseline CAN H/L (sem via, F.Cu)
 can_locked = 0; can_vias = []
@@ -346,7 +369,7 @@ print("DSN", pcbnew.ExportSpecctraDSN(b, sys.argv[2]))
     report["phases"]["X"]["dsn_small_via_removed"] = dsn2 != dsn
     with open(DSN, "w", encoding="utf-8") as f: f.write(dsn2)
     cmd = [JAVA, "-jar", FR_JAR, "-l", "en", "--gui.enabled=false", "-de", DSN, "-do", SES,
-           "--router.autorouter.max_passes=200", "--router.plane_nets=GND", "--router.via_costs=80", "--router.automatic_neckdown=false", "--router.result_json=" + os.path.join(ROOT, "06_REPORTS", "step5b_fr_result.json")]
+           "--router.autorouter.max_passes=%d" % FR_PASSES, "--router.plane_nets=GND", "--router.via_costs=80", "--router.automatic_neckdown=false", "--router.result_json=" + os.path.join(ROOT, "06_REPORTS", "step5b_fr_result.json")]
     t0 = time.time()
     if os.path.exists(SES): os.remove(SES)
     r = subprocess.run(cmd, capture_output=True, text=True, timeout=3600, cwd=os.path.dirname(DSN))
