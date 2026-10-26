@@ -23,21 +23,34 @@
      47.6
     ],
     [
-     123.5,
+     127.0,
      47.6
     ],
     [
-     123.5,
+     127.0,
      76.5
     ],
     [
      96.1,
      76.5
     ]
-   ]
+   ],
+   "+3V3_In1_clearance": 0.254,
+   "gnd_zone_clearance": {
+    "new": 0.254,
+    "changed": [
+     [
+      [
+       85.07,
+       26.88
+      ],
+      0.508
+     ]
+    ]
+   }
   },
-  "cleanup_duplicates_removed": 0,
-  "cleanup_fragments_removed": 46,
+  "cleanup_duplicates_removed": 3,
+  "cleanup_fragments_removed": 49,
   "C": {
    "routed": [
     [
@@ -230,8 +243,63 @@
     ]
    ]
   },
+  "M": {
+   "ok": true,
+   "x": 117.6,
+   "u1_2_via": true
+  },
+  "R": {
+   "U7.122<->U9.1": {
+    "ok": true,
+    "via": [
+     122.42,
+     53.87
+    ],
+    "tried": 1,
+    "segs": 2
+   },
+   "U7.123<->U9.4": {
+    "ok": true,
+    "via": [
+     123.02,
+     56.62
+    ],
+    "tried": 4,
+    "segs": 3
+   },
+   "U7.137<->U11.1": {
+    "ok": false,
+    "why": "sem posição de via livre",
+    "tried": 1188
+   },
+   "U7.136<->U11.4": {
+    "ok": false,
+    "why": "sem posição de via livre",
+    "tried": 1188
+   },
+   "U7.133<->U10.1": {
+    "ok": false,
+    "why": "sem posição de via livre",
+    "tried": 1188
+   },
+   "U7.132<->U10.4": {
+    "ok": false,
+    "why": "sem posição de via livre",
+    "tried": 1188
+   },
+   "U7.73<->U8.1": {
+    "ok": false,
+    "why": "sem posição de via livre",
+    "tried": 1184
+   },
+   "U7.72<->U8.4": {
+    "ok": false,
+    "why": "sem posição de via livre",
+    "tried": 1186
+   }
+  },
   "V": {
-   "ok": 43,
+   "ok": 42,
    "detail": [
     [
      "C39.2",
@@ -335,7 +403,11 @@
     ],
     [
      "C47.2",
-     "sem espaço"
+     "ok",
+     [
+      107.934,
+      67.572
+     ]
     ],
     [
      "C48.2",
@@ -497,8 +569,8 @@
      "C50.1",
      "ok",
      [
-      95.597,
-      56.847
+      96.761,
+      55.101
      ]
     ],
     [
@@ -527,11 +599,7 @@
     ],
     [
      "C55.1",
-     "ok",
-     [
-      122.494,
-      53.57
-     ]
+     "sem espaço"
     ],
     [
      "C56.1",
@@ -559,11 +627,7 @@
     ],
     [
      "C59.1",
-     "ok",
-     [
-      107.566,
-      37.344
-     ]
+     "sem espaço"
     ],
     [
      "C60.1",
@@ -577,8 +641,8 @@
      "C61.1",
      "ok",
      [
-      95.518,
-      57.047
+      96.576,
+      56.973
      ]
     ],
     [
@@ -728,8 +792,7 @@
       "track HSE_IN",
       "track HSE_IN",
       "track HSE_IN"
-     ],
-     "track +3V3": 1
+     ]
     },
     "33": {
      "fora ponte": [
@@ -857,9 +920,7 @@
     ],
     [
      119,
-     "fora",
-     1.8,
-     1.0
+     "via C55.1"
     ],
     [
      129,
@@ -940,9 +1001,13 @@
      "track GND": 2
     },
     "119": {
-     "track USB_PWR": 20,
-     "pad R9.2": 4,
-     "track +5V": 1
+     "pad U1.3": 9,
+     "pad U1.2": 11,
+     "track +5V": 1,
+     "pad U1.1": 1,
+     "pad C34.2": 1,
+     "track USB_PWR": 9,
+     "track Net-(U1-ISET)": 4
     },
     "129": {
      "pad D10.1": 5
@@ -958,16 +1023,172 @@
   "L": {
    "can_tracks_locked": 64,
    "can_vias_baseline": [],
-   "baseline_items_temp_locked": 442
+   "baseline_items_temp_locked": 433
+  },
+  "P": {
+   "rounds": [
+    [
+     0,
+     67,
+     14,
+     [
+      "Track [+3V3] on B.Cu, length 0,9000 mm <> Pad 1 [+3V3] of C48 on F.Cu",
+      "Pad 1 [+3V3] of R33 on B.Cu <> Track [+3V3] on B.Cu, length 2,1200 mm",
+      "Pad 1 [+3V3] of R30 on B.Cu <> Track [+3V3] on F.Cu, length 2,0240 mm",
+      "Pad 1 [BOOT0] of SW1 on F.Cu <> Pad 1 [BOOT0] of SW1 on F.Cu",
+      "Pad 1 [BOOT0] of SW1 on F.Cu <> Pad 135 [BOOT0] of U7 on B.Cu",
+      "Pad 135 [BOOT0] of U7 on B.Cu <> Pad 1 [BOOT0] of R14 on F.Cu",
+      "Pad 2 [SBU2] of R23 on F.Cu <> Pad 3 [SBU2] of Q1 on F.Cu",
+      "Pad 1 [SBU2] of R29 on B.Cu <> Pad 2 [SBU2] of R23 on F.Cu",
+      "Pad 2 [SBU2] of D5 on F.Cu <> Pad 1 [SBU2] of R29 on B.Cu",
+      "PTH pad B8 [SBU2] of P1 <> Pad 2 [SBU2] of D5 on F.Cu",
+      "Pad 1 [SBU1] of R28 on B.Cu <> Pad 1 [SBU1] of D5 on F.Cu",
+      "Pad 1 [SBU1] of D5 on F.Cu <> Pad 3 [SBU1] of Q2 on F.Cu",
+      "Pad 3 [SBU1] of Q2 on F.Cu <> Pad 2 [SBU1] of R24 on F.Cu",
+      "Pad A8 [SBU1] of P1 on F.Cu <> Pad 1 [SBU1] of R28 on B.Cu",
+      "Pad 52 [VoltageSens] of U7 on B.Cu <> Pad 2 [VoltageSens] of R2 on F.Cu",
+      "Pad 2 [VoltageSens] of R2 on F.Cu <> Pad 1 [VoltageSens] of R3 on F.Cu",
+      "Pad 2 [12V_Protected] of R3 on F.Cu <> Track [12V_Protected] on F.Cu, length 2,0167 mm",
+      "Pad 2 [5VOUT_S] of R15 on F.Cu <> Pad 1 [5VOUT_S] of R16 on F.Cu",
+      "Pad 1 [5VOUT_S] of R16 on F.Cu <> Pad 50 [5VOUT_S] of U7 on B.Cu",
+      "Pad 121 [BUS2_STB] of U7 on B.Cu <> Pad 2 [BUS2_STB] of R33 on B.Cu",
+      "Pad 2 [BUS2_STB] of R33 on B.Cu <> Pad 8 [BUS2_STB] of U9 on F.Cu",
+      "Pad 1 [LED_RED] of R19 on F.Cu <> Pad 3 [LED_RED] of U7 on B.Cu",
+      "Pad 2 [RED-] of R19 on F.Cu <> Pad 2 [RED-] of U5 on F.Cu",
+      "Pad 73 [BUS1O_TX] of U7 on B.Cu <> Pad 1 [BUS1O_TX] of U8 on F.Cu",
+      "Pad 72 [BUS1O_RX] of U7 on B.Cu <> Pad 4 [BUS1O_RX] of U8 on F.Cu",
+      "Pad 131 [BUS1O_STB] of U7 on B.Cu <> Pad 2 [BUS1O_STB] of R32 on B.Cu",
+      "Pad 2 [BUS1O_STB] of R32 on B.Cu <> Pad 8 [BUS1O_STB] of U8 on F.Cu",
+      "Pad 1 [LED_GREEN] of R18 on F.Cu <> Pad 2 [LED_GREEN] of U7 on B.Cu",
+      "Pad 3 [GREEN-] of U5 on F.Cu <> Pad 2 [GREEN-] of R18 on F.Cu",
+      "Pad 110 [relay_SBU2] of U7 on B.Cu <> Pad 1 [relay_SBU2] of Q1 on F.Cu",
+      "Pad 1 [LED_BLUE] of R17 on F.Cu <> Pad 1 [LED_BLUE] of U7 on B.Cu",
+      "Pad 2 [BLUE-] of R17 on F.Cu <> Pad 4 [BLUE-] of U5 on F.Cu",
+      "Pad 109 [relay_SBU1] of U7 on B.Cu <> Pad 1 [relay_SBU1] of Q2 on F.Cu",
+      "Pad 101 [USB_D+] of U7 on B.Cu <> Pad 2 [USB_D+] of R21 on F.Cu",
+      "Pad 74 [USB_LOAD] of U7 on B.Cu <> Pad 1 [USB_LOAD] of Q3 on F.Cu",
+      "Pad 133 [BUS1N_TX] of U7 on B.Cu <> Pad 1 [BUS1N_TX] of U10 on F.Cu",
+      "Pad 132 [BUS1N_RX] of U7 on B.Cu <> Pad 4 [BUS1N_RX] of U10 on F.Cu",
+      "Pad 8 [BUS1N_STB] of U10 on F.Cu <> Pad 130 [BUS1N_STB] of U7 on B.Cu",
+      "Pad 2 [BUS1N_STB] of R31 on B.Cu <> Pad 8 [BUS1N_STB] of U10 on F.Cu",
+      "Pad 137 [BUS0_TX] of U7 on B.Cu <> Pad 1 [BUS0_TX] of U11 on F.Cu",
+      "Pad 136 [BUS0_RX] of U7 on B.Cu <> Pad 4 [BUS0_RX] of U11 on F.Cu",
+      "Pad 124 [BUS0_STB] of U7 on B.Cu <> Pad 8 [BUS0_STB] of U11 on F.Cu",
+      "Pad 8 [BUS0_STB] of U11 on F.Cu <> Pad 2 [BUS0_STB] of R30 on B.Cu",
+      "Pad 100 [USB_D-] of U7 on B.Cu <> Pad 1 [USB_D-] of R20 on F.Cu",
+      "Pad 10 [NRST] of J1 on B.Cu <> Pad 27 [NRST] of U7 on B.Cu",
+      "Pad 27 [NRST] of U7 on B.Cu <> Pad 1 [NRST] of C38 on B.Cu",
+      "Track [VDDA] on B.Cu, length 4,8121 mm <> Track [VDDA] on B.Cu, length 0,8660 mm",
+      "Pad 2 [SWDIO] of J1 on B.Cu <> Pad 102 [SWDIO] of U7 on B.Cu",
+      "Pad 4 [SWCLK] of J1 on B.Cu <> Pad 107 [SWCLK] of U7 on B.Cu",
+      "Pad 2 [SBU2_ADC] of R29 on B.Cu <> Pad 38 [SBU2_ADC] of U7 on B.Cu",
+      "Pad 3 [SBU2_ADC] of D14 on B.Cu <> Pad 2 [SBU2_ADC] of R29 on B.Cu",
+      "Pad 2 [SBU1_ADC] of R28 on B.Cu <> Pad 47 [SBU1_ADC] of U7 on B.Cu",
+      "Pad 3 [SBU1_ADC] of D13 on B.Cu <> Pad 2 [SBU1_ADC] of R28 on B.Cu",
+      "Track [VCAP] on B.Cu, length 2,4345 mm <> Pad 103 [VCAP] of U7 on B.Cu",
+      "Track [VCAP] on B.Cu, length 2,5250 mm <> Pad 103 [VCAP] of U7 on B.Cu"
+     ]
+    ],
+    [
+     1,
+     57,
+     3,
+     [
+      "Track [+3V3] on B.Cu, length 0,9000 mm <> Track [+3V3] on F.Cu, length 5,1349 mm",
+      "Track [+3V3] on B.Cu, length 2,2000 mm <> Track [+3V3] on B.Cu, length 2,1200 mm",
+      "Pad 1 [BOOT0] of SW1 on F.Cu <> Pad 1 [BOOT0] of SW1 on F.Cu",
+      "Pad 1 [BOOT0] of SW1 on F.Cu <> Pad 135 [BOOT0] of U7 on B.Cu",
+      "Pad 135 [BOOT0] of U7 on B.Cu <> Pad 1 [BOOT0] of R14 on F.Cu",
+      "Pad 2 [SBU2] of R23 on F.Cu <> Pad 3 [SBU2] of Q1 on F.Cu",
+      "Pad 1 [SBU2] of R29 on B.Cu <> Pad 2 [SBU2] of R23 on F.Cu",
+      "Pad 2 [SBU2] of D5 on F.Cu <> Pad 1 [SBU2] of R29 on B.Cu",
+      "PTH pad B8 [SBU2] of P1 <> Pad 2 [SBU2] of D5 on F.Cu",
+      "Pad 1 [SBU1] of R28 on B.Cu <> Pad 1 [SBU1] of D5 on F.Cu",
+      "Pad 1 [SBU1] of D5 on F.Cu <> Pad 3 [SBU1] of Q2 on F.Cu",
+      "Pad 3 [SBU1] of Q2 on F.Cu <> Pad 2 [SBU1] of R24 on F.Cu",
+      "Pad A8 [SBU1] of P1 on F.Cu <> Pad 1 [SBU1] of R28 on B.Cu",
+      "Pad 52 [VoltageSens] of U7 on B.Cu <> Pad 2 [VoltageSens] of R2 on F.Cu",
+      "Pad 2 [VoltageSens] of R2 on F.Cu <> Pad 1 [VoltageSens] of R3 on F.Cu",
+      "Pad 2 [12V_Protected] of R3 on F.Cu <> Track [12V_Protected] on F.Cu, length 2,0167 mm",
+      "Pad 2 [5VOUT_S] of R15 on F.Cu <> Pad 1 [5VOUT_S] of R16 on F.Cu",
+      "Pad 1 [5VOUT_S] of R16 on F.Cu <> Pad 50 [5VOUT_S] of U7 on B.Cu",
+      "Pad 121 [BUS2_STB] of U7 on B.Cu <> Pad 2 [BUS2_STB] of R33 on B.Cu",
+      "Pad 2 [BUS2_STB] of R33 on B.Cu <> Pad 8 [BUS2_STB] of U9 on F.Cu",
+      "Pad 1 [LED_RED] of R19 on F.Cu <> Pad 3 [LED_RED] of U7 on B.Cu",
+      "Pad 2 [RED-] of R19 on F.Cu <> Pad 2 [RED-] of U5 on F.Cu",
+      "Pad 73 [BUS1O_TX] of U7 on B.Cu <> Pad 1 [BUS1O_TX] of U8 on F.Cu",
+      "Pad 72 [BUS1O_RX] of U7 on B.Cu <> Pad 4 [BUS1O_RX] of U8 on F.Cu",
+      "Pad 131 [BUS1O_STB] of U7 on B.Cu <> Pad 2 [BUS1O_STB] of R32 on B.Cu",
+      "Pad 2 [BUS1O_STB] of R32 on B.Cu <> Pad 8 [BUS1O_STB] of U8 on F.Cu",
+      "Pad 1 [LED_GREEN] of R18 on F.Cu <> Pad 2 [LED_GREEN] of U7 on B.Cu",
+      "Pad 3 [GREEN-] of U5 on F.Cu <> Pad 2 [GREEN-] of R18 on F.Cu",
+      "Pad 110 [relay_SBU2] of U7 on B.Cu <> Pad 1 [relay_SBU2] of Q1 on F.Cu",
+      "Pad 1 [LED_BLUE] of R17 on F.Cu <> Pad 1 [LED_BLUE] of U7 on B.Cu",
+      "Pad 2 [BLUE-] of R17 on F.Cu <> Pad 4 [BLUE-] of U5 on F.Cu",
+      "Pad 109 [relay_SBU1] of U7 on B.Cu <> Pad 1 [relay_SBU1] of Q2 on F.Cu",
+      "Pad 101 [USB_D+] of U7 on B.Cu <> Pad 2 [USB_D+] of R21 on F.Cu",
+      "Pad 74 [USB_LOAD] of U7 on B.Cu <> Pad 1 [USB_LOAD] of Q3 on F.Cu",
+      "Pad 133 [BUS1N_TX] of U7 on B.Cu <> Pad 1 [BUS1N_TX] of U10 on F.Cu",
+      "Pad 132 [BUS1N_RX] of U7 on B.Cu <> Pad 4 [BUS1N_RX] of U10 on F.Cu",
+      "Pad 8 [BUS1N_STB] of U10 on F.Cu <> Pad 130 [BUS1N_STB] of U7 on B.Cu",
+      "Pad 2 [BUS1N_STB] of R31 on B.Cu <> Pad 8 [BUS1N_STB] of U10 on F.Cu",
+      "Pad 137 [BUS0_TX] of U7 on B.Cu <> Pad 1 [BUS0_TX] of U11 on F.Cu",
+      "Pad 136 [BUS0_RX] of U7 on B.Cu <> Pad 4 [BUS0_RX] of U11 on F.Cu",
+      "Pad 124 [BUS0_STB] of U7 on B.Cu <> Pad 8 [BUS0_STB] of U11 on F.Cu",
+      "Pad 8 [BUS0_STB] of U11 on F.Cu <> Pad 2 [BUS0_STB] of R30 on B.Cu",
+      "Pad 100 [USB_D-] of U7 on B.Cu <> Pad 1 [USB_D-] of R20 on F.Cu",
+      "Pad 10 [NRST] of J1 on B.Cu <> Pad 27 [NRST] of U7 on B.Cu",
+      "Pad 27 [NRST] of U7 on B.Cu <> Pad 1 [NRST] of C38 on B.Cu",
+      "Track [VDDA] on B.Cu, length 4,8121 mm <> Track [VDDA] on B.Cu, length 0,8660 mm",
+      "Pad 2 [SWDIO] of J1 on B.Cu <> Pad 102 [SWDIO] of U7 on B.Cu",
+      "Pad 4 [SWCLK] of J1 on B.Cu <> Pad 107 [SWCLK] of U7 on B.Cu",
+      "Pad 2 [SBU2_ADC] of R29 on B.Cu <> Pad 38 [SBU2_ADC] of U7 on B.Cu",
+      "Pad 3 [SBU2_ADC] of D14 on B.Cu <> Pad 2 [SBU2_ADC] of R29 on B.Cu",
+      "Pad 2 [SBU1_ADC] of R28 on B.Cu <> Pad 47 [SBU1_ADC] of U7 on B.Cu",
+      "Pad 3 [SBU1_ADC] of D13 on B.Cu <> Pad 2 [SBU1_ADC] of R28 on B.Cu",
+      "Track [VCAP] on B.Cu, length 2,4345 mm <> Pad 103 [VCAP] of U7 on B.Cu",
+      "Track [VCAP] on B.Cu, length 2,5250 mm <> Pad 103 [VCAP] of U7 on B.Cu"
+     ]
+    ]
+   ],
+   "added": 37,
+   "warnings": []
   },
   "X": {
-   "unrouted_before": 83
+   "unrouted_before": 55,
+   "dsn_exported": true,
+   "dsn_small_via_removed": true,
+   "dsn_inner_layers_power": 0,
+   "dsn_via_clearance_rule": true,
+   "dsn_default_via_500": true,
+   "freerouting_rc": 0,
+   "freerouting_s": 470.8,
+   "freerouting_tail": [
+    "    - C23-1  ->  Y1-1",
+    "  Net 'HSE_OUT' (1 unrouted connection):",
+    "    - Y1-3  ->  C24-1",
+    "2026-10-26 12:29:25.903 INFO   [250840\\B9C768] Auto-routing stage completed: started with 151 unrouted nets, completed in 458.74 seconds, final score: 879.13 (30 unrouted and 156 violations), using 452.70 total CPU seconds, 215.08 GB total allocated, and 227.5 MB peak heap usage.",
+    "2026-10-26 12:29:27.394 INFO   [250840\\B9C768] Skipping optimization stage: the board has 30 unrouted connection(s) (optimizer only runs on completely routed boards).",
+    "2026-10-26 12:29:27.427 INFO   [250840\\B9C768] Job '250840\\B9C768' finished with state: COMPLETED (elapsed: 7 minutes 43.51 seconds, finished at UTC: 2026-10-26T15:29:27.426596500Z).",
+    "2026-10-26 12:29:27.489 INFO   Saving output file 'C:\\Users\\costabr\\Downloads\\openpilot\\HybridPanda_v2_20261022_1616\\06_REPORTS\\HybridPanda_step5b.ses' (SES)...",
+    "2026-10-26 12:29:27.496 INFO   Successfully saved output file 'C:\\Users\\costabr\\Downloads\\openpilot\\HybridPanda_v2_20261022_1616\\06_REPORTS\\HybridPanda_step5b.ses' (52431 bytes)."
+   ],
+   "ses_imported": true,
+   "thin_tracks_widened": []
   },
   "F": {
-   "unrouted_after": 70,
-   "tracks": 612,
-   "vias": 128
+   "cleanup_final_removed": 12,
+   "unrouted_after": 6,
+   "tracks": 1214,
+   "vias": 197
   }
  },
- "warnings": []
+ "warnings": [
+  "R: pré-rota U7.137<->U11.1 falhou: sem posição de via livre",
+  "R: pré-rota U7.136<->U11.4 falhou: sem posição de via livre",
+  "R: pré-rota U7.133<->U10.1 falhou: sem posição de via livre",
+  "R: pré-rota U7.132<->U10.4 falhou: sem posição de via livre",
+  "R: pré-rota U7.73<->U8.1 falhou: sem posição de via livre",
+  "R: pré-rota U7.72<->U8.4 falhou: sem posição de via livre"
+ ]
 }

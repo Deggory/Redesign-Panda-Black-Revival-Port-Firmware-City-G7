@@ -1,19 +1,23 @@
-# INDEX - HybridPanda_v2
+﻿# INDEX - HybridPanda_v2
 
 OUTPUT_ROOT: `C:\Users\costabr\Downloads\openpilot\HybridPanda_v2_20261022_1616`
-Atualizado: 2026-10-23 09:31 (STEP4). Manifesto: `OUTPUT_ROOT_STEP4_20261023_0930.sha256`. ORIGINAL: not checked. 02_REFERENCE inalterado: True.
+Atualizado: 2026-10-26 15:05 (STEP9). Manifesto: `OUTPUT_ROOT_STEP9_20261026_1504.sha256`. ORIGINAL: IDENTICAL (377 files). 02_REFERENCE inalterado: False.
 
 | Caminho relativo | Finalidade | STEP | SHA-256 (16 primeiros) |
 |---|---|---|---|
+| .gitignore |  |  | 9C8B3CE99846E182 |
 | 00_MANIFESTS\baseline_copy.sha256 |  |  | 50C8C724BF1899E2 |
 | 00_MANIFESTS\original_AFTER_STEP2_20261023_0842.sha256 |  |  | 50C8C724BF1899E2 |
+| 00_MANIFESTS\original_AFTER_STEP7_20261026_1235.sha256 |  |  | A8EDE60CB29A4926 |
 | 00_MANIFESTS\original_BEFORE.sha256 |  |  | 50C8C724BF1899E2 |
 | 00_MANIFESTS\OUTPUT_ROOT_STEP2_20261023_0842.sha256 |  |  | D580BFA395D8C8CD |
 | 00_MANIFESTS\OUTPUT_ROOT_STEP3_20261023_0854.sha256 |  |  | E3448C7824EB02B0 |
+| 00_MANIFESTS\OUTPUT_ROOT_STEP4_20261023_0930.sha256 |  |  | AD554B97F02EBA4C |
+| 00_MANIFESTS\OUTPUT_ROOT_STEP7_20261026_1235.sha256 |  |  | 7B6481A9FAEFEE9E |
 | 00_MANIFESTS\reference_clones.sha256 |  |  | F5A3B5A3CED28CBB |
 | 03_RESEARCH\coverage_matrix.csv |  |  | EEF50CBD8DAFEC28 |
 | 03_RESEARCH\coverage_matrix.md |  |  | 963056990201A03C |
-| 03_RESEARCH\DECISIONS.md |  |  | 7EB1616EEF7F3F0D |
+| 03_RESEARCH\DECISIONS.md |  |  | C7F7B585B3BF36C7 |
 | 03_RESEARCH\from_v1\bom_crosscheck.md |  |  | 36CA0ED14428C5CD |
 | 03_RESEARCH\from_v1\FASE1_inventario.md |  |  | 3FAEE5A7605FA4F0 |
 | 03_RESEARCH\from_v1\original_mcu_pinout.txt |  |  | CA7596D118A3E756 |
@@ -37,6 +41,10 @@ Atualizado: 2026-10-23 09:31 (STEP4). Manifesto: `OUTPUT_ROOT_STEP4_20261023_093
 | 03_RESEARCH\renders\OBDC_sch_p1.png |  |  | 67A9DEC660ED5A2F |
 | 03_RESEARCH\STEP3_engenharia_reversa_tabela_hibrida.md |  |  | 91898071D7F1A58F |
 | 03_RESEARCH\STEP4_esquematico_H725.md |  |  | 5BD5A0BE68DC106C |
+| 03_RESEARCH\STEP5_layout_H725.md |  |  | 7F234C7E0FDDBA0F |
+| 03_RESEARCH\STEP6_roteamento_impedancia.md |  |  | 8ED4E5CCA18108D3 |
+| 03_RESEARCH\STEP7_validacao.md |  |  | 75CD312454F4AF3C |
+| 03_RESEARCH\STEP9_bringup_e_teste_veiculo.md |  |  | E11B30A736D96787 |
 | 04_PROJECT\HybridPanda\fp-lib-table |  |  | 08D2B61EDDF22D97 |
 | 04_PROJECT\HybridPanda\gerber\HybridPanda-B_Cu.gbr |  |  | E496286BD12B3747 |
 | 04_PROJECT\HybridPanda\gerber\HybridPanda-B_Mask.gbr |  |  | 36B18EDB8B8C5FC1 |
@@ -50,11 +58,11 @@ Atualizado: 2026-10-23 09:31 (STEP4). Manifesto: `OUTPUT_ROOT_STEP4_20261023_093
 | 04_PROJECT\HybridPanda\gerber\HybridPanda-In1_Cu.gbr |  |  | E10F22D95773CD22 |
 | 04_PROJECT\HybridPanda\gerber\HybridPanda-In2_Cu.gbr |  |  | E4B286CCCFE89125 |
 | 04_PROJECT\HybridPanda\gerber\HybridPanda-job.gbrjob |  |  | E9C739B13F99F953 |
-| 04_PROJECT\HybridPanda\gerber\HybridPanda-NPTH-drl_map.ps |  |  | 38E91C3876123C70 |
 | 04_PROJECT\HybridPanda\gerber\HybridPanda-NPTH.drl |  |  | C4309C4595F13FAC |
+| 04_PROJECT\HybridPanda\gerber\HybridPanda-NPTH-drl_map.ps |  |  | 38E91C3876123C70 |
+| 04_PROJECT\HybridPanda\gerber\HybridPanda-PTH.drl |  |  | 34E86F5F21515C0A |
 | 04_PROJECT\HybridPanda\gerber\HybridPanda-PTH-drl_map.ps |  |  | 9F96D0D7048FB1F3 |
 | 04_PROJECT\HybridPanda\gerber\HybridPanda-PTH-drl_map.zip |  |  | 14019480FA5A0A60 |
-| 04_PROJECT\HybridPanda\gerber\HybridPanda-PTH.drl |  |  | 34E86F5F21515C0A |
 | 04_PROJECT\HybridPanda\HybridPanda.3d\Diodes_Inc._-_DMP4065S-7.step |  |  | 6E8CB9DB4CF1DE9A |
 | 04_PROJECT\HybridPanda\HybridPanda.3d\FB_742792901.step |  |  | D9C7DD15C5D1420D |
 | 04_PROJECT\HybridPanda\HybridPanda.3d\IND-SMD_L11.5-W10.5_MWSA1004.wrl |  |  | 483DF9C2B12C1A86 |
@@ -67,9 +75,12 @@ Atualizado: 2026-10-23 09:31 (STEP4). Manifesto: `OUTPUT_ROOT_STEP4_20261023_093
 | 04_PROJECT\HybridPanda\HybridPanda.3d\U.FL Connector.stp |  |  | 0386F375C898572B |
 | 04_PROJECT\HybridPanda\HybridPanda.3d\USB-A-TH_10.0QHHTZB6.3.wrl |  |  | F83351CFC0C0AB82 |
 | 04_PROJECT\HybridPanda\HybridPanda.3d\USB-C-SMD_TYPE-C-USB-20.wrl |  |  | 4ADFCAABA889B5F0 |
-| 04_PROJECT\HybridPanda\HybridPanda.kicad_pcb |  |  | 423865B30F7DE185 |
+| 04_PROJECT\HybridPanda\HybridPanda.kicad_pcb |  |  | 05E7F498E099ED2D |
+| 04_PROJECT\HybridPanda\HybridPanda.kicad_pcb.baseline |  |  | 423865B30F7DE185 |
+| 04_PROJECT\HybridPanda\HybridPanda.kicad_pcb.step5_final |  |  | 05E7F498E099ED2D |
+| 04_PROJECT\HybridPanda\HybridPanda.kicad_pcb.step5a |  |  | 2E5FB4DFC2E3857B |
 | 04_PROJECT\HybridPanda\HybridPanda.kicad_prl |  |  | 8DD83658B3AF41E1 |
-| 04_PROJECT\HybridPanda\HybridPanda.kicad_pro |  |  | 0A9D0307F8327A35 |
+| 04_PROJECT\HybridPanda\HybridPanda.kicad_pro |  |  | 1CA3E3088E1AB057 |
 | 04_PROJECT\HybridPanda\HybridPanda.kicad_sch |  |  | 30A072EE05FD562D |
 | 04_PROJECT\HybridPanda\HybridPanda.kicad_sch.baseline |  |  | 1C5F81E5752D2FCB |
 | 04_PROJECT\HybridPanda\HybridPanda.pretty\CONV_TPS5450DDAR.kicad_mod |  |  | 2340F333974AFE50 |
@@ -101,12 +112,20 @@ Atualizado: 2026-10-23 09:31 (STEP4). Manifesto: `OUTPUT_ROOT_STEP4_20261023_093
 | 05_SCRIPTS\hp_common.py |  |  | 4E98752C3598D06B |
 | 05_SCRIPTS\Make-Manifest.ps1 |  |  | C9BE6DD62E022D09 |
 | 05_SCRIPTS\parity_check.py |  |  | 051C68CFF5E0F66E |
-| 05_SCRIPTS\README.md |  |  | 7CDC4F9ABE76C984 |
+| 05_SCRIPTS\README.md |  |  | B70F55B31D536A15 |
 | 05_SCRIPTS\sch_geom.py |  |  | F69A3ED4574DEAEE |
 | 05_SCRIPTS\step4_bom_values.json |  |  | 28EEE2E0EE4FA153 |
 | 05_SCRIPTS\step4_build_schematic.py |  |  | 864FE3C1E1E2A049 |
 | 05_SCRIPTS\step4_copy_and_roundtrip.py |  |  | C3A11FC5052C2138 |
 | 05_SCRIPTS\step4_verify.ps1 |  |  | BB56D1384F18B0A6 |
+| 05_SCRIPTS\step5_update_pcb.py |  |  | 742351E0137FF101 |
+| 05_SCRIPTS\step5b_route.py |  |  | 8195B6D4A7ED133A |
+| 05_SCRIPTS\step5c_fix_unrouted.py |  |  | A31C3E71895AB8BA |
+| 05_SCRIPTS\step5d_silk.py |  |  | 0E2D3DC2E22797F5 |
+| 05_SCRIPTS\step6_reports.py |  |  | 590C523196FE8998 |
+| 05_SCRIPTS\step7_validate.py |  |  | 17539104ECD29600 |
+| 05_SCRIPTS\step8_fabricate.py |  |  | 1F55AA49EFD1BE9A |
+| 05_SCRIPTS\tools\freerouting\freerouting-2.5.0.jar |  |  | F6F51BB02245E8E7 |
 | 06_REPORTS\baseline_BlackPanda_netlist.xml |  |  | 2F2B6ED38F728C64 |
 | 06_REPORTS\baseline_DRC.json |  |  | B655FC4A80B91DF9 |
 | 06_REPORTS\baseline_DRC.rpt |  |  | AF5BB2EFBC067105 |
@@ -114,25 +133,89 @@ Atualizado: 2026-10-23 09:31 (STEP4). Manifesto: `OUTPUT_ROOT_STEP4_20261023_093
 | 06_REPORTS\baseline_ERC.rpt |  |  | 0CADE17533F2A384 |
 | 06_REPORTS\coverage_matrix.json |  |  | D2C725778AB8E429 |
 | 06_REPORTS\extract_ds_pins.json |  |  | DEF770E44ED351CC |
-| 06_REPORTS\hybrid_BOM.csv |  |  | E8867B12D74B4B6F |
+| 06_REPORTS\hybrid_BOM.csv |  |  | 1BB3299B09ED899F |
+| 06_REPORTS\hybrid_DRC_step5_final.json |  |  | FE1633D020D6EC84 |
+| 06_REPORTS\hybrid_DRC_step5a.json |  |  | ADAA7B6A0E65A834 |
+| 06_REPORTS\hybrid_DRC_step5b.json |  |  | 543A7D0DD552D8BB |
+| 06_REPORTS\hybrid_DRC_step7.json |  |  | 0D075121ED6B7D94 |
 | 06_REPORTS\hybrid_ERC.json |  |  | 446F3CE83B3E5970 |
-| 06_REPORTS\hybrid_HybridPanda_netlist.xml |  |  | 3E715DB9BFA5E879 |
+| 06_REPORTS\hybrid_ERC_step7.json |  |  | 6305C4D0906A96C9 |
+| 06_REPORTS\hybrid_HybridPanda_netlist.xml |  |  | 8702D03C70B53247 |
 | 06_REPORTS\hybrid_schematic.pdf |  |  | A70FD48BFBC059E9 |
+| 06_REPORTS\HybridPanda_step5b.dsn |  |  | A5E7A26F5865B130 |
+| 06_REPORTS\HybridPanda_step5b.ses |  |  | 55AE3D9845CAB832 |
 | 06_REPORTS\parity_black_f4_baseline_BlackPanda_netlist.json |  |  | 65D70F469F72ED3A |
 | 06_REPORTS\parity_black_f4_baseline_BlackPanda_netlist.md |  |  | F431B864453A3173 |
-| 06_REPORTS\parity_red_h7_hybrid_HybridPanda_netlist.json |  |  | CE24B13685DA3BD3 |
+| 06_REPORTS\parity_red_h7_hybrid_HybridPanda_netlist.json |  |  | 049D8CFDDFFFD69E |
 | 06_REPORTS\parity_red_h7_hybrid_HybridPanda_netlist.md |  |  | 5DD9E0C611BC4565 |
 | 06_REPORTS\step4_build_schematic.json |  |  | BC3C00625E5B9FD8 |
 | 06_REPORTS\step4_mcu_pin_table.md |  |  | 35362AA9B80BFE56 |
 | 06_REPORTS\step4_roundtrip.json |  |  | 5EAD63BF50F3E4FD |
 | 06_REPORTS\step4_roundtrip.md |  |  | D292003314695255 |
+| 06_REPORTS\step5_render_bottom.png |  |  | CD5A669220179DD9 |
+| 06_REPORTS\step5_render_top.png |  |  | 492EC7DCA1A1D4CC |
+| 06_REPORTS\step5_update_pcb.json |  |  | EE7D2DE86FD5919D |
+| 06_REPORTS\step5b_fr_result.json |  |  | E1A2E5CCB76F8E2B |
+| 06_REPORTS\step5b_freerouting.log |  |  | 319D0E6EF8DE9693 |
+| 06_REPORTS\step5b_route.json |  |  | 539209FE44E7A8C8 |
+| 06_REPORTS\step5b_zoom_u7_bottom.png |  |  | 70A496E1E83A4B2A |
+| 06_REPORTS\step5b_zoom_u7_top.png |  |  | 7B3425262EA41387 |
+| 06_REPORTS\step5c_fix.json |  |  | 16E436C2F2A9FF28 |
+| 06_REPORTS\step5c_pre.json |  |  | 29C48C4E66FB7C02 |
+| 06_REPORTS\step5d_silk.json |  |  | 56605C7272887BA4 |
+| 06_REPORTS\step6_reports.json |  |  | 3CF4B7547A88845C |
+| 06_REPORTS\step7_bom.log |  |  | 2046DF6C25AAD4D0 |
+| 06_REPORTS\step7_drc.log |  |  | B2349CC87699DDB9 |
+| 06_REPORTS\step7_erc.log |  |  | CD4C5403A7411485 |
+| 06_REPORTS\step7_manifest.log |  |  | E6E6A078831E1C30 |
+| 06_REPORTS\step7_netlist.log |  |  | D448E3B890B40222 |
+| 06_REPORTS\step7_parity.log |  |  | CA003849E444DD29 |
+| 06_REPORTS\step7_validation.json |  |  | 59F8E4C5EC7B933F |
+| 06_REPORTS\step8_fabrication.json |  |  | 15D8369DDCA39919 |
+| 07_FABRICATION\3d\HybridPanda.step |  |  | C97172AA854F6672 |
+| 07_FABRICATION\assembly\BOM_JLC.csv |  |  | DB3483B67A46C41F |
+| 07_FABRICATION\assembly\CPL_JLC.csv |  |  | EEBFCCE56511932D |
+| 07_FABRICATION\assembly\pos_kicad_both.csv |  |  | EF9CA0A0778D0E5A |
+| 07_FABRICATION\drill\HybridPanda-NPTH.drl |  |  | 3CD9394564DA7410 |
+| 07_FABRICATION\drill\HybridPanda-NPTH-drl_map.gbr |  |  | 610BFFE853094280 |
+| 07_FABRICATION\drill\HybridPanda-NPTH-drl_map.pdf |  |  | F46039559E2FE6F4 |
+| 07_FABRICATION\drill\HybridPanda-PTH.drl |  |  | 8F17E54CB112EA0D |
+| 07_FABRICATION\drill\HybridPanda-PTH-drl_map.gbr |  |  | 0D96A8D8C8C17E96 |
+| 07_FABRICATION\drill\HybridPanda-PTH-drl_map.pdf |  |  | 8FB568FCACD2A12A |
+| 07_FABRICATION\drill_table.json |  |  | 2C165B4FA77752D9 |
+| 07_FABRICATION\drill_table.md |  |  | DF243945654D71AA |
+| 07_FABRICATION\gerber_check.json |  |  | 8E62CCBBA1C6789D |
+| 07_FABRICATION\gerbers\HybridPanda-B_Cu.gbl |  |  | 81D87EEDB90F3838 |
+| 07_FABRICATION\gerbers\HybridPanda-B_Mask.gbs |  |  | 3911276BDC2627E3 |
+| 07_FABRICATION\gerbers\HybridPanda-B_Paste.gbp |  |  | 1876EDBBF30C6F12 |
+| 07_FABRICATION\gerbers\HybridPanda-B_Silkscreen.gbo |  |  | 34F563F2438F9701 |
+| 07_FABRICATION\gerbers\HybridPanda-Edge_Cuts.gm1 |  |  | C51831A6ADF20172 |
+| 07_FABRICATION\gerbers\HybridPanda-F_Cu.gtl |  |  | 066B768E4CA3BFB1 |
+| 07_FABRICATION\gerbers\HybridPanda-F_Mask.gts |  |  | 249208155A9AC0B0 |
+| 07_FABRICATION\gerbers\HybridPanda-F_Paste.gtp |  |  | 2A78A7A726649C87 |
+| 07_FABRICATION\gerbers\HybridPanda-F_Silkscreen.gto |  |  | 87CB78F21DD02112 |
+| 07_FABRICATION\gerbers\HybridPanda-In1_Cu.g1 |  |  | 26AA83CEEB3DD655 |
+| 07_FABRICATION\gerbers\HybridPanda-In2_Cu.g2 |  |  | BDFE9CDF05656674 |
+| 07_FABRICATION\gerbers\HybridPanda-job.gbrjob |  |  | 61E5EB3847845204 |
+| 07_FABRICATION\HybridPanda_gerbers_JLC.zip |  |  | 1877F39534BBA7F7 |
+| 07_FABRICATION\LEIA-ME.txt |  |  | E2E33F13F9729AD9 |
+| 07_FABRICATION\pdf\HybridPanda_assembly_bottom.pdf |  |  | D7E01C83FD6F87BA |
+| 07_FABRICATION\pdf\HybridPanda_assembly_top.pdf |  |  | F5483092A1A81869 |
+| 07_FABRICATION\pdf\HybridPanda_copper_B.pdf |  |  | 55ACA1C4B7B0CB3F |
+| 07_FABRICATION\pdf\HybridPanda_copper_F.pdf |  |  | 12AFC635C7C896F1 |
+| 07_FABRICATION\pdf\HybridPanda_copper_In1.pdf |  |  | FF95882424D3A9A8 |
+| 07_FABRICATION\pdf\HybridPanda_copper_In2.pdf |  |  | BFBF1A21A8D9A22B |
+| 07_FABRICATION\pdf\HybridPanda_fab_bottom.pdf |  |  | 72326E0C7DA944D0 |
+| 07_FABRICATION\pdf\HybridPanda_fab_top.pdf |  |  | E2A747473961E682 |
+| 07_FABRICATION\pdf\HybridPanda_schematic.pdf |  |  | 0B765009B3B4B102 |
 | 08_DOCS\LICENSE_OpenBlackPanda.txt |  |  | 9035DB7C5B72D230 |
 | 08_DOCS\LICENSE_opendbc.txt |  |  | 6543C4A66B46AFFD |
 | 08_DOCS\LICENSE_panda_MIT.txt |  |  | 0F8F541EE42CF973 |
 | 08_DOCS\LICENSES.md |  |  | C8EADE92DD9A1D95 |
-| 08_DOCS\PROGRESS.md |  |  | 464FD3ADF78E1222 |
+| 08_DOCS\PROGRESS.md |  |  | 5ECCAA5F841B96CA |
 | 08_DOCS\PROTOCOLO_v3_COMPLETO.md |  |  | 06C7DF9145B1EA60 |
-| INDEX.md |  |  | F5F1407183310A90 |
+| 08_DOCS\RELATORIO_FINAL.md |  |  | 0EEBEAEB41AD3AEC |
+| INDEX.md |  |  | 91CC682B22758FF5 |
 | OUTPUT_ROOT.txt |  |  | C79B60B017ADD081 |
 
 Pastas agregadas (nao listadas arquivo a arquivo): `01_BASELINE\original_copy` (377 arquivos, = original, ver `00_MANIFESTS\baseline_copy.sha256`); `02_REFERENCE` (panda + opendbc, ver `00_MANIFESTS\reference_clones.sha256`).

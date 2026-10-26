@@ -1,0 +1,643 @@
+{
+ "rounds": [
+  {
+   "round": 0,
+   "unconnected": 67,
+   "fixes": [
+    [
+     "furos",
+     [
+      [
+       "merge vias",
+       [
+        96.71,
+        57.015
+       ],
+       "->",
+       [
+        96.576,
+        56.973
+       ]
+      ],
+      [
+       "merge vias",
+       [
+        117.25,
+        44.738
+       ],
+       "->",
+       [
+        117.0,
+        44.738
+       ]
+      ],
+      [
+       "merge vias",
+       [
+        109.25,
+        65.863
+       ],
+       "->",
+       [
+        109.292,
+        66.083
+       ]
+      ],
+      [
+       "merge vias",
+       [
+        102.25,
+        65.863
+       ],
+       "->",
+       [
+        101.75,
+        65.863
+       ]
+      ],
+      [
+       "merge vias",
+       [
+        100.985,
+        71.477
+       ],
+       "->",
+       [
+        100.913,
+        71.075
+       ]
+      ]
+     ]
+    ],
+    [
+     "Track [+3V3] on F.Cu, length 0,0071 mm <> Track [+3V3] on In1.Cu, length 0,9334 mm",
+     "stitch 1.20 C1.1 (ilha)"
+    ],
+    [
+     "Track [+3V3] on F.Cu, length 2,0099 mm <> Pad 1 [+3V3] of C48 on F.Cu",
+     "trilha->pad Z y=68.72"
+    ],
+    [
+     "Track [+3V3] on F.Cu, length 2,6050 mm <> Pad 2 [+3V3] of D14 on B.Cu",
+     "stitch 0.60 D14.2 (ilha)"
+    ],
+    [
+     "Track [+3V3] on B.Cu, length 1,2000 mm <> Pad 1 [+3V3] of R33 on B.Cu",
+     "stitch 1.50 R33.1 (ilha)"
+    ],
+    [
+     "Pad 1 [+3V3] of R33 on B.Cu <> Track [+3V3] on F.Cu, length 1,3050 mm",
+     "stitch 2.20 R33.1 (ilha)"
+    ],
+    [
+     "Track [+3V3] on F.Cu, length 1,0675 mm <> Pad 1 [+3V3] of R32 on B.Cu",
+     "via ponta + reto"
+    ],
+    [
+     "Track [+3V3] on In2.Cu, length 3,3200 mm <> Pad 1 [+3V3] of R31 on B.Cu",
+     "via ponta + reto"
+    ],
+    [
+     "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0 <> Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
+     "island (ver D)"
+    ],
+    [
+     "Track [+5V] on F.Cu, length 2,0000 mm <> Track [+5V] on F.Cu, length 0,2121 mm",
+     "via ilha (118.918, 46.592)"
+    ],
+    [
+     "Track [+5V] on F.Cu, length 0,5728 mm <> Track [+5V] on F.Cu, length 0,2192 mm",
+     "connect_any Z x=120.83"
+    ],
+    [
+     "Track [+5V] on F.Cu, length 0,2192 mm <> Track [+5V] on F.Cu, length 1,1795 mm",
+     "connect_any 2 vias+In2.Cu"
+    ],
+    [
+     "Track [+5V] on F.Cu, length 0,9395 mm <> Track [+5V] on F.Cu, length 0,3995 mm",
+     "via ilha (136.97, 71.95)"
+    ],
+    [
+     "ilhas GND",
+     "2 vias"
+    ]
+   ],
+   "unfixed": [
+    "Track [+3V3] on B.Cu, length 0,9000 mm <> Pad 1 [+3V3] of C48 on F.Cu",
+    "Pad 1 [+3V3] of R33 on B.Cu <> Track [+3V3] on B.Cu, length 2,1200 mm",
+    "Pad 1 [+3V3] of R30 on B.Cu <> Track [+3V3] on F.Cu, length 2,0240 mm",
+    "Pad 1 [BOOT0] of SW1 on F.Cu <> Pad 1 [BOOT0] of SW1 on F.Cu",
+    "Pad 1 [BOOT0] of SW1 on F.Cu <> Pad 135 [BOOT0] of U7 on B.Cu",
+    "Pad 135 [BOOT0] of U7 on B.Cu <> Pad 1 [BOOT0] of R14 on F.Cu",
+    "Pad 2 [SBU2] of R23 on F.Cu <> Pad 3 [SBU2] of Q1 on F.Cu",
+    "Pad 1 [SBU2] of R29 on B.Cu <> Pad 2 [SBU2] of R23 on F.Cu",
+    "Pad 2 [SBU2] of D5 on F.Cu <> Pad 1 [SBU2] of R29 on B.Cu",
+    "PTH pad B8 [SBU2] of P1 <> Pad 2 [SBU2] of D5 on F.Cu",
+    "Pad 1 [SBU1] of R28 on B.Cu <> Pad 1 [SBU1] of D5 on F.Cu",
+    "Pad 1 [SBU1] of D5 on F.Cu <> Pad 3 [SBU1] of Q2 on F.Cu",
+    "Pad 3 [SBU1] of Q2 on F.Cu <> Pad 2 [SBU1] of R24 on F.Cu",
+    "Pad A8 [SBU1] of P1 on F.Cu <> Pad 1 [SBU1] of R28 on B.Cu",
+    "Pad 52 [VoltageSens] of U7 on B.Cu <> Pad 2 [VoltageSens] of R2 on F.Cu",
+    "Pad 2 [VoltageSens] of R2 on F.Cu <> Pad 1 [VoltageSens] of R3 on F.Cu",
+    "Pad 2 [12V_Protected] of R3 on F.Cu <> Track [12V_Protected] on F.Cu, length 2,0167 mm",
+    "Pad 2 [5VOUT_S] of R15 on F.Cu <> Pad 1 [5VOUT_S] of R16 on F.Cu",
+    "Pad 1 [5VOUT_S] of R16 on F.Cu <> Pad 50 [5VOUT_S] of U7 on B.Cu",
+    "Pad 121 [BUS2_STB] of U7 on B.Cu <> Pad 2 [BUS2_STB] of R33 on B.Cu",
+    "Pad 2 [BUS2_STB] of R33 on B.Cu <> Pad 8 [BUS2_STB] of U9 on F.Cu",
+    "Pad 1 [LED_RED] of R19 on F.Cu <> Pad 3 [LED_RED] of U7 on B.Cu",
+    "Pad 2 [RED-] of R19 on F.Cu <> Pad 2 [RED-] of U5 on F.Cu",
+    "Pad 73 [BUS1O_TX] of U7 on B.Cu <> Pad 1 [BUS1O_TX] of U8 on F.Cu",
+    "Pad 72 [BUS1O_RX] of U7 on B.Cu <> Pad 4 [BUS1O_RX] of U8 on F.Cu",
+    "Pad 131 [BUS1O_STB] of U7 on B.Cu <> Pad 2 [BUS1O_STB] of R32 on B.Cu",
+    "Pad 2 [BUS1O_STB] of R32 on B.Cu <> Pad 8 [BUS1O_STB] of U8 on F.Cu",
+    "Pad 1 [LED_GREEN] of R18 on F.Cu <> Pad 2 [LED_GREEN] of U7 on B.Cu",
+    "Pad 3 [GREEN-] of U5 on F.Cu <> Pad 2 [GREEN-] of R18 on F.Cu",
+    "Pad 110 [relay_SBU2] of U7 on B.Cu <> Pad 1 [relay_SBU2] of Q1 on F.Cu",
+    "Pad 1 [LED_BLUE] of R17 on F.Cu <> Pad 1 [LED_BLUE] of U7 on B.Cu",
+    "Pad 2 [BLUE-] of R17 on F.Cu <> Pad 4 [BLUE-] of U5 on F.Cu",
+    "Pad 109 [relay_SBU1] of U7 on B.Cu <> Pad 1 [relay_SBU1] of Q2 on F.Cu",
+    "Pad 101 [USB_D+] of U7 on B.Cu <> Pad 2 [USB_D+] of R21 on F.Cu",
+    "Pad 74 [USB_LOAD] of U7 on B.Cu <> Pad 1 [USB_LOAD] of Q3 on F.Cu",
+    "Pad 133 [BUS1N_TX] of U7 on B.Cu <> Pad 1 [BUS1N_TX] of U10 on F.Cu",
+    "Pad 132 [BUS1N_RX] of U7 on B.Cu <> Pad 4 [BUS1N_RX] of U10 on F.Cu",
+    "Pad 8 [BUS1N_STB] of U10 on F.Cu <> Pad 130 [BUS1N_STB] of U7 on B.Cu",
+    "Pad 2 [BUS1N_STB] of R31 on B.Cu <> Pad 8 [BUS1N_STB] of U10 on F.Cu",
+    "Pad 137 [BUS0_TX] of U7 on B.Cu <> Pad 1 [BUS0_TX] of U11 on F.Cu",
+    "Pad 136 [BUS0_RX] of U7 on B.Cu <> Pad 4 [BUS0_RX] of U11 on F.Cu",
+    "Pad 124 [BUS0_STB] of U7 on B.Cu <> Pad 8 [BUS0_STB] of U11 on F.Cu",
+    "Pad 8 [BUS0_STB] of U11 on F.Cu <> Pad 2 [BUS0_STB] of R30 on B.Cu",
+    "Pad 100 [USB_D-] of U7 on B.Cu <> Pad 1 [USB_D-] of R20 on F.Cu",
+    "Pad 10 [NRST] of J1 on B.Cu <> Pad 27 [NRST] of U7 on B.Cu",
+    "Pad 27 [NRST] of U7 on B.Cu <> Pad 1 [NRST] of C38 on B.Cu",
+    "Track [VDDA] on B.Cu, length 4,8121 mm <> Track [VDDA] on B.Cu, length 0,8660 mm",
+    "Pad 2 [SWDIO] of J1 on B.Cu <> Pad 102 [SWDIO] of U7 on B.Cu",
+    "Pad 4 [SWCLK] of J1 on B.Cu <> Pad 107 [SWCLK] of U7 on B.Cu",
+    "Pad 2 [SBU2_ADC] of R29 on B.Cu <> Pad 38 [SBU2_ADC] of U7 on B.Cu",
+    "Pad 3 [SBU2_ADC] of D14 on B.Cu <> Pad 2 [SBU2_ADC] of R29 on B.Cu",
+    "Pad 2 [SBU1_ADC] of R28 on B.Cu <> Pad 47 [SBU1_ADC] of U7 on B.Cu",
+    "Pad 3 [SBU1_ADC] of D13 on B.Cu <> Pad 2 [SBU1_ADC] of R28 on B.Cu",
+    "Track [VCAP] on B.Cu, length 2,4345 mm <> Pad 103 [VCAP] of U7 on B.Cu",
+    "Track [VCAP] on B.Cu, length 2,5250 mm <> Pad 103 [VCAP] of U7 on B.Cu"
+   ]
+  },
+  {
+   "round": 1,
+   "unconnected": 57,
+   "fixes": [
+    [
+     "Track [+3V3] on F.Cu, length 0,4073 mm <> Pad 1 [+3V3] of R30 on B.Cu",
+     "via ponta + L"
+    ],
+    [
+     "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0 <> Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
+     "island (ver D)"
+    ],
+    [
+     "Track [+5V] on F.Cu, length 0,2121 mm <> Track [+5V] on F.Cu, length 2,0000 mm",
+     "connect_any reto"
+    ]
+   ],
+   "unfixed": [
+    "Track [+3V3] on B.Cu, length 0,9000 mm <> Track [+3V3] on F.Cu, length 5,1349 mm",
+    "Track [+3V3] on B.Cu, length 2,2000 mm <> Track [+3V3] on B.Cu, length 2,1200 mm",
+    "Pad 1 [BOOT0] of SW1 on F.Cu <> Pad 1 [BOOT0] of SW1 on F.Cu",
+    "Pad 1 [BOOT0] of SW1 on F.Cu <> Pad 135 [BOOT0] of U7 on B.Cu",
+    "Pad 135 [BOOT0] of U7 on B.Cu <> Pad 1 [BOOT0] of R14 on F.Cu",
+    "Pad 2 [SBU2] of R23 on F.Cu <> Pad 3 [SBU2] of Q1 on F.Cu",
+    "Pad 1 [SBU2] of R29 on B.Cu <> Pad 2 [SBU2] of R23 on F.Cu",
+    "Pad 2 [SBU2] of D5 on F.Cu <> Pad 1 [SBU2] of R29 on B.Cu",
+    "PTH pad B8 [SBU2] of P1 <> Pad 2 [SBU2] of D5 on F.Cu",
+    "Pad 1 [SBU1] of R28 on B.Cu <> Pad 1 [SBU1] of D5 on F.Cu",
+    "Pad 1 [SBU1] of D5 on F.Cu <> Pad 3 [SBU1] of Q2 on F.Cu",
+    "Pad 3 [SBU1] of Q2 on F.Cu <> Pad 2 [SBU1] of R24 on F.Cu",
+    "Pad A8 [SBU1] of P1 on F.Cu <> Pad 1 [SBU1] of R28 on B.Cu",
+    "Pad 52 [VoltageSens] of U7 on B.Cu <> Pad 2 [VoltageSens] of R2 on F.Cu",
+    "Pad 2 [VoltageSens] of R2 on F.Cu <> Pad 1 [VoltageSens] of R3 on F.Cu",
+    "Pad 2 [12V_Protected] of R3 on F.Cu <> Track [12V_Protected] on F.Cu, length 2,0167 mm",
+    "Pad 2 [5VOUT_S] of R15 on F.Cu <> Pad 1 [5VOUT_S] of R16 on F.Cu",
+    "Pad 1 [5VOUT_S] of R16 on F.Cu <> Pad 50 [5VOUT_S] of U7 on B.Cu",
+    "Pad 121 [BUS2_STB] of U7 on B.Cu <> Pad 2 [BUS2_STB] of R33 on B.Cu",
+    "Pad 2 [BUS2_STB] of R33 on B.Cu <> Pad 8 [BUS2_STB] of U9 on F.Cu",
+    "Pad 1 [LED_RED] of R19 on F.Cu <> Pad 3 [LED_RED] of U7 on B.Cu",
+    "Pad 2 [RED-] of R19 on F.Cu <> Pad 2 [RED-] of U5 on F.Cu",
+    "Pad 73 [BUS1O_TX] of U7 on B.Cu <> Pad 1 [BUS1O_TX] of U8 on F.Cu",
+    "Pad 72 [BUS1O_RX] of U7 on B.Cu <> Pad 4 [BUS1O_RX] of U8 on F.Cu",
+    "Pad 131 [BUS1O_STB] of U7 on B.Cu <> Pad 2 [BUS1O_STB] of R32 on B.Cu",
+    "Pad 2 [BUS1O_STB] of R32 on B.Cu <> Pad 8 [BUS1O_STB] of U8 on F.Cu",
+    "Pad 1 [LED_GREEN] of R18 on F.Cu <> Pad 2 [LED_GREEN] of U7 on B.Cu",
+    "Pad 3 [GREEN-] of U5 on F.Cu <> Pad 2 [GREEN-] of R18 on F.Cu",
+    "Pad 110 [relay_SBU2] of U7 on B.Cu <> Pad 1 [relay_SBU2] of Q1 on F.Cu",
+    "Pad 1 [LED_BLUE] of R17 on F.Cu <> Pad 1 [LED_BLUE] of U7 on B.Cu",
+    "Pad 2 [BLUE-] of R17 on F.Cu <> Pad 4 [BLUE-] of U5 on F.Cu",
+    "Pad 109 [relay_SBU1] of U7 on B.Cu <> Pad 1 [relay_SBU1] of Q2 on F.Cu",
+    "Pad 101 [USB_D+] of U7 on B.Cu <> Pad 2 [USB_D+] of R21 on F.Cu",
+    "Pad 74 [USB_LOAD] of U7 on B.Cu <> Pad 1 [USB_LOAD] of Q3 on F.Cu",
+    "Pad 133 [BUS1N_TX] of U7 on B.Cu <> Pad 1 [BUS1N_TX] of U10 on F.Cu",
+    "Pad 132 [BUS1N_RX] of U7 on B.Cu <> Pad 4 [BUS1N_RX] of U10 on F.Cu",
+    "Pad 8 [BUS1N_STB] of U10 on F.Cu <> Pad 130 [BUS1N_STB] of U7 on B.Cu",
+    "Pad 2 [BUS1N_STB] of R31 on B.Cu <> Pad 8 [BUS1N_STB] of U10 on F.Cu",
+    "Pad 137 [BUS0_TX] of U7 on B.Cu <> Pad 1 [BUS0_TX] of U11 on F.Cu",
+    "Pad 136 [BUS0_RX] of U7 on B.Cu <> Pad 4 [BUS0_RX] of U11 on F.Cu",
+    "Pad 124 [BUS0_STB] of U7 on B.Cu <> Pad 8 [BUS0_STB] of U11 on F.Cu",
+    "Pad 8 [BUS0_STB] of U11 on F.Cu <> Pad 2 [BUS0_STB] of R30 on B.Cu",
+    "Pad 100 [USB_D-] of U7 on B.Cu <> Pad 1 [USB_D-] of R20 on F.Cu",
+    "Pad 10 [NRST] of J1 on B.Cu <> Pad 27 [NRST] of U7 on B.Cu",
+    "Pad 27 [NRST] of U7 on B.Cu <> Pad 1 [NRST] of C38 on B.Cu",
+    "Track [VDDA] on B.Cu, length 4,8121 mm <> Track [VDDA] on B.Cu, length 0,8660 mm",
+    "Pad 2 [SWDIO] of J1 on B.Cu <> Pad 102 [SWDIO] of U7 on B.Cu",
+    "Pad 4 [SWCLK] of J1 on B.Cu <> Pad 107 [SWCLK] of U7 on B.Cu",
+    "Pad 2 [SBU2_ADC] of R29 on B.Cu <> Pad 38 [SBU2_ADC] of U7 on B.Cu",
+    "Pad 3 [SBU2_ADC] of D14 on B.Cu <> Pad 2 [SBU2_ADC] of R29 on B.Cu",
+    "Pad 2 [SBU1_ADC] of R28 on B.Cu <> Pad 47 [SBU1_ADC] of U7 on B.Cu",
+    "Pad 3 [SBU1_ADC] of D13 on B.Cu <> Pad 2 [SBU1_ADC] of R28 on B.Cu",
+    "Track [VCAP] on B.Cu, length 2,4345 mm <> Pad 103 [VCAP] of U7 on B.Cu",
+    "Track [VCAP] on B.Cu, length 2,5250 mm <> Pad 103 [VCAP] of U7 on B.Cu"
+   ]
+  }
+ ],
+ "warnings": [],
+ "added": [
+  [
+   "track",
+   [
+    96.71,
+    57.015
+   ],
+   [
+    96.576,
+    56.973
+   ],
+   "F.Cu"
+  ],
+  [
+   "track",
+   [
+    96.71,
+    57.015
+   ],
+   [
+    96.576,
+    56.973
+   ],
+   "In1.Cu"
+  ],
+  [
+   "track",
+   [
+    117.25,
+    45.938
+   ],
+   [
+    117.0,
+    44.738
+   ],
+   "B.Cu"
+  ],
+  [
+   "track",
+   [
+    117.25,
+    44.738
+   ],
+   [
+    117.0,
+    44.738
+   ],
+   "B.Cu"
+  ],
+  [
+   "track",
+   [
+    117.25,
+    45.038
+   ],
+   [
+    117.0,
+    44.738
+   ],
+   "B.Cu"
+  ],
+  [
+   "track",
+   [
+    109.25,
+    65.863
+   ],
+   [
+    109.292,
+    66.083
+   ],
+   "B.Cu"
+  ],
+  [
+   "track",
+   [
+    102.25,
+    65.863
+   ],
+   [
+    101.75,
+    65.863
+   ],
+   "B.Cu"
+  ],
+  [
+   "track",
+   [
+    100.985,
+    71.477
+   ],
+   [
+    100.913,
+    71.075
+   ],
+   "F.Cu"
+  ],
+  [
+   "via",
+   [
+    100.092,
+    64.613
+   ]
+  ],
+  [
+   "track",
+   [
+    98.905,
+    64.435
+   ],
+   [
+    100.092,
+    64.613
+   ],
+   "F.Cu"
+  ],
+  [
+   "track",
+   [
+    106.865,
+    70.675
+   ],
+   [
+    106.865,
+    68.715
+   ],
+   "F.Cu"
+  ],
+  [
+   "track",
+   [
+    106.865,
+    68.715
+   ],
+   [
+    101.73,
+    68.715
+   ],
+   "F.Cu"
+  ],
+  [
+   "track",
+   [
+    101.73,
+    68.715
+   ],
+   [
+    101.73,
+    69.215
+   ],
+   "F.Cu"
+  ],
+  [
+   "via",
+   [
+    120.589,
+    70.203
+   ]
+  ],
+  [
+   "track",
+   [
+    120.635,
+    69.605
+   ],
+   [
+    120.589,
+    70.203
+   ],
+   "B.Cu"
+  ],
+  [
+   "via",
+   [
+    125.39,
+    56.753
+   ]
+  ],
+  [
+   "track",
+   [
+    124.27,
+    55.755
+   ],
+   [
+    125.39,
+    56.753
+   ],
+   "B.Cu"
+  ],
+  [
+   "via",
+   [
+    125.912,
+    57.219
+   ]
+  ],
+  [
+   "track",
+   [
+    124.27,
+    55.755
+   ],
+   [
+    125.912,
+    57.219
+   ],
+   "B.Cu"
+  ],
+  [
+   "via",
+   [
+    125.44,
+    62.712
+   ]
+  ],
+  [
+   "track",
+   [
+    125.44,
+    62.712
+   ],
+   [
+    123.764,
+    61.666
+   ],
+   "B.Cu"
+  ],
+  [
+   "via",
+   [
+    134.45,
+    69.3
+   ]
+  ],
+  [
+   "track",
+   [
+    134.45,
+    69.3
+   ],
+   [
+    136.645,
+    70.91
+   ],
+   "B.Cu"
+  ],
+  [
+   "via",
+   [
+    118.918,
+    46.592
+   ]
+  ],
+  [
+   "track",
+   [
+    121.58,
+    57.045
+   ],
+   [
+    120.83,
+    57.045
+   ],
+   "F.Cu"
+  ],
+  [
+   "track",
+   [
+    120.83,
+    57.045
+   ],
+   [
+    120.83,
+    61.99
+   ],
+   "F.Cu"
+  ],
+  [
+   "track",
+   [
+    120.83,
+    61.99
+   ],
+   [
+    121.86,
+    61.99
+   ],
+   "F.Cu"
+  ],
+  [
+   "via",
+   [
+    121.86,
+    61.99
+   ]
+  ],
+  [
+   "via",
+   [
+    124.039,
+    72.366
+   ]
+  ],
+  [
+   "track",
+   [
+    121.86,
+    61.99
+   ],
+   [
+    124.039,
+    72.366
+   ],
+   "In2.Cu"
+  ],
+  [
+   "via",
+   [
+    136.97,
+    71.95
+   ]
+  ],
+  [
+   "via",
+   [
+    131.058,
+    63.678
+   ]
+  ],
+  [
+   "via",
+   [
+    131.312,
+    53.363
+   ]
+  ],
+  [
+   "via",
+   [
+    132.955,
+    69.072
+   ]
+  ],
+  [
+   "track",
+   [
+    132.955,
+    69.072
+   ],
+   [
+    132.955,
+    70.882
+   ],
+   "B.Cu"
+  ],
+  [
+   "track",
+   [
+    132.955,
+    70.882
+   ],
+   [
+    131.98,
+    70.882
+   ],
+   "B.Cu"
+  ],
+  [
+   "track",
+   [
+    109.86,
+    45.54
+   ],
+   [
+    112.37,
+    45.75
+   ],
+   "F.Cu"
+  ]
+ ],
+ "dangling_vias_removed": 0,
+ "micro_segments_removed": 10,
+ "unrouted_final": 55
+}

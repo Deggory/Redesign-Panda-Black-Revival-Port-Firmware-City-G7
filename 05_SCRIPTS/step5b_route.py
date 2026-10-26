@@ -30,6 +30,8 @@ FR_JAR = os.path.join(ROOT, "05_SCRIPTS", "tools", "freerouting", "freerouting-2
 NO_FR = "--no-freerouting" in sys.argv
 INNER_POWER = "--inner-power" in sys.argv   # proibir In1/In2 ao autorouter (baseline usa In1/In2 p/ sinais; default: permitido)
 FR_PASSES = int(sys.argv[sys.argv.index("--passes") + 1]) if "--passes" in sys.argv else 60
+NO_PRE = "--no-pre" in sys.argv   # saltar o pré-fix de potência (fase P)
+PRE_ROUNDS = int(sys.argv[sys.argv.index("--pre-rounds") + 1]) if "--pre-rounds" in sys.argv else 2
 
 report = {"phases": {}, "warnings": []}
 W = report["warnings"].append
@@ -94,19 +96,32 @@ if z3:
     # faixa antiga (96.1-101 x 38.7-64.3) + bloco sob o U7 inteiro (fileira norte y=45.9 incluída);
     # x<=118.5 acima de y=47.6 para não disputar com a zona +5V In1 de prioridade 1 (x>=119, y 42.9-47.4);
     # a zona +5V In1 de prioridade 5 (108.9-122.9 x 45.0-46.7) prevalece sobre esta (prioridade 4)
-    Z3_OUTLINE = [(96.1, 38.7), (118.5, 38.7), (118.5, 47.6), (123.5, 47.6), (123.5, 76.5), (96.1, 76.5)]
+    Z3_OUTLINE = [(96.1, 38.7), (118.5, 38.7), (118.5, 47.6), (127.0, 47.6), (127.0, 76.5), (96.1, 76.5)]  # leste até 127 (R30-R33 pull-ups STB em x 124-126)
     for v in Z3_OUTLINE:
         poly.Append(mm(v))
     z.SetOutline(poly)
-    report["phases"]["Z"] = {"+3V3_In1_outline": Z3_OUTLINE}
+    # mesma folga da zona GND (ver abaixo): com 0,508 a via de costura C55.1 (122,49;53,57) ficava fora do
+    # preenchimento In1 entre a via BUS2_TX do Freerouting e uma trilha In1 vizinha.
+    z.SetLocalClearance(FromMM(0.254))
+    report["phases"]["Z"] = {"+3V3_In1_outline": Z3_OUTLINE, "+3V3_In1_clearance": 0.254}
 else:
     W("zona +3V3 In1 não encontrada")
+# zona GND (F/In2/B) do baseline: clearance 0,508 + espessura mín. 0,25 isolavam vias de costura entre vizinhos
+# (ex.: via U7.128 em 122,36;57,10 ficou fora do preenchimento In2). 0,254 mm = 10 mil, bem acima do mín. 0,1 (D-28).
+GND_ZONE_CLR = 0.254
+zg = []
+for z in board.Zones():
+    if z.GetNetname() == "GND" and not z.GetIsRuleArea() and ToMM(z.GetLocalClearance()) > GND_ZONE_CLR:
+        zg.append((pt(z.GetBoundingBox().GetPosition()), ToMM(z.GetLocalClearance()))); z.SetLocalClearance(FromMM(GND_ZONE_CLR))
+report["phases"]["Z"]["gnd_zone_clearance"] = {"new": GND_ZONE_CLR, "changed": zg}
 
 # ---------------------------------------------------------------- limpeza: fragmentos do baseline sem via/pad (sobras do STEP 5a)
 def _touch(pt, layer, it, me):
+    # tolerância 0,01 mm: pontas de trilhas e vias importadas do SES não coincidem ao nm
+    near = lambda a, b: abs(a.x - b.x) <= 10000 and abs(a.y - b.y) <= 10000
     if it.m_Uuid.AsString() == me.m_Uuid.AsString(): return False
-    if it.GetClass() == "PCB_VIA": return it.GetPosition() == pt
-    if it.GetClass() in ("PCB_TRACK", "PCB_ARC"): return it.GetLayer() == layer and (it.GetStart() == pt or it.GetEnd() == pt)
+    if it.GetClass() == "PCB_VIA": return near(it.GetPosition(), pt)
+    if it.GetClass() in ("PCB_TRACK", "PCB_ARC"): return it.GetLayer() == layer and (near(it.GetStart(), pt) or near(it.GetEnd(), pt))
     if it.GetClass() == "ZONE":  # ponta dentro do cobre vertido da mesma net (stub pad -> zona do baseline)
         return it.IsOnLayer(layer) and it.GetFilledPolysList(layer).Contains(pt)
     return it.IsOnLayer(layer) and it.HitTest(pt)
@@ -114,34 +129,53 @@ frag_removed = 0
 _seen = set()
 for t in list(board.GetTracks()):
     if t.IsLocked(): continue
-    key = (t.GetNetCode(), t.GetLayer(), t.GetClass()) + tuple(sorted([(t.GetStart().x, t.GetStart().y), (t.GetEnd().x, t.GetEnd().y)])) if t.GetClass() != "PCB_VIA" else (t.GetNetCode(), "V", t.GetPosition().x, t.GetPosition().y)
+    # vias empilhadas do baseline em (109,0; 53,9) diferem por < 0,05 mm -> chave arredondada a 0,05 mm
+    q = lambda v: (int(round(v.x / 50000.0)), int(round(v.y / 50000.0)))
+    key = (t.GetNetCode(), t.GetLayer(), t.GetClass()) + tuple(sorted([q(t.GetStart()), q(t.GetEnd())])) if t.GetClass() != "PCB_VIA" else (t.GetNetCode(), "V") + q(t.GetPosition())
     if key in _seen: board.RemoveNative(t); frag_removed += 1
     else: _seen.add(key)
 report["phases"]["cleanup_duplicates_removed"] = frag_removed
-frag_removed = 0
-for _ in range(30):
-    dirty = False
-    pads_by_net = {}
-    for f in board.GetFootprints():
-        for p in f.Pads(): pads_by_net.setdefault(p.GetNetCode(), []).append(p)
-    trk_by_net = {}
-    for t in board.GetTracks(): trk_by_net.setdefault(t.GetNetCode(), []).append(t)
-    zones_by_net = {}
-    for z in board.Zones():
-        if not z.GetIsRuleArea(): zones_by_net.setdefault(z.GetNetCode(), []).append(z)
-    for t in list(board.GetTracks()):
-        if t.IsLocked() or t.GetClass() == "PCB_VIA" or re.match(r"BUS\w+_[HL]$", t.GetNetname()): continue
-        items = trk_by_net.get(t.GetNetCode(), []) + pads_by_net.get(t.GetNetCode(), []) + zones_by_net.get(t.GetNetCode(), [])
-        if not (any(_touch(t.GetStart(), t.GetLayer(), i, t) for i in items) and any(_touch(t.GetEnd(), t.GetLayer(), i, t) for i in items)):
-            board.RemoveNative(t); frag_removed += 1; dirty = True
-    for t in list(board.GetTracks()):
-        if t.IsLocked() or t.GetClass() != "PCB_VIA": continue
-        items = [i for i in trk_by_net.get(t.GetNetCode(), []) if i.GetClass() != "PCB_VIA"]
-        att = sum(1 for i in items if i.GetStart() == t.GetPosition() or i.GetEnd() == t.GetPosition())
-        if att == 0 and not any(p.HitTest(t.GetPosition()) for p in pads_by_net.get(t.GetNetCode(), [])):
-            board.RemoveNative(t); frag_removed += 1; dirty = True
-    if not dirty: break
-report["phases"]["cleanup_fragments_removed"] = frag_removed
+def _via_layers(t, trk_by_net, pads_by_net, zones_by_net):
+    """camadas em que a via toca trilha/pad/preenchimento da mesma net (via_dangling = < 2)."""
+    pos = t.GetPosition(); lays = set()
+    for i in trk_by_net.get(t.GetNetCode(), []):
+        if i.GetClass() != "PCB_VIA" and _touch(pos, i.GetLayer(), i, t): lays.add(i.GetLayer())
+    for p in pads_by_net.get(t.GetNetCode(), []):
+        if p.HitTest(pos):
+            for l in (pcbnew.F_Cu, pcbnew.B_Cu):
+                if p.IsOnLayer(l): lays.add(l)
+    for z in zones_by_net.get(t.GetNetCode(), []):
+        for l in (pcbnew.F_Cu, pcbnew.In1_Cu, pcbnew.In2_Cu, pcbnew.B_Cu):
+            if z.IsOnLayer(l) and z.GetFilledPolysList(l).Contains(pos): lays.add(l)
+    return lays
+def cleanup_fragments(check_via_layers=False):
+    removed = 0
+    for _ in range(30):
+        dirty = False
+        pads_by_net = {}
+        for f in board.GetFootprints():
+            for p in f.Pads(): pads_by_net.setdefault(p.GetNetCode(), []).append(p)
+        trk_by_net = {}
+        for t in board.GetTracks(): trk_by_net.setdefault(t.GetNetCode(), []).append(t)
+        zones_by_net = {}
+        for z in board.Zones():
+            if not z.GetIsRuleArea(): zones_by_net.setdefault(z.GetNetCode(), []).append(z)
+        for t in list(board.GetTracks()):
+            if t.IsLocked() or t.GetClass() == "PCB_VIA" or re.match(r"BUS\w+_[HL]$", t.GetNetname()): continue
+            items = trk_by_net.get(t.GetNetCode(), []) + pads_by_net.get(t.GetNetCode(), []) + zones_by_net.get(t.GetNetCode(), [])
+            if not (any(_touch(t.GetStart(), t.GetLayer(), i, t) for i in items) and any(_touch(t.GetEnd(), t.GetLayer(), i, t) for i in items)):
+                board.RemoveNative(t); removed += 1; dirty = True
+        for t in list(board.GetTracks()):
+            if t.IsLocked() or t.GetClass() != "PCB_VIA": continue
+            items = [i for i in trk_by_net.get(t.GetNetCode(), []) if i.GetClass() != "PCB_VIA"]
+            att = sum(1 for i in items if _touch(t.GetPosition(), i.GetLayer(), i, t))
+            if att == 0 and not any(p.HitTest(t.GetPosition()) for p in pads_by_net.get(t.GetNetCode(), [])):
+                board.RemoveNative(t); removed += 1; dirty = True
+            elif check_via_layers and len(_via_layers(t, trk_by_net, pads_by_net, zones_by_net)) < 2:
+                board.RemoveNative(t); removed += 1; dirty = True
+        if not dirty: break
+    return removed
+report["phases"]["cleanup_fragments_removed"] = cleanup_fragments()
 
 # ---------------------------------------------------------------- helpers de colisão
 all_pads = [p for f in board.GetFootprints() for p in f.Pads()]
@@ -161,19 +195,23 @@ def seg_collides(a, b, width, layer, netcode, clearance=0.12):
     return None
 
 KEEPOUTS = [z for z in board.Zones() if z.GetIsRuleArea()] + [z for fp in board.GetFootprints() for z in fp.Zones() if z.GetIsRuleArea()]
-def via_collides(pos, dia, netcode, clearance=0.15):
-    shp = pcbnew.SHAPE_CIRCLE(pos, FromMM(dia / 2))
+HOLE_CLR = 0.25   # hole_clearance do projeto (design settings)
+def via_collides(pos, dia, netcode, clearance=0.15, drill=0.3):
+    shp =  pcbnew.SHAPE_CIRCLE(pos, FromMM(dia / 2)); hole = pcbnew.SHAPE_CIRCLE(pos, FromMM(drill / 2))
     for z in KEEPOUTS:
         if z.GetDoNotAllowVias() and z.Outline().Collide(shp, FromMM(clearance)): return "keepout"
     for p in all_pads:
         if p.GetNetCode() == netcode: continue
         for l in (pcbnew.F_Cu, pcbnew.In1_Cu, pcbnew.In2_Cu, pcbnew.B_Cu):
-            if p.IsOnLayer(l) and p.GetEffectiveShape(l).Collide(shp, FromMM(clearance)): return "pad %s.%s" % (p.GetParentFootprint().GetReference(), p.GetNumber())
+            if p.IsOnLayer(l) and (p.GetEffectiveShape(l).Collide(shp, FromMM(clearance)) or p.GetEffectiveShape(l).Collide(hole, FromMM(HOLE_CLR))): return "pad %s.%s" % (p.GetParentFootprint().GetReference(), p.GetNumber())
     for t in base_tracks + new_items:
         if t.GetNetCode() == netcode: continue
         if t.GetClass() == "PCB_VIA" or True:
             for l in (pcbnew.F_Cu, pcbnew.In1_Cu, pcbnew.In2_Cu, pcbnew.B_Cu):
                 if t.IsOnLayer(l) and t.GetEffectiveShape(l).Collide(shp, FromMM(clearance)): return "track %s" % t.GetNetname()
+                # furo da via nova x cobre alheio: hole_clearance 0,25 (D-30). Collide() e estrito (<), igual ao DRC:
+                # a via-in-pad do U1.2 fica a exatamente 0,250 mm da trilha USB_PWR e o DRC a aceita.
+                if t.IsOnLayer(l) and t.GetEffectiveShape(l).Collide(hole, FromMM(HOLE_CLR)): return "hole x track %s" % t.GetNetname()
     return None
 
 new_items = []
@@ -263,12 +301,118 @@ if ("Y1", "colisão: pad Y1.4") in skipped:
         else: W("Y1.1 contorno colide")
 report["phases"]["C"] = {"routed": routed, "skipped_to_freerouting": skipped}
 
+# ---------------------------------------------------------------- M: desvio +5V In1 (ex-M1 do 5c) + via-in-pad U1.2
+# U1.2 (GND, SOT-23-6, F.Cu) ficou encurralado: a via GND do baseline (120.41, 53.18) caiu sob o pad U7.120 (B.Cu) e o
+# único ponto de via (119.0, 53.42, via-in-pad 0.5) era bloqueado pelo tronco +5V In1 em x = 119.11 (1,0 mm). Desvia o
+# tronco para x = 117.6: liberta a via do U1.2 e o ponto (118.5, 52.85) sob o corpo do U7 para a via +3V3 do pino 119
+# (a via própria do 119 a leste caía no corredor U7.121-124 <-> U9, D-28, e a via do C55.1 fica fora do In1).
+# Feito aqui (antes de V) e não no 5c para que a via do 119 já veja o tronco desviado.
+def detour_5v_in1():
+    v5 = net("+5V").GetNetCode(); gnd_ = net("GND").GetNetCode()
+    def find(ends):
+        return [t for t in base_tracks if t.GetClass() == "PCB_TRACK" and t.GetLayer() == pcbnew.In1_Cu and t.GetNetCode() == v5
+                and {pt(t.GetStart()), pt(t.GetEnd())} in ends]
+    seg = find(({(119.11, 51.23), (119.11, 53.96)},)); seg2 = find(({(118.54, 54.53), (119.11, 53.96)},))
+    seg3 = find(({(119.11, 53.96), (121.58, 56.42)}, {(119.11, 53.96), (121.575, 56.425)}))
+    p2 = pad("U1", 2) if "U1" in fps else None
+    vpos = mm((119.0, 53.42))
+    if not (seg and seg2 and seg3 and p2 is not None and p2.GetNetCode() == gnd_):
+        return {"ok": False, "why": "geometria do baseline diferente"}
+    w = ToMM(seg[0].GetWidth()); a = mm((119.11, 51.23)); k1 = mm((117.6, 52.74)); k2 = mm((117.6, 53.59)); j = mm((118.54, 54.53)); d1 = mm((119.6, 54.45))
+    d2 = seg3[0].GetEnd() if ToMM((seg3[0].GetStart() - mm((119.11, 53.96))).EuclideanNorm()) < 0.05 else seg3[0].GetStart()
+    old = [seg[0], seg2[0], seg3[0]]
+    for t in old: board.RemoveNative(t); base_tracks.remove(t)
+    segs = ((a, k1), (k1, k2), (k2, j), (j, d1), (d1, d2))
+    bad = [seg_collides(s, e, w, pcbnew.In1_Cu, v5, 0.1) for s, e in segs]
+    if any(bad):
+        for t in old: board.Add(t); base_tracks.append(t)
+        return {"ok": False, "why": bad}
+    for s, e in segs: add_track(s, e, w, pcbnew.In1_Cu, v5)
+    hv = via_collides(vpos, 0.5, gnd_, 0.1)
+    if hv:
+        return {"ok": True, "x": 117.6, "u1_2_via": False, "why": hv}
+    add_via(vpos, gnd_, 0.5, 0.3)
+    return {"ok": True, "x": 117.6, "u1_2_via": True}
+report["phases"]["M"] = detour_5v_in1()
+if not report["phases"]["M"]["ok"]: W("M: desvio +5V In1 não aplicado: %s" % report["phases"]["M"]["why"])
+
+# ---------------------------------------------------------------- R: pré-rotas travadas B.Cu->via->F.Cu (pares que o Freerouting falha repetidamente — D-30)
+# Antes do FR a área ainda está livre: busca em grade a posição de via em que os dois segmentos
+# (pino U7 em B.Cu -> via, via -> pad destino em F.Cu) ficam sem colisão. Travado para o FR respeitar.
+PREROUTE = []  # (ref_a, pin_a, ref_b, pin_b, largura) — descobertos: todos os BUS*_TX/RX do U7 para o transceptor (U8–U11) da mesma rede
+for _p in fps["U7"].Pads():
+    _nn = _p.GetNetname()
+    if not re.match(r"BUS\w+_(TX|RX)$", _nn): continue
+    for _ref in ("U8", "U9", "U10", "U11"):
+        if _ref not in fps: continue
+        _q = next((q for q in fps[_ref].Pads() if q.GetNetname() == _nn), None)
+        if _q is not None:
+            PREROUTE.append((("U7", _p.GetNumber(), _ref, _q.GetNumber(), 0.15), (_p.GetPosition() - _q.GetPosition()).EuclideanNorm()))
+PREROUTE = [x for x, _ in sorted(PREROUTE, key=lambda x: x[1])]  # mais curtos primeiro
+def preroute_pair(ref_a, pin_a, ref_b, pin_b, w, via_dia=0.5, via_drill=0.3, step=0.1, rmax=2.0):
+    pa, pb = pad(ref_a, pin_a), pad(ref_b, pin_b)
+    if pa.GetNetCode() != pb.GetNetCode(): return {"ok": False, "why": "nets diferentes"}
+    nc = pa.GetNetCode(); A, B = pa.GetPosition(), pb.GetPosition()
+    la = pcbnew.B_Cu if pa.IsOnLayer(pcbnew.B_Cu) and not pa.IsOnLayer(pcbnew.F_Cu) else pcbnew.F_Cu
+    lb = pcbnew.F_Cu if pb.IsOnLayer(pcbnew.F_Cu) else pcbnew.B_Cu
+    if la == lb:
+        if seg_collides(A, B, w, la, nc) is None:
+            add_track(A, B, w, la, nc); return {"ok": True, "via": None}
+        return {"ok": False, "why": "mesma camada com colisão"}
+    cx, cy = ToMM(B.x), ToMM(B.y)  # procurar perto do pad destino (SMD fino), expandindo em anéis
+    cands = []
+    n = int(rmax / step)
+    for i in range(-n, n + 1):
+        for j in range(-n, n + 1):
+            x, y = cx + i * step, cy + j * step
+            d = ((x - cx) ** 2 + (y - cy) ** 2) ** 0.5
+            if 0.45 <= d <= rmax: cands.append((d, x, y))  # fora do pad (evita via-in-pad em pitch 0,65)
+    cands.sort()
+    tried = 0
+    def path_ok(S, E, lay):
+        """caminho direto ou com um cotovelo (horizontal/vertical primeiro, ou saída pelo eixo do pad); devolve lista de pontos ou None"""
+        if seg_collides(S, E, w, lay, nc) is None: return [S, E]
+        for M in (VECTOR2I(E.x, S.y), VECTOR2I(S.x, E.y)):
+            if seg_collides(S, M, w, lay, nc) is None and seg_collides(M, E, w, lay, nc) is None: return [S, M, E]
+        for ex in (0.8, 1.0, 1.2, 1.5, 1.8):  # saída horizontal pelo eixo do pad (LQFP lado direito/esquerdo)
+            for sgn in (1, -1):
+                M = VECTOR2I(S.x + FromMM(ex * sgn), S.y)
+                if seg_collides(S, M, w, lay, nc) is None and seg_collides(M, E, w, lay, nc) is None: return [S, M, E]
+        return None
+    for d, x, y in cands:
+        v = mm((x, y)); tried += 1
+        if via_collides(v, via_dia, nc, 0.15): continue
+        pb_path = path_ok(v, B, lb)
+        if pb_path is None: continue
+        pa_path = path_ok(A, v, la)
+        if pa_path is None: continue
+        add_via(v, nc, via_dia, via_drill)
+        for s_, e_ in zip(pa_path, pa_path[1:]): add_track(s_, e_, w, la, nc)
+        for s_, e_ in zip(pb_path, pb_path[1:]): add_track(s_, e_, w, lb, nc)
+        return {"ok": True, "via": (round(x, 3), round(y, 3)), "tried": tried, "segs": len(pa_path) + len(pb_path) - 2}
+    return {"ok": False, "why": "sem posição de via livre", "tried": tried}
+report["phases"]["R"] = {}
+for ra, pa_, rb, pb_, w in PREROUTE:
+    key = "%s.%s<->%s.%s" % (ra, pa_, rb, pb_)
+    try: report["phases"]["R"][key] = preroute_pair(ra, pa_, rb, pb_, w)
+    except KeyError as e: report["phases"]["R"][key] = {"ok": False, "why": "pad ausente %s" % e}
+    if not report["phases"]["R"][key]["ok"]: W("R: pré-rota %s falhou: %s" % (key, report["phases"]["R"][key]["why"]))
+
 # ---------------------------------------------------------------- V: vias GND/+3V3 nos caps de suporte
 def stitch_via(p, netname, label):
     """via a ~0.75 mm do pad, do lado oposto ao centro do U7; tenta 8 direções."""
     nc = net(netname).GetNetCode()
     if p.GetNetCode() != nc: return (label, "net %s != %s" % (p.GetNetname(), netname))
     c = p.GetPosition()
+    lay = pcbnew.B_Cu if p.IsOnLayer(pcbnew.B_Cu) and not p.IsOnLayer(pcbnew.F_Cu) else pcbnew.F_Cu
+    # posições preferidas (deixam livre o corredor U7.121-124 <-> U9 em B.Cu, ver D-28)
+    for xy in STITCH_PREF.get(label, []):
+        pos = mm(xy)
+        for dia in (0.7, 0.6):
+            if via_collides(pos, dia, nc) or seg_collides(c, pos, 0.25, lay, nc, 0.1): continue
+            if netname == "+3V3" and not _in_3v3_plane(pos): continue
+            add_via(pos, nc, dia); add_track(c, pos, 0.25, lay, nc)
+            return (label, "ok", pt(pos), "pref")
     d = VECTOR2I(c.x - u7c.x, c.y - u7c.y)
     import math
     ang0 = math.atan2(d.y, d.x)
@@ -277,11 +421,13 @@ def stitch_via(p, netname, label):
         for dist in (0.75, 0.95, 1.2, 1.5, 1.9):
             pos = VECTOR2I(int(c.x + FromMM(dist) * math.cos(ang)), int(c.y + FromMM(dist) * math.sin(ang)))
             if via_collides(pos, 0.7, nc): continue
-            lay = pcbnew.B_Cu if p.IsOnLayer(pcbnew.B_Cu) and not p.IsOnLayer(pcbnew.F_Cu) else pcbnew.F_Cu
             if seg_collides(c, pos, 0.25, lay, nc, 0.1): continue
+            # via +3V3 fora do contorno da zona In1 fica pendurada (via_dangling): C61.1 x=95,5 e C59.1 y=37,3
+            if netname == "+3V3" and not _in_3v3_plane(pos): continue
             add_via(pos, nc); add_track(c, pos, 0.25, lay, nc)
             return (label, "ok", pt(pos))
     return (label, "sem espaço")
+STITCH_PREF = {"C55.1": [(122.282, 52.1), (122.282, 52.0), (122.15, 52.1), (122.4, 52.05)]}
 
 # vias GND de escape para os pinos GND do U7 (pitch 0.5 mm não permite spoke térmico da zona)
 import math
@@ -341,6 +487,11 @@ for i, pin in enumerate(U7_3V3):
     ax, sg = _axis(c)
     group = V3_GROUPS.get(pin) or [pin]
     kw = dict(nc=v3_nc, reasons=U7_3V3_REASONS, plane=_in_3v3_plane)
+    if pin == 119:
+        # a via própria a leste caía no corredor U7.121-124 <-> U9 (D-28) e a via do C55.1 fica fora do In1 (USB_PWR F.Cu
+        # + trilhas In1 do FR): via sob o corpo em (118.5, 52.85), possível só com o tronco +5V In1 desviado (fase M)
+        r = _try_gnd(pin, [119], ax, -sg, 0.9, (1.66, 1.6, 1.75, 1.85), "dentro-119", **kw)
+        u7v3.append(r if r else (119, "via C55.1")); continue
     r = _try_gnd(pin, group, ax, sg, 0.9, (1.2, 1.5, 1.8, 2.2, 2.6, 3.0, 3.5, 4.0, 4.5), "fora", **kw)
     if r is None: r = _try_gnd(pin, group, ax, -sg, 0.9, (1.4, 1.7, 2.0, 2.4, 2.8, 3.2), "dentro", **kw)
     if r is None: r = _try_gnd(pin, group, ax, -sg, 0.6, (1.4, 1.7, 2.0, 2.4, 2.8, 3.2), "dentro-k0.6", **kw)
@@ -375,6 +526,19 @@ if can_vias: W("LAYOUT_CONFLICT candidato: vias em BUS*_H/_L herdadas do baselin
 
 pcbnew.SaveBoard(PCB, board)
 
+# ---------------------------------------------------------------- P: pré-fix de potência (step5c em modo --pre)
+# Pads GND/+3V3/+5V que ficaram sem ligação ao plano depois do 5a (ex.: via do baseline removida por colidir com
+# pad do U7) recebem via/stub ANTES do Freerouting, travados, para o autorouter os respeitar (ver D-26).
+if not NO_PRE:
+    g = {"PRELOADED_BOARD": board, "AS_LIBRARY": True, "__file__": os.path.join(ROOT, "05_SCRIPTS", "step5c_fix_unrouted.py"), "__name__": "step5c_pre"}
+    with open(g["__file__"], encoding="utf-8") as f: exec(compile(f.read(), g["__file__"], "exec"), g)
+    pre = g["main"](rounds=PRE_ROUNDS, power_only=True, lock=True)
+    report["phases"]["P"] = {"rounds": [(r["round"], r["unconnected"], len(r["fixes"]), r["unfixed"]) for r in pre["rounds"]], "added": len(pre["added"]), "warnings": pre["warnings"]}
+    alive = {t.m_Uuid.AsString() for t in board.GetTracks()}
+    base_tracks = [t for t in base_tracks if t.m_Uuid.AsString() in alive]
+    base_unlocked = [t for t in base_unlocked if t.m_Uuid.AsString() in alive]
+    pcbnew.SaveBoard(PCB, board)
+
 # ---------------------------------------------------------------- X: Freerouting
 def count_unrouted(b):
     b.BuildConnectivity(); return b.GetConnectivity().GetUnconnectedCount(True)
@@ -400,7 +564,23 @@ print("DSN", pcbnew.ExportSpecctraDSN(b, sys.argv[2]))
     # camadas internas = planos (+3V3 em In1, GND em In2): só o baseline pode tê-las; o autorouter não
     dsn3 = re.sub(r'\(layer (In[12]\.Cu)(\s*)\(type signal\)', r'(layer \1\2(type power)', dsn2) if INNER_POWER else dsn2
     report["phases"]["X"]["dsn_inner_layers_power"] = len(re.findall(r'\(type power\)', dsn3))
-    dsn2 = dsn3
+    # hole_clearance 0,25 do KiCad nao existe no DSN: via 0,5/0,3 + clearance 0,10 = 0,35 do centro, mas o furo exige
+    # 0,15 + 0,25 = 0,40. Regra via<->(wire|smd|pin) = 0,16 faz o Freerouting respeitar isso (senao o 5c arranca
+    # as vias do FR por hole_clearance e desfaz rotas inteiras). Freerouting: Structure.setClearanceRule aceita
+    # pares <classe>_<classe> com classes wire/via/smd/pin/area. via_via idem: via 0,7 travada + via 0,5 do FR com
+    # clearance 0,10 = 0,70 do centro, mas o furo exige 0,35 + 0,15 + 0,25 = 0,75 (3 pares hole_clearance via<->via no 5c).
+    # NÃO usar wire_pin 160: o baseline já tem trilhas a 0,10 de pinos PTH -> 159 violações fixas e o FR trava em 28 não roteados (corrida 26-10 10:06).
+    VIA_CLR = "(clearance 160 (type via_wire))(clearance 160 (type via_smd))(clearance 160 (type via_pin))(clearance 160 (type via_via))"
+    dsn4, nsub = re.subn(r'(\(clearance \d+(?:\.\d+)? \(type smd_smd\)\))', r'\1' + VIA_CLR, dsn3, count=1)
+    report["phases"]["X"]["dsn_via_clearance_rule"] = nsub == 1
+    # a classe Default usa via 0,7 no KiCad; com a regra acima o FR teria raio efectivo 0,51 em vez dos 0,40 que o
+    # furo exige -> via 0,5/0,3 para a classe Default (CAN_DIFF/USB mantêm 0,7; estão travadas)
+    i0 = dsn4.find("(class kicad_default")
+    i1 = dsn4.find('(use_via "Via[0-3]_700:300_um")', i0)
+    if i0 >= 0 and i1 >= 0:
+        dsn4 = dsn4[:i1] + '(use_via "Via[0-3]_500:300_um")' + dsn4[i1 + len('(use_via "Via[0-3]_700:300_um")'):]
+    report["phases"]["X"]["dsn_default_via_500"] = i0 >= 0 and i1 >= 0
+    dsn2 = dsn4
     with open(DSN, "w", encoding="utf-8") as f: f.write(dsn2)
     cmd = [JAVA, "-jar", FR_JAR, "-l", "en", "--gui.enabled=false", "-de", DSN, "-do", SES,
            "--router.autorouter.max_passes=%d" % FR_PASSES, "--router.plane_nets=GND", "--router.via_costs=80", "--router.automatic_neckdown=false", "--router.result_json=" + os.path.join(ROOT, "06_REPORTS", "step5b_fr_result.json")]
@@ -422,12 +602,38 @@ print("DSN", pcbnew.ExportSpecctraDSN(b, sys.argv[2]))
 for t in base_unlocked:
     if not re.match(r"BUS\w+_[HL]$", t.GetNetname()): t.SetLocked(False)
 
-# ---------------------------------------------------------------- F: refill + salvar
+# o Freerouting afunila (neck-down) junto a pads 0402 mesmo com automatic_neckdown=false (ex.: LED_GREEN 0,10,
+# BLUE- 0,12) -> track_width < min_track_width 0,1375. Alarga para a maior largura sem colisão (0,1 de folga).
+MIN_TW = 0.1375
+def widen_thin_tracks():
+    allt = list(board.GetTracks()); out = []
+    for t in allt:
+        if t.GetClass() != "PCB_TRACK" or t.IsLocked() or ToMM(t.GetWidth()) >= MIN_TW: continue
+        lay = t.GetLayer(); nc = t.GetNetCode(); done = None
+        for w in (0.2, 0.16, 0.14):
+            shp = pcbnew.SHAPE_SEGMENT(t.GetStart(), t.GetEnd(), FromMM(w)); hit = False
+            for p in all_pads:
+                if p.GetNetCode() != nc and p.IsOnLayer(lay) and p.GetEffectiveShape(lay).Collide(shp, FromMM(0.1)): hit = True; break
+            if not hit:
+                for o in allt:
+                    if o.GetNetCode() != nc and o.IsOnLayer(lay) and o.GetEffectiveShape(lay).Collide(shp, FromMM(0.1)): hit = True; break
+            if not hit: t.SetWidth(FromMM(w)); done = w; break
+        out.append((t.GetNetname(), pt(t.GetStart()), done))
+        if done is None: W("trilha fina do FR sem largura válida: %s %s" % (t.GetNetname(), pt(t.GetStart())))
+    return out
+report["phases"].setdefault("X", {})["thin_tracks_widened"] = widen_thin_tracks()
+
+# ---------------------------------------------------------------- F: refill + limpeza final + salvar
 pcbnew.ZONE_FILLER(board).Fill(board.Zones())
 board.BuildConnectivity()
-report["phases"]["F"] = {"unrouted_after": count_unrouted(board),
+# sobras do baseline que só eram válidas com o pour antigo (via +3V3 (109,0; 53,9) sob o U7 ligada só em F.Cu;
+# stub GND F.Cu (104,125; 51,4) cuja ponta deixou de cair no preenchimento) -> via_dangling / track_dangling
+report["phases"]["F"] = {"cleanup_final_removed": cleanup_fragments(check_via_layers=True)}
+pcbnew.ZONE_FILLER(board).Fill(board.Zones())
+board.BuildConnectivity()
+report["phases"]["F"].update({"unrouted_after": count_unrouted(board),
                          "tracks": sum(1 for t in board.GetTracks() if t.GetClass() == "PCB_TRACK"),
-                         "vias": sum(1 for t in board.GetTracks() if t.GetClass() == "PCB_VIA")}
+                         "vias": sum(1 for t in board.GetTracks() if t.GetClass() == "PCB_VIA")})
 pcbnew.SaveBoard(PCB, board)
 with open(REPORT, "w", encoding="utf-8") as f: json.dump(report, f, indent=1, ensure_ascii=False, default=str)
 print(json.dumps({k: v for k, v in report["phases"].items() if k != "V"}, ensure_ascii=False, default=str, indent=1))

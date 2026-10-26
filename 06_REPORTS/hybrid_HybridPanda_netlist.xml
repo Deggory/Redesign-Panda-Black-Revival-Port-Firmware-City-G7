@@ -2,7 +2,7 @@
 <export version="E">
   <design>
     <source>C:\Users\costabr\Downloads\openpilot\HybridPanda_v2_20261022_1616\04_PROJECT\HybridPanda\HybridPanda.kicad_sch</source>
-    <date>2026-10-23T09:27:52</date>
+    <date>2026-10-26T12:35:25</date>
     <tool>Eeschema 10.0.7</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -3842,12 +3842,12 @@
       <node ref="SW1" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="U7" pin="135" pinfunction="BOOT0_135" pintype="input"/>
     </net>
-    <net code="8" name="BUS0_H" class="Default">
+    <net code="8" name="BUS0_H" class="CAN_DIFF">
       <node ref="D9" pin="2" pintype="passive"/>
       <node ref="P1" pin="B11" pinfunction="SSRXp1_B11" pintype="unspecified"/>
       <node ref="U11" pin="7" pinfunction="CANH_7" pintype="bidirectional"/>
     </net>
-    <net code="9" name="BUS0_L" class="Default">
+    <net code="9" name="BUS0_L" class="CAN_DIFF">
       <node ref="D9" pin="1" pintype="passive"/>
       <node ref="P1" pin="B10" pinfunction="SSRXn1_B10" pintype="unspecified"/>
       <node ref="U11" pin="6" pinfunction="CANL_6" pintype="bidirectional"/>
@@ -3865,12 +3865,12 @@
       <node ref="U11" pin="1" pinfunction="TXD_1" pintype="input"/>
       <node ref="U7" pin="137" pinfunction="PB9_137" pintype="bidirectional"/>
     </net>
-    <net code="13" name="BUS1N_H" class="Default">
+    <net code="13" name="BUS1N_H" class="CAN_DIFF">
       <node ref="D8" pin="2" pintype="passive"/>
       <node ref="P1" pin="B2" pinfunction="SSTXp2_B2" pintype="unspecified"/>
       <node ref="U10" pin="7" pinfunction="CANH_7" pintype="bidirectional"/>
     </net>
-    <net code="14" name="BUS1N_L" class="Default">
+    <net code="14" name="BUS1N_L" class="CAN_DIFF">
       <node ref="D8" pin="1" pintype="passive"/>
       <node ref="P1" pin="B3" pinfunction="SSTXn2_B3" pintype="unspecified"/>
       <node ref="U10" pin="6" pinfunction="CANL_6" pintype="bidirectional"/>
@@ -3888,12 +3888,12 @@
       <node ref="U10" pin="1" pinfunction="TXD_1" pintype="input"/>
       <node ref="U7" pin="133" pinfunction="PB6_133" pintype="bidirectional"/>
     </net>
-    <net code="18" name="BUS1O_H" class="Default">
+    <net code="18" name="BUS1O_H" class="CAN_DIFF">
       <node ref="D6" pin="2" pintype="passive"/>
       <node ref="P1" pin="A2" pinfunction="SSTXP1_A2" pintype="unspecified"/>
       <node ref="U8" pin="7" pinfunction="CANH_7" pintype="bidirectional"/>
     </net>
-    <net code="19" name="BUS1O_L" class="Default">
+    <net code="19" name="BUS1O_L" class="CAN_DIFF">
       <node ref="D6" pin="1" pintype="passive"/>
       <node ref="P1" pin="A3" pinfunction="SSTXn1_A3" pintype="unspecified"/>
       <node ref="U8" pin="6" pinfunction="CANL_6" pintype="bidirectional"/>
@@ -3911,12 +3911,12 @@
       <node ref="U7" pin="73" pinfunction="PB13_73" pintype="bidirectional"/>
       <node ref="U8" pin="1" pinfunction="TXD_1" pintype="input"/>
     </net>
-    <net code="23" name="BUS2_H" class="Default">
+    <net code="23" name="BUS2_H" class="CAN_DIFF">
       <node ref="D7" pin="2" pintype="passive"/>
       <node ref="P1" pin="A11" pinfunction="SSRXp2_A11" pintype="unspecified"/>
       <node ref="U9" pin="7" pinfunction="CANH_7" pintype="bidirectional"/>
     </net>
-    <net code="24" name="BUS2_L" class="Default">
+    <net code="24" name="BUS2_L" class="CAN_DIFF">
       <node ref="D7" pin="1" pintype="passive"/>
       <node ref="P1" pin="A10" pinfunction="SSRXn2_A10" pintype="unspecified"/>
       <node ref="U9" pin="6" pinfunction="CANL_6" pintype="bidirectional"/>

@@ -1,0 +1,387 @@
+{
+ "date": "2026-10-26 12:35:16",
+ "commands": [
+  {
+   "cmd": "C:\\Users\\costabr\\AppData\\Local\\Programs\\KiCad\\10.0\\bin\\kicad-cli.exe sch erc --format json --severity-all -o C:\\Users\\costabr\\Downloads\\openpilot\\HybridPanda_v2_20261022_1616\\06_REPORTS\\hybrid_ERC_step7.json C:\\Users\\costabr\\Downloads\\openpilot\\HybridPanda_v2_20261022_1616\\04_PROJECT\\HybridPanda\\HybridPanda.kicad_sch",
+   "exit": 0,
+   "seconds": 3.9,
+   "log": "step7_erc.log"
+  },
+  {
+   "cmd": "C:\\Users\\costabr\\AppData\\Local\\Programs\\KiCad\\10.0\\bin\\kicad-cli.exe pcb drc --format json --severity-all --units mm -o C:\\Users\\costabr\\Downloads\\openpilot\\HybridPanda_v2_20261022_1616\\06_REPORTS\\hybrid_DRC_step7.json C:\\Users\\costabr\\Downloads\\openpilot\\HybridPanda_v2_20261022_1616\\04_PROJECT\\HybridPanda\\HybridPanda.kicad_pcb",
+   "exit": 0,
+   "seconds": 4.5,
+   "log": "step7_drc.log"
+  },
+  {
+   "cmd": "C:\\Users\\costabr\\AppData\\Local\\Programs\\KiCad\\10.0\\bin\\kicad-cli.exe sch export netlist --format kicadxml -o C:\\Users\\costabr\\Downloads\\openpilot\\HybridPanda_v2_20261022_1616\\06_REPORTS\\hybrid_HybridPanda_netlist.xml C:\\Users\\costabr\\Downloads\\openpilot\\HybridPanda_v2_20261022_1616\\04_PROJECT\\HybridPanda\\HybridPanda.kicad_sch",
+   "exit": 0,
+   "seconds": 0.7,
+   "log": "step7_netlist.log"
+  },
+  {
+   "cmd": "C:\\Users\\costabr\\AppData\\Local\\Programs\\KiCad\\10.0\\bin\\kicad-cli.exe sch export bom --fields Reference,Value,Footprint,${QUANTITY},${DNP},MPN,Manufacturer,Datasheet --labels Reference,Value,Footprint,Qty,DNP,MPN,Manufacturer,Datasheet --group-by Value,Footprint --exclude-dnp -o C:\\Users\\costabr\\Downloads\\openpilot\\HybridPanda_v2_20261022_1616\\06_REPORTS\\hybrid_BOM.csv C:\\Users\\costabr\\Downloads\\openpilot\\HybridPanda_v2_20261022_1616\\04_PROJECT\\HybridPanda\\HybridPanda.kicad_sch",
+   "exit": 0,
+   "seconds": 0.7,
+   "log": "step7_bom.log"
+  },
+  {
+   "cmd": "C:\\Users\\costabr\\Downloads\\openpilot\\HybridPanda_v2_20261022_1616\\05_SCRIPTS\\.venv\\Scripts\\python.exe C:\\Users\\costabr\\Downloads\\openpilot\\HybridPanda_v2_20261022_1616\\05_SCRIPTS\\parity_check.py --netlist C:\\Users\\costabr\\Downloads\\openpilot\\HybridPanda_v2_20261022_1616\\06_REPORTS\\hybrid_HybridPanda_netlist.xml --profile red_h7",
+   "exit": 0,
+   "seconds": 0.3,
+   "log": "step7_parity.log"
+  },
+  {
+   "cmd": "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\Users\\costabr\\Downloads\\openpilot\\HybridPanda_v2_20261022_1616\\05_SCRIPTS\\Make-Manifest.ps1 -Step STEP7 -Original",
+   "exit": 0,
+   "seconds": 47.3,
+   "log": "step7_manifest.log"
+  }
+ ],
+ "failures": [],
+ "notes": [
+  "courtyards_overlap 1 — herdado do baseline (D7/U9), ver STEP5_layout_H725.md §7.3",
+  "114 referências sem MPN na BOM (PROVISÓRIO — ver STEP4/R3v2)"
+ ],
+ "erc": {
+  "errors": 0,
+  "warnings": 351,
+  "by_type": {
+   "warning/endpoint_off_grid": 131,
+   "warning/lib_symbol_issues": 6,
+   "warning/lib_symbol_mismatch": 178,
+   "warning/pin_to_pin": 36
+  },
+  "error_items": []
+ },
+ "drc": {
+  "unconnected_items": 0,
+  "unconnected_list": [],
+  "violations_total": 179,
+  "baseline_total": 194,
+  "by_type": {
+   "copper_edge_clearance": {
+    "hibrida": 2,
+    "baseline": 3
+   },
+   "courtyards_overlap": {
+    "hibrida": 1,
+    "baseline": 1
+   },
+   "drill_out_of_range": {
+    "hibrida": 1,
+    "baseline": 1
+   },
+   "footprint_type_mismatch": {
+    "hibrida": 10,
+    "baseline": 11
+   },
+   "hole_clearance": {
+    "hibrida": 8,
+    "baseline": 8
+   },
+   "isolated_copper": {
+    "hibrida": 1,
+    "baseline": 1
+   },
+   "lib_footprint_mismatch": {
+    "hibrida": 58,
+    "baseline": 67
+   },
+   "silk_edge_clearance": {
+    "hibrida": 4,
+    "baseline": 4
+   },
+   "silk_overlap": {
+    "hibrida": 4,
+    "baseline": 3
+   },
+   "starved_thermal": {
+    "hibrida": 18,
+    "baseline": 13
+   },
+   "text_height": {
+    "hibrida": 72,
+    "baseline": 82
+   }
+  },
+  "new_vs_baseline": [
+   {
+    "type": "starved_thermal",
+    "severity": "error",
+    "desc": "Thermal relief connection to zone incomplete (layer In1.Cu; zone min spoke count 2; actual 1)",
+    "items": [
+     "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
+     "PTH pad 9 [GND] of U6"
+    ]
+   },
+   {
+    "type": "starved_thermal",
+    "severity": "error",
+    "desc": "Thermal relief connection to zone incomplete (layer In1.Cu; zone min spoke count 2; actual 1)",
+    "items": [
+     "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
+     "PTH pad 9 [GND] of U6"
+    ]
+   },
+   {
+    "type": "starved_thermal",
+    "severity": "error",
+    "desc": "Thermal relief connection to zone incomplete (layer In1.Cu; zone min spoke count 2; actual 1)",
+    "items": [
+     "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
+     "PTH pad 9 [GND] of U6"
+    ]
+   },
+   {
+    "type": "starved_thermal",
+    "severity": "error",
+    "desc": "Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)",
+    "items": [
+     "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
+     "Pad 2 [GND] of C52 on B.Cu"
+    ]
+   },
+   {
+    "type": "starved_thermal",
+    "severity": "error",
+    "desc": "Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)",
+    "items": [
+     "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
+     "Pad 2 [GND] of C27 on F.Cu"
+    ]
+   },
+   {
+    "type": "starved_thermal",
+    "severity": "error",
+    "desc": "Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)",
+    "items": [
+     "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
+     "Pad 6 [GND] of U7 on B.Cu"
+    ]
+   },
+   {
+    "type": "starved_thermal",
+    "severity": "error",
+    "desc": "Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)",
+    "items": [
+     "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
+     "Pad 69 [GND] of U7 on B.Cu"
+    ]
+   },
+   {
+    "type": "starved_thermal",
+    "severity": "error",
+    "desc": "Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)",
+    "items": [
+     "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
+     "Pad 89 [GND] of U7 on B.Cu"
+    ]
+   },
+   {
+    "type": "starved_thermal",
+    "severity": "error",
+    "desc": "Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)",
+    "items": [
+     "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
+     "Pad 2 [GND] of C46 on B.Cu"
+    ]
+   },
+   {
+    "type": "starved_thermal",
+    "severity": "error",
+    "desc": "Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)",
+    "items": [
+     "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
+     "Pad 2 [GND] of U10 on F.Cu"
+    ]
+   },
+   {
+    "type": "starved_thermal",
+    "severity": "error",
+    "desc": "Thermal relief connection to zone incomplete (layer F.Cu; 1 spokes connected to isolated island)",
+    "items": [
+     "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
+     "Pad A1 [GND] of P1 on F.Cu"
+    ]
+   },
+   {
+    "type": "silk_overlap",
+    "severity": "warning",
+    "desc": "Silkscreen clearance",
+    "items": [
+     "Reference field of C23",
+     "Segment of Y1 on B.Silkscreen"
+    ]
+   }
+  ],
+  "clearance": 0,
+  "shorting_items": 0,
+  "courtyards_overlap": 1,
+  "track_width": 0
+ },
+ "netlist": {
+  "sch_components": 114,
+  "pcb_footprints": 114,
+  "only_in_sch": [],
+  "only_in_pcb": [],
+  "value_diff": [],
+  "footprint_diff": [],
+  "pads_compared": 467,
+  "net_divergences": [],
+  "other_pin_pad_notes": [
+   {
+    "ref": "U12",
+    "pin": "9",
+    "sch": null,
+    "pcb": "",
+    "kind": "pad sem pino no esquemático"
+   }
+  ],
+  "other_pin_pad_notes_count": 1
+ },
+ "bom": {
+  "lines_refs": 114,
+  "dnp_in_sch": [],
+  "only_in_bom": [],
+  "sch_not_in_bom": [],
+  "value_diff_bom_sch": [],
+  "footprint_diff_bom_pcb": [],
+  "refs_without_MPN": [
+   "C1",
+   "C10",
+   "C11",
+   "C12",
+   "C14",
+   "C16",
+   "C17",
+   "C18",
+   "C19",
+   "C2",
+   "C20",
+   "C21",
+   "C23",
+   "C24",
+   "C26",
+   "C27",
+   "C28",
+   "C29",
+   "C3",
+   "C30",
+   "C31",
+   "C32",
+   "C33",
+   "C34",
+   "C37",
+   "C38",
+   "C39",
+   "C4",
+   "C40",
+   "C41",
+   "C42",
+   "C43",
+   "C44",
+   "C45",
+   "C46",
+   "C47",
+   "C48",
+   "C49",
+   "C5",
+   "C50",
+   "C51",
+   "C52",
+   "C53",
+   "C54",
+   "C55",
+   "C56",
+   "C57",
+   "C58",
+   "C59",
+   "C6",
+   "C60",
+   "C61",
+   "C62",
+   "C63",
+   "C7",
+   "C8",
+   "D1",
+   "D10",
+   "D11",
+   "D12",
+   "D13",
+   "D14",
+   "D2",
+   "D5",
+   "D6",
+   "D7",
+   "D8",
+   "D9",
+   "FB1",
+   "J1",
+   "L3",
+   "L4",
+   "L5",
+   "P1",
+   "Q1",
+   "Q2",
+   "Q3",
+   "Q4",
+   "R1",
+   "R14",
+   "R15",
+   "R16",
+   "R17",
+   "R18",
+   "R19",
+   "R2",
+   "R20",
+   "R21",
+   "R23",
+   "R24",
+   "R26",
+   "R27",
+   "R28",
+   "R29",
+   "R3",
+   "R30",
+   "R31",
+   "R32",
+   "R33",
+   "R5",
+   "R6",
+   "R9",
+   "SW1",
+   "U1",
+   "U10",
+   "U11",
+   "U12",
+   "U3",
+   "U5",
+   "U6",
+   "U7",
+   "U8",
+   "U9",
+   "Y1"
+  ]
+ },
+ "parity": {
+  "exit": 0,
+  "result": "OK",
+  "status_counts": {
+   "OK": 36
+  },
+  "report_md": "06_REPORTS\\parity_red_h7_hybrid_HybridPanda_netlist.md",
+  "conflicts": [],
+  "optional_not_ok": []
+ },
+ "manifests": {
+  "exit": 0,
+  "tail": [
+   "OUTPUT_ROOT manifest: 6075 files -> C:\\Users\\costabr\\Downloads\\openpilot\\HybridPanda_v2_20261022_1616\\00_MANIFESTS\\OUTPUT_ROOT_STEP7_20261026_1235.sha256",
+   "02_REFERENCE unchanged vs reference_clones.sha256: False",
+   "ORIGINAL vs BEFORE: IDENTICAL (377 files)",
+   "INDEX.md rows: 224"
+  ]
+ },
+ "seconds": 57.5
+}
