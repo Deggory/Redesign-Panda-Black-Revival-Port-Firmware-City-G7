@@ -35,3 +35,7 @@ fp-info-cache
 # embedded VS Code local-history repo inside the baseline copy
 01_BASELINE/original_copy/BlackPanda/kicad_project/.history/
 01_BASELINE/original_copy/HarnessBox/kicad_project/.history/
+
+04_PROJECT/HybridPanda/*.pre_fixaudit
+09_FIRMWARECITYG7_BLACKPANDA/opendbc_firmwarecityg7/
+09_FIRMWARECITYG7_BLACKPANDA/.venv_city/

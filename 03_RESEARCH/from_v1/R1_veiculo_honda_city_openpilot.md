@@ -242,3 +242,19 @@ Mesmo com a forte evidência de que o City 7G é CAN clássico (seção 1), é p
 - Não foi feita varredura dedicada dos repositórios `sunnypilot/sunnypilot` e `FrogAi/FrogPilot` nem do Discord oficial da comma.ai nesta sessão (ferramentas usadas não têm acesso a histórico de Discord); portanto, qualquer menção de experiência de usuários Brasil nesses canais permanece **NÃO VERIFICADO**.
 - Nenhuma fonte de documentação de serviço oficial da Honda (manual de oficina/circuito elétrico) foi localizada ou consultada diretamente — toda a análise de barramentos é baseada em código‑fonte do opendbc (primário quanto ao software, mas não um documento de engenharia elétrica da fabricante) e em artigos genéricos de terceiros sobre a arquitetura CAN da Honda.
 - O bitrate exato dos barramentos do GN/City (500 kbps presumido) não está confirmado por nenhuma fonte primária específica ao modelo; permanece **INFERÊNCIA**, daí a recomendação do procedimento de captura na seção 3.
+
+
+## Adenda 2026-10-26 — black panda (F4) × City 2023: incompatibilidade temporal (verificado no git)
+
+| Evento | Data | Commit | Fonte |
+|---|---|---|---|
+| Remoção de white/black panda do firmware (`board/boards/black.h` apagado, `HW_TYPE_BLACK_PANDA` removido) | 2025-07-19 | panda `3d272335` "Deprecate white and black pandas (#2227)" | `02_REFERENCE\panda_full` |
+| Último release openpilot com F4 | 2025-06-05 | tag `v0.9.9` | `02_REFERENCE\openpilot` |
+| Honda City (Brazil only) 2023 adicionado | **2025-08-19** | opendbc `43006b9a` "Honda: Honda City (Brazil only) 2023 (#2425)" | `02_REFERENCE\opendbc` |
+| openpilot actual (`ff47f484`, 2026-10-22) | — | `panda/python/__init__.py:153` `SUPPORTED_DEVICES = H7_DEVICES`; `:355/:436` `assert hw_type in SUPPORTED_DEVICES` | — |
+
+Conclusão: **não existe versão oficial do openpilot que suporte simultaneamente o black panda (STM32F4) e o
+Honda City 2023 BR.** Um black panda físico (placa OpenBlackPanda) fala CAN clássico com o City sem problema
+eléctrico, mas o openpilot ≥ 0.10 rejeita-o (`Unknown HW`) e o openpilot ≤ 0.9.9 não conhece o City.
+Só funcionaria com fork/backport manual do `HONDA_CITY_7G` para opendbc antigo — fora do escopo deste projecto.
+Isto confirma a necessidade da variante H7 (red panda, `HW_TYPE_RED_PANDA = 7`) deste repositório.
