@@ -1,8 +1,8 @@
 # HYBRID_FW_PORT - Port do firmware panda (H7) para a Hybrid Panda
 
-Data: 2026-10-27
+Data: 2026-10-27 (revisao 2: PB14, HYBRID_BOARD, MISRA, procedimento de gravacao)
 Repositorio: clone `panda_hybrid` (origin kriptomad/panda, upstream commaai/panda master `1305b78c`),
-branch `hybrid-h725`, commit `a8babfea38e278aa5fe35a2937a77f75564a57ce` (nao enviado / sem push).
+branch `hybrid-h725`, commits `a8babfea` (port inicial) e `78e37994` (PB14 + HYBRID_BOARD) - nao enviados / sem push.
 Fonte de verdade dos pinos: `04_PROJECT\HybridPanda\HybridPanda.kicad_sch` -> netlist kicadxml
 (`kicad-cli sch export netlist --format kicadxml`), componente U7 = STM32H725ZGT6 (LQFP144).
 Nada aqui foi testado em hardware (ver secao 10).
@@ -22,7 +22,13 @@ Nada aqui foi testado em hardware (ver secao 10).
   **separadas**. Resultado esperado com a PCB atual + firmware upstream: o core fica sem alimentacao, o MCU
   nao arranca (travamento descrito no proprio `clock.h`). Correcao recomendada na PCB (PCR-2). Como fallback
   para placas ja fabricadas foi adicionado um alvo opcional `panda_h7_ldo` (`HYBRID_LDO=1`) que forca LDO.
-- Build: `panda_h7`, `panda_h7_ldo` e `body_h7` compilam em DEBUG e RELEASE=1 (gcc 14.2.Rel1, -Werror).
+- Build: `panda_h7`, `panda_h7_hybrid`, `panda_h7_ldo` e `body_h7` compilam em DEBUG e RELEASE=1 (gcc 14.2.Rel1, -Werror);
+  cppcheck 2.22 + addon MISRA sem violacoes nas tres variantes (secao 7).
+- **Revisao 2 (apos o SI/PI audit):** PB14 (USB_LOAD) agora e saida push-pull em nivel baixo (porta USB-A ligada)
+  no `hybrid.h`, como o black panda fazia; o red panda deixa esse pino em open-drain = 1 e isso coloca Q3 no limiar
+  (secao 11). Para que essa correcao valha mesmo com PF9 em GND (id1 = 0 -> red), existe o alvo `panda_h7_hybrid`
+  (`-DHYBRID_BOARD`) que fixa a placa em tempo de compilacao, ignorando os straps (secao 4.1). PCR-2 foi aceita pelo
+  dono da placa (VFBSMPS -> VCAP), portanto o caminho SMPS padrao do `clock.h` e o alvo; `panda_h7_ldo` fica como fallback.
 
 ## 2. Mapa completo de pinos do U7 (netlist)
 
@@ -240,6 +246,28 @@ Evidencia de nao-ambiguidade:
 
 Implementado em `board/stm32h7/board.h` (ramo `id1 == 4U` -> `HW_TYPE_HYBRID_PANDA`, `&board_hybrid`).
 
+### 4.1 Opcao de compilacao `HYBRID_BOARD` (alvo `panda_h7_hybrid`)
+
+Problema: a placa pode ser fabricada com PF9 em GND (id1 = 0). Nesse caso o binario `panda_h7` padrao seleciona
+`board_red`, e `red_init` deixa PB14 em open-drain com pull-up (secao 11) - correto para o red panda real, mas
+indesejado nesta placa. Alterar `red.h` nao e aceitavel (mudaria o comportamento de red pandas reais).
+
+Solucao: `-DHYBRID_BOARD` em `detect_board_type()` fixa `hw_type = HW_TYPE_HYBRID_PANDA` e `current_board = &board_hybrid`
+sem ler PF7..PF10/PD4..PD7; `red.h`/`tres.h`/`cuatro.h` nao sao incluidos nesse build (e `clock_source_init`, usado
+apenas por tres/cuatro, nao e compilado - MISRA 8.7). `SConscript` gera sempre `panda_h7_hybrid` com esse define;
+`panda_h7_ldo` passa a implicar `HYBRID_BOARD` tambem.
+
+Trade-off:
+
+| Binario | PF9 em GND (id1 = 0) | PF9 aberto (id1 = 4) | PB14 | Compativel com red panda real |
+|---|---|---|---|---|
+| `panda_h7` (upstream + ramo id1==4) | red panda: tudo funciona, mas PB14 open-drain -> USB-A pode desligar | hybrid | so com strap | sim |
+| `panda_h7_hybrid` (recomendado para esta placa) | hybrid (straps ignorados) | hybrid | push-pull 0 = ligado | **nao** (red/tres/cuatro ausentes -> em hardware comma seria tratado como hybrid) |
+| `panda_h7_ldo` | hybrid + LDO forcado | hybrid + LDO forcado | idem | nao |
+
+O host (`python/__init__.py`) ve `HW_TYPE_HYBRID_PANDA` (0x0b) em ambos os casos do `panda_h7_hybrid`; bootstub e app
+devem vir do mesmo alvo (o bootstub tambem chama `detect_board_type()` para LEDs e USB).
+
 ## 5. Esquema de alimentacao do core (VCORE) - veredito
 
 O que a netlist mostra (pinos de sistema do U7):
@@ -272,26 +300,44 @@ proximo power-on. Upstream distingue red (H725, SMPS) de tres/cuatro (H723, LDO)
 Opcoes:
 1. **PCR-2 (recomendada)**: ligar VFBSMPS a VCAP na PCB (uma trilha ou link 0 ohm). Firmware upstream inalterado,
    binario `panda_h7` padrao (igual ao red panda). C42 10 uF passa a estar em paralelo com C39/C40 na rede VCAP.
-2. Fallback firmware (implementado, opcional): alvo `panda_h7_ldo` (`HYBRID_LDO=1 scons`) com `-DPWR_FORCE_LDO`,
-   que forca `PWR->CR3 = LDOEN` tambem em LQFP144. Com a PCB atual isso e eletricamente coerente (VDDLDO = 3V3,
-   VCAP com 2x 2,2 uF, VDDSMPS = VDD; L5/C42 ficam sem funcao). Limitacoes: bootstub e app tem de vir do mesmo alvo;
+2. Fallback firmware (implementado, opcional): alvo `panda_h7_ldo` (`HYBRID_LDO=1 scons`) com `-DHYBRID_BOARD -DPWR_FORCE_LDO`,
+   que escreve `PWR->CR3 = LDOEN` diretamente, sem consultar `SYSCFG->PKGR` (revisao 2: o bloco SMPS/`get_package_smps_type`
+   fica fora do build). Com a PCB atual isso e eletricamente coerente (VDDLDO = 3V3, VCAP com 2x 2,2 uF, VDDSMPS = VDD;
+   L5/C42 ficam sem funcao). Limitacoes: bootstub e app tem de vir do mesmo alvo;
    binario incompativel com red panda real; o bootrom DFU da ST pode escrever CR3 antes do bootstub (aviso no
    `clock.h`) - se escrever SMPS, a placa nao enumera em DFU e so pode ser gravada por SWD (J1). Nao testado.
 
-## 6. Alteracoes de firmware (commit a8babfea, branch hybrid-h725)
+Decisao do dono da placa (SI/PI audit, `06_REPORTS\si_pi_audit\SI_PI_AUDIT.md`): aplicar PCR-2. Com isso o alvo e o
+caminho SMPS padrao do `clock.h` (binarios `panda_h7` ou `panda_h7_hybrid`); `panda_h7_ldo` permanece apenas como fallback
+para a revisao atual da PCB.
+
+## 6. Alteracoes de firmware (branch hybrid-h725)
+
+Commit `a8babfea` (port inicial):
 
 | Arquivo | Alteracao |
 |---|---|
-| `board/boards/hybrid.h` (novo) | tabela de pinos no cabecalho; `hybrid_harness_config` (PC4/PA1, PC10/PC11, ADC1 ch4/ch17); `board_hybrid` reutilizando `red_init`, `red_enable_can_transceiver`, `red_set_can_mode`, `red_read_voltage_mV`, LEDs PE4/PE3/PE2; fan/siren/SOM/SPI/IR/amp = `unused_*`, `has_spi=false`, `has_fan=false`, `avdd_mV=3300` |
+| `board/boards/hybrid.h` (novo) | tabela de pinos no cabecalho; `hybrid_harness_config` (PC4/PA1, PC10/PC11, ADC1 ch4/ch17); `board_hybrid`; LEDs PE4/PE3/PE2; fan/siren/SOM/SPI/IR/amp = `unused_*`, `has_spi=false`, `has_fan=false`, `avdd_mV=3300` |
 | `board/boards/board_declarations.h` | `HW_TYPE_HYBRID_PANDA 11U`, `extern struct board board_hybrid` |
 | `board/stm32h7/board.h` | include `hybrid.h`; ramo `id1 == 4U` |
-| `board/stm32h7/clock.h` | `#ifdef PWR_FORCE_LDO` -> trata como `PACKAGE_WITHOUT_SMPS` |
+| `board/stm32h7/clock.h` | `#ifdef PWR_FORCE_LDO` |
 | `SConscript` | alvo opcional `panda_h7_ldo` quando `HYBRID_LDO` esta no ambiente |
 | `python/__init__.py` | `HW_TYPE_HYBRID_PANDA = b'\x0b'`, incluido em `H7_DEVICES`/`SUPPORTED_DEVICES` |
 
-Nao alterados: `tests/misra/*`, `.github/workflows/test.yaml`, `python/constants.py` (nao ha tabela de nomes por HW type).
-Reuso das funcoes `red_*`: como todos os pinos coincidem, duplicar `red.h` so criaria divergencia futura; o
-`hybrid.h` documenta cada pino e mantem a identidade propria (hw_type, struct, harness config).
+Commit `78e37994` (revisao 2):
+
+| Arquivo | Alteracao |
+|---|---|
+| `board/boards/hybrid.h` | passa a ser autocontido: `hybrid_enable_can_transceiver`, `hybrid_set_can_mode`, `hybrid_read_voltage_mV`, `hybrid_set_usb_load_switch`, `hybrid_init` (sem `#include "red.h"`); PB14 push-pull, PULL_NONE, nivel 0 na init |
+| `board/stm32h7/board.h` | `#ifdef HYBRID_BOARD` fixa `board_hybrid`; `red.h`/`tres.h`/`cuatro.h` so sem `HYBRID_BOARD` |
+| `board/stm32h7/clock.h` | com `PWR_FORCE_LDO` escreve `LDOEN` direto; enum/`get_package_smps_type` fora do build (cppcheck `knownConditionTrueFalse`/`redundantInitialization`) |
+| `board/drivers/clock_source.h` | `clock_source_init` so sem `HYBRID_BOARD` (MISRA 8.7: funcao externa referenciada em uma unica unidade/nenhuma) |
+| `board/drivers/gpio.h` | `set_gpio_output_type`: `1U << pin` -> `1UL << pin` (MISRA 12.2; passou a ser alcancado pelo novo caminho push-pull) |
+| `SConscript` | alvo `panda_h7_hybrid` (`-DHYBRID_BOARD`) sempre; `panda_h7_ldo` = `-DHYBRID_BOARD -DPWR_FORCE_LDO` |
+
+Nao alterados: `red.h`, `tres.h`, `cuatro.h`, `tests/misra/*`, `.github/workflows/test.yaml`, `python/constants.py`
+(nao ha tabela de nomes por HW type). O `hybrid.h` deixou de reutilizar `red_*` para que o build `HYBRID_BOARD` nao
+dependa de `red.h` e para que as diferencas (PB14) fiquem num unico lugar.
 
 ## 7. Evidencia de build
 
@@ -300,7 +346,7 @@ Ambiente: Windows, Arm GNU Toolchain 14.2.Rel1 (arm-none-eabi-gcc 14.2.1), SCons
 `local_build_windows.scons` (pula `tests/libpanda`, forca plataforma posix). Flags upstream mantidas (`-Wall -Wextra
 -Wstrict-prototypes -Werror -Os`). Unico aviso: `ld: section .data type changed to PROGBITS` (pre-existente).
 
-DEBUG (`HYBRID_LDO=1 scons -f local_build_windows.scons -j8`):
+DEBUG, revisao 1 / commit `a8babfea` (`HYBRID_LDO=1 scons -f local_build_windows.scons -j8`):
 
 | Saida | bytes |
 |---|---|
@@ -310,7 +356,7 @@ DEBUG (`HYBRID_LDO=1 scons -f local_build_windows.scons -j8`):
 | board/obj/bootstub.panda_h7_ldo.bin | 19888 |
 | board/obj/body_h7.bin.signed | 66368 |
 
-RELEASE=1 (`RELEASE=1 CERT=<debug cert> HYBRID_LDO=1`):
+RELEASE=1, revisao 1 (`RELEASE=1 CERT=<debug cert> HYBRID_LDO=1`):
 
 | Saida | bytes |
 |---|---|
@@ -320,23 +366,50 @@ RELEASE=1 (`RELEASE=1 CERT=<debug cert> HYBRID_LDO=1`):
 | board/obj/bootstub.panda_h7_ldo.bin | 19852 |
 | board/obj/body_h7.bin.signed | 65208 |
 
-`arm-none-eabi-size` (RELEASE): panda_h7 main.elf text 66448 / data 1216 / bss 433617; bootstub text 18336;
-panda_h7_ldo main.elf text 66416. Flash de 1 MB (app a partir de 0x8020000) com folga.
+Matriz de build (revisao 2, commit `78e37994`; `HYBRID_LDO=1 scons -f local_build_windows.scons -j8`, RELEASE com
+`RELEASE=1 CERT=<board\crypto\certs\debug>`):
 
-Python: `ruff check python/__init__.py` -> "All checks passed". `mypy python/__init__.py --ignore-missing-imports`
--> 4 erros, identicos antes e depois da alteracao (`spi.py` SPI_DEVICES sem anotacao e `opendbc.INCLUDE_PATH`
-nao resolvido pelo stub do mypy; ambiente, nao regressao). cppcheck/MISRA nao disponivel nesta maquina Windows
-(`tests/misra/test_misra.sh` nao executado) - o novo codigo segue os padroes dos arquivos vizinhos (sufixo U,
-sem funcoes novas, `static` para a config).
+| Saida | DEBUG (bytes) | RELEASE=1 (bytes) | Define |
+|---|---|---|---|
+| board/obj/panda_h7.bin.signed | 69808 | 67992 | - |
+| board/obj/bootstub.panda_h7.bin | 20092 | 20056 | - |
+| board/obj/panda_h7_hybrid.bin.signed | 67460 | 65676 | `HYBRID_BOARD` |
+| board/obj/bootstub.panda_h7_hybrid.bin | 17884 | 17848 | `HYBRID_BOARD` |
+| board/obj/panda_h7_ldo.bin.signed | 67404 | 65620 | `HYBRID_BOARD PWR_FORCE_LDO` |
+| board/obj/bootstub.panda_h7_ldo.bin | 17828 | 17792 | `HYBRID_BOARD PWR_FORCE_LDO` |
+| board/obj/body_h7.bin.signed | 66368 | 65208 | `PANDA_BODY` |
+
+Exit code 0 nos dois modos; nenhum erro/aviso do compilador alem do `ld .data PROGBITS` pre-existente. Os binarios
+`HYBRID_BOARD` sao ~2,3 kB menores que `panda_h7` porque red/tres/cuatro (fan, siren, SOM, clock source) saem do build.
+Flash de 1 MB (app a partir de 0x8020000) com folga.
+
+Python: `ruff check python` -> "All checks passed". `mypy python` -> 12 erros, todos de ambiente (stubs `usb1`/`libusb_package`
+ausentes, `opendbc.car.structs`/`INCLUDE_PATH` nao resolvidos, e o mesmo `spi.py` reportado duas vezes porque o checkout
+irmao `pandarevive\panda` e importado como pacote `panda`); nenhum arquivo Python mudou entre `a8babfea` e `78e37994`.
+
+MISRA (revisao 2): cppcheck 2.22 (extraido do MSI oficial em `pandarevive\cppcheck_x\PFiles\Cppcheck\cppcheck.exe`) com os
+mesmos argumentos de `tests/misra/test_misra.sh` para o H7 (`--addon=misra --check-level=exhaustive --safety
+--platform=arm32-wchar_t4 -DSTM32H7 -DSTM32H725xx`, `suppressions.txt`), sobre `board/main.c`:
+
+| Variante | Defines extra | Resultado |
+|---|---|---|
+| upstream `1305b78c` (baseline) | - | 0 achados |
+| stock (`panda_h7`) | - | 0 achados, exit 0 |
+| `panda_h7_hybrid` | `-DHYBRID_BOARD` | 0 achados, exit 0 (antes das correcoes: 8.7 em `clock_source_init`) |
+| `panda_h7_ldo` | `-DHYBRID_BOARD -DPWR_FORCE_LDO` | 0 achados, exit 0 (antes: 8.7 + `knownConditionTrueFalse` + `redundantInitialization` em `clock.h`) |
+
+O script `test_misra.sh` em si (bash, `tests/misra/coverage` e `pre-commit`) nao foi executado no Windows; a invocacao
+foi reproduzida manualmente com o mesmo conjunto de flags.
 
 ## 8. Pedidos de alteracao de PCB (PCR)
 
 | ID | Prioridade | Alteracao | Motivo |
 |---|---|---|---|
 | PCR-1 | opcional | Retirar PF9 (pino 23) de GND e deixar aberto (ou 0 ohm DNP para GND, com footprint para pull-up 10k opcional) | strap `id1 == 4` -> `HW_TYPE_HYBRID_PANDA`. Sem isso a placa e vista como red panda (funcionalmente correto) |
-| PCR-2 | **bloqueante** | Ligar a rede `VFBSMPS` (pino 17, C42) a rede `VCAP` (pinos 68/103/140, C39/C40) | firmware configura Direct SMPS em LQFP144; sem o link o core nao e alimentado. Alternativa: gravar `panda_h7_ldo` via SWD (fallback, nao testado) |
+| PCR-2 | **bloqueante** (aceita pelo dono apos o SI/PI audit) | Ligar a rede `VFBSMPS` (pino 17, C42) a rede `VCAP` (pinos 68/103/140, C39/C40) | firmware configura Direct SMPS em LQFP144; sem o link o core nao e alimentado. Alternativa: gravar `panda_h7_ldo` via SWD (fallback, nao testado) |
 | PCR-3 | informativo | Nenhum pino de CAN/USB/ADC precisa ser movido | todas as funcoes alternativas conferem com o red panda |
 | PCR-4 | informativo | Pull-ups: STB (R30-R33), SBU (R23/R24), BOOT0 pull-down (R14), USB EN (R26) presentes; nenhum pull-up em falta identificado | - |
+| PCR-5 | nenhuma alteracao de PCB | PB14/Q3/AP22615: resolvido em firmware (secao 11), desde que a placa receba `panda_h7_hybrid` (ou `panda_h7` com o strap PCR-1) | - |
 
 Atualizar `DECISIONS.md` D-02 (Direct SMPS exige VFBSMPS->VCAP) e D-08 (strap PF9) no repositorio HybridPanda
 (nao alterado por esta tarefa).
@@ -353,6 +426,113 @@ Atualizar `DECISIONS.md` D-02 (Direct SMPS exige VFBSMPS->VCAP) e D-08 (strap PF
 ## 10. O que nao foi testado
 
 - Tudo em hardware: boot/PWR (secao 5), deteccao de id1/id2, enumeracao USB, CAN-FD nos 4 transceivers, harness
-  (SBU/relay), LEDs, leitura de 12V/5V, gravacao via DFU e via SWD, bootrom com `PWR_FORCE_LDO`.
-- `tests/misra` (cppcheck) e `tests/libpanda` nao executados neste ambiente Windows.
+  (SBU/relay), LEDs, leitura de 12V/5V, PB14/porta USB-A (secao 11), gravacao via DFU e via SWD (secao 13),
+  bootrom com `PWR_FORCE_LDO`.
+- `tests/misra/test_misra.sh` como script (bash) e `tests/libpanda` nao executados neste ambiente Windows; o cppcheck
+  foi invocado manualmente com as mesmas flags (secao 7).
 - HITL/CI do upstream nao executados.
+
+## 11. PB14 (USB_LOAD) - reconciliacao com o SI/PI audit e decisao
+
+### 11.1 Reconciliacao da tabela de pinos
+
+A secao C.2 de `06_REPORTS\si_pi_audit\SI_PI_AUDIT.md` lista os mesmos pinos/redes da secao 2 deste relatorio
+(FDCAN1 PB8/PB9, FDCAN2 PB5/PB6 e PB12/PB13, FDCAN3 PG9/PG10, STB PG11/PB3/PD7/PB4, SBU PC4/PA1, relay PC10/PC11,
+VoltageSens PF11, 5VOUT_S PB1, USB_LOAD PB14, LEDs PE4/PE3/PE2, USB PA11/PA12, HSE PH0/PH1, SWD PA13/PA14, BOOT0).
+Nenhuma divergencia de pino ou de funcao alternativa; a unica exigencia nova e o tratamento de PB14 descrito abaixo.
+
+### 11.2 Circuito
+
+PB14 (pino 74) -> Q3 PDTC114EU (NPN com resistor de base interno 10k, emissor em GND) -> coletor = EN do U1 AP22615
+(R26 10k para +5V; EN ativo em nivel alto). Logo: PB14 = 0 -> Q3 cortado -> EN = 5V -> porta USB-A **ligada**;
+PB14 = 1 -> Q3 saturado -> EN = 0 -> porta desligada.
+
+### 11.3 O que o red panda faz e por que falha aqui
+
+`red_init` configura PB14 como saida open-drain em nivel 1 com pull-up interno (no red o pino alimenta um circuito
+diferente, com o pull-up definindo o nivel). Nesta placa, open-drain = 1 significa que a base de Q3 fica alimentada
+apenas pelo pull-up interno (~40k) em serie com os 10k internos do Q3: Q3 fica na regiao de limiar e tende a baixar EN
+-> a porta USB-A desliga ou oscila (constatacao do SI/PI audit).
+
+### 11.4 Precedente: black panda
+
+No `black.h` historico (F413), o pino equivalente (PB1 naquela placa) era configurado em `black_init` por
+`black_set_usb_load_switch(true)`: saida push-pull, nivel baixo = porta ligada, chamada uma unica vez na init e nunca
+alterada - nao participa de `set_power_saving`, nem de `set_usb_power_mode`, nem do estado de ignicao. Ou seja, no
+black panda a porta USB-A fica ligada enquanto a placa tiver 12 V (ela alimenta o proprio dispositivo comma).
+
+### 11.5 Decisao implementada (`hybrid.h`, commit `78e37994`)
+
+- `hybrid_set_usb_load_switch(bool enabled)`: `set_gpio_output(GPIOB, 14, !enabled)` (0 = ligado).
+- `hybrid_init`: `set_gpio_pullup(GPIOB, 14, PULL_NONE)`, `set_gpio_output_type(GPIOB, 14, OUTPUT_TYPE_PUSH_PULL)`,
+  `set_gpio_mode(GPIOB, 14, MODE_OUTPUT)`, e depois `hybrid_set_usb_load_switch(true)`.
+- Porta USB-A **sempre ligada**, inclusive em power-saving e com ignicao desligada - igual ao black panda. Motivo: a
+  porta alimenta o dispositivo comma; desliga-la em power-saving cortaria a alimentacao do host que decide o
+  power-saving. O consumo em repouso do AP22615 + dispositivo e assunto da politica de "car off" do openpilot
+  (que ja desliga o dispositivo pelo lado dele), nao do panda.
+- Nenhum hook de `board.set_usb_power_mode`/`power_saving` foi ligado a PB14; a funcao fica disponivel para uso futuro.
+- `red.h` nao foi alterado. Para que a correcao valha em placas com PF9 em GND, grave `panda_h7_hybrid` (secao 4.1).
+
+## 12. Alteracoes necessarias do lado openpilot (complemento)
+
+Ver secao 9. Com `panda_h7_hybrid` a placa reporta sempre `HW_TYPE_HYBRID_PANDA` (0x0b), portanto o `cereal`
+`PandaType.hybridPanda @11` e o tratamento em `pandad` passam a ser obrigatorios (nao mais opcionais como no caso red).
+
+## 13. Procedimento de gravacao (passo a passo)
+
+Pre-requisitos: clone `panda_hybrid` na branch `hybrid-h725`, venv com `scons`, `opendbc`, `libusb1`, `pyusb`;
+binarios gerados conforme secao 7 (bootstub e app **do mesmo alvo**). Comandos abaixo com o venv ativo, a partir da
+raiz do clone, e com `PYTHONPATH` apontando para o diretorio pai (o pacote chama-se `panda`). Com PCR-2 aplicada use
+`panda_h7_hybrid`; com a PCB atual (sem o link VFBSMPS->VCAP) use `panda_h7_ldo` - e espere ter de recorrer ao SWD.
+
+### 13.1 Caminho A - DFU pela USB-C (bootrom ST, sem gravador)
+
+1. Ligar 12 V na placa (ou apenas USB-C se a 3V3 vier do VBUS; verificar no esquema) e conectar a USB-C ao PC.
+2. Entrar em DFU do bootrom:
+   - placa virgem: segurar o botao BOOT0 (SW1) ao aplicar reset/alimentacao -> o H725 enumera como
+     `STMicroelectronics STM Device in DFU Mode` (VID 0483 / PID DF11). No Windows, instalar o driver WinUSB com Zadig
+     para esse dispositivo;
+   - placa ja com bootstub panda: `python -c "from panda import Panda; Panda().reset(enter_bootstub=True)"` e depois
+     `python -c "from panda import Panda; Panda().reset(enter_bootloader=True)"` (e o que `board/recover.py` faz).
+3. Confirmar: `python -c "from panda import PandaDFU; print(PandaDFU.list())"` deve listar um serial DFU.
+4. Gravar o bootstub (0x08000000) - `PandaDFU.recover()` usa sempre `bootstub.panda_h7.bin`, portanto para o alvo hybrid
+   passe o arquivo explicitamente:
+   ```
+   python -c "from panda import PandaDFU; d=PandaDFU(None); d.program_bootstub(open('board/obj/bootstub.panda_h7_hybrid.bin','rb').read()); d.reset()"
+   ```
+5. A placa reinicia no bootstub (VID 0xbbaa / PID 0xddee) e enumera como panda. Gravar o app (0x08020000):
+   ```
+   python -c "from panda import Panda; p=Panda(); print(hex(p.get_type()[0])); p.flash(fn='board/obj/panda_h7_hybrid.bin.signed')"
+   ```
+   `Panda.flash` verifica `get_type()` contra `SUPPORTED_DEVICES` (0x0b incluido), apaga os setores a partir do 1 e grava via EP2.
+6. Verificar: `python -c "from panda import Panda; p=Panda(); print(p.get_type(), p.get_version(), p.health())"` -> tipo
+   `b'\x0b'`, versao igual a `board/obj/version` do build; `health()['voltage']` deve mostrar os 12 V (PF11).
+7. Observacao: `board/flash.py` e `board/recover.py` chamam `scons` com `$(nproc)` (Linux) e usam os arquivos
+   `panda_h7` padrao; no Windows use os comandos acima ou adapte `fn=`.
+
+### 13.2 Caminho B - SWD pelo J1 (fallback, obrigatorio se o bootrom DFU nao enumerar ou escrever CR3 em SMPS)
+
+1. Ligar SWDIO (PA13), SWCLK (PA14), GND e opcionalmente NRST do J1 a um ST-Link V2/V3 (ou J-Link). Alimentar a placa
+   (12 V ou USB-C); nao alimentar pelo gravador.
+2. STM32CubeProgrammer (CLI): apagar e gravar os dois binarios nos enderecos da `python/constants.py` (H7Config):
+   ```
+   STM32_Programmer_CLI -c port=SWD mode=UR reset=HWrst -e all
+   STM32_Programmer_CLI -c port=SWD mode=UR -w board\obj\bootstub.panda_h7_hybrid.bin 0x08000000 -v
+   STM32_Programmer_CLI -c port=SWD mode=UR -w board\obj\panda_h7_hybrid.bin.signed 0x08020000 -v -rst
+   ```
+   Equivalente OpenOCD: `openocd -f interface/stlink.cfg -f target/stm32h7x.cfg -c "program board/obj/bootstub.panda_h7_hybrid.bin 0x08000000" -c "program board/obj/panda_h7_hybrid.bin.signed 0x08020000 verify reset exit"`.
+   `mode=UR` (under reset) e importante: se o firmware anterior deixou o core sem alimentacao (caso SMPS sem PCR-2) o
+   debugger so conecta com NRST segurado.
+3. O app `.signed` carrega a assinatura no fim do binario; o bootstub (DEBUG) aceita o certificado debug. Em RELEASE o
+   bootstub so aceita a chave usada em `CERT=`.
+4. Verificar pela USB-C como em 13.1 passo 6.
+
+### 13.3 Ordem recomendada para a primeira placa
+
+1. Sem firmware, medir VCAP com a placa alimentada: ~0 V confirma que o bootrom/firmware anterior escolheu SMPS sem
+   PCR-2; ~1,0-1,2 V indica core alimentado.
+2. Gravar primeiro pelo SWD (13.2) o par `panda_h7_ldo` (PCB atual) ou `panda_h7_hybrid` (PCR-2 aplicada); observar o
+   LED e a enumeracao USB.
+3. So depois usar o caminho DFU (13.1) para atualizacoes, confirmando que o bootrom enumera nesta revisao de PCB.
+4. Testar a porta USB-A: medir EN do U1 (deve estar ~5 V) e VBUS da USB-A com o firmware em execucao, tambem com a
+   ignicao desligada (power-saving).
