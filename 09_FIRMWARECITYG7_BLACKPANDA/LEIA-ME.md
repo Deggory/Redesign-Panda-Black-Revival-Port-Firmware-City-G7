@@ -51,8 +51,18 @@ Submodulos do openpilot: `opendbc_repo -> 07add98b` (fork), `panda -> e462c34d`
    Os 6 hunks de DBC foram aplicados literalmente; cada DBC Honda gerado passa a
    ter exatamente uma `BO_ 450 EPB_STATUS`, com os mesmos bits de
    `EPB_ACTIVE/EPB_STATE/CHECKSUM/COUNTER`.
+6. `d42db044` - **auditoria 2026-10-28 (D1)**: backport do hunk de
+   `steerActuatorDelay` de upstream `28a16218`. Na v0.9.9 o
+   `ret.steerActuatorDelay = 0.1` generico vinha depois do bloco por carro e
+   sobrescrevia o 0.15 do City (o carParams da rota upstream tem 0.15).
+7. `3d49429f` - **auditoria 2026-10-28 (D2)**: backport de upstream `fb5ac6d3`
+   (`configure_torque_tune` ki 0.1 -> 0.3; carParams da rota tem ki 0.3). Vale
+   para todos os carros com torque tune do branch, como no upstream.
 
-### Lado openpilot (5 commits)
+O submodule do openpilot continua apontando para `07add98b`; o bump para
+`3d49429f` ainda nao foi feito.
+
+### Lado openpilot (6 commits)
 
 - `857dee1dc` - submodule opendbc para o fork, linha do City em `docs/CARS.md`
   (mesmo formato do commit upstream `09aa21390`), entrada em `RELEASES.md`.
@@ -62,6 +72,15 @@ Submodulos do openpilot: `opendbc_repo -> 07add98b` (fork), `panda -> e462c34d`
   pulado fora de `commaai/openpilot` (depende do ref interno `__nightly`).
 - `bac73ff1b` - bump do submodule para `07add98b`.
 - `0a5c06856` - aviso do port no `README.md`.
+- `c3e422ae9` - **auditoria 2026-10-28 (D3)**: hunk verbatim de upstream
+  `bae7a610f` (`GearShifter.sport` aceito para Honda em `car_specific.py`); o
+  City CVT tem posicao S.
+
+Relatorio completo da auditoria commit a commit (73 commits Honda + genericos,
+CarParams campo a campo, TX byte a byte, safety, FW, diferencas residuais):
+`AUDITORIA_PORT_CITY_V099.md`. Ferramentas novas em `tools/`:
+`gen_dbc_from_tree.py`, `dbc_struct_compare.py`, `route_scan4_audit.py`,
+`carparams_compare.py`, `tx_byte_compare.py`.
 
 ## Auditoria do port (hunk a hunk)
 
