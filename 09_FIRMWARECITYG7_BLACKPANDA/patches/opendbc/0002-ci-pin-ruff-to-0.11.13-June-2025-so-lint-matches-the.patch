@@ -1,7 +1,7 @@
 From 5f439d787a113acd265b7f26a286e8d2adb70dac Mon Sep 17 00:00:00 2001
 From: Bruno Costa <bruno.costa@cat.com>
 Date: Mon, 26 Oct 2026 16:31:47 -0300
-Subject: [PATCH 2/7] ci: pin ruff to 0.11.13 (June 2025) so lint matches the
+Subject: [PATCH 2/8] ci: pin ruff to 0.11.13 (June 2025) so lint matches the
  v0.9.9 era; not part of the City port
 
 ---

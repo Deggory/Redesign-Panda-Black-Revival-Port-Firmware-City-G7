@@ -1,7 +1,7 @@
 From ae690dd7ceb15424097bbe742519756c02b30fc3 Mon Sep 17 00:00:00 2001
 From: Bruno Costa <bruno.costa@cat.com>
 Date: Tue, 27 Oct 2026 08:56:39 -0300
-Subject: [PATCH 4/7] honda: backport HAS_EPB auto-detection (6fa346ed) and set
+Subject: [PATCH 4/8] honda: backport HAS_EPB auto-detection (6fa346ed) and set
  City G7 CVT transmission type
 
 Verified against the upstream City route 56b2cf1dacdcd033/00000017--d24ffdb376 (public CI log):

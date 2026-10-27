@@ -62,9 +62,20 @@ Submodulos do openpilot: `opendbc_repo -> 07add98b` (fork), `panda -> e462c34d`
    (v0.9.9) para nao retunar outras plataformas: desvio deliberado do upstream,
    restrito ao City.
 
-HEAD do opendbc: `052a515f`.
+8. `b4125fe6` - **auditoria 2 (D-1)**: `BO_ 401 GEARBOX` em
+   `honda_civic_ex_2022_can.dbc` passa a ter o layout `GEARBOX_CVT` do
+   `_gearbox_common.dbc` upstream (`9ef0b1fb`): `GEAR_SHIFTER 44|5@0+` no
+   byte 5, `VAL_ 1 P 2 R 3 N 4 D 7 L 10 S` (antes: `5|6@0+` no byte 0 com
+   one-hot `32 L 16 S 8 D 4 N 2 R 1 P`). D decodifica igual nos dois layouts
+   (6116/6116 quadros da rota), S e L divergiam. O nome da mensagem continua
+   `GEARBOX`, logo `carstate.py` nao muda. Afeta City, HR-V 3G e Civic 2022,
+   exatamente como no upstream (os tres usam o mesmo DBC la). Tambem
+   normaliza `pyproject.toml` para LF (o `5f439d78` tinha sido gravado com
+   CRLF por clone Windows; so o pin do ruff fica como diferenca real).
 
-### Lado openpilot (7 commits)
+HEAD do opendbc: `b4125fe6`.
+
+### Lado openpilot (9 commits)
 
 - `857dee1dc` - submodule opendbc para o fork, linha do City em `docs/CARS.md`
   (mesmo formato do commit upstream `09aa21390`), entrada em `RELEASES.md`.
@@ -78,6 +89,12 @@ HEAD do opendbc: `052a515f`.
   `bae7a610f` (`GearShifter.sport` aceito para Honda em `car_specific.py`); o
   City CVT tem posicao S.
 - `89df27131` - bump do submodule `opendbc_repo` para `052a515f`.
+- `8be62bc95` - **auditoria 2 (D-2)**: `torqued.py` `ALLOWED_CARS += 'honda'`
+  (backport de upstream `839a77334`, ja presente quando o City foi mergeado
+  la). `torqued` so aprende quando `lateralTuning == torque`; na v0.9.9 o
+  City e o unico Honda com torque tune, entao os Honda com PID (e os
+  segmentos Honda do process replay) continuam com `useParams = False`.
+- `e841f3cc3` - bump do submodule `opendbc_repo` para `b4125fe6`.
 
 ### Auditoria completa (2026-10-28)
 
@@ -85,15 +102,40 @@ Relatorio completo da auditoria commit a commit (73 commits Honda + genericos,
 CarParams campo a campo, TX byte a byte, safety, FW, diferencas residuais):
 `AUDITORIA_PORT_CITY_V099.md`. Ferramentas novas em `tools/`:
 `gen_dbc_from_tree.py`, `dbc_struct_compare.py`, `route_scan4_audit.py`,
-`carparams_compare.py`, `tx_byte_compare.py`. Serie `patches/` regenerada
-(7 + 7 patches). Diferenca residual a lembrar: decodificacao de S/L em
-`GEARBOX` 0x191 (byte0 na v0.9.9 vs byte5 no upstream; P/R/N/D equivalentes,
-S/L nao verificaveis sem rota). Nada validado no carro.
+`carparams_compare.py`, `tx_byte_compare.py`. Nada validado no carro.
 
 Push feito em 2026-10-27: opendbc `fork/firmwarecityg7-v0.9.9` = `052a515f`,
 openpilot `origin/v0.9.9-cityg7-blackpanda` = `89df27131`. Run de CI
 `selfdrive_tests.yaml` disparado: `40517138906`
 (https://github.com/kriptomad/openpilot/actions/runs/40517138906).
+
+### Auditoria 2, independente e adversarial (2026-10-28)
+
+Segundo auditor, sem acesso as conclusoes do primeiro, em
+`audit2/AUDITORIA2_INDEPENDENTE.md` (11 scripts `audit2/a2_*.py`, replay
+com o codigo real do carstate/carcontroller sobre a rota: 0xE4 5410/5410,
+0x1C8 2705/2705, 0x30C 541/541, 0x33D 541/541 identicos incluindo counter
+e checksum; 0 diferencas em 33 campos de carState). Resultado:
+
+- **D-1 funcional** (layout de `GEARBOX` S/L) - corrigido em opendbc
+  `b4125fe6` (ver item 8 acima; `tools/check_gearbox_cvt.py` confere os seis
+  valores P/R/N/D/L/S no DBC gerado).
+- **D-2 consciente** (`torqued` para Honda) - aplicado em openpilot
+  `8be62bc95`.
+- **D-3 plataforma** - `common/pid.py` / `latcontrol_torque.py` tem
+  anti-windup diferente do upstream (`455a6a586`, `ab44c9a4f`). Nao e
+  especifico do City; nao portado (mudaria a lateral de todos os carros).
+  A auditoria 1 dizia "common/pid.py identico": estava **errado**.
+- **D-4 cosmetico** - CRLF em `pyproject.toml`, corrigido em `b4125fe6`.
+- **D-5/D-6 cosmeticos** - sem acao.
+- A afirmacao da auditoria 1 de que o `pandad` upstream so mudou SPI/CAN-FD
+  tambem foi refutada (ha logica de relay/IsOnroad); e diferenca de
+  plataforma, nao do City.
+
+Serie `patches/` regenerada (8 opendbc + 9 openpilot). Push: opendbc
+`fork/firmwarecityg7-v0.9.9` = `b4125fe6`, openpilot
+`origin/v0.9.9-cityg7-blackpanda` = `e841f3cc3`. Run de CI: `40525385443`
+(https://github.com/kriptomad/openpilot/actions/runs/40525385443).
 
 ## Auditoria do port (hunk a hunk)
 

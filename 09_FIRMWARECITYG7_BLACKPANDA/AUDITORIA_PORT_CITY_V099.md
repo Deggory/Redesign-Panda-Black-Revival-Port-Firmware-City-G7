@@ -23,10 +23,18 @@ Novo HEAD opendbc: `052a515f`; o gitlink do submodule `opendbc_repo` em
 openpilot foi atualizado para ele (ver secao 10). Novo HEAD openpilot: ver
 secao 10.
 
+**Adendo 2026-10-28 (auditoria 2 independente, `audit2/AUDITORIA2_INDEPENDENTE.md`):**
+duas das diferencas residuais abaixo foram fechadas - GEARBOX S/L (opendbc
+`b4125fe6`, layout `GEARBOX_CVT` upstream) e `torqued` para Honda (openpilot
+`8be62bc95`); gitlink em openpilot `e841f3cc3`. Correcoes a este relatorio:
+`common/pid.py` NAO e identico ao upstream (13+/19-, anti-windup de
+`455a6a586`/`ab44c9a4f`, diferenca de plataforma, nao portada) e o `pandad`
+upstream tambem difere em logica de relay/IsOnroad (plataforma). Ver secao 9.
+
 Diferencas residuais (nao corrigidas, explicadas na secao 9): decodificacao de
 S/L em `GEARBOX` 0x191 (byte0 one-hot na v0.9.9 vs byte5 no upstream; P/R/N/D
-sao equivalentes), `torqued` desabilitado para Honda no openpilot v0.9.9
-(upstream `839a77334` habilitou), `steeringTorqueEps` ainda preenchido na
+sao equivalentes) **[fechada em `b4125fe6`]**, `torqued` desabilitado para Honda no openpilot v0.9.9
+(upstream `839a77334` habilitou) **[fechada em `8be62bc95`]**, `steeringTorqueEps` ainda preenchido na
 v0.9.9, nomes de sinais do LKAS_HUD, `useSteeringAngle` (campo removido no
 upstream), `carState.gas` ainda publicado.
 
@@ -384,9 +392,23 @@ shadow em release (`44c8cc4cb`; irrelevante aqui, o branch nao e release).
 
 1. **GEARBOX S/L** (secao 4.3): decodificacao de byte0 (v0.9.9) vs byte5
    (upstream); P/R/N/D equivalentes; S/L nao verificaveis sem rota.
+   **Fechada em opendbc `b4125fe6`** (auditoria 2, D-1): o `BO_ 401` do
+   `honda_civic_ex_2022_can.dbc` recebeu o layout `GEARBOX_CVT` upstream
+   (`GEAR_SHIFTER 44|5@0+`, `VAL_ 1 P 2 R 3 N 4 D 7 L 10 S`); nome da
+   mensagem mantido, `carstate.py` intocado; D identico em 6116/6116
+   quadros; `tools/check_gearbox_cvt.py` confere os seis valores.
 2. **torqued desabilitado para Honda** no openpilot v0.9.9 (upstream habilitou
    em 2025-08-06): no branch os parametros de torque ficam fixos em
    `[1.2, 1.2, 0.23]`; no upstream sao aprendidos ao vivo.
+   **Fechada em openpilot `8be62bc95`** (auditoria 2, D-2): `ALLOWED_CARS +=
+   'honda'`; so ativa com `lateralTuning == torque` (apenas o City entre os
+   Honda da v0.9.9), refs de process replay dos segmentos Honda (PID) nao
+   mudam.
+2b. **Anti-windup de `common/pid.py` / `latcontrol_torque.py`** (auditoria 2,
+   D-3): upstream `455a6a586` e `ab44c9a4f` mudaram o integrador para todos
+   os carros com torque tune. Nao portado: e diferenca de plataforma e
+   alteraria a lateral de toda a arvore v0.9.9. (A frase "common/pid.py
+   identico" da versao anterior deste relatorio estava errada.)
 3. **steeringTorqueEps** preenchido na v0.9.9 (0x1AB `MOTOR_TORQUE`), removido
    no upstream; sem consumidor.
 4. **carState.gas** publicado na v0.9.9, deprecado no upstream; sem efeito.
@@ -417,6 +439,14 @@ openpilot `v0.9.9-cityg7-blackpanda` (HEAD `89df27131`):
 
 - `c3e422ae9` Honda: allow sport gear (backport of upstream bae7a610f)
 - `89df27131` opendbc_repo: bump to 052a515f (City steerActuatorDelay fix, City ki 0.3)
+
+Apos a auditoria 2 (2026-10-28):
+
+- opendbc `b4125fe6` honda: backport GEARBOX_CVT layout for radarless Bosch (audit2 D-1)
+  (+ `pyproject.toml` de volta a LF)
+- openpilot `8be62bc95` torqued: enable lateral accel factor learning for Honda (audit2 D-2)
+- openpilot `e841f3cc3` opendbc_repo: bump to b4125fe6
+- HEADs finais: opendbc `b4125fe6`, openpilot `e841f3cc3`; CI `40525385443`.
 
 HybridPanda `main`: este relatorio, `LEIA-ME.md` atualizado, patches
 regenerados em `patches/opendbc` e `patches/openpilot`, e as ferramentas
