@@ -62,11 +62,35 @@ OPENPILOT = """> [!IMPORTANT]
 > [kriptomad/PandaH7Openpilot](https://github.com/kriptomad/PandaH7Openpilot/tree/main/09_FIRMWARECITYG7_BLACKPANDA).
 """
 
+FLOWPILOT = """> [!IMPORTANT]
+> **Branch `flowpilot-city-g7-brazil` -- Honda City (Brazil only) 2023 (G7) on flowpilot (standalone APK) + black panda.**
+> Base: a snapshot of [jagheterfredrik/flowpilot](https://github.com/jagheterfredrik/flowpilot) master `9ea918ea`
+> (2025-03-04; standalone APK, car layer ~ openpilot 0.9.2-0.9.4, panda flattened at commaai/panda `abdc4185`).
+> The snapshot was imported as a tarball, so this repo has no upstream history. Target device: Xiaomi Poco F3 +
+> STM32F4 black panda. **Not tested on phone, panda or car. APK not built yet (needs Docker/Linux).**
+>
+> **What is new / modified on this branch (3 commits on top of the snapshot `43eab22`):**
+>
+> | Commit | Files | Change |
+> |---|---|---|
+> | `a2f1983` | `selfdrive/car/honda/{values,interface,carstate,fingerprints}.py`, `opendbc/generator/honda`, `opendbc/*.dbc`, `docs/CARS.md`, routes | `HONDA_CITY_7G` radarless Bosch platform (harness Bosch B), FW + CAN fingerprints (36 msgs checked against a real City route), `STEER_THRESHOLD` 600, `HAS_EPB` auto-detection (City has no `0x1C2 EPB_STATUS`), torque tune `[1.2, 1.2, 0.23]` + `ki` 0.3, `steerActuatorDelay` 0.15, CVT `S` gear accepted, DBC `BO_ 401 GEARBOX` with the upstream `GEARBOX_CVT` layout (`1 P 2 R 3 N 4 D 7 L 10 S`) |
+> | `fd9e846` | `panda/` | Windows-only SCons helper to build the black panda firmware from this tree without Docker |
+> | `275df51` | `selfdrive/car/*/interface.py`, `selfdrive/car/honda/values.py`, `docs/CARS.md` | fix pre-existing `CarInterface.apply(c, sm, now_nanos)` signature mismatch with `controlsd` in 10 brands; Honda `STEER_*` constants; regenerated `CARS.md` |
+>
+> Panda firmware: built from this tree (`panda.bin.signed`, version `DEV-a2f1983c-DEBUG`, debug-signed -> the stock
+> release bootstub must be replaced once over DFU). `safety_honda.h` is unchanged (`HONDA_BOSCH` + `RADARLESS`),
+> `tests/safety/test_honda.py` 209/209 on a mingw-w64 build. Scope research, port report (PT-BR), firmware binaries,
+> Poco F3 install and step-by-step flash procedure:
+> [kriptomad/PandaH7Openpilot/10_FLOWPILOT](https://github.com/kriptomad/PandaH7Openpilot/tree/main/10_FLOWPILOT).
+> Sibling ports of the same car: [opendbc@firmwarecityg7-v0.9.9](https://github.com/kriptomad/opendbc/tree/firmwarecityg7-v0.9.9),
+> [openpilot@v0.9.9-cityg7-blackpanda](https://github.com/kriptomad/openpilot/tree/v0.9.9-cityg7-blackpanda).
+"""
+
 START = "<!-- fork-branch-note:start -->"
 END = "<!-- fork-branch-note:end -->"
 
 kind, path = sys.argv[1], sys.argv[2]
-block = {"opendbc": OPENDBC, "openpilot": OPENPILOT}[kind]
+block = {"opendbc": OPENDBC, "openpilot": OPENPILOT, "flowpilot": FLOWPILOT}[kind]
 wrapped = f"{START}\n{block}{END}\n"
 
 raw = open(path, "rb").read()
@@ -78,6 +102,10 @@ if START in txt:
 elif kind == "openpilot" and "> [!IMPORTANT]\n> **Fork branch `v0.9.9-cityg7-blackpanda`" in txt:
     # substitui a nota antiga (0a5c06856) pela nova com marcadores
     txt = re.sub(r"> \[!IMPORTANT\]\n> \*\*Fork branch `v0\.9\.9-cityg7-blackpanda`.*?\n\n", wrapped + "\n", txt, count=1, flags=re.S)
+elif kind == "flowpilot":
+    # README do flowpilot comeca com "# Flowpilot stand alone": insere o bloco logo apos o titulo
+    first_nl = txt.index("\n") + 1
+    txt = txt[:first_nl] + "\n" + wrapped + txt[first_nl:]
 else:
     anchor = "</div>\n\n---\n"
     assert anchor in txt, "anchor not found"
