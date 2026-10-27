@@ -1,7 +1,7 @@
 From 8be62bc95f6f716ebcfcaaa698d4f44fd470e699 Mon Sep 17 00:00:00 2001
 From: Bruno Costa <bruno.costa@cat.com>
 Date: Tue, 27 Oct 2026 11:49:01 -0300
-Subject: [PATCH 8/9] torqued: enable lateral accel factor learning for Honda
+Subject: [PATCH 08/10] torqued: enable lateral accel factor learning for Honda
  (audit2 D-2)
 
 Backport of upstream openpilot 839a77334 (#35936), which was already in

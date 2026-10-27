@@ -132,10 +132,15 @@ e checksum; 0 diferencas em 33 campos de carState). Resultado:
   tambem foi refutada (ha logica de relay/IsOnroad); e diferenca de
   plataforma, nao do City.
 
-Serie `patches/` regenerada (8 opendbc + 9 openpilot). Push: opendbc
-`fork/firmwarecityg7-v0.9.9` = `b4125fe6`, openpilot
-`origin/v0.9.9-cityg7-blackpanda` = `e841f3cc3`. Run de CI: `40525385443`
-(https://github.com/kriptomad/openpilot/actions/runs/40525385443).
+Serie `patches/` regenerada (9 opendbc + 11 openpilot). Push: opendbc
+`fork/firmwarecityg7-v0.9.9` = `6cbc8005` (`b4125fe6` + README do branch),
+openpilot `origin/v0.9.9-cityg7-blackpanda` = `9ad0dbb08` (`e841f3cc3` +
+README do branch + bump). Run de CI em `e841f3cc3`: `40525385443`
+(https://github.com/kriptomad/openpilot/actions/runs/40525385443): static,
+build, unit, cars (0-3) verdes; process replay so com o diff esperado de
+`carParams.flags` (16->528, 6->518) nos 2 segmentos Honda; macOS cancelado
+(runner). Os READMEs dos dois branches listam commit a commit o que mudou
+(gerados por `tools/readme_branch_note.py`).
 
 ## Auditoria do port (hunk a hunk)
 

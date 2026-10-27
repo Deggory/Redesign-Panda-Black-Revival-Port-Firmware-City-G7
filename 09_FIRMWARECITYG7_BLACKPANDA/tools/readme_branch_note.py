@@ -40,7 +40,7 @@ OPENPILOT = """> [!IMPORTANT]
 > firmware recognition, plus an adversarial second pass with a real-code replay of the City route).
 > **Status: port complete, CI green on the fork, not road tested.** CI badge above points at upstream.
 >
-> **What is new / modified on this branch (9 commits on top of v0.9.9 `8aadf02b`):**
+> **What is new / modified on this branch (11 commits on top of v0.9.9 `8aadf02b`):**
 >
 > | Commit | Files | Change |
 > |---|---|---|
@@ -48,7 +48,7 @@ OPENPILOT = """> [!IMPORTANT]
 > | `4937c6391` | -- | empty commit (workflow indexing on the fork) |
 > | `52f261127` | `uv.lock`, `.github/workflows` | CI only: relock `metadrive-simulator` wheel hash (upstream `4d53a26a0`); skip `build release` outside `commaai/openpilot` |
 > | `bac73ff1b` | `opendbc_repo` | bump to `07add98b` (EPB_STATUS DBC) |
-> | `0a5c06856` | `README.md` | this note |
+> | `0a5c06856` | `README.md` | first fork note (replaced by this changelog) |
 > | `c3e422ae9` | `selfdrive/car/car_specific.py` | `GearShifter.sport` accepted for Honda (upstream `bae7a610f`); the City CVT has an S position, without this S raises `wrongGear` |
 > | `89df27131` | `opendbc_repo` | bump to `052a515f` (City `steerActuatorDelay` 0.15, City-only torque `ki` 0.3) |
 > | `8be62bc95` | `selfdrive/locationd/torqued.py` | `ALLOWED_CARS += 'honda'` (upstream `839a77334`): live lateral-accel-factor learning; only active for torque-tuned Hondas, i.e. the City on v0.9.9 |
