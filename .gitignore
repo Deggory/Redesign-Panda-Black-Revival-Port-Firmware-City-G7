@@ -45,3 +45,11 @@ fp-info-cache
 04_PROJECT/HybridPanda/*.pre_relayout
 04_PROJECT/HybridPanda/*.step5e_in
 04_PROJECT/HybridPanda/*.relayout_best
+
+# flowpilot working area (clone, venv, tarball) - docs and fw artifacts are tracked
+10_FLOWPILOT/flowpilot/
+10_FLOWPILOT/.venv_fp/
+10_FLOWPILOT/jag_master.tgz
+10_FLOWPILOT/api_cache/
+10_FLOWPILOT/*.txt
+
