@@ -31,7 +31,7 @@ Resultado: **SEM DIVERGÊNCIA** — OK=36
 | PE2 | 1 | led | LED_BLUE | `LED_BLUE` | **OK** | reaches R17 | board/boards/red.h:124-125 |
 | PF7 | 21 | hwtype |  | `GND` | **OK** | net=GND; expect=low | board/stm32h7/board.h:25 (id1 bit0, RED needs 0) |
 | PF8 | 22 | hwtype |  | `GND` | **OK** | net=GND; expect=low | board/stm32h7/board.h:26 |
-| PF9 | 23 | hwtype |  | `GND` | **OK** | net=GND; expect=low | board/stm32h7/board.h:27 |
+| PF9 | 23 | hwtype |  | `Net-(JP1-B)` | **OK** | net=Net-(JP1-B); expect=float_or_low | board/stm32h7/board.h:27 (PCR-1: strap via JP1 - fechado = RED id1=0, aberto = HYBRID id1=4; ver 03_RESEARCH/HYBRID_FW_PORT.md) |
 | PF10 | 24 | hwtype |  | `GND` | **OK** | net=GND; expect=low | board/stm32h7/board.h:28 |
 | PD4 | 116 | hwtype |  | `unconnected-(U7-PD4-Pad116)` | **OK** | floating; expect=float_or_high | board/stm32h7/board.h:30 (id2 must not be 3) |
 | PD5 | 117 | hwtype |  | `unconnected-(U7-PD5-Pad117)` | **OK** | floating; expect=float_or_high | board/stm32h7/board.h:31 |
@@ -47,7 +47,7 @@ Resultado: **SEM DIVERGÊNCIA** — OK=36
 | Pino | Pad | Net | Componentes |
 |---|---|---|---|
 | VLXSMPS_15 | 15 | `VLXSMPS` | C41, L5 |
-| VFBSMPS_17 | 17 | `VFBSMPS` | C42, L5 |
+| VFBSMPS_17 | 17 | `VCAP` | C39, C40, C42, C64, L5 |
 
 ## Pinos de alimentação do MCU
 

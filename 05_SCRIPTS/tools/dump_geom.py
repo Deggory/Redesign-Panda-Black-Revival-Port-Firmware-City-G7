@@ -5,15 +5,23 @@ import hp_common as hp
 b = pcbnew.LoadBoard(os.path.join(str(hp.OUTPUT_ROOT), "04_PROJECT", "HybridPanda", "HybridPanda.kicad_pcb"))
 
 
+def _seg_dist(px, py, x1, y1, x2, y2):
+    dx, dy = x2 - x1, y2 - y1
+    if dx == 0 and dy == 0:
+        return ((px - x1) ** 2 + (py - y1) ** 2) ** 0.5
+    t = max(0.0, min(1.0, ((px - x1) * dx + (py - y1) * dy) / (dx * dx + dy * dy)))
+    return ((px - x1 - t * dx) ** 2 + (py - y1 - t * dy) ** 2) ** 0.5
+
+
 def near(x, y, r, layer=None):
     for t in b.GetTracks():
-        bb = t.GetBoundingBox()
-        if abs(ToMM(bb.GetCenter().x) - x) < r and abs(ToMM(bb.GetCenter().y) - y) < r:
-            if t.GetClass() == "PCB_VIA":
+        if t.GetClass() == "PCB_VIA":
+            if _seg_dist(x, y, ToMM(t.GetPosition().x), ToMM(t.GetPosition().y), ToMM(t.GetPosition().x), ToMM(t.GetPosition().y)) < r:
                 print("  VIA %s (%.3f,%.3f) d=%.2f/%.2f" % (t.GetNetname(), ToMM(t.GetPosition().x), ToMM(t.GetPosition().y), ToMM(t.GetWidth()), ToMM(t.GetDrillValue())))
-            else:
-                if layer and b.GetLayerName(t.GetLayer()) != layer:
-                    continue
+        else:
+            if layer and b.GetLayerName(t.GetLayer()) != layer:
+                continue
+            if _seg_dist(x, y, ToMM(t.GetStart().x), ToMM(t.GetStart().y), ToMM(t.GetEnd().x), ToMM(t.GetEnd().y)) < r:
                 print("  TRK %s %s (%.3f,%.3f)->(%.3f,%.3f) w=%.2f" % (t.GetNetname(), b.GetLayerName(t.GetLayer()), ToMM(t.GetStart().x), ToMM(t.GetStart().y), ToMM(t.GetEnd().x), ToMM(t.GetEnd().y), ToMM(t.GetWidth())))
 
 
@@ -37,3 +45,5 @@ if __name__ == "__main__":
             near(x, y, r)
         else:
             fpinfo(a)
+
+    os._exit(0)

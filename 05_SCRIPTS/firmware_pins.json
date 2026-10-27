@@ -31,7 +31,7 @@
         {"pin": "PE2",  "role": "led", "signal": "LED_BLUE", "src": "board/boards/red.h:124-125"},
         {"pin": "PF7",  "role": "hwtype", "expect": "low", "src": "board/stm32h7/board.h:25 (id1 bit0, RED needs 0)"},
         {"pin": "PF8",  "role": "hwtype", "expect": "low", "src": "board/stm32h7/board.h:26"},
-        {"pin": "PF9",  "role": "hwtype", "expect": "low", "src": "board/stm32h7/board.h:27"},
+        {"pin": "PF9",  "role": "hwtype", "expect": "float_or_low", "src": "board/stm32h7/board.h:27 (PCR-1: strap via JP1 - fechado = RED id1=0, aberto = HYBRID id1=4; ver 03_RESEARCH/HYBRID_FW_PORT.md)"},
         {"pin": "PF10", "role": "hwtype", "expect": "low", "src": "board/stm32h7/board.h:28"},
         {"pin": "PD4",  "role": "hwtype", "expect": "float_or_high", "src": "board/stm32h7/board.h:30 (id2 must not be 3)"},
         {"pin": "PD5",  "role": "hwtype", "expect": "float_or_high", "src": "board/stm32h7/board.h:31"},
@@ -86,3 +86,4 @@
     }
   }
 }
+

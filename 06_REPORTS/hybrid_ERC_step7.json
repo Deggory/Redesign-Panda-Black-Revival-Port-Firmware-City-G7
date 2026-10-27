@@ -1,7 +1,7 @@
 {
     "$schema": "https://schemas.kicad.org/erc.v1.json",
     "coordinate_units": "mm",
-    "date": "2026-10-27T14:43:30",
+    "date": "2026-10-27T15:52:00",
     "ignored_checks": [
         {
             "description": "Global label only appears once in the schematic",
@@ -3205,7 +3205,7 @@
                                 "x": 330.454,
                                 "y": 86.614
                             },
-                            "uuid": "4f414af4-12e8-41b5-91b6-561d01d51f51"
+                            "uuid": "15e78b0c-e559-41da-92d7-0c8bafc223e1"
                         },
                         {
                             "description": "Symbol #PWR014 Hidden pin 1 [GND, Power input, Line]",
@@ -3895,6 +3895,21 @@
                     "type": "pin_to_pin"
                 },
                 {
+                    "description": "Symbol 'C_Small' doesn't match copy in library 'Device'",
+                    "items": [
+                        {
+                            "description": "Symbol C65 [C_Small]",
+                            "pos": {
+                                "x": 363.22,
+                                "y": 284.48
+                            },
+                            "uuid": "faa9abe9-725f-4d83-a7d7-e79b18c5fd71"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_mismatch"
+                },
+                {
                     "description": "Pins of type Unspecified and Bidirectional are connected",
                     "items": [
                         {
@@ -4085,7 +4100,7 @@
                                 "x": 373.634,
                                 "y": 86.614
                             },
-                            "uuid": "f2d04ce1-f1c4-448c-9694-cc4a31ece982"
+                            "uuid": "d5f78cb3-191f-4011-9587-d60a0a3145aa"
                         },
                         {
                             "description": "Symbol #PWR016 Hidden pin 1 [GND, Power input, Line]",
@@ -4138,7 +4153,7 @@
                                 "x": 373.634,
                                 "y": 89.154
                             },
-                            "uuid": "e951ed59-305d-46f5-ac63-80b3cdbc39d6"
+                            "uuid": "80a4fd1c-ba1d-4847-ac95-1c4eecebd3f9"
                         },
                         {
                             "description": "Symbol #PWR017 Hidden pin 1 [GND, Power input, Line]",
@@ -4888,6 +4903,21 @@
                     "type": "lib_symbol_mismatch"
                 },
                 {
+                    "description": "Symbol 'GND' doesn't match copy in library 'power'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR221 [GND]",
+                            "pos": {
+                                "x": 627.38,
+                                "y": 246.38
+                            },
+                            "uuid": "360516fd-cc72-40cc-91d4-9ec28d7554bb"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_mismatch"
+                },
+                {
                     "description": "Symbol '+3.3V' doesn't match copy in library 'power'",
                     "items": [
                         {
@@ -4950,29 +4980,6 @@
                                 "y": 246.38
                             },
                             "uuid": "5ee04ca8-f054-48fc-8b23-4f219f967d24"
-                        },
-                        {
-                            "description": "Symbol #FLG3 Pin 1 [Power output, Line]",
-                            "pos": {
-                                "x": 120.65,
-                                "y": 300.99
-                            },
-                            "uuid": "f3d3c96d-c03e-47a7-bc28-26a46c9c9e95"
-                        }
-                    ],
-                    "severity": "warning",
-                    "type": "pin_to_pin"
-                },
-                {
-                    "description": "Pins of type Bidirectional and Power output are connected",
-                    "items": [
-                        {
-                            "description": "Symbol U7 Pin 23 [PF9, Bidirectional, Line]",
-                            "pos": {
-                                "x": 652.78,
-                                "y": 248.92
-                            },
-                            "uuid": "ab2c8c11-88a7-4ac9-a9dd-d86704393c02"
                         },
                         {
                             "description": "Symbol #FLG3 Pin 1 [Power output, Line]",
@@ -5500,6 +5507,36 @@
                                 "y": 218.44
                             },
                             "uuid": "bcda7b71-2208-4fcf-953b-6a93be1943ab"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_mismatch"
+                },
+                {
+                    "description": "Symbol 'C_Small' doesn't match copy in library 'Device'",
+                    "items": [
+                        {
+                            "description": "Symbol C64 [C_Small]",
+                            "pos": {
+                                "x": 807.72,
+                                "y": 297.18
+                            },
+                            "uuid": "320016e1-d3c7-4296-8ca2-081585a239f2"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_mismatch"
+                },
+                {
+                    "description": "Symbol 'GND' doesn't match copy in library 'power'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR220 [GND]",
+                            "pos": {
+                                "x": 807.72,
+                                "y": 302.26
+                            },
+                            "uuid": "66d92731-aea9-4a2a-ab8a-c08d740c0df6"
                         }
                     ],
                     "severity": "warning",

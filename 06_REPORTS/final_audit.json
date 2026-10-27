@@ -1,5 +1,5 @@
 {
- "date": "2026-10-27 14:42:24",
+ "date": "2026-10-27 15:54:31",
  "board": "04_PROJECT\\HybridPanda\\HybridPanda.kicad_pcb",
  "findings": [
   {
@@ -111,17 +111,17 @@
   {
    "sev": "INFO",
    "area": "montagem",
-   "msg": "106 vias sob corpos de componentes (tenting F/B = True/True)"
+   "msg": "109 vias sob corpos de componentes (tenting F/B = True/True)"
   },
   {
    "sev": "INFO",
    "area": "montagem",
-   "msg": "120 componentes, 41 no lado B (C38, FB1, D14, C52, C42, C63, C23, C50, R28, C62, C53, C46…), THT: U6, U3, P1; 44 referências sem serigrafia (identificação só pelo CPL)"
+   "msg": "123 componentes, 42 no lado B (C38, FB1, D14, C52, C42, C63, C23, C50, R28, C62, C53, C46…), THT: U6, U3, P1; 47 referências sem serigrafia (identificação só pelo CPL)"
   },
   {
    "sev": "INFO",
    "area": "montagem",
-   "msg": "polaridade/pino 1 a confirmar visualmente no render/F.Fab: D12, D7, U12, D2, U9, U1, U8, D11, D9, Q1, D5, D6, Q2, D8, U6, U5, D10, Q3, Q4, U10, U11, D1, U3, P1, D14, D13, U7, J1, Y1"
+   "msg": "polaridade/pino 1 a confirmar visualmente no render/F.Fab: D12, D7, U12, D2, U9, U1, U8, D11, D9, Q1, D5, D6, Q2, D8, U6, U5, D10, Q3, Q4, U10, U11, D1, U3, P1, JP1, D14, D13, U7, J1, Y1"
   },
   {
    "sev": "BAIXO",
@@ -196,11 +196,11 @@
   {
    "sev": "ALTO",
    "area": "BOM",
-   "msg": "48 linhas / 114 referências; 0 com MPN — não encomendável sem preencher; itens críticos marcados (VCAP ESR, SMPS, L5, Y1 CL)"
+   "msg": "50 linhas / 114 referências; 0 com MPN — não encomendável sem preencher; itens críticos marcados (VCAP ESR, SMPS, L5, Y1 CL)"
   }
  ],
  "shorts": {
-  "pairs_tested": 769,
+  "pairs_tested": 779,
   "copper_overlap_other_net": [],
   "clearance_lt_0.10": [],
   "zone_overlap_other_net": [],
@@ -318,7 +318,7 @@
  "vias_under_components": {
   "tent_front": true,
   "tent_back": true,
-  "count": 106,
+  "count": 109,
   "list": [
    {
     "via": "+3V3 @103.00,65.86",
@@ -461,11 +461,6 @@
     "rede_do_componente": true
    },
    {
-    "via": "GND @107.05,66.22",
-    "sob": "U7",
-    "rede_do_componente": true
-   },
-   {
     "via": "GND @100.24,56.35",
     "sob": "U7",
     "rede_do_componente": true
@@ -502,6 +497,11 @@
    },
    {
     "via": "GND @115.67,40.27",
+    "sob": "L4",
+    "rede_do_componente": false
+   },
+   {
+    "via": "GND @116.28,42.75",
     "sob": "L4",
     "rede_do_componente": false
    },
@@ -551,11 +551,6 @@
     "rede_do_componente": true
    },
    {
-    "via": "GND @116.25,44.44",
-    "sob": "L4",
-    "rede_do_componente": false
-   },
-   {
     "via": "GND @117.62,42.20",
     "sob": "L4",
     "rede_do_componente": false
@@ -566,6 +561,11 @@
     "rede_do_componente": false
    },
    {
+    "via": "GND @106.75,65.50",
+    "sob": "U7",
+    "rede_do_componente": true
+   },
+   {
     "via": "GND @104.12,50.95",
     "sob": "U7",
     "rede_do_componente": true
@@ -573,6 +573,11 @@
    {
     "via": "GND @137.96,66.47",
     "sob": "D9",
+    "rede_do_componente": true
+   },
+   {
+    "via": "GND @108.64,71.37",
+    "sob": "JP1",
     "rede_do_componente": true
    },
    {
@@ -593,6 +598,11 @@
    {
     "via": "GND @141.58,67.15",
     "sob": "D8",
+    "rede_do_componente": true
+   },
+   {
+    "via": "GND @107.60,74.40",
+    "sob": "JP1",
     "rede_do_componente": true
    },
    {
@@ -811,6 +821,11 @@
     "rede_do_componente": true
    },
    {
+    "via": "Net-(JP1-B) @107.30,66.20",
+    "sob": "U7",
+    "rede_do_componente": true
+   },
+   {
     "via": "SBU1_ADC @128.09,69.33",
     "sob": "D5",
     "rede_do_componente": false
@@ -836,7 +851,7 @@
     "rede_do_componente": true
    },
    {
-    "via": "SWDIO @115.71,43.30",
+    "via": "SWDIO @115.56,43.42",
     "sob": "L4",
     "rede_do_componente": false
    },
@@ -898,6 +913,7 @@
    "C60",
    "Y1",
    "FID5",
+   "C64",
    "C55",
    "L5"
   ],
@@ -926,6 +942,7 @@
    "D1",
    "U3",
    "P1",
+   "JP1",
    "D14",
    "D13",
    "U7",
@@ -938,8 +955,10 @@
    "L4",
    "FID2",
    "FID3",
+   "C65",
    "FID1",
    "C48",
+   "JP1",
    "C38",
    "FB1",
    "D14",
@@ -975,6 +994,7 @@
    "R33",
    "C60",
    "FID5",
+   "C64",
    "C55",
    "L5"
   ],
@@ -986,23 +1006,23 @@
    "FID6",
    "FID5"
   ],
-  "total_fp": 120
+  "total_fp": 123
  },
  "power_tracks": {
   "+3V3": {
    "min_w": 0.2,
    "max_w": 1.0,
-   "len_mm": 318.9,
-   "n": 242,
+   "len_mm": 320.0,
+   "n": 244,
    "vias": 49,
    "min_w_at": "95.74,45.18 F.Cu"
   },
   "GND": {
    "min_w": 0.2,
    "max_w": 0.8,
-   "len_mm": 227.0,
-   "n": 224,
-   "vias": 73,
+   "len_mm": 223.3,
+   "n": 225,
+   "vias": 74,
    "min_w_at": "97.94,63.39 F.Cu"
   },
   "+5V": {
@@ -1055,7 +1075,7 @@
    "VLXSMPS"
   ],
   "VFBSMPS": [
-   "VFBSMPS"
+   "VCAP"
   ],
   "VDD50USB": [
    "+3V3"
@@ -1097,7 +1117,7 @@
    "GND"
   ],
   "PF9": [
-   "GND"
+   "Net-(JP1-B)"
   ],
   "PF10": [
    "GND"
@@ -1218,10 +1238,19 @@
    ]
   },
   {
-   "refs": "C60-C62",
+   "refs": "C60-C62,C65",
    "value": "4.7uF",
    "footprint": "C_0603_1608Metric",
-   "qty": "3",
+   "qty": "4",
+   "notas": [
+    "sem MPN"
+   ]
+  },
+  {
+   "refs": "C64",
+   "value": "2.2uF",
+   "footprint": "C_0402_1005Metric",
+   "qty": "1",
    "notas": [
     "sem MPN"
    ]
@@ -1303,6 +1332,15 @@
    "refs": "J1",
    "value": "SWD",
    "footprint": "PinHeader_2x05_P1.27mm_Vertical_SMD",
+   "qty": "1",
+   "notas": [
+    "sem MPN"
+   ]
+  },
+  {
+   "refs": "JP1",
+   "value": "HW_ID1",
+   "footprint": "SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm",
    "qty": "1",
    "notas": [
     "sem MPN"
@@ -1545,7 +1583,7 @@
    ]
   }
  ],
- "seconds": 13.0,
+ "seconds": 11.3,
  "by_severity": {
   "ALTO": 9,
   "INFO": 18,

@@ -1,6 +1,6 @@
 # Auditoria final — PCB, esquemático e BOM (independente do DRC)
 
-Data: 2026-10-27 14:42:24 · `05_SCRIPTS\final_audit.py` (13 s) · placa `04_PROJECT\HybridPanda\HybridPanda.kicad_pcb` · JSON `06_REPORTS\final_audit.json`
+Data: 2026-10-27 15:54:31 · `05_SCRIPTS\final_audit.py` (11 s) · placa `04_PROJECT\HybridPanda\HybridPanda.kicad_pcb` · JSON `06_REPORTS\final_audit.json`
 
 ## Resumo por gravidade
 
@@ -14,7 +14,7 @@ Data: 2026-10-27 14:42:24 · `05_SCRIPTS\final_audit.py` (13 s) · placa `04_PRO
 
 ## A. Teste de curtos virtuais (geométrico, folga 0)
 
-- Pares cobre×cobre de redes diferentes testados (caixas a < 0,10 mm): **769** → sobreposições (curto): **0**; folga < 0,10 mm: 0
+- Pares cobre×cobre de redes diferentes testados (caixas a < 0,10 mm): **779** → sobreposições (curto): **0**; folga < 0,10 mm: 0
 - Zona×cobre de outra rede: curtos **0**, folga < 0,10: 0
 - Furos (vias+PTH) × cobre de outra rede: furo dentro de cobre **0**, folga < 0,20: 8
 - Conectividade: KiCad unconnected = **0**; redes com pads isolados = **0** (de 63 redes com ≥ 2 pads)
@@ -35,9 +35,9 @@ Data: 2026-10-27 14:42:24 · `05_SCRIPTS\final_audit.py` (13 s) · placa `04_PRO
 | MEDIO | borda | footprint com caixa fora do contorno (verificar visualmente) `{"ref": "U3", "bbox": [130.61, 32.29, 143.68, 47.27]}` |
 | MEDIO | borda | footprint com caixa fora do contorno (verificar visualmente) `{"ref": "P1", "bbox": [133.08, 53.83, 143.23, 63.93]}` |
 | INFO | montagem | footprints sem courtyard (sem verificação de colisão possível): U5, FID2, FID3, U3, FID1, P1, FID4, FID6, FID5  |
-| INFO | montagem | 106 vias sob corpos de componentes (tenting F/B = True/True)  |
-| INFO | montagem | 120 componentes, 41 no lado B (C38, FB1, D14, C52, C42, C63, C23, C50, R28, C62, C53, C46…), THT: U6, U3, P1; 44 referências sem serigrafia (identificação só pelo CPL)  |
-| INFO | montagem | polaridade/pino 1 a confirmar visualmente no render/F.Fab: D12, D7, U12, D2, U9, U1, U8, D11, D9, Q1, D5, D6, Q2, D8, U6, U5, D10, Q3, Q4, U10, U11, D1, U3, P1, D14, D13, U7, J1, Y1  |
+| INFO | montagem | 109 vias sob corpos de componentes (tenting F/B = True/True)  |
+| INFO | montagem | 123 componentes, 42 no lado B (C38, FB1, D14, C52, C42, C63, C23, C50, R28, C62, C53, C46…), THT: U6, U3, P1; 47 referências sem serigrafia (identificação só pelo CPL)  |
+| INFO | montagem | polaridade/pino 1 a confirmar visualmente no render/F.Fab: D12, D7, U12, D2, U9, U1, U8, D11, D9, Q1, D5, D6, Q2, D8, U6, U5, D10, Q3, Q4, U10, U11, D1, U3, P1, JP1, D14, D13, U7, J1, Y1  |
 | BAIXO | fabrico | 120 junções de trilha com ângulo agudo (< 90°) — 'acid traps' cosméticos em processo moderno; o Freerouting gera 45°/90° mas o A* do 5c pode gerar outros  |
 | INFO | fabrico | trilha mín 0.1400 mm, broca mín 0.25 mm (regra 0,30 — 1 via herdada 0,25); folga mín testada 0,10 mm  |
 
@@ -51,9 +51,9 @@ Data: 2026-10-27 14:42:24 · `05_SCRIPTS\final_audit.py` (13 s) · placa `04_PRO
 | Rede | Trilhas | Larg. mín (mm) @ | Larg. máx | Comp. (mm) | Vias |
 |---|---|---|---|---|---|
 | +12V | 34 | 0.200 @ 141.40,51.11 F.Cu | 1.500 | 42.8 | 4 |
-| +3V3 | 242 | 0.200 @ 95.74,45.18 F.Cu | 1.000 | 318.9 | 49 |
+| +3V3 | 244 | 0.200 @ 95.74,45.18 F.Cu | 1.000 | 320.0 | 49 |
 | +5V | 94 | 0.200 @ 108.82,46.24 F.Cu | 1.000 | 130.7 | 14 |
-| GND | 224 | 0.200 @ 97.94,63.39 F.Cu | 0.800 | 227.0 | 73 |
+| GND | 225 | 0.200 @ 97.94,63.39 F.Cu | 0.800 | 223.3 | 74 |
 | USB_PWR | 16 | 0.200 @ 118.50,53.80 F.Cu | 1.000 | 26.5 | 0 |
 
 ## C. Esquemático
@@ -73,9 +73,9 @@ Data: 2026-10-27 14:42:24 · `05_SCRIPTS\final_audit.py` (13 s) · placa `04_PRO
 | INFO | U10 TJA1042: {'1': 'BUS1N_TX', '2': 'GND', '3': '+5V', '4': 'BUS1N_RX', '5': '+3V3', '6': 'BUS1N_L', '7': 'BUS1N_H', '8': 'BUS1N_STB'}  |
 | INFO | U11 TJA1042: {'1': 'BUS0_TX', '2': 'GND', '3': '+5V', '4': 'BUS0_RX', '5': '+3V3', '6': 'BUS0_L', '7': 'BUS0_H', '8': 'BUS0_STB'}  |
 
-Pinos de sistema do U7 → rede: VCAP=VCAP; VDDLDO=+3V3; VDDSMPS=+3V3; VSSSMPS=GND; VLXSMPS=VLXSMPS; VFBSMPS=VFBSMPS; VDD50USB=+3V3; VDD33USB=+3V3; VREF+=VDDA; VDDA=VDDA; VSSA=GND; VBAT=+3V3; BOOT0=BOOT0; NRST=NRST; PDR_ON=+3V3; PH0/OSC_IN=HSE_IN; PH1/OSC_OUT=HSE_OUT; PF7=GND; PF8=GND; PF9=GND; PF10=GND
+Pinos de sistema do U7 → rede: VCAP=VCAP; VDDLDO=+3V3; VDDSMPS=+3V3; VSSSMPS=GND; VLXSMPS=VLXSMPS; VFBSMPS=VCAP; VDD50USB=+3V3; VDD33USB=+3V3; VREF+=VDDA; VDDA=VDDA; VSSA=GND; VBAT=+3V3; BOOT0=BOOT0; NRST=NRST; PDR_ON=+3V3; PH0/OSC_IN=HSE_IN; PH1/OSC_OUT=HSE_OUT; PF7=GND; PF8=GND; PF9=Net-(JP1-B); PF10=GND
 
-## D. BOM (48 linhas)
+## D. BOM (50 linhas)
 
 | Refs | Valor | Footprint | Qtd | Notas |
 |---|---|---|---|---|
@@ -91,7 +91,8 @@ Pinos de sistema do U7 → rede: VCAP=VCAP; VDDLDO=+3V3; VDDSMPS=+3V3; VSSSMPS=G
 | C41 | 220pF | C_0402_1005Metric | 1 | sem MPN; SMPS Cin/Cfilt (DS13311 §6.3.3) |
 | C42 | 10uF | C_0805_2012Metric | 1 | sem MPN; SMPS Cout 10 µF ESR 20 mΩ (DS13311 §6.3.3) |
 | C43,C63 | 1uF | C_0402_1005Metric | 2 | sem MPN |
-| C60-C62 | 4.7uF | C_0603_1608Metric | 3 | sem MPN |
+| C60-C62,C65 | 4.7uF | C_0603_1608Metric | 4 | sem MPN |
+| C64 | 2.2uF | C_0402_1005Metric | 1 | sem MPN |
 | D1 | SMAJ16CA-13-F | DIOM4325X250N | 1 | sem MPN |
 | D2 | BAS40WS 43 | D_SOD-323 | 1 | sem MPN |
 | D5-D9 | PESD2CAN,215 | SOT95P230X110-3N | 5 | sem MPN |
@@ -101,6 +102,7 @@ Pinos de sistema do U7 → rede: VCAP=VCAP; VDDLDO=+3V3; VDDSMPS=+3V3; VSSSMPS=G
 | D13,D14 | BAT54S | SOT-23 | 2 | sem MPN |
 | FB1 | 600R@100MHz | L_0603_1608Metric | 1 | sem MPN; ferrite VDDA: PROVISÓRIO (ex. BLM18 600 Ω/100 MHz) |
 | J1 | SWD | PinHeader_2x05_P1.27mm_Vertical_SMD | 1 | sem MPN |
+| JP1 | HW_ID1 | SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm | 1 | sem MPN |
 | L3 | 47uH 2A - SMMS0650-470M | IND-SMD_L7.3-W6.8 | 1 | sem MPN |
 | L4 | 15uH | L_10.5x11.5_H4.0 | 1 | sem MPN |
 | L5 | 2.2uH DFE201610E-2R2M | L_Murata_DFE201610P | 1 | sem MPN; DFE201610E 2,2 µH: Isat ≥ 1,7 A / DCR ≤ 150 mΩ (PROVISÓRIO) |

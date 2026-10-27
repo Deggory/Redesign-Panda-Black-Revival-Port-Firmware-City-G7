@@ -1,7 +1,7 @@
 {
     "$schema": "https://schemas.kicad.org/drc.v1.json",
     "coordinate_units": "mm",
-    "date": "2026-10-27T14:43:36",
+    "date": "2026-10-27T15:52:05",
     "ignored_checks": [
         {
             "description": "Footprint has no courtyard defined",
@@ -307,7 +307,7 @@
             "type": "starved_thermal"
         },
         {
-            "description": "Thermal relief connection to zone incomplete (layer In2.Cu; zone min spoke count 2; actual 1)",
+            "description": "Thermal relief connection to zone incomplete (layer In1.Cu; zone min spoke count 2; actual 1)",
             "items": [
                 {
                     "description": "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
@@ -318,12 +318,12 @@
                     "uuid": "c983a438-601f-4ab9-a61f-435bbeaecf84"
                 },
                 {
-                    "description": "PTH pad 0 [GND] of P1",
+                    "description": "PTH pad 9 [GND] of U6",
                     "pos": {
-                        "x": 136.180072,
-                        "y": 54.749952
+                        "x": 107.41,
+                        "y": 44.09
                     },
-                    "uuid": "1f7c6ebc-dcc0-47cf-8058-db09994f81e8"
+                    "uuid": "aa4e9d5e-407b-4194-81de-fd48e27adb0b"
                 }
             ],
             "severity": "error",
@@ -343,10 +343,10 @@
                 {
                     "description": "PTH pad 9 [GND] of U6",
                     "pos": {
-                        "x": 107.41,
-                        "y": 44.09
+                        "x": 108.71,
+                        "y": 40.19
                     },
-                    "uuid": "aa4e9d5e-407b-4194-81de-fd48e27adb0b"
+                    "uuid": "d3ad4325-5bbe-493d-b84c-88556184a59f"
                 }
             ],
             "severity": "error",
@@ -399,7 +399,7 @@
             "type": "starved_thermal"
         },
         {
-            "description": "Thermal relief connection to zone incomplete (layer In1.Cu; zone min spoke count 2; actual 1)",
+            "description": "Thermal relief connection to zone incomplete (layer In2.Cu; zone min spoke count 2; actual 1)",
             "items": [
                 {
                     "description": "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
@@ -410,12 +410,12 @@
                     "uuid": "c983a438-601f-4ab9-a61f-435bbeaecf84"
                 },
                 {
-                    "description": "PTH pad 9 [GND] of U6",
+                    "description": "PTH pad 0 [GND] of P1",
                     "pos": {
-                        "x": 108.71,
-                        "y": 40.19
+                        "x": 136.180072,
+                        "y": 54.749952
                     },
-                    "uuid": "d3ad4325-5bbe-493d-b84c-88556184a59f"
+                    "uuid": "1f7c6ebc-dcc0-47cf-8058-db09994f81e8"
                 }
             ],
             "severity": "error",
@@ -600,6 +600,29 @@
                         "y": 45.9375
                     },
                     "uuid": "224026e7-a033-459d-bf4a-8f2650bce2fb"
+                }
+            ],
+            "severity": "error",
+            "type": "starved_thermal"
+        },
+        {
+            "description": "Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)",
+            "items": [
+                {
+                    "description": "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
+                    "pos": {
+                        "x": 85.07,
+                        "y": 26.88
+                    },
+                    "uuid": "c983a438-601f-4ab9-a61f-435bbeaecf84"
+                },
+                {
+                    "description": "Pad 104 [GND] of U7 on B.Cu",
+                    "pos": {
+                        "x": 116.25,
+                        "y": 45.9375
+                    },
+                    "uuid": "8ca5ae76-dca4-429e-9b25-1d1f2d37eeda"
                 }
             ],
             "severity": "error",
