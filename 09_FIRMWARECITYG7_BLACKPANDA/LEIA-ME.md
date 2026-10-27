@@ -55,14 +55,16 @@ Submodulos do openpilot: `opendbc_repo -> 07add98b` (fork), `panda -> e462c34d`
    `steerActuatorDelay` de upstream `28a16218`. Na v0.9.9 o
    `ret.steerActuatorDelay = 0.1` generico vinha depois do bloco por carro e
    sobrescrevia o 0.15 do City (o carParams da rota upstream tem 0.15).
-7. `3d49429f` - **auditoria 2026-10-28 (D2)**: backport de upstream `fb5ac6d3`
-   (`configure_torque_tune` ki 0.1 -> 0.3; carParams da rota tem ki 0.3). Vale
-   para todos os carros com torque tune do branch, como no upstream.
+7. `052a515f` - **auditoria 2026-10-28 (D2)**: `ret.lateralTuning.torque.ki =
+   0.3` so no bloco do City em `honda/interface.py` (carParams da rota upstream
+   tem ki 0.3, vindo de upstream `fb5ac6d3`, que mudou o default global). Por
+   decisao do dono o default global em `opendbc/car/interfaces.py` fica em 0.1
+   (v0.9.9) para nao retunar outras plataformas: desvio deliberado do upstream,
+   restrito ao City.
 
-O submodule do openpilot continua apontando para `07add98b`; o bump para
-`3d49429f` ainda nao foi feito.
+HEAD do opendbc: `052a515f`.
 
-### Lado openpilot (6 commits)
+### Lado openpilot (7 commits)
 
 - `857dee1dc` - submodule opendbc para o fork, linha do City em `docs/CARS.md`
   (mesmo formato do commit upstream `09aa21390`), entrada em `RELEASES.md`.
@@ -75,12 +77,23 @@ O submodule do openpilot continua apontando para `07add98b`; o bump para
 - `c3e422ae9` - **auditoria 2026-10-28 (D3)**: hunk verbatim de upstream
   `bae7a610f` (`GearShifter.sport` aceito para Honda em `car_specific.py`); o
   City CVT tem posicao S.
+- `89df27131` - bump do submodule `opendbc_repo` para `052a515f`.
+
+### Auditoria completa (2026-10-28)
 
 Relatorio completo da auditoria commit a commit (73 commits Honda + genericos,
 CarParams campo a campo, TX byte a byte, safety, FW, diferencas residuais):
 `AUDITORIA_PORT_CITY_V099.md`. Ferramentas novas em `tools/`:
 `gen_dbc_from_tree.py`, `dbc_struct_compare.py`, `route_scan4_audit.py`,
-`carparams_compare.py`, `tx_byte_compare.py`.
+`carparams_compare.py`, `tx_byte_compare.py`. Serie `patches/` regenerada
+(7 + 7 patches). Diferenca residual a lembrar: decodificacao de S/L em
+`GEARBOX` 0x191 (byte0 na v0.9.9 vs byte5 no upstream; P/R/N/D equivalentes,
+S/L nao verificaveis sem rota). Nada validado no carro.
+
+Push feito em 2026-10-27: opendbc `fork/firmwarecityg7-v0.9.9` = `052a515f`,
+openpilot `origin/v0.9.9-cityg7-blackpanda` = `89df27131`. Run de CI
+`selfdrive_tests.yaml` disparado: `40517138906`
+(https://github.com/kriptomad/openpilot/actions/runs/40517138906).
 
 ## Auditoria do port (hunk a hunk)
 

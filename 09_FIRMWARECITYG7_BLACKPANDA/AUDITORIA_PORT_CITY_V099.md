@@ -16,12 +16,12 @@ Classe D (faltava e foi corrigido nesta auditoria):
 | # | Commit upstream | O que mudava para o City | Correcao local |
 |---|---|---|---|
 | D1 | opendbc `28a16218` (2025-08-05) | `ret.steerActuatorDelay = 0.1` ficava DEPOIS do bloco por carro e sobrescrevia o `0.15` do City. Upstream (e o carParams da rota) usa 0.15. | opendbc `d42db044` |
-| D2 | opendbc `fb5ac6d3` (2025-06-27) | `configure_torque_tune` passou de `ki = 0.1` para `ki = 0.3`. O City usa essa funcao; o carParams da rota mostra `lateralTuning.torque.ki = 0.3`. | opendbc `3d49429f` |
+| D2 | opendbc `fb5ac6d3` (2025-06-27) | `configure_torque_tune` passou de `ki = 0.1` para `ki = 0.3`. O City usa essa funcao; o carParams da rota mostra `lateralTuning.torque.ki = 0.3`. Decisao do dono: NAO alterar o default global; `ki = 0.3` setado so no bloco do City em `honda/interface.py` (desvio deliberado do upstream, restrito ao City). | opendbc `052a515f` |
 | D3 | openpilot `bae7a610f` (2025-08-04) | `GearShifter.sport` passou a ser aceito para Honda em `car_specific.py`. O City (CVT) tem posicao S; sem isso, S gera `wrongGear` e desengaja. Upstream ja tinha isso quando o City entrou (`09aa21390`). | openpilot `c3e422ae9` |
 
-Novo HEAD opendbc: `3d49429f` (o gitlink do submodule em openpilot NAO foi
-alterado; continua em `07add98b`). Novo HEAD openpilot: `c3e422ae9`.
-Nada foi enviado para remoto.
+Novo HEAD opendbc: `052a515f`; o gitlink do submodule `opendbc_repo` em
+openpilot foi atualizado para ele (ver secao 10). Novo HEAD openpilot: ver
+secao 10.
 
 Diferencas residuais (nao corrigidas, explicadas na secao 9): decodificacao de
 S/L em `GEARBOX` 0x191 (byte0 one-hot na v0.9.9 vs byte5 no upstream; P/R/N/D
@@ -154,7 +154,7 @@ Genericos adicionais:
 
 | Hash | Data | Titulo | Classe | Evidencia |
 |---|---|---|---|---|
-| fb5ac6d3 | 2025-06-27 | Torque control defaults: more integrator | **D** | corrigido em opendbc `3d49429f`. |
+| fb5ac6d3 | 2025-06-27 | Torque control defaults: more integrator | **D** | corrigido em opendbc `052a515f` (ki 0.3 so no bloco do City; default global mantido em 0.1 por decisao do dono). |
 | df1dd86a | 2025-07-08 | Torque control: rm localizer option | C | remove `useSteeringAngle`; v0.9.9 passa `use_steering_angle=True` (default) e `latcontrol_torque` usa curvatura do angulo de direcao, que e o unico caminho que sobrou no upstream. |
 | d70e2029 | 2025-07-21 | car interfaces: clean up friction | C | move friccao para o openpilot; mesma formula (`np.interp(erro, [-0.3, 0.3], [-friction, friction])`). |
 | e196c9f1 | 2025-08-01 | remove numpy.mean | C | identico numericamente. |
@@ -341,8 +341,17 @@ v0.9.9 `latcontrol_torque` faz `erro = torque(setpoint) - torque(medida) =
 a saida do PID e dividida por `latAccelFactor` no fim. Como o modelo e linear,
 `kp`, `ki` e `kf` tem o mesmo significado nos dois; `fb5ac6d3` foi feito em
 2025-06-27, quando o openpilot ainda usava o controlador em espaco de torque
-(mesmo da v0.9.9). O novo default vale para todos os carros com torque tune do
-branch, exatamente como no upstream.
+(mesmo da v0.9.9).
+
+Decisao do dono sobre o escopo de D2: o default global em
+`opendbc/car/interfaces.py` fica em `ki = 0.1` (valor da v0.9.9) para nao
+retunar as outras plataformas do branch; `ret.lateralTuning.torque.ki = 0.3`
+e setado explicitamente no bloco `HONDA_CITY_7G` de `honda/interface.py`, logo
+apos `configure_torque_tune`. E um desvio deliberado do upstream restrito ao
+City (commit `052a515f`, que substituiu o `3d49429f` inicial). Verificado:
+dentre as plataformas Honda da v0.9.9 so o City usa torque tune (as outras
+usam PID), entao nenhuma outra Honda muda; `interfaces.py` esta identico a
+`e370a036`, logo as outras marcas mantem ki 0.1.
 
 ## 8. Lado openpilot v0.9.9
 
@@ -366,9 +375,10 @@ shadow em release (`44c8cc4cb`; irrelevante aqui, o branch nao e release).
   City sem 0x1C2 -> False, igual ao upstream.
 - `deinit` (`9afca5bd`): so reativa radar em Bosch com radar; nada para o City.
 - Process replay do fork: D1/D2 mudam `carParams` e a saida do `controlsd`
-  para todos os carros com torque tune; os refs (`ref_commit`) precisarao ser
-  regenerados (`update_refs`) ou a diferenca aceita. `test_models` do City nao
-  depende desses valores.
+  so para o City (D2 e restrito ao City; D1 so afeta carros cujo bloco por
+  carro define `steerActuatorDelay`, que na v0.9.9 e so o City). Os refs
+  Honda do process replay (Civic/Accord) nao mudam por isso; o CI do fork
+  confirma. `test_models` do City nao depende desses valores.
 
 ## 9. Veredito: toda diferenca residual entre City na v0.9.9 e no upstream
 
@@ -390,31 +400,41 @@ shadow em release (`44c8cc4cb`; irrelevante aqui, o branch nao e release).
    mensagens; na v0.9.9 um timeout em qualquer mensagem da lista invalida o
    `canValid`; no upstream idem para mensagens acessadas. 0x1AB tem freq 0 na
    lista (nunca da timeout).
-9. Nada foi validado no carro. Nenhum teste de rua aconteceu.
+9. **Default global de ki** em `configure_torque_tune`: 0.1 na v0.9.9 vs 0.3
+   no upstream (fb5ac6d3). Para o City o valor efetivo e 0.3 (setado no bloco
+   do City); para as demais marcas do branch continua 0.1 por decisao do dono.
+10. Nada foi validado no carro. Nenhum teste de rua aconteceu.
 
-## 10. Commits feitos nesta auditoria (nenhum push)
+## 10. Commits feitos nesta auditoria
 
-opendbc `firmwarecityg7-v0.9.9` (HEAD `3d49429f`):
+opendbc `firmwarecityg7-v0.9.9` (HEAD `052a515f`):
 
 - `d42db044` Honda: set steerActuatorDelay before per-car tuning (backport of 28a16218)
-- `3d49429f` Torque control defaults: more integrator (backport of fb5ac6d3)
+- `052a515f` Honda City 7G: torque tune ki 0.3 (City-only deviation from upstream fb5ac6d3)
+  (substitui o `3d49429f` inicial, que alterava o default global)
 
-openpilot `v0.9.9-cityg7-blackpanda` (HEAD `c3e422ae9`):
+openpilot `v0.9.9-cityg7-blackpanda` (HEAD `89df27131`):
 
 - `c3e422ae9` Honda: allow sport gear (backport of upstream bae7a610f)
+- `89df27131` opendbc_repo: bump to 052a515f (City steerActuatorDelay fix, City ki 0.3)
 
-HybridPanda `main`: este relatorio, `LEIA-ME.md` atualizado e as ferramentas
+HybridPanda `main`: este relatorio, `LEIA-ME.md` atualizado, patches
+regenerados em `patches/opendbc` e `patches/openpilot`, e as ferramentas
 `tools/gen_dbc_from_tree.py`, `tools/dbc_struct_compare.py`,
 `tools/route_scan4_audit.py`, `tools/carparams_compare.py`,
 `tools/tx_byte_compare.py`.
 
 Verificacoes rodadas apos as mudancas: `ruff check opendbc/car/honda
-opendbc/safety opendbc/car/interfaces.py` (ok), `ruff check
+opendbc/safety` (ok), `ruff check
 selfdrive/car/car_specific.py` (ok), `tools/audit_port_hunks.py 28a16218`
 (9 discrepancias, todas as linhas de `dashcamOnly`/`HONDA_BOSCH_CANFD`, CAN-FD),
-`tools/audit_port_hunks.py fb5ac6d3` (0 discrepancias),
-`tools/carparams_compare.py` (80 iguais / 2 explicadas),
+`tools/carparams_compare.py --alpha-long` (80 iguais / 2 explicadas, ki 0.3,
+steerActuatorDelay 0.15),
 `tools/tx_byte_compare.py` (1036 quadros, 0 diferencas).
+
+Branches enviados aos remotos (`fork firmwarecityg7-v0.9.9`, `origin
+v0.9.9-cityg7-blackpanda`, HybridPanda `origin main`); o run de CI
+`selfdrive_tests.yaml` disparado pelo push esta registrado no `LEIA-ME.md`.
 
 ## 11. O que nao foi possivel verificar e por que
 
