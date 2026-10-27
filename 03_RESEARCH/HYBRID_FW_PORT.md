@@ -2,7 +2,8 @@
 
 Data: 2026-10-27 (revisao 2: PB14, HYBRID_BOARD, MISRA, procedimento de gravacao)
 Repositorio: clone `panda_hybrid` (origin kriptomad/panda, upstream commaai/panda master `1305b78c`),
-branch `hybrid-h725`, commits `a8babfea` (port inicial) e `78e37994` (PB14 + HYBRID_BOARD) - nao enviados / sem push.
+branch `hybrid-h725`, commits `a8babfea` (port inicial) e `78e37994` (PB14 + HYBRID_BOARD).
+Publicado em: https://github.com/kriptomad/panda/tree/hybrid-h725 (mesmo fork que hospeda `revive-f4`).
 Fonte de verdade dos pinos: `04_PROJECT\HybridPanda\HybridPanda.kicad_sch` -> netlist kicadxml
 (`kicad-cli sch export netlist --format kicadxml`), componente U7 = STM32H725ZGT6 (LQFP144).
 Nada aqui foi testado em hardware (ver secao 10).
