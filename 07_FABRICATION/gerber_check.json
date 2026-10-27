@@ -1,9 +1,9 @@
 {
  "HybridPanda-B_Cu.gbl": {
-  "bytes": 472887,
+  "bytes": 498283,
   "apertures": 17,
-  "flashes_D03": 247,
-  "draws_D01": 16554,
+  "flashes_D03": 257,
+  "draws_D01": 17580,
   "has_M02": true,
   "format_FS": true,
   "unit_MM": true
@@ -45,10 +45,10 @@
   "unit_MM": true
  },
  "HybridPanda-F_Cu.gtl": {
-  "bytes": 421702,
-  "apertures": 44,
-  "flashes_D03": 345,
-  "draws_D01": 14730,
+  "bytes": 453160,
+  "apertures": 45,
+  "flashes_D03": 355,
+  "draws_D01": 15950,
   "has_M02": true,
   "format_FS": true,
   "unit_MM": true
@@ -81,19 +81,19 @@
   "unit_MM": true
  },
  "HybridPanda-In1_Cu.g1": {
-  "bytes": 331308,
+  "bytes": 359077,
   "apertures": 13,
-  "flashes_D03": 230,
-  "draws_D01": 12734,
+  "flashes_D03": 240,
+  "draws_D01": 13780,
   "has_M02": true,
   "format_FS": true,
   "unit_MM": true
  },
  "HybridPanda-In2_Cu.g2": {
-  "bytes": 223969,
+  "bytes": 232485,
   "apertures": 9,
-  "flashes_D03": 230,
-  "draws_D01": 8567,
+  "flashes_D03": 240,
+  "draws_D01": 8945,
   "has_M02": true,
   "format_FS": true,
   "unit_MM": true
@@ -106,15 +106,15 @@
   "metric": true
  },
  "HybridPanda-PTH.drl": {
-  "bytes": 4172,
+  "bytes": 4324,
   "tools": 6,
-  "hits": 230,
+  "hits": 240,
   "has_M30": true,
   "metric": true
  },
  "_excellon_total_hits_vs_pcb": {
-  "excellon": 232,
-  "pcb_holes": 232,
+  "excellon": 242,
+  "pcb_holes": 242,
   "match": true
  }
 }

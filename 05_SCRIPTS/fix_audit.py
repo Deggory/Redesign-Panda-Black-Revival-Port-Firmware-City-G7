@@ -333,7 +333,8 @@ def cy_overlap(a, b):
 if cy_overlap("D7", "U9"):
     d7, u9 = board.FindFootprintByReference("D7"), board.FindFootprintByReference("U9")
     gap = ToMM(u9.GetCourtyard(pcbnew.F_CrtYd).BBox().GetRight() - d7.GetCourtyard(pcbnew.F_CrtYd).BBox().GetLeft()) + 0.10
-    tries = [("D7", gap, 0), ("D7", 0, gap), ("D7", 0, -gap), ("D7", gap, gap), ("D7", gap, -gap), ("U9", -gap, 0), ("U9", 0, gap), ("U9", 0, -gap)]
+    # D-33: U9 para oeste primeiro — D7 para leste (+0,25) poe os pads do D7 sob a serigrafia do P1 (silk_over_copper)
+    tries = [("U9", -gap, 0), ("D7", gap, 0), ("D7", 0, gap), ("D7", 0, -gap), ("D7", gap, gap), ("D7", gap, -gap), ("U9", 0, gap), ("U9", 0, -gap)]
     for ref, dx, dy in tries:
         ok, how = fp_move(ref, dx, dy)
         rep["courtyard"].append({"pair": "D7xU9", "ref": ref, "dx": round(dx, 3), "dy": round(dy, 3), "ok": ok, "how": how, "still_overlap": cy_overlap("D7", "U9") if ok and not DRY else None})

@@ -1,6 +1,6 @@
 # STEP 7 — Validação automatizada (logs reais em `06_REPORTS`)
 
-Data: 2026-10-27 08:34:45. Gerado por `05_SCRIPTS\step7_validate.py` (92 s).
+Data: 2026-10-27 11:26:51. Gerado por `05_SCRIPTS\step7_validate.py` (87 s).
 
 ## Resumo
 
@@ -26,34 +26,31 @@ Data: 2026-10-27 08:34:45. Gerado por `05_SCRIPTS\step7_validate.py` (92 s).
 | drill_out_of_range | 1 | 1 |
 | footprint_type_mismatch | 10 | 11 |
 | hole_clearance | 8 | 8 |
-| isolated_copper | 1 | 1 |
+| isolated_copper | 0 | 1 |
 | lib_footprint_mismatch | 64 | 67 |
 | silk_edge_clearance | 4 | 4 |
-| silk_over_copper | 2 | 0 |
 | silk_overlap | 4 | 3 |
-| starved_thermal | 18 | 13 |
+| starved_thermal | 17 | 13 |
 | text_height | 72 | 82 |
 
-Violações cuja assinatura (tipo + itens) **não existe no baseline**: 20
+Violações cuja assinatura (tipo + itens) **não existe no baseline**: 18
 - starved_thermal [error]: Thermal relief connection to zone incomplete (layer In1.Cu; zone min spoke count 2; actual 1) — Zone [GND] on F.Cu, B.Cu and 2 more, priority 0 <> PTH pad 9 [GND] of U6
 - starved_thermal [error]: Thermal relief connection to zone incomplete (layer In1.Cu; zone min spoke count 2; actual 1) — Zone [GND] on F.Cu, B.Cu and 2 more, priority 0 <> PTH pad 9 [GND] of U6
 - starved_thermal [error]: Thermal relief connection to zone incomplete (layer In1.Cu; zone min spoke count 2; actual 1) — Zone [GND] on F.Cu, B.Cu and 2 more, priority 0 <> PTH pad 9 [GND] of U6
+- starved_thermal [error]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1) — Zone [GND] on F.Cu, B.Cu and 2 more, priority 0 <> Pad 2 [GND] of U9 on F.Cu
 - starved_thermal [error]: Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1) — Zone [GND] on F.Cu, B.Cu and 2 more, priority 0 <> Pad 2 [GND] of C52 on B.Cu
+- starved_thermal [error]: Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1) — Zone [GND] on F.Cu, B.Cu and 2 more, priority 0 <> Pad 2 [GND] of C46 on B.Cu
 - starved_thermal [error]: Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1) — Zone [GND] on F.Cu, B.Cu and 2 more, priority 0 <> Pad 6 [GND] of U7 on B.Cu
-- starved_thermal [error]: Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1) — Zone [GND] on F.Cu, B.Cu and 2 more, priority 0 <> Pad 2 [GND] of C27 on F.Cu
 - starved_thermal [error]: Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1) — Zone [GND] on F.Cu, B.Cu and 2 more, priority 0 <> Pad 69 [GND] of U7 on B.Cu
 - starved_thermal [error]: Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1) — Zone [GND] on F.Cu, B.Cu and 2 more, priority 0 <> Pad 89 [GND] of U7 on B.Cu
-- starved_thermal [error]: Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1) — Zone [GND] on F.Cu, B.Cu and 2 more, priority 0 <> Pad 2 [GND] of C46 on B.Cu
-- starved_thermal [error]: Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1) — Zone [GND] on F.Cu, B.Cu and 2 more, priority 0 <> Pad 2 [GND] of Y1 on B.Cu
+- starved_thermal [error]: Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1) — Zone [GND] on F.Cu, B.Cu and 2 more, priority 0 <> Pad 2 [GND] of C40 on B.Cu
 - starved_thermal [error]: Thermal relief connection to zone incomplete (layer F.Cu; 1 spokes connected to isolated island) — Zone [GND] on F.Cu, B.Cu and 2 more, priority 0 <> Pad A1 [GND] of P1 on F.Cu
-- lib_footprint_mismatch [warning]: Footprint 'Fiducial_1mm_Mask2mm' does not match copy in library 'Fiducial' — Footprint FID1
 - lib_footprint_mismatch [warning]: Footprint 'Fiducial_1mm_Mask2mm' does not match copy in library 'Fiducial' — Footprint FID2
 - lib_footprint_mismatch [warning]: Footprint 'Fiducial_1mm_Mask2mm' does not match copy in library 'Fiducial' — Footprint FID3
-- lib_footprint_mismatch [warning]: Footprint 'Fiducial_1mm_Mask2mm' does not match copy in library 'Fiducial' — Footprint FID5
+- lib_footprint_mismatch [warning]: Footprint 'Fiducial_1mm_Mask2mm' does not match copy in library 'Fiducial' — Footprint FID1
 - lib_footprint_mismatch [warning]: Footprint 'Fiducial_1mm_Mask2mm' does not match copy in library 'Fiducial' — Footprint FID4
 - lib_footprint_mismatch [warning]: Footprint 'Fiducial_1mm_Mask2mm' does not match copy in library 'Fiducial' — Footprint FID6
-- silk_over_copper [warning]: Silkscreen clipped by solder mask — Segment of P1 on F.Silkscreen <> Pad 1 [BUS2_L] of D7 on F.Cu
-- silk_over_copper [warning]: Silkscreen clipped by solder mask — Segment of P1 on F.Silkscreen <> Pad 2 [BUS2_H] of D7 on F.Cu
+- lib_footprint_mismatch [warning]: Footprint 'Fiducial_1mm_Mask2mm' does not match copy in library 'Fiducial' — Footprint FID5
 - silk_overlap [warning]: Silkscreen clearance — Reference field of C23 <> Segment of Y1 on B.Silkscreen
 
 Nota: quase todas as 'novas' são do mesmo tipo das herdadas (text_height/lib_footprint_mismatch/silk) com itens renomeados (U7, C38–C63, R28–R33, J1, L5, D13/D14, FB1) ou deslocados pela placa +5 mm; as de cobre relevantes estão discutidas em `STEP5_layout_H725.md` §7.
@@ -80,18 +77,18 @@ Nota: quase todas as 'novas' são do mesmo tipo das herdadas (text_height/lib_fo
 ## 7. Manifestos
 
 - `Make-Manifest.ps1 -Step STEP7 -Original` exit 0:
-  - OUTPUT_ROOT manifest: 8737 files -> C:\Users\costabr\Downloads\openpilot\HybridPanda_v2_20261022_1616\00_MANIFESTS\OUTPUT_ROOT_STEP7_20261027_0835.sha256
+  - OUTPUT_ROOT manifest: 10590 files -> C:\Users\costabr\Downloads\openpilot\HybridPanda_v2_20261022_1616\00_MANIFESTS\OUTPUT_ROOT_STEP7_20261027_1127.sha256
   - 02_REFERENCE unchanged vs reference_clones.sha256: False
   - ORIGINAL vs BEFORE: IDENTICAL (377 files)
-  - INDEX.md rows: 2886
+  - INDEX.md rows: 4739
 
 ## 8. Comandos executados
 
 | Comando | Exit | s | Log |
 |---|---|---|---|
-| `C:\Users\costabr\AppData\Local\Programs\KiCad\10.0\bin\kicad-cli.exe sch erc --format json --severity-all -o C:\Users\costabr\Downloads\openpilot\HybridPanda_v2` | 0 | 7.0 | step7_erc.log |
-| `C:\Users\costabr\AppData\Local\Programs\KiCad\10.0\bin\kicad-cli.exe pcb drc --format json --severity-all --units mm -o C:\Users\costabr\Downloads\openpilot\Hyb` | 0 | 6.2 | step7_drc.log |
+| `C:\Users\costabr\AppData\Local\Programs\KiCad\10.0\bin\kicad-cli.exe sch erc --format json --severity-all -o C:\Users\costabr\Downloads\openpilot\HybridPanda_v2` | 0 | 5.6 | step7_erc.log |
+| `C:\Users\costabr\AppData\Local\Programs\KiCad\10.0\bin\kicad-cli.exe pcb drc --format json --severity-all --units mm -o C:\Users\costabr\Downloads\openpilot\Hyb` | 0 | 6.1 | step7_drc.log |
 | `C:\Users\costabr\AppData\Local\Programs\KiCad\10.0\bin\kicad-cli.exe sch export netlist --format kicadxml -o C:\Users\costabr\Downloads\openpilot\HybridPanda_v2` | 0 | 0.8 | step7_netlist.log |
 | `C:\Users\costabr\AppData\Local\Programs\KiCad\10.0\bin\kicad-cli.exe sch export bom --fields Reference,Value,Footprint,${QUANTITY},${DNP},MPN,Manufacturer,Datas` | 0 | 0.8 | step7_bom.log |
 | `C:\Users\costabr\Downloads\openpilot\HybridPanda_v2_20261022_1616\05_SCRIPTS\.venv\Scripts\python.exe C:\Users\costabr\Downloads\openpilot\HybridPanda_v2_202610` | 0 | 0.4 | step7_parity.log |
-| `powershell -NoProfile -ExecutionPolicy Bypass -File C:\Users\costabr\Downloads\openpilot\HybridPanda_v2_20261022_1616\05_SCRIPTS\Make-Manifest.ps1 -Step STEP7 -` | 0 | 76.1 | step7_manifest.log |
+| `powershell -NoProfile -ExecutionPolicy Bypass -File C:\Users\costabr\Downloads\openpilot\HybridPanda_v2_20261022_1616\05_SCRIPTS\Make-Manifest.ps1 -Step STEP7 -` | 0 | 73.1 | step7_manifest.log |

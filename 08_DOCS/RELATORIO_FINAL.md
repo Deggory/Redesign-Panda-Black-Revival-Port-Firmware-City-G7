@@ -14,7 +14,7 @@ Estado em uma frase: **projeto eletrónico completo em análise estática (esque
 | 2 Ingestão / HRS | FEITO | `03_RESEARCH\HRS_red_panda.md`, `coverage_matrix.md` (61/61 requisitos provados), `02_REFERENCE` (clones só leitura, hashes em `reference_clones.sha256`) |
 | 3 Eng. reversa / tabela híbrida | FEITO | `03_RESEARCH\STEP3_engenharia_reversa_tabela_hibrida.md`, `05_SCRIPTS\parity_check.py` + `firmware_pins.json` |
 | 4 Esquemático | FEITO | `04_PROJECT\HybridPanda\HybridPanda.kicad_sch`, `STEP4_esquematico_H725.md`, ERC 0 erros |
-| 5 PCB | FEITO | `HybridPanda.kicad_pcb` (= `.step5_final`), `STEP5_layout_H725.md`, DRC 0 não ligados / 0 clearance / 0 curtos |
+| 5 PCB | FEITO | `HybridPanda.kicad_pcb` (= `.step5_final`), `STEP5_layout_H725.md`, DRC 0 não ligados / 0 clearance / 0 curtos (182 itens, herdados + starved_thermal); via-in-pad 0 apos relayout leste +3 mm (D-33) |
 | 6 Roteamento / impedância | FEITO (analítico) | `STEP6_roteamento_impedancia.md` |
 | 7 Validação | FEITO — **nenhuma falha** | `STEP7_validacao.md`, `06_REPORTS\step7_validation.json` |
 | 8 Fabricação | FEITO — **NÃO FABRICAR** | `07_FABRICATION\` + `LEIA-ME.txt` |
@@ -56,8 +56,9 @@ MCU U7 LQFP-144 (Direct SMPS: L5 + C41/C42; VCAP ×3 interligados, D-19; VDDLDO;
 ## 8. Regras, stackup, furação, mecânica
 - Regras (do baseline, mantidas): trilha/espaço mín 0,1375/0,1 mm; via 0,4/0,3 (vias do baseline 0,45/0,25 permanecem — 1 `drill_out_of_range` herdado); anel mín 0,05; furo mín 0,3.
 - Stackup (gravado no ficheiro, **não confirmado com fabricante**): 4 camadas, F.Cu 35 µm / 0,2 mm / In1 17,5 µm / 1,065 mm / In2 17,5 µm / 0,2 mm / B.Cu 35 µm, εr 4,5 — total ≈ 1,59 mm. In2 = GND; In1 = +3V3 só sob o MCU.
-- Furação: 232 furos (PTH 26, NPTH 2, vias 204); brocas 0,25–2,5 mm; 6 slots (P1); Excellon = PCB (232 = 232) — `07_FABRICATION\drill_table.md`.
-- Mecânica: placa ampliada **+5 mm ao sul** (Edge.Cuts y_max 73,76 → 78,76 mm, D-24) → **as caixas STL do baseline não servem**; U7 em B.Cu (D-21) — altura do lado B aumenta (LQFP 1,6 mm + L5 1,0 mm).
+- Furação: 242 furos (PTH 26, NPTH 2, vias 214; apos D-33); brocas 0,25–2,5 mm; 6 slots (P1); Excellon = PCB (242 = 242) — `07_FABRICATION\drill_table.md`.
+- Mecânica: placa ampliada **+5 mm ao sul** (Edge.Cuts y_max 73,76 → 78,76 mm, D-24) e **+3 mm a leste** (x_max 139,535 → 142,535 mm, D-33) → **50,625 x 46,75 mm**; **as caixas STL do baseline não servem**; U7 em B.Cu (D-21) — altura do lado B aumenta (LQFP 1,6 mm + L5 1,0 mm). P1 (USB-C) e U3 continuam conectores de borda, flush com a borda leste.
+- Relayout leste (D-33, 2026-10-27): o bloco de transceptores/protecções (U8–U11, D5–D9, D13, P1, U3, Q1/Q2, R24, C26–C33) foi transladado +3 mm (C30/C31 +2, Q1/Q2 +2,4) para abrir ~1 mm entre o U7 e os transceptores; rerouting completo (5b/5c/5d) + `fix_audit.py` + `fix_drc_relayout.py` + `fix_vip_reroute.py`. O que foi verificado: DRC `kicad-cli` 0 clearance / 0 unconnected / 182 itens (17 `starved_thermal`, resto herdado); `final_audit.py` via-in-pad 0 (centro de via dentro de bbox de pad SMD), 0 curtos, 0 ilhas; `step7_validate.py` sem falhas (ERC 0 erros, netlist sch×pcb 0 divergencias, paridade 0 conflitos). Nao verificado: folgas de courtyard < 1 mm internas ao bloco (herdadas do baseline, nao alteradas), impedancia, qualquer teste fisico.
 - Impedância (STEP 6): CAN Zdiff ≈ 122–139 Ω estimados onde há referência In1; USB ≈ estimativa; **só analítico**.
 
 ## 9. Comandos executados e códigos de saída
@@ -69,6 +70,7 @@ Todos registados nos JSON de `06_REPORTS` (campo `commands`/`events` com `cmd`, 
 | 5b | `python.exe 05_SCRIPTS\step5b_route.py --passes 60` (Freerouting 2.5.0, Java 25) | 0 | `step5b_route.json`, `step5b_freerouting.log` |
 | 5c | `python.exe 05_SCRIPTS\step5c_fix_unrouted.py --rounds 6` | 0 | `step5c_fix.json` |
 | 5d | `python.exe 05_SCRIPTS\step5d_silk.py` | 0 (DRC 0) | `step5d_silk.json`, `hybrid_DRC_step5_final.json` |
+| 5e+ | `python.exe 05_SCRIPTS\step5e_relayout_east.py` (antes do 5b) → 5b/5c/5d → `fix_audit.py` → `fix_drc_relayout.py` → `step5c_fix_unrouted.py --rounds 3` → `fix_vip_reroute.py` → `final_audit.py` | 0 (DRC 0/0/182; via-in-pad 0) | `step5e_relayout_east.json`, `fix_audit.json`, `fix_drc_relayout.json`, `fix_vip_reroute.json`, `final_audit.json` |
 | 6 | `python.exe 05_SCRIPTS\step6_reports.py` | 0 | `step6_reports.json` |
 | 7 | `python.exe 05_SCRIPTS\step7_validate.py` → `kicad-cli sch erc` 0, `pcb drc` 0, `sch export netlist` 0, `sch export bom` 0, `parity_check.py` 0, `Make-Manifest.ps1 -Step STEP7 -Original` 0 | 0 | `step7_validation.json`, `step7_*.log` |
 | 8 | `python.exe 05_SCRIPTS\step8_fabricate.py` → gerbers 0, drill ×2 0, pdf ×9 0, **step 2** (ficheiro gerado; modelos VRML ignorados), bom 0, pos 0 | 0 | `step8_fabrication.json` |
@@ -85,8 +87,8 @@ Todos registados nos JSON de `06_REPORTS` (campo `commands`/`events` com `cmd`, 
 7. **Consumo/térmica do H725** (SMPS, 550 MHz) com o regulador 5 V→3V3 do baseline: NÃO VERIFICADO (g-5).
 8. **BOM PROVISÓRIA** (sem MPN/LCSC; ESR dos VCAP/SMPS crítico para o DS13311 §6.3).
 9. **P1 refutada**: o City 2023 BR é CAN clássico — o projeto não traz ganho funcional face a um black panda para este veículo (decisão consciente do utilizador, D-05).
-10. DRC herdado do baseline (hole_clearance P1 0,144 mm, courtyard D7/U9, vias 0,25) e 11 `starved_thermal` novas — ver `STEP5_layout_H725.md` §7.
-11. Caixa mecânica do baseline incompatível (+5 mm).
+10. DRC herdado do baseline (hole_clearance P1 0,144 mm, vias 0,25) e 17 `starved_thermal` (11 do STEP 5 + relayout D-33) — ver `STEP5_layout_H725.md` §7. Courtyard D7/U9 resolvido (U9 −0,25 mm, D-33).
+11. Caixa mecânica do baseline incompatível (+5 mm ao sul, +3 mm a leste).
 
 ## 11. Listas de honestidade
 **NÃO VERIFICADO**: impedância/skew reais; consumo e térmica; enumeração USB/HW_TYPE; CAN FD em hardware; comportamento do `pandad` com firmware DEBUG; convenção de rotação do CPL para JLC; corpos 3D dos footprints VRML no STEP; ESR real dos condensadores escolhidos.

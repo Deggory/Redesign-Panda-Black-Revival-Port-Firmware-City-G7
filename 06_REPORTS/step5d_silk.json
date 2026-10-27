@@ -49,8 +49,7 @@
   "silk_overlap": 4,
   "copper_edge_clearance": 2,
   "courtyards_overlap": 1,
-  "drill_out_of_range": 1,
-  "isolated_copper": 1
+  "drill_out_of_range": 1
  },
  "drc_exit": 0
 }

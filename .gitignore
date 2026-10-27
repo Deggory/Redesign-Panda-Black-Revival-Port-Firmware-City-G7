@@ -42,3 +42,6 @@ fp-info-cache
 04_PROJECT/HybridPanda/*.pre_fixdrc
 04_PROJECT/HybridPanda/*.pre_vipfinal
 09_FIRMWARECITYG7_BLACKPANDA/openpilot_cityg7_v0.9.9/
+04_PROJECT/HybridPanda/*.pre_relayout
+04_PROJECT/HybridPanda/*.step5e_in
+04_PROJECT/HybridPanda/*.relayout_best

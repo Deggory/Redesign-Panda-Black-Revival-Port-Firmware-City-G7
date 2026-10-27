@@ -1,7 +1,7 @@
 {
     "$schema": "https://schemas.kicad.org/drc.v1.json",
     "coordinate_units": "mm",
-    "date": "2026-10-26T12:32:24",
+    "date": "2026-10-27T11:01:03",
     "ignored_checks": [
         {
             "description": "Footprint has no courtyard defined",
@@ -44,7 +44,7 @@
                 {
                     "description": "PTH pad 0 [GND] of P1",
                     "pos": {
-                        "x": 133.180072,
+                        "x": 136.180072,
                         "y": 63.010048
                     },
                     "uuid": "54a9f320-30f7-4648-b630-aec37cffb924"
@@ -52,7 +52,7 @@
                 {
                     "description": "NPTH pad of P1",
                     "pos": {
-                        "x": 131.940042,
+                        "x": 134.940042,
                         "y": 62.554879
                     },
                     "uuid": "3537f85f-94c3-4945-a43e-c54c5ef0310d"
@@ -67,7 +67,7 @@
                 {
                     "description": "PTH pad 0 [GND] of P1",
                     "pos": {
-                        "x": 133.180072,
+                        "x": 136.180072,
                         "y": 63.010048
                     },
                     "uuid": "54a9f320-30f7-4648-b630-aec37cffb924"
@@ -75,7 +75,7 @@
                 {
                     "description": "NPTH pad of P1",
                     "pos": {
-                        "x": 131.940042,
+                        "x": 134.940042,
                         "y": 62.554879
                     },
                     "uuid": "3537f85f-94c3-4945-a43e-c54c5ef0310d"
@@ -90,7 +90,7 @@
                 {
                     "description": "PTH pad 0 [GND] of P1",
                     "pos": {
-                        "x": 133.180072,
+                        "x": 136.180072,
                         "y": 63.010048
                     },
                     "uuid": "54a9f320-30f7-4648-b630-aec37cffb924"
@@ -98,7 +98,7 @@
                 {
                     "description": "NPTH pad of P1",
                     "pos": {
-                        "x": 131.940042,
+                        "x": 134.940042,
                         "y": 62.554879
                     },
                     "uuid": "3537f85f-94c3-4945-a43e-c54c5ef0310d"
@@ -113,7 +113,7 @@
                 {
                     "description": "PTH pad 0 [GND] of P1",
                     "pos": {
-                        "x": 133.180072,
+                        "x": 136.180072,
                         "y": 63.010048
                     },
                     "uuid": "54a9f320-30f7-4648-b630-aec37cffb924"
@@ -121,7 +121,7 @@
                 {
                     "description": "NPTH pad of P1",
                     "pos": {
-                        "x": 131.940042,
+                        "x": 134.940042,
                         "y": 62.554879
                     },
                     "uuid": "3537f85f-94c3-4945-a43e-c54c5ef0310d"
@@ -136,7 +136,7 @@
                 {
                     "description": "PTH pad 0 [GND] of P1",
                     "pos": {
-                        "x": 133.180072,
+                        "x": 136.180072,
                         "y": 54.749952
                     },
                     "uuid": "1f7c6ebc-dcc0-47cf-8058-db09994f81e8"
@@ -144,7 +144,7 @@
                 {
                     "description": "NPTH pad of P1",
                     "pos": {
-                        "x": 131.940042,
+                        "x": 134.940042,
                         "y": 55.204867
                     },
                     "uuid": "c2c21dd7-2782-4dc3-9789-16d006076289"
@@ -159,7 +159,7 @@
                 {
                     "description": "PTH pad 0 [GND] of P1",
                     "pos": {
-                        "x": 133.180072,
+                        "x": 136.180072,
                         "y": 54.749952
                     },
                     "uuid": "1f7c6ebc-dcc0-47cf-8058-db09994f81e8"
@@ -167,7 +167,7 @@
                 {
                     "description": "NPTH pad of P1",
                     "pos": {
-                        "x": 131.940042,
+                        "x": 134.940042,
                         "y": 55.204867
                     },
                     "uuid": "c2c21dd7-2782-4dc3-9789-16d006076289"
@@ -182,7 +182,7 @@
                 {
                     "description": "PTH pad 0 [GND] of P1",
                     "pos": {
-                        "x": 133.180072,
+                        "x": 136.180072,
                         "y": 54.749952
                     },
                     "uuid": "1f7c6ebc-dcc0-47cf-8058-db09994f81e8"
@@ -190,7 +190,7 @@
                 {
                     "description": "NPTH pad of P1",
                     "pos": {
-                        "x": 131.940042,
+                        "x": 134.940042,
                         "y": 55.204867
                     },
                     "uuid": "c2c21dd7-2782-4dc3-9789-16d006076289"
@@ -205,7 +205,7 @@
                 {
                     "description": "PTH pad 0 [GND] of P1",
                     "pos": {
-                        "x": 133.180072,
+                        "x": 136.180072,
                         "y": 54.749952
                     },
                     "uuid": "1f7c6ebc-dcc0-47cf-8058-db09994f81e8"
@@ -213,7 +213,7 @@
                 {
                     "description": "NPTH pad of P1",
                     "pos": {
-                        "x": 131.940042,
+                        "x": 134.940042,
                         "y": 55.204867
                     },
                     "uuid": "c2c21dd7-2782-4dc3-9789-16d006076289"
@@ -228,7 +228,7 @@
                 {
                     "description": "Footprint D7",
                     "pos": {
-                        "x": 128.24,
+                        "x": 131.24,
                         "y": 55.24
                     },
                     "uuid": "0c47f109-2869-4efd-92e8-34b9a65f7737"
@@ -236,7 +236,7 @@
                 {
                     "description": "Footprint U9",
                     "pos": {
-                        "x": 124.27,
+                        "x": 127.27,
                         "y": 55.245
                     },
                     "uuid": "301e5505-10c7-4272-b5d2-2f3051556e31"
@@ -251,7 +251,7 @@
                 {
                     "description": "Polygon on Edge.Cuts",
                     "pos": {
-                        "x": 138.534585,
+                        "x": 141.534585,
                         "y": 32.061229
                     },
                     "uuid": "3fb694f7-b7af-493f-84be-8bbe486a91ea"
@@ -259,7 +259,7 @@
                 {
                     "description": "PTH pad 5 [unconnected-(U3-Pad5)] of U3",
                     "pos": {
-                        "x": 137.839971,
+                        "x": 140.839971,
                         "y": 46.229989
                     },
                     "uuid": "924aaf53-e64b-4974-a9d2-3a3670c3e3d1"
@@ -274,7 +274,7 @@
                 {
                     "description": "Polygon on Edge.Cuts",
                     "pos": {
-                        "x": 138.534585,
+                        "x": 141.534585,
                         "y": 32.061229
                     },
                     "uuid": "3fb694f7-b7af-493f-84be-8bbe486a91ea"
@@ -282,7 +282,7 @@
                 {
                     "description": "PTH pad 6 [unconnected-(U3-Pad6)] of U3",
                     "pos": {
-                        "x": 137.839971,
+                        "x": 140.839971,
                         "y": 33.329811
                     },
                     "uuid": "7af1439e-dbf3-4f05-8e26-d88023e0272c"
@@ -297,7 +297,7 @@
                 {
                     "description": "Footprint D7",
                     "pos": {
-                        "x": 128.24,
+                        "x": 131.24,
                         "y": 55.24
                     },
                     "uuid": "0c47f109-2869-4efd-92e8-34b9a65f7737"
@@ -312,7 +312,7 @@
                 {
                     "description": "Footprint D9",
                     "pos": {
-                        "x": 133.93,
+                        "x": 136.93,
                         "y": 66.22
                     },
                     "uuid": "60fd2a5c-43f9-4f41-a8ae-36456f518ae3"
@@ -327,7 +327,7 @@
                 {
                     "description": "Footprint Q1",
                     "pos": {
-                        "x": 123.15,
+                        "x": 125.55,
                         "y": 71.35
                     },
                     "uuid": "6b991e2c-bfd1-4063-8250-d77127f423d7"
@@ -342,7 +342,7 @@
                 {
                     "description": "Footprint D5",
                     "pos": {
-                        "x": 124.325,
+                        "x": 127.325,
                         "y": 67.65
                     },
                     "uuid": "73704966-8cae-4809-989b-d2d4ecc12698"
@@ -357,7 +357,7 @@
                 {
                     "description": "Footprint D6",
                     "pos": {
-                        "x": 128.22,
+                        "x": 131.22,
                         "y": 62.46
                     },
                     "uuid": "7ae74b2f-03e8-4c73-a168-76d3f9c9def7"
@@ -372,7 +372,7 @@
                 {
                     "description": "Footprint Q2",
                     "pos": {
-                        "x": 126.4,
+                        "x": 128.8,
                         "y": 71.35
                     },
                     "uuid": "7bf54be9-9d9d-4f6f-84bc-757bebf528c7"
@@ -387,7 +387,7 @@
                 {
                     "description": "Footprint D8",
                     "pos": {
-                        "x": 137.71,
+                        "x": 140.71,
                         "y": 66.22
                     },
                     "uuid": "95b49ab4-c370-41cd-87af-75c52e37f927"
@@ -432,7 +432,7 @@
                 {
                     "description": "Footprint D1",
                     "pos": {
-                        "x": 128.225,
+                        "x": 131.225,
                         "y": 49.8
                     },
                     "uuid": "cefc3c7a-7646-4878-a357-4f599daf8692"
@@ -493,7 +493,7 @@
                 {
                     "description": "PTH pad 0 [GND] of P1",
                     "pos": {
-                        "x": 133.180072,
+                        "x": 136.180072,
                         "y": 54.749952
                     },
                     "uuid": "1f7c6ebc-dcc0-47cf-8058-db09994f81e8"
@@ -526,7 +526,7 @@
             "type": "starved_thermal"
         },
         {
-            "description": "Thermal relief connection to zone incomplete (layer In2.Cu; zone min spoke count 2; actual 1)",
+            "description": "Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)",
             "items": [
                 {
                     "description": "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
@@ -537,12 +537,12 @@
                     "uuid": "c983a438-601f-4ab9-a61f-435bbeaecf84"
                 },
                 {
-                    "description": "PTH pad 0 [GND] of P1",
+                    "description": "Pad 1 [GND] of C10 on F.Cu",
                     "pos": {
-                        "x": 133.180072,
-                        "y": 54.749952
+                        "x": 110.58,
+                        "y": 47.33
                     },
-                    "uuid": "1f7c6ebc-dcc0-47cf-8058-db09994f81e8"
+                    "uuid": "250a6f71-118d-4cd3-9e92-03f599c42880"
                 }
             ],
             "severity": "error",
@@ -572,6 +572,29 @@
             "type": "starved_thermal"
         },
         {
+            "description": "Thermal relief connection to zone incomplete (layer In2.Cu; zone min spoke count 2; actual 1)",
+            "items": [
+                {
+                    "description": "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
+                    "pos": {
+                        "x": 85.07,
+                        "y": 26.88
+                    },
+                    "uuid": "c983a438-601f-4ab9-a61f-435bbeaecf84"
+                },
+                {
+                    "description": "PTH pad 0 [GND] of P1",
+                    "pos": {
+                        "x": 136.180072,
+                        "y": 54.749952
+                    },
+                    "uuid": "1f7c6ebc-dcc0-47cf-8058-db09994f81e8"
+                }
+            ],
+            "severity": "error",
+            "type": "starved_thermal"
+        },
+        {
             "description": "Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)",
             "items": [
                 {
@@ -585,7 +608,7 @@
                 {
                     "description": "PTH pad B1 [GND] of P1",
                     "pos": {
-                        "x": 132.590029,
+                        "x": 135.590029,
                         "y": 56.079898
                     },
                     "uuid": "20229526-8b00-445b-b8db-2b3d1a982949"
@@ -606,12 +629,12 @@
                     "uuid": "c983a438-601f-4ab9-a61f-435bbeaecf84"
                 },
                 {
-                    "description": "Pad 1 [GND] of C10 on F.Cu",
+                    "description": "Pad 2 [GND] of C28 on F.Cu",
                     "pos": {
-                        "x": 110.58,
-                        "y": 47.33
+                        "x": 141.9125,
+                        "y": 70.042
                     },
-                    "uuid": "250a6f71-118d-4cd3-9e92-03f599c42880"
+                    "uuid": "ba15bdec-59f4-4892-98b1-a2483b76ad68"
                 }
             ],
             "severity": "error",
@@ -634,7 +657,7 @@
                         "x": 102.95,
                         "y": 42.8575
                     },
-                    "uuid": "998f81d7-2ece-4c66-b6e6-5617ece303b9"
+                    "uuid": "00a9da92-5b46-4da2-8121-2eec87e7c71f"
                 }
             ],
             "severity": "error",
@@ -652,104 +675,12 @@
                     "uuid": "c983a438-601f-4ab9-a61f-435bbeaecf84"
                 },
                 {
-                    "description": "Pad 2 [GND] of C28 on F.Cu",
+                    "description": "Pad 2 [GND] of U9 on F.Cu",
                     "pos": {
-                        "x": 138.9125,
-                        "y": 70.042
+                        "x": 125.72,
+                        "y": 54.92
                     },
-                    "uuid": "ba15bdec-59f4-4892-98b1-a2483b76ad68"
-                }
-            ],
-            "severity": "error",
-            "type": "starved_thermal"
-        },
-        {
-            "description": "Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)",
-            "items": [
-                {
-                    "description": "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
-                    "pos": {
-                        "x": 85.07,
-                        "y": 26.88
-                    },
-                    "uuid": "c983a438-601f-4ab9-a61f-435bbeaecf84"
-                },
-                {
-                    "description": "Pad 6 [GND] of U7 on B.Cu",
-                    "pos": {
-                        "x": 115.75,
-                        "y": 67.2625
-                    },
-                    "uuid": "4e2346e5-7de0-480a-af9f-73f70a00a395"
-                }
-            ],
-            "severity": "error",
-            "type": "starved_thermal"
-        },
-        {
-            "description": "Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)",
-            "items": [
-                {
-                    "description": "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
-                    "pos": {
-                        "x": 85.07,
-                        "y": 26.88
-                    },
-                    "uuid": "c983a438-601f-4ab9-a61f-435bbeaecf84"
-                },
-                {
-                    "description": "Pad 2 [GND] of C27 on F.Cu",
-                    "pos": {
-                        "x": 124.85,
-                        "y": 57.535
-                    },
-                    "uuid": "ec7b8945-3b31-4149-81ab-e5aafa0c68f7"
-                }
-            ],
-            "severity": "error",
-            "type": "starved_thermal"
-        },
-        {
-            "description": "Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)",
-            "items": [
-                {
-                    "description": "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
-                    "pos": {
-                        "x": 85.07,
-                        "y": 26.88
-                    },
-                    "uuid": "c983a438-601f-4ab9-a61f-435bbeaecf84"
-                },
-                {
-                    "description": "Pad 69 [GND] of U7 on B.Cu",
-                    "pos": {
-                        "x": 98.8375,
-                        "y": 49.35
-                    },
-                    "uuid": "27a75e87-b875-4b8f-867c-52bb7d231114"
-                }
-            ],
-            "severity": "error",
-            "type": "starved_thermal"
-        },
-        {
-            "description": "Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)",
-            "items": [
-                {
-                    "description": "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
-                    "pos": {
-                        "x": 85.07,
-                        "y": 26.88
-                    },
-                    "uuid": "c983a438-601f-4ab9-a61f-435bbeaecf84"
-                },
-                {
-                    "description": "Pad 89 [GND] of U7 on B.Cu",
-                    "pos": {
-                        "x": 108.75,
-                        "y": 45.9375
-                    },
-                    "uuid": "2cd37a54-0e4e-42e9-b9b6-54683af70476"
+                    "uuid": "a0379dab-8aa4-44af-a44a-813ec71e007b"
                 }
             ],
             "severity": "error",
@@ -772,14 +703,14 @@
                         "x": 113.05,
                         "y": 70.3425
                     },
-                    "uuid": "b48a935a-36a1-4f0b-be39-9382959dc620"
+                    "uuid": "8cbf7c60-4f81-4a09-b0f7-a6ee6816a950"
                 }
             ],
             "severity": "error",
             "type": "starved_thermal"
         },
         {
-            "description": "Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)",
+            "description": "Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)",
             "items": [
                 {
                     "description": "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
@@ -790,12 +721,81 @@
                     "uuid": "c983a438-601f-4ab9-a61f-435bbeaecf84"
                 },
                 {
-                    "description": "Pad 2 [GND] of C29 on F.Cu",
+                    "description": "Pad 1 [GND] of D13 on B.Cu",
                     "pos": {
-                        "x": 134.2525,
-                        "y": 70.032
+                        "x": 130.5113,
+                        "y": 67.2532
                     },
-                    "uuid": "91da2149-ed59-4edd-afdc-d01519fea887"
+                    "uuid": "16b712f0-c9d9-4b97-aab7-9849f6fa2644"
+                }
+            ],
+            "severity": "error",
+            "type": "starved_thermal"
+        },
+        {
+            "description": "Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)",
+            "items": [
+                {
+                    "description": "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
+                    "pos": {
+                        "x": 85.07,
+                        "y": 26.88
+                    },
+                    "uuid": "c983a438-601f-4ab9-a61f-435bbeaecf84"
+                },
+                {
+                    "description": "Pad 6 [GND] of U7 on B.Cu",
+                    "pos": {
+                        "x": 115.75,
+                        "y": 67.2625
+                    },
+                    "uuid": "139b7a62-f11a-474e-ac42-1f5d02e5923a"
+                }
+            ],
+            "severity": "error",
+            "type": "starved_thermal"
+        },
+        {
+            "description": "Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)",
+            "items": [
+                {
+                    "description": "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
+                    "pos": {
+                        "x": 85.07,
+                        "y": 26.88
+                    },
+                    "uuid": "c983a438-601f-4ab9-a61f-435bbeaecf84"
+                },
+                {
+                    "description": "Pad 69 [GND] of U7 on B.Cu",
+                    "pos": {
+                        "x": 98.8375,
+                        "y": 49.35
+                    },
+                    "uuid": "a91c33ee-4f26-45a1-99b6-56fabed0d1ef"
+                }
+            ],
+            "severity": "error",
+            "type": "starved_thermal"
+        },
+        {
+            "description": "Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)",
+            "items": [
+                {
+                    "description": "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
+                    "pos": {
+                        "x": 85.07,
+                        "y": 26.88
+                    },
+                    "uuid": "c983a438-601f-4ab9-a61f-435bbeaecf84"
+                },
+                {
+                    "description": "Pad 89 [GND] of U7 on B.Cu",
+                    "pos": {
+                        "x": 108.75,
+                        "y": 45.9375
+                    },
+                    "uuid": "224026e7-a033-459d-bf4a-8f2650bce2fb"
                 }
             ],
             "severity": "error",
@@ -815,7 +815,7 @@
                 {
                     "description": "Pad 3 [GND] of D6 on F.Cu",
                     "pos": {
-                        "x": 127.07,
+                        "x": 130.07,
                         "y": 62.46
                     },
                     "uuid": "55a3c525-0791-4291-a85b-8f5c9e237408"
@@ -838,7 +838,7 @@
                 {
                     "description": "Pad 2 [GND] of U10 on F.Cu",
                     "pos": {
-                        "x": 136.32,
+                        "x": 139.32,
                         "y": 71.95
                     },
                     "uuid": "6c7e4000-fb57-4250-bad8-33d9eca64c42"
@@ -861,7 +861,7 @@
                 {
                     "description": "Pad A1 [GND] of P1 on F.Cu",
                     "pos": {
-                        "x": 131.379971,
+                        "x": 134.379971,
                         "y": 61.630318
                     },
                     "uuid": "ec6c6974-024b-4ab3-9312-f546dc68e3d3"
@@ -871,27 +871,12 @@
             "type": "starved_thermal"
         },
         {
-            "description": "Isolated copper fill",
-            "items": [
-                {
-                    "description": "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
-                    "pos": {
-                        "x": 85.07,
-                        "y": 26.88
-                    },
-                    "uuid": "c983a438-601f-4ab9-a61f-435bbeaecf84"
-                }
-            ],
-            "severity": "warning",
-            "type": "isolated_copper"
-        },
-        {
             "description": "Silkscreen clipped by board edge",
             "items": [
                 {
                     "description": "Polygon on Edge.Cuts",
                     "pos": {
-                        "x": 138.534585,
+                        "x": 141.534585,
                         "y": 32.061229
                     },
                     "uuid": "3fb694f7-b7af-493f-84be-8bbe486a91ea"
@@ -899,7 +884,7 @@
                 {
                     "description": "Segment of U3 on F.Silkscreen",
                     "pos": {
-                        "x": 130.397019,
+                        "x": 133.397019,
                         "y": 32.413885
                     },
                     "uuid": "fa981cbe-1b73-4223-aecb-64836a9c51d9"
@@ -914,7 +899,7 @@
                 {
                     "description": "Polygon on Edge.Cuts",
                     "pos": {
-                        "x": 138.534585,
+                        "x": 141.534585,
                         "y": 32.061229
                     },
                     "uuid": "3fb694f7-b7af-493f-84be-8bbe486a91ea"
@@ -922,7 +907,7 @@
                 {
                     "description": "Segment of U3 on F.Silkscreen",
                     "pos": {
-                        "x": 140.55704,
+                        "x": 143.55704,
                         "y": 47.145915
                     },
                     "uuid": "90478043-66c4-42dc-87b0-666a5e56b1a2"
@@ -937,7 +922,7 @@
                 {
                     "description": "Polygon on Edge.Cuts",
                     "pos": {
-                        "x": 138.534585,
+                        "x": 141.534585,
                         "y": 32.061229
                     },
                     "uuid": "3fb694f7-b7af-493f-84be-8bbe486a91ea"
@@ -945,7 +930,7 @@
                 {
                     "description": "Segment of P1 on F.Silkscreen",
                     "pos": {
-                        "x": 140.107022,
+                        "x": 143.107022,
                         "y": 54.38
                     },
                     "uuid": "243818ee-e5c7-4382-ac2b-320091170a04"
@@ -960,7 +945,7 @@
                 {
                     "description": "Polygon on Edge.Cuts",
                     "pos": {
-                        "x": 138.534585,
+                        "x": 141.534585,
                         "y": 32.061229
                     },
                     "uuid": "3fb694f7-b7af-493f-84be-8bbe486a91ea"
@@ -968,7 +953,7 @@
                 {
                     "description": "Segment of P1 on F.Silkscreen",
                     "pos": {
-                        "x": 140.107022,
+                        "x": 143.107022,
                         "y": 63.38
                     },
                     "uuid": "51031052-8579-43f3-ab11-d98bb0866760"
@@ -1043,8 +1028,8 @@
                 {
                     "description": "Footprint R24",
                     "pos": {
-                        "x": 127.675,
-                        "y": 69.65
+                        "x": 130.675,
+                        "y": 68.85
                     },
                     "uuid": "13e9b04a-3f0c-46ce-b36b-9447d39609be"
                 }
@@ -1133,7 +1118,7 @@
                 {
                     "description": "Footprint C28",
                     "pos": {
-                        "x": 138.9125,
+                        "x": 141.9125,
                         "y": 69.562
                     },
                     "uuid": "2d9820d7-af2e-4535-8dfa-d21f34ec92cd"
@@ -1148,7 +1133,7 @@
                 {
                     "description": "Footprint U9",
                     "pos": {
-                        "x": 124.27,
+                        "x": 127.27,
                         "y": 55.245
                     },
                     "uuid": "301e5505-10c7-4272-b5d2-2f3051556e31"
@@ -1178,7 +1163,7 @@
                 {
                     "description": "Footprint C27",
                     "pos": {
-                        "x": 125.33,
+                        "x": 128.33,
                         "y": 57.535
                     },
                     "uuid": "3ac142d1-5997-40a6-aa31-bc77d430db72"
@@ -1253,7 +1238,7 @@
                 {
                     "description": "Footprint U8",
                     "pos": {
-                        "x": 124.1175,
+                        "x": 127.1175,
                         "y": 61.51
                     },
                     "uuid": "4b966269-6289-4d3c-9cf0-545505f6968d"
@@ -1268,7 +1253,7 @@
                 {
                     "description": "Footprint C29",
                     "pos": {
-                        "x": 134.2525,
+                        "x": 137.2525,
                         "y": 69.552
                     },
                     "uuid": "4c7c524b-48a4-4112-8aa8-b4b9bd366728"
@@ -1313,7 +1298,7 @@
                 {
                     "description": "Footprint C30",
                     "pos": {
-                        "x": 121.46,
+                        "x": 123.46,
                         "y": 61.51
                     },
                     "uuid": "608faeb4-bf2c-4e1a-947d-30d2e8a7a29c"
@@ -1328,8 +1313,8 @@
                 {
                     "description": "Footprint C32",
                     "pos": {
-                        "x": 136.6525,
-                        "y": 73.052
+                        "x": 139.6525,
+                        "y": 74.052
                     },
                     "uuid": "6e26cda2-1f0b-4e74-8cd9-bfa5f0cd3b5d"
                 }
@@ -1433,7 +1418,7 @@
                 {
                     "description": "Footprint C17",
                     "pos": {
-                        "x": 124.3,
+                        "x": 127.3,
                         "y": 51.65
                     },
                     "uuid": "98c0d906-5f05-409d-9cb3-82a81581c31d"
@@ -1478,7 +1463,7 @@
                 {
                     "description": "Footprint C31",
                     "pos": {
-                        "x": 121.625,
+                        "x": 123.625,
                         "y": 55.35
                     },
                     "uuid": "b18b44b5-45d2-4f1e-85de-2af9ea6ca68b"
@@ -1508,7 +1493,7 @@
                 {
                     "description": "Footprint Q4",
                     "pos": {
-                        "x": 135.6,
+                        "x": 138.6,
                         "y": 50.475
                     },
                     "uuid": "b728cfaf-e177-42f3-9080-39070bfc95c2"
@@ -1538,7 +1523,7 @@
                 {
                     "description": "Footprint U10",
                     "pos": {
-                        "x": 136.645,
+                        "x": 139.645,
                         "y": 70.4
                     },
                     "uuid": "bd1a5fec-ff84-4fac-a4db-e91547e4d548"
@@ -1598,7 +1583,7 @@
                 {
                     "description": "Footprint U11",
                     "pos": {
-                        "x": 131.98,
+                        "x": 134.98,
                         "y": 70.372
                     },
                     "uuid": "cb383547-35cc-4aee-a0a2-4bd2bda8cf6f"
@@ -1673,7 +1658,7 @@
                 {
                     "description": "Footprint C26",
                     "pos": {
-                        "x": 124.96,
+                        "x": 127.96,
                         "y": 63.78
                     },
                     "uuid": "d999ced4-4372-49fe-9ea0-688e9912652a"
@@ -1688,8 +1673,8 @@
                 {
                     "description": "Footprint C33",
                     "pos": {
-                        "x": 131.8925,
-                        "y": 73.022
+                        "x": 134.8925,
+                        "y": 74.022
                     },
                     "uuid": "dcade19c-5e03-47be-8f07-2f676ea60fa4"
                 }
@@ -1748,7 +1733,7 @@
                 {
                     "description": "Footprint R1",
                     "pos": {
-                        "x": 130.975,
+                        "x": 133.975,
                         "y": 52.4
                     },
                     "uuid": "e1d563fa-89b4-43cb-a279-990a77a7bfb9"
@@ -1913,7 +1898,7 @@
                 {
                     "description": "Reference field of D7",
                     "pos": {
-                        "x": 127.12,
+                        "x": 130.12,
                         "y": 54.38
                     },
                     "uuid": "aa7d0dad-7560-4fbe-85b5-1d40486ec15d"
@@ -1958,8 +1943,8 @@
                 {
                     "description": "Reference field of R24",
                     "pos": {
-                        "x": 128.6,
-                        "y": 69.66
+                        "x": 131.6,
+                        "y": 68.86
                     },
                     "uuid": "eeaf9007-459f-4d42-a8c5-230fff7afcb5"
                 }
@@ -2033,7 +2018,7 @@
                 {
                     "description": "Reference field of D2",
                     "pos": {
-                        "x": 130.68,
+                        "x": 133.68,
                         "y": 48.16
                     },
                     "uuid": "ae2a8f45-b989-4c2e-b874-4c92e0894391"
@@ -2063,7 +2048,7 @@
                 {
                     "description": "Reference field of C28",
                     "pos": {
-                        "x": 139.06,
+                        "x": 142.06,
                         "y": 67.92
                     },
                     "uuid": "cf3b2836-c0b5-4c7b-8bda-d092967414cb"
@@ -2078,7 +2063,7 @@
                 {
                     "description": "Reference field of U9",
                     "pos": {
-                        "x": 122.21,
+                        "x": 125.21,
                         "y": 53.35
                     },
                     "uuid": "08980029-c2ce-4719-a8e5-97a88e7ffa2d"
@@ -2108,7 +2093,7 @@
                 {
                     "description": "Reference field of C27",
                     "pos": {
-                        "x": 125.32,
+                        "x": 128.32,
                         "y": 58.4
                     },
                     "uuid": "9767cbed-9525-4530-b97e-95d927a15c77"
@@ -2183,7 +2168,7 @@
                 {
                     "description": "Reference field of U8",
                     "pos": {
-                        "x": 122.09,
+                        "x": 125.09,
                         "y": 59.53
                     },
                     "uuid": "0cfa4747-3d23-4854-844a-f3d05d9a8c52"
@@ -2198,7 +2183,7 @@
                 {
                     "description": "Reference field of C29",
                     "pos": {
-                        "x": 134.2675,
+                        "x": 137.2675,
                         "y": 68.417
                     },
                     "uuid": "86d39629-0f88-431d-8fd6-6eb0765026d6"
@@ -2258,7 +2243,7 @@
                 {
                     "description": "Reference field of C30",
                     "pos": {
-                        "x": 120.77,
+                        "x": 122.77,
                         "y": 61.51
                     },
                     "uuid": "5b394403-cb07-4170-9e2f-03da85bf768e"
@@ -2273,7 +2258,7 @@
                 {
                     "description": "Reference field of D9",
                     "pos": {
-                        "x": 132.71,
+                        "x": 135.71,
                         "y": 67.3
                     },
                     "uuid": "96382667-2ebc-4a3d-b37e-9a63d262a4bd"
@@ -2288,8 +2273,8 @@
                 {
                     "description": "Reference field of C32",
                     "pos": {
-                        "x": 135.01,
-                        "y": 73.19
+                        "x": 138.01,
+                        "y": 74.19
                     },
                     "uuid": "c331dac1-02cb-4f6c-8ff1-b357430962f9"
                 }
@@ -2318,7 +2303,7 @@
                 {
                     "description": "Reference field of D5",
                     "pos": {
-                        "x": 125.51,
+                        "x": 128.51,
                         "y": 68.57
                     },
                     "uuid": "008360f0-8d23-41f3-901f-1b2151f63bb2"
@@ -2348,7 +2333,7 @@
                 {
                     "description": "Reference field of D6",
                     "pos": {
-                        "x": 127.08,
+                        "x": 130.08,
                         "y": 61.63
                     },
                     "uuid": "04c92876-a528-490e-9a02-64d469362f93"
@@ -2408,7 +2393,7 @@
                 {
                     "description": "Reference field of D8",
                     "pos": {
-                        "x": 136.71,
+                        "x": 139.71,
                         "y": 67.35
                     },
                     "uuid": "ae5052a8-f2e3-414d-9bd3-2a34c61d2a61"
@@ -2438,7 +2423,7 @@
                 {
                     "description": "Reference field of C17",
                     "pos": {
-                        "x": 125.6,
+                        "x": 128.6,
                         "y": 51.64
                     },
                     "uuid": "24ea8271-a933-429f-b9f2-e1f70430327f"
@@ -2528,7 +2513,7 @@
                 {
                     "description": "Reference field of C31",
                     "pos": {
-                        "x": 120.945,
+                        "x": 122.945,
                         "y": 55.32
                     },
                     "uuid": "06d07bc6-9f8f-42a8-a0aa-5e93e1119532"
@@ -2558,7 +2543,7 @@
                 {
                     "description": "Reference field of Q4",
                     "pos": {
-                        "x": 133.05,
+                        "x": 136.05,
                         "y": 53.53
                     },
                     "uuid": "3adae13b-93f3-4ff8-8fc0-7d139655f2f0"
@@ -2588,7 +2573,7 @@
                 {
                     "description": "Reference field of U10",
                     "pos": {
-                        "x": 134.59,
+                        "x": 137.59,
                         "y": 71.32
                     },
                     "uuid": "99f769fc-b2f4-46b6-93c3-d68f42d33347"
@@ -2648,7 +2633,7 @@
                 {
                     "description": "Reference field of U11",
                     "pos": {
-                        "x": 129.92,
+                        "x": 132.92,
                         "y": 71.32
                     },
                     "uuid": "ffcb9e22-ddaa-4fc2-a888-d7380e74ae30"
@@ -2678,7 +2663,7 @@
                 {
                     "description": "Reference field of D1",
                     "pos": {
-                        "x": 126.5,
+                        "x": 129.5,
                         "y": 49.77
                     },
                     "uuid": "8c673fde-b5c3-49d2-a944-31297b8e6934"
@@ -2738,7 +2723,7 @@
                 {
                     "description": "Reference field of C26",
                     "pos": {
-                        "x": 124.96,
+                        "x": 127.96,
                         "y": 64.7
                     },
                     "uuid": "ec4722c2-173c-49ca-92ca-c10822032599"
@@ -2753,7 +2738,7 @@
                 {
                     "description": "Reference field of U3",
                     "pos": {
-                        "x": 133.579971,
+                        "x": 136.579971,
                         "y": 36.739989
                     },
                     "uuid": "d9c5f04c-ced1-4764-b913-6900a0fb1acc"
@@ -2768,8 +2753,8 @@
                 {
                     "description": "Reference field of C33",
                     "pos": {
-                        "x": 130.25,
-                        "y": 73.18
+                        "x": 133.25,
+                        "y": 74.18
                     },
                     "uuid": "ed040160-c0c0-4967-9c6c-1e03bdf459da"
                 }
@@ -2828,7 +2813,7 @@
                 {
                     "description": "Reference field of R1",
                     "pos": {
-                        "x": 130.975,
+                        "x": 133.975,
                         "y": 53.29
                     },
                     "uuid": "ebab04b1-f602-43a6-a1e8-cc26c8d2d434"
@@ -2954,20 +2939,20 @@
             "description": "Silkscreen clearance",
             "items": [
                 {
-                    "description": "Segment of C30 on F.Silkscreen",
+                    "description": "Reference field of C31",
                     "pos": {
-                        "x": 121.1,
-                        "y": 61.402164
+                        "x": 122.945,
+                        "y": 55.32
                     },
-                    "uuid": "3a4c173c-c11e-4e7a-acde-cff3eb235a84"
+                    "uuid": "06d07bc6-9f8f-42a8-a0aa-5e93e1119532"
                 },
                 {
-                    "description": "Reference field of C30",
+                    "description": "Segment of C31 on F.Silkscreen",
                     "pos": {
-                        "x": 120.77,
-                        "y": 61.51
+                        "x": 123.265,
+                        "y": 55.242164
                     },
-                    "uuid": "5b394403-cb07-4170-9e2f-03da85bf768e"
+                    "uuid": "fa217c00-99cd-4e7b-ad96-46571e81dd69"
                 }
             ],
             "severity": "warning",
@@ -2977,20 +2962,20 @@
             "description": "Silkscreen clearance",
             "items": [
                 {
-                    "description": "Reference field of C31",
+                    "description": "Segment of C30 on F.Silkscreen",
                     "pos": {
-                        "x": 120.945,
-                        "y": 55.32
+                        "x": 123.1,
+                        "y": 61.402164
                     },
-                    "uuid": "06d07bc6-9f8f-42a8-a0aa-5e93e1119532"
+                    "uuid": "3a4c173c-c11e-4e7a-acde-cff3eb235a84"
                 },
                 {
-                    "description": "Segment of C31 on F.Silkscreen",
+                    "description": "Reference field of C30",
                     "pos": {
-                        "x": 121.265,
-                        "y": 55.242164
+                        "x": 122.77,
+                        "y": 61.51
                     },
-                    "uuid": "fa217c00-99cd-4e7b-ad96-46571e81dd69"
+                    "uuid": "5b394403-cb07-4170-9e2f-03da85bf768e"
                 }
             ],
             "severity": "warning",

@@ -1,7 +1,7 @@
 {
   "meta": {
     "script": "parity_red_h7_hybrid_HybridPanda_netlist",
-    "started": "2026-10-27T08:35:01",
+    "started": "2026-10-27T11:27:05",
     "dry_run": false,
     "output_root": "C:\\Users\\costabr\\Downloads\\openpilot\\HybridPanda_v2_20261022_1616",
     "python": "3.13.9"
@@ -646,7 +646,7 @@
   },
   "events": [
     {
-      "t": 0.005,
+      "t": 0.004,
       "level": "INFO",
       "msg": "MCU",
       "ref": "U7",
@@ -654,7 +654,7 @@
       "footprint": "Package_QFP:LQFP-144_20x20mm_P0.5mm"
     },
     {
-      "t": 0.007,
+      "t": 0.005,
       "level": "INFO",
       "msg": "CAN group FDCAN1",
       "xcvr": [
@@ -663,7 +663,7 @@
       "stb_ok": true
     },
     {
-      "t": 0.007,
+      "t": 0.005,
       "level": "INFO",
       "msg": "CAN group FDCAN2_OBD",
       "xcvr": [
@@ -672,7 +672,7 @@
       "stb_ok": true
     },
     {
-      "t": 0.007,
+      "t": 0.005,
       "level": "INFO",
       "msg": "CAN group FDCAN2_NORMAL",
       "xcvr": [
@@ -681,7 +681,7 @@
       "stb_ok": true
     },
     {
-      "t": 0.007,
+      "t": 0.005,
       "level": "INFO",
       "msg": "CAN group FDCAN3",
       "xcvr": [
@@ -690,5 +690,5 @@
       "stb_ok": true
     }
   ],
-  "finished": "2026-10-27T08:35:01"
+  "finished": "2026-10-27T11:27:05"
 }

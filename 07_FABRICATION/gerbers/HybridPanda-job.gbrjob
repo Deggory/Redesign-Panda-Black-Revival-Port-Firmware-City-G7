@@ -5,7 +5,7 @@
       "Application": "Pcbnew",
       "Version": "10.0.7"
     },
-    "CreationDate": "2026-10-27T08:31:14-03:00"
+    "CreationDate": "2026-10-27T11:28:27-03:00"
   },
   "GeneralSpecs": {
     "ProjectId": {
@@ -14,7 +14,7 @@
       "Revision": "rev?"
     },
     "Size": {
-      "X": 47.625,
+      "X": 50.625,
       "Y": 46.75
     },
     "LayerNumber": 4,
@@ -27,7 +27,7 @@
       "PadToPad": 0.1,
       "PadToTrack": 0.1,
       "TrackToTrack": 0.1,
-      "MinLineWidth": 0.15,
+      "MinLineWidth": 0.14,
       "TrackToRegion": 0.254,
       "RegionToRegion": 0.254
     },

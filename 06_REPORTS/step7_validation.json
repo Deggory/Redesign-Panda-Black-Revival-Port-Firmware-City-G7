@@ -1,16 +1,16 @@
 {
- "date": "2026-10-27 08:34:45",
+ "date": "2026-10-27 11:26:51",
  "commands": [
   {
    "cmd": "C:\\Users\\costabr\\AppData\\Local\\Programs\\KiCad\\10.0\\bin\\kicad-cli.exe sch erc --format json --severity-all -o C:\\Users\\costabr\\Downloads\\openpilot\\HybridPanda_v2_20261022_1616\\06_REPORTS\\hybrid_ERC_step7.json C:\\Users\\costabr\\Downloads\\openpilot\\HybridPanda_v2_20261022_1616\\04_PROJECT\\HybridPanda\\HybridPanda.kicad_sch",
    "exit": 0,
-   "seconds": 7.0,
+   "seconds": 5.6,
    "log": "step7_erc.log"
   },
   {
    "cmd": "C:\\Users\\costabr\\AppData\\Local\\Programs\\KiCad\\10.0\\bin\\kicad-cli.exe pcb drc --format json --severity-all --units mm -o C:\\Users\\costabr\\Downloads\\openpilot\\HybridPanda_v2_20261022_1616\\06_REPORTS\\hybrid_DRC_step7.json C:\\Users\\costabr\\Downloads\\openpilot\\HybridPanda_v2_20261022_1616\\04_PROJECT\\HybridPanda\\HybridPanda.kicad_pcb",
    "exit": 0,
-   "seconds": 6.2,
+   "seconds": 6.1,
    "log": "step7_drc.log"
   },
   {
@@ -34,7 +34,7 @@
   {
    "cmd": "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\Users\\costabr\\Downloads\\openpilot\\HybridPanda_v2_20261022_1616\\05_SCRIPTS\\Make-Manifest.ps1 -Step STEP7 -Original",
    "exit": 0,
-   "seconds": 76.1,
+   "seconds": 73.1,
    "log": "step7_manifest.log"
   }
  ],
@@ -56,7 +56,7 @@
  "drc": {
   "unconnected_items": 0,
   "unconnected_list": [],
-  "violations_total": 186,
+  "violations_total": 182,
   "baseline_total": 194,
   "by_type": {
    "copper_edge_clearance": {
@@ -80,7 +80,7 @@
     "baseline": 8
    },
    "isolated_copper": {
-    "hibrida": 1,
+    "hibrida": 0,
     "baseline": 1
    },
    "lib_footprint_mismatch": {
@@ -91,16 +91,12 @@
     "hibrida": 4,
     "baseline": 4
    },
-   "silk_over_copper": {
-    "hibrida": 2,
-    "baseline": 0
-   },
    "silk_overlap": {
     "hibrida": 4,
     "baseline": 3
    },
    "starved_thermal": {
-    "hibrida": 18,
+    "hibrida": 17,
     "baseline": 13
    },
    "text_height": {
@@ -139,6 +135,15 @@
    {
     "type": "starved_thermal",
     "severity": "error",
+    "desc": "Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)",
+    "items": [
+     "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
+     "Pad 2 [GND] of U9 on F.Cu"
+    ]
+   },
+   {
+    "type": "starved_thermal",
+    "severity": "error",
     "desc": "Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)",
     "items": [
      "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
@@ -151,16 +156,16 @@
     "desc": "Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)",
     "items": [
      "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
-     "Pad 6 [GND] of U7 on B.Cu"
+     "Pad 2 [GND] of C46 on B.Cu"
     ]
    },
    {
     "type": "starved_thermal",
     "severity": "error",
-    "desc": "Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)",
+    "desc": "Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)",
     "items": [
      "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
-     "Pad 2 [GND] of C27 on F.Cu"
+     "Pad 6 [GND] of U7 on B.Cu"
     ]
    },
    {
@@ -187,16 +192,7 @@
     "desc": "Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)",
     "items": [
      "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
-     "Pad 2 [GND] of C46 on B.Cu"
-    ]
-   },
-   {
-    "type": "starved_thermal",
-    "severity": "error",
-    "desc": "Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)",
-    "items": [
-     "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
-     "Pad 2 [GND] of Y1 on B.Cu"
+     "Pad 2 [GND] of C40 on B.Cu"
     ]
    },
    {
@@ -206,14 +202,6 @@
     "items": [
      "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
      "Pad A1 [GND] of P1 on F.Cu"
-    ]
-   },
-   {
-    "type": "lib_footprint_mismatch",
-    "severity": "warning",
-    "desc": "Footprint 'Fiducial_1mm_Mask2mm' does not match copy in library 'Fiducial'",
-    "items": [
-     "Footprint FID1"
     ]
    },
    {
@@ -237,7 +225,7 @@
     "severity": "warning",
     "desc": "Footprint 'Fiducial_1mm_Mask2mm' does not match copy in library 'Fiducial'",
     "items": [
-     "Footprint FID5"
+     "Footprint FID1"
     ]
    },
    {
@@ -257,21 +245,11 @@
     ]
    },
    {
-    "type": "silk_over_copper",
+    "type": "lib_footprint_mismatch",
     "severity": "warning",
-    "desc": "Silkscreen clipped by solder mask",
+    "desc": "Footprint 'Fiducial_1mm_Mask2mm' does not match copy in library 'Fiducial'",
     "items": [
-     "Segment of P1 on F.Silkscreen",
-     "Pad 1 [BUS2_L] of D7 on F.Cu"
-    ]
-   },
-   {
-    "type": "silk_over_copper",
-    "severity": "warning",
-    "desc": "Silkscreen clipped by solder mask",
-    "items": [
-     "Segment of P1 on F.Silkscreen",
-     "Pad 2 [BUS2_H] of D7 on F.Cu"
+     "Footprint FID5"
     ]
    },
    {
@@ -446,11 +424,11 @@
  "manifests": {
   "exit": 0,
   "tail": [
-   "OUTPUT_ROOT manifest: 8737 files -> C:\\Users\\costabr\\Downloads\\openpilot\\HybridPanda_v2_20261022_1616\\00_MANIFESTS\\OUTPUT_ROOT_STEP7_20261027_0835.sha256",
+   "OUTPUT_ROOT manifest: 10590 files -> C:\\Users\\costabr\\Downloads\\openpilot\\HybridPanda_v2_20261022_1616\\00_MANIFESTS\\OUTPUT_ROOT_STEP7_20261027_1127.sha256",
    "02_REFERENCE unchanged vs reference_clones.sha256: False",
    "ORIGINAL vs BEFORE: IDENTICAL (377 files)",
-   "INDEX.md rows: 2886"
+   "INDEX.md rows: 4739"
   ]
  },
- "seconds": 91.8
+ "seconds": 87.1
 }

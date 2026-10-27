@@ -1,5 +1,5 @@
 {
- "date": "2026-10-27 08:36:18",
+ "date": "2026-10-27 11:29:12",
  "board": "04_PROJECT\\HybridPanda\\HybridPanda.kicad_pcb",
  "findings": [
   {
@@ -75,9 +75,9 @@
    "kind": "folga furo < 0,20"
   },
   {
-   "sev": "ALTO",
+   "sev": "INFO",
    "area": "montagem",
-   "msg": "2 vias dentro de pads SMD (via-in-pad): risco de sucção de solda/tombstone em 0402 — exigir vias tapadas (plugged/capped, IPC-4761 tipo VI/VII) ou aceitar retrabalho; sem isso, montagem por refluxo pode falhar nesses pads"
+   "msg": "0 vias dentro de pads SMD (via-in-pad): risco de sucção de solda/tombstone em 0402 — exigir vias tapadas (plugged/capped, IPC-4761 tipo VI/VII) ou aceitar retrabalho; sem isso, montagem por refluxo pode falhar nesses pads"
   },
   {
    "sev": "MEDIO",
@@ -85,9 +85,9 @@
    "msg": "footprint com caixa fora do contorno (verificar visualmente)",
    "ref": "U3",
    "bbox": [
-    127.61,
+    130.61,
     32.29,
-    140.68,
+    143.68,
     47.27
    ]
   },
@@ -97,41 +97,41 @@
    "msg": "footprint com caixa fora do contorno (verificar visualmente)",
    "ref": "P1",
    "bbox": [
-    130.08,
+    133.08,
     53.83,
-    140.23,
+    143.23,
     63.93
    ]
   },
   {
    "sev": "INFO",
    "area": "montagem",
-   "msg": "footprints sem courtyard (sem verificação de colisão possível): Q1, Q2, FID1, FID2, U5, L3, FID3, U3, P1, FID5, FID4, FID6"
+   "msg": "footprints sem courtyard (sem verificação de colisão possível): Q1, Q2, U5, FID2, L3, FID3, U3, FID1, P1, FID4, FID6, FID5"
   },
   {
    "sev": "INFO",
    "area": "montagem",
-   "msg": "114 vias sob corpos de componentes (tenting F/B = True/True)"
+   "msg": "104 vias sob corpos de componentes (tenting F/B = True/True)"
   },
   {
    "sev": "INFO",
    "area": "montagem",
-   "msg": "120 componentes, 41 no lado B (C60, C57, L5, FID5, C53, R31, C61, C52, C23, R32, C38, C54…), THT: U6, U3, P1; 44 referências sem serigrafia (identificação só pelo CPL)"
+   "msg": "120 componentes, 41 no lado B (C38, FB1, D14, C52, C42, C63, C23, C50, R28, C62, C53, C46…), THT: U6, U3, P1; 44 referências sem serigrafia (identificação só pelo CPL)"
   },
   {
    "sev": "INFO",
    "area": "montagem",
-   "msg": "polaridade/pino 1 a confirmar visualmente no render/F.Fab: D12, D7, U12, D2, U9, U1, U8, D11, D9, Q1, D5, D6, Q2, D8, U6, U5, D10, Q3, Q4, U10, U11, D1, U3, P1, J1, U7, D14, D13, Y1"
+   "msg": "polaridade/pino 1 a confirmar visualmente no render/F.Fab: D12, D7, U12, D2, U9, U1, U8, D11, D9, Q1, D5, D6, Q2, D8, U6, U5, D10, Q3, Q4, U10, U11, D1, U3, P1, D14, D13, U7, J1, Y1"
   },
   {
    "sev": "BAIXO",
    "area": "fabrico",
-   "msg": "116 junções de trilha com ângulo agudo (< 90°) — 'acid traps' cosméticos em processo moderno; o Freerouting gera 45°/90° mas o A* do 5c pode gerar outros"
+   "msg": "122 junções de trilha com ângulo agudo (< 90°) — 'acid traps' cosméticos em processo moderno; o Freerouting gera 45°/90° mas o A* do 5c pode gerar outros"
   },
   {
    "sev": "INFO",
    "area": "fabrico",
-   "msg": "trilha mín 0.1500 mm, broca mín 0.25 mm (regra 0,30 — 1 via herdada 0,25); folga mín testada 0,10 mm"
+   "msg": "trilha mín 0.1400 mm, broca mín 0.25 mm (regra 0,30 — 1 via herdada 0,25); folga mín testada 0,10 mm"
   },
   {
    "sev": "INFO",
@@ -200,7 +200,7 @@
   }
  ],
  "shorts": {
-  "pairs_tested": 755,
+  "pairs_tested": 736,
   "copper_overlap_other_net": [],
   "clearance_lt_0.10": [],
   "zone_overlap_other_net": [],
@@ -260,20 +260,7 @@
   "nets_total": 144,
   "nets_multi_pad": 63
  },
- "via_in_pad": [
-  {
-   "via": "GND @127.59,67.11 d0.50/0.30",
-   "pad": "pad D13.1 [GND]",
-   "mesma_rede": true,
-   "footprint": "SOT-23"
-  },
-  {
-   "via": "GND @119.00,53.42 d0.50/0.30",
-   "pad": "pad U1.2 [GND]",
-   "mesma_rede": true,
-   "footprint": "SOT-23-6"
-  }
- ],
+ "via_in_pad": [],
  "mask": {
   "expansion_mm_global": 0.0,
   "webs_lt_0.10": [],
@@ -291,18 +278,18 @@
    {
     "ref": "U3",
     "bbox": [
-     127.61,
+     130.61,
      32.29,
-     140.68,
+     143.68,
      47.27
     ]
    },
    {
     "ref": "P1",
     "bbox": [
-     130.08,
+     133.08,
      53.83,
-     140.23,
+     143.23,
      63.93
     ]
    }
@@ -310,7 +297,7 @@
   "board_mm": [
    91.96,
    32.06,
-   139.48,
+   142.48,
    78.71
   ]
  },
@@ -319,37 +306,37 @@
   "sem_courtyard": [
    "Q1",
    "Q2",
-   "FID1",
-   "FID2",
    "U5",
+   "FID2",
    "L3",
    "FID3",
    "U3",
+   "FID1",
    "P1",
-   "FID5",
    "FID4",
-   "FID6"
+   "FID6",
+   "FID5"
   ]
  },
  "vias_under_components": {
   "tent_front": true,
   "tent_back": true,
-  "count": 114,
+  "count": 104,
   "list": [
    {
-    "via": "+3V3 @125.39,56.75",
-    "sob": "U9",
-    "rede_do_componente": true
-   },
-   {
-    "via": "+3V3 @110.99,55.39",
+    "via": "+3V3 @103.00,65.86",
     "sob": "U7",
     "rede_do_componente": true
    },
    {
-    "via": "+3V3 @96.72,56.91",
-    "sob": "C61",
-    "rede_do_componente": true
+    "via": "+3V3 @117.98,43.64",
+    "sob": "L4",
+    "rede_do_componente": false
+   },
+   {
+    "via": "+3V3 @117.53,41.09",
+    "sob": "L4",
+    "rede_do_componente": false
    },
    {
     "via": "+3V3 @101.24,48.85",
@@ -357,22 +344,7 @@
     "rede_do_componente": true
    },
    {
-    "via": "+3V3 @138.19,68.88",
-    "sob": "U10",
-    "rede_do_componente": true
-   },
-   {
-    "via": "+3V3 @103.00,65.86",
-    "sob": "U7",
-    "rede_do_componente": true
-   },
-   {
-    "via": "+3V3 @100.09,64.61",
-    "sob": "U7",
-    "rede_do_componente": true
-   },
-   {
-    "via": "+3V3 @100.25,52.83",
+    "via": "+3V3 @110.99,55.39",
     "sob": "U7",
     "rede_do_componente": true
    },
@@ -382,8 +354,68 @@
     "rede_do_componente": true
    },
    {
+    "via": "+3V3 @137.98,69.80",
+    "sob": "U10",
+    "rede_do_componente": true
+   },
+   {
+    "via": "+3V3 @109.27,66.15",
+    "sob": "U7",
+    "rede_do_componente": true
+   },
+   {
+    "via": "+3V3 @106.27,48.33",
+    "sob": "U7",
+    "rede_do_componente": true
+   },
+   {
+    "via": "+3V3 @141.19,68.88",
+    "sob": "U10",
+    "rede_do_componente": true
+   },
+   {
+    "via": "+3V3 @113.13,50.75",
+    "sob": "U7",
+    "rede_do_componente": true
+   },
+   {
+    "via": "+3V3 @96.72,56.91",
+    "sob": "C61",
+    "rede_do_componente": true
+   },
+   {
     "via": "+3V3 @118.76,64.35",
     "sob": "U7",
+    "rede_do_componente": true
+   },
+   {
+    "via": "+3V3 @100.12,63.47",
+    "sob": "U7",
+    "rede_do_componente": true
+   },
+   {
+    "via": "+3V3 @100.25,52.83",
+    "sob": "U7",
+    "rede_do_componente": true
+   },
+   {
+    "via": "+3V3 @116.53,50.75",
+    "sob": "U7",
+    "rede_do_componente": true
+   },
+   {
+    "via": "+3V3 @128.38,56.76",
+    "sob": "U9",
+    "rede_do_componente": true
+   },
+   {
+    "via": "+3V3 @103.61,66.04",
+    "sob": "U7",
+    "rede_do_componente": true
+   },
+   {
+    "via": "+3V3 @136.49,69.18",
+    "sob": "U11",
     "rede_do_componente": true
    },
    {
@@ -395,41 +427,6 @@
     "via": "+3V3 @117.00,44.74",
     "sob": "L4",
     "rede_do_componente": false
-   },
-   {
-    "via": "+3V3 @117.98,43.64",
-    "sob": "L4",
-    "rede_do_componente": false
-   },
-   {
-    "via": "+3V3 @133.49,69.18",
-    "sob": "U11",
-    "rede_do_componente": true
-   },
-   {
-    "via": "+3V3 @106.27,48.33",
-    "sob": "U7",
-    "rede_do_componente": true
-   },
-   {
-    "via": "+3V3 @116.01,50.45",
-    "sob": "U7",
-    "rede_do_componente": true
-   },
-   {
-    "via": "+3V3 @117.53,41.09",
-    "sob": "L4",
-    "rede_do_componente": false
-   },
-   {
-    "via": "+3V3 @134.98,69.80",
-    "sob": "U10",
-    "rede_do_componente": true
-   },
-   {
-    "via": "+3V3 @109.27,66.15",
-    "sob": "U7",
-    "rede_do_componente": true
    },
    {
     "via": "+3V3 @97.21,41.72",
@@ -447,102 +444,7 @@
     "rede_do_componente": false
    },
    {
-    "via": "+3V3 @125.79,63.12",
-    "sob": "U8",
-    "rede_do_componente": true
-   },
-   {
-    "via": "GND @115.48,41.73",
-    "sob": "L4",
-    "rede_do_componente": false
-   },
-   {
-    "via": "GND @116.36,69.88",
-    "sob": "SW1",
-    "rede_do_componente": false
-   },
-   {
-    "via": "GND @109.99,33.32",
-    "sob": "D12",
-    "rede_do_componente": true
-   },
-   {
-    "via": "GND @116.00,68.46",
-    "sob": "SW1",
-    "rede_do_componente": false
-   },
-   {
-    "via": "GND @117.62,42.20",
-    "sob": "L4",
-    "rede_do_componente": false
-   },
-   {
-    "via": "GND @115.22,40.93",
-    "sob": "C7",
-    "rede_do_componente": true
-   },
-   {
-    "via": "GND @124.11,51.62",
-    "sob": "C17",
-    "rede_do_componente": true
-   },
-   {
-    "via": "GND @106.27,47.35",
-    "sob": "U7",
-    "rede_do_componente": true
-   },
-   {
-    "via": "GND @108.40,37.17",
-    "sob": "D12",
-    "rede_do_componente": true
-   },
-   {
-    "via": "GND @113.36,47.65",
-    "sob": "U7",
-    "rede_do_componente": true
-   },
-   {
-    "via": "GND @127.59,67.11",
-    "sob": "D13",
-    "rede_do_componente": true
-   },
-   {
-    "via": "GND @117.09,38.87",
-    "sob": "L4",
-    "rede_do_componente": false
-   },
-   {
-    "via": "GND @117.43,48.77",
-    "sob": "U7",
-    "rede_do_componente": true
-   },
-   {
-    "via": "GND @100.24,56.35",
-    "sob": "U7",
-    "rede_do_componente": true
-   },
-   {
-    "via": "GND @119.00,53.42",
-    "sob": "U1",
-    "rede_do_componente": true
-   },
-   {
-    "via": "GND @119.00,53.42",
-    "sob": "U7",
-    "rede_do_componente": true
-   },
-   {
     "via": "GND @111.75,65.86",
-    "sob": "U7",
-    "rede_do_componente": true
-   },
-   {
-    "via": "GND @126.12,43.42",
-    "sob": "L4",
-    "rede_do_componente": false
-   },
-   {
-    "via": "GND @115.82,55.88",
     "sob": "U7",
     "rede_do_componente": true
    },
@@ -552,18 +454,38 @@
     "rede_do_componente": true
    },
    {
-    "via": "GND @128.32,55.23",
-    "sob": "D7",
+    "via": "GND @95.17,49.15",
+    "sob": "U12",
     "rede_do_componente": true
    },
    {
-    "via": "GND @101.75,65.86",
+    "via": "GND @109.99,33.32",
+    "sob": "D12",
+    "rede_do_componente": true
+   },
+   {
+    "via": "GND @107.05,66.22",
     "sob": "U7",
     "rede_do_componente": true
    },
    {
-    "via": "GND @95.26,42.53",
-    "sob": "D11",
+    "via": "GND @100.24,56.35",
+    "sob": "U7",
+    "rede_do_componente": true
+   },
+   {
+    "via": "GND @108.40,37.17",
+    "sob": "D12",
+    "rede_do_componente": true
+   },
+   {
+    "via": "GND @106.27,47.35",
+    "sob": "U7",
+    "rede_do_componente": true
+   },
+   {
+    "via": "GND @113.95,40.93",
+    "sob": "C7",
     "rede_do_componente": true
    },
    {
@@ -572,18 +494,48 @@
     "rede_do_componente": true
    },
    {
+    "via": "GND @113.57,48.45",
+    "sob": "U7",
+    "rede_do_componente": true
+   },
+   {
+    "via": "GND @117.43,48.77",
+    "sob": "U7",
+    "rede_do_componente": true
+   },
+   {
+    "via": "GND @115.67,40.27",
+    "sob": "L4",
+    "rede_do_componente": false
+   },
+   {
+    "via": "GND @115.82,55.88",
+    "sob": "U7",
+    "rede_do_componente": true
+   },
+   {
+    "via": "GND @131.32,55.23",
+    "sob": "D7",
+    "rede_do_componente": true
+   },
+   {
+    "via": "GND @95.26,42.53",
+    "sob": "D11",
+    "rede_do_componente": true
+   },
+   {
+    "via": "GND @116.00,68.46",
+    "sob": "SW1",
+    "rede_do_componente": false
+   },
+   {
     "via": "GND @115.22,38.91",
     "sob": "C6",
     "rede_do_componente": true
    },
    {
-    "via": "GND @123.60,63.98",
+    "via": "GND @123.60,62.72",
     "sob": "C40",
-    "rede_do_componente": true
-   },
-   {
-    "via": "GND @103.10,40.98",
-    "sob": "J1",
     "rede_do_componente": true
    },
    {
@@ -592,43 +544,13 @@
     "rede_do_componente": true
    },
    {
-    "via": "GND @108.25,44.74",
-    "sob": "U6",
-    "rede_do_componente": true
+    "via": "GND @116.36,69.88",
+    "sob": "SW1",
+    "rede_do_componente": false
    },
    {
-    "via": "GND @108.25,65.86",
+    "via": "GND @101.75,65.86",
     "sob": "U7",
-    "rede_do_componente": true
-   },
-   {
-    "via": "GND @95.17,49.15",
-    "sob": "U12",
-    "rede_do_componente": true
-   },
-   {
-    "via": "GND @104.12,50.95",
-    "sob": "U7",
-    "rede_do_componente": true
-   },
-   {
-    "via": "GND @124.70,51.63",
-    "sob": "C17",
-    "rede_do_componente": true
-   },
-   {
-    "via": "GND @134.96,66.47",
-    "sob": "D9",
-    "rede_do_componente": true
-   },
-   {
-    "via": "GND @113.84,40.76",
-    "sob": "C6",
-    "rede_do_componente": true
-   },
-   {
-    "via": "GND @138.58,67.15",
-    "sob": "D8",
     "rede_do_componente": true
    },
    {
@@ -637,29 +559,49 @@
     "rede_do_componente": false
    },
    {
+    "via": "GND @117.62,42.20",
+    "sob": "L4",
+    "rede_do_componente": false
+   },
+   {
+    "via": "GND @104.12,50.95",
+    "sob": "U7",
+    "rede_do_componente": true
+   },
+   {
+    "via": "GND @137.96,66.47",
+    "sob": "D9",
+    "rede_do_componente": true
+   },
+   {
+    "via": "GND @108.25,44.74",
+    "sob": "U6",
+    "rede_do_componente": true
+   },
+   {
+    "via": "GND @117.09,38.87",
+    "sob": "L4",
+    "rede_do_componente": false
+   },
+   {
+    "via": "GND @108.25,65.86",
+    "sob": "U7",
+    "rede_do_componente": true
+   },
+   {
+    "via": "GND @141.58,67.15",
+    "sob": "D8",
+    "rede_do_componente": true
+   },
+   {
     "via": "GND @115.38,48.25",
     "sob": "U7",
     "rede_do_componente": true
    },
    {
-    "via": "GND @107.83,66.27",
+    "via": "BOOT0 @117.49,61.97",
     "sob": "U7",
     "rede_do_componente": true
-   },
-   {
-    "via": "BOOT0 @117.46,61.99",
-    "sob": "U7",
-    "rede_do_componente": true
-   },
-   {
-    "via": "+5V @121.86,61.99",
-    "sob": "C30",
-    "rede_do_componente": true
-   },
-   {
-    "via": "+5V @119.53,46.44",
-    "sob": "U7",
-    "rede_do_componente": false
    },
    {
     "via": "+5V @116.50,54.95",
@@ -677,12 +619,32 @@
     "rede_do_componente": false
    },
    {
+    "via": "+5V @114.55,54.05",
+    "sob": "Q3",
+    "rede_do_componente": false
+   },
+   {
+    "via": "+5V @114.55,54.05",
+    "sob": "U7",
+    "rede_do_componente": false
+   },
+   {
     "via": "+5V @121.58,56.42",
     "sob": "D10",
     "rede_do_componente": true
    },
    {
-    "via": "SBU1 @125.30,69.25",
+    "via": "+5V @123.06,61.99",
+    "sob": "C30",
+    "rede_do_componente": true
+   },
+   {
+    "via": "+5V @119.53,46.44",
+    "sob": "U7",
+    "rede_do_componente": false
+   },
+   {
+    "via": "SBU1 @128.94,67.30",
     "sob": "D5",
     "rede_do_componente": true
    },
@@ -692,23 +654,8 @@
     "rede_do_componente": true
    },
    {
-    "via": "12V_Protected @132.93,50.48",
+    "via": "12V_Protected @135.93,50.48",
     "sob": "Q4",
-    "rede_do_componente": true
-   },
-   {
-    "via": "12V_Protected @132.95,49.23",
-    "sob": "Q4",
-    "rede_do_componente": true
-   },
-   {
-    "via": "12V_Protected @131.75,49.42",
-    "sob": "D2",
-    "rede_do_componente": true
-   },
-   {
-    "via": "12V_Protected @131.80,50.35",
-    "sob": "D2",
     "rede_do_componente": true
    },
    {
@@ -717,17 +664,37 @@
     "rede_do_componente": false
    },
    {
-    "via": "BUS2_RX @122.96,56.70",
+    "via": "12V_Protected @135.95,49.23",
+    "sob": "Q4",
+    "rede_do_componente": true
+   },
+   {
+    "via": "12V_Protected @134.75,49.42",
+    "sob": "D2",
+    "rede_do_componente": true
+   },
+   {
+    "via": "12V_Protected @134.80,50.35",
+    "sob": "D2",
+    "rede_do_componente": true
+   },
+   {
+    "via": "BUS2_TX @125.36,53.73",
     "sob": "U9",
     "rede_do_componente": true
    },
    {
-    "via": "BUS2_STB @117.88,56.48",
-    "sob": "D10",
+    "via": "BUS2_RX @125.36,56.76",
+    "sob": "U9",
+    "rede_do_componente": true
+   },
+   {
+    "via": "BUS2_STB @127.74,51.65",
+    "sob": "C17",
     "rede_do_componente": false
    },
    {
-    "via": "BUS2_STB @117.88,56.48",
+    "via": "BUS2_STB @117.37,51.19",
     "sob": "U7",
     "rede_do_componente": true
    },
@@ -735,16 +702,6 @@
     "via": "LED_RED @115.08,64.40",
     "sob": "U7",
     "rede_do_componente": true
-   },
-   {
-    "via": "LED_RED @107.35,65.51",
-    "sob": "U7",
-    "rede_do_componente": true
-   },
-   {
-    "via": "RED- @104.66,64.39",
-    "sob": "U7",
-    "rede_do_componente": false
    },
    {
     "via": "BUS1O_TX @102.97,47.67",
@@ -757,7 +714,7 @@
     "rede_do_componente": true
    },
    {
-    "via": "BUS1O_RX @117.89,60.29",
+    "via": "BUS1O_STB @118.73,59.95",
     "sob": "U7",
     "rede_do_componente": true
    },
@@ -767,22 +724,12 @@
     "rede_do_componente": true
    },
    {
-    "via": "LED_GREEN @105.97,65.98",
-    "sob": "U7",
-    "rede_do_componente": true
-   },
-   {
-    "via": "GREEN- @99.99,66.54",
+    "via": "GREEN- @100.72,66.04",
     "sob": "U7",
     "rede_do_componente": false
    },
    {
-    "via": "relay_SBU2 @117.40,50.52",
-    "sob": "U7",
-    "rede_do_componente": true
-   },
-   {
-    "via": "USB_D+ @112.67,49.84",
+    "via": "USB_D+ @112.67,49.69",
     "sob": "U7",
     "rede_do_componente": true
    },
@@ -792,57 +739,37 @@
     "rede_do_componente": true
    },
    {
-    "via": "+12V @137.74,53.04",
+    "via": "+12V @140.74,53.04",
     "sob": "Q4",
     "rede_do_componente": true
    },
    {
-    "via": "+12V @136.32,53.19",
+    "via": "+12V @139.32,53.19",
     "sob": "Q4",
     "rede_do_componente": true
    },
    {
-    "via": "+12V @137.09,53.19",
+    "via": "+12V @140.09,53.19",
     "sob": "Q4",
     "rede_do_componente": true
    },
    {
-    "via": "+12V @135.55,53.19",
+    "via": "+12V @138.55,53.19",
     "sob": "Q4",
     "rede_do_componente": true
    },
    {
-    "via": "BUS1N_TX @118.66,60.10",
-    "sob": "U7",
-    "rede_do_componente": true
-   },
-   {
-    "via": "BUS1N_RX @128.61,64.50",
-    "sob": "D13",
-    "rede_do_componente": false
-   },
-   {
-    "via": "BUS1N_STB @136.29,67.21",
+    "via": "BUS1N_STB @139.07,67.80",
     "sob": "D8",
     "rede_do_componente": false
    },
    {
-    "via": "BUS1N_STB @117.94,58.66",
+    "via": "BUS1N_STB @118.70,58.85",
     "sob": "U7",
     "rede_do_componente": true
    },
    {
-    "via": "BUS0_RX @118.99,61.72",
-    "sob": "U7",
-    "rede_do_componente": true
-   },
-   {
-    "via": "BUS0_STB @117.03,57.69",
-    "sob": "U7",
-    "rede_do_componente": true
-   },
-   {
-    "via": "USB_D- @112.78,48.75",
+    "via": "BUS0_TX @118.83,62.32",
     "sob": "U7",
     "rede_do_componente": true
    },
@@ -852,22 +779,52 @@
     "rede_do_componente": true
    },
    {
+    "via": "USB_D- @112.78,48.75",
+    "sob": "U7",
+    "rede_do_componente": true
+   },
+   {
     "via": "USB_D- @113.61,43.01",
     "sob": "C12",
     "rede_do_componente": false
    },
    {
-    "via": "NRST @99.97,47.15",
-    "sob": "U12",
+    "via": "NRST @111.44,38.14",
+    "sob": "D12",
     "rede_do_componente": false
    },
    {
-    "via": "NRST @99.97,47.15",
+    "via": "NRST @105.45,64.40",
     "sob": "U7",
     "rede_do_componente": true
    },
    {
-    "via": "NRST @105.45,64.40",
+    "via": "SBU2_ADC @101.29,63.41",
+    "sob": "U7",
+    "rede_do_componente": true
+   },
+   {
+    "via": "SBU1_ADC @128.09,69.33",
+    "sob": "D5",
+    "rede_do_componente": false
+   },
+   {
+    "via": "SBU1_ADC @131.01,66.30",
+    "sob": "D13",
+    "rede_do_componente": true
+   },
+   {
+    "via": "SBU1_ADC @100.73,61.66",
+    "sob": "U7",
+    "rede_do_componente": true
+   },
+   {
+    "via": "VCAP @118.19,62.68",
+    "sob": "U7",
+    "rede_do_componente": true
+   },
+   {
+    "via": "VCAP @114.51,48.64",
     "sob": "U7",
     "rede_do_componente": true
    },
@@ -885,26 +842,6 @@
     "via": "SWCLK @119.90,41.93",
     "sob": "L4",
     "rede_do_componente": false
-   },
-   {
-    "via": "SBU1_ADC @101.38,61.71",
-    "sob": "U7",
-    "rede_do_componente": true
-   },
-   {
-    "via": "SBU1_ADC @127.41,66.11",
-    "sob": "D13",
-    "rede_do_componente": true
-   },
-   {
-    "via": "VCAP @101.37,50.11",
-    "sob": "U7",
-    "rede_do_componente": true
-   },
-   {
-    "via": "VCAP @114.51,48.64",
-    "sob": "U7",
-    "rede_do_componente": true
    }
   ]
  },
@@ -915,47 +852,47 @@
    "P1"
   ],
   "bottom_side": [
-   "C60",
-   "C57",
-   "L5",
-   "FID5",
-   "C53",
-   "R31",
-   "C61",
-   "C52",
-   "C23",
-   "R32",
    "C38",
-   "C54",
-   "C51",
-   "C56",
+   "FB1",
+   "D14",
+   "C52",
+   "C42",
+   "C63",
+   "C23",
+   "C50",
+   "R28",
+   "C62",
+   "C53",
+   "C46",
    "C24",
-   "C44",
-   "J1",
+   "C57",
+   "R30",
+   "D13",
    "U7",
    "C59",
-   "C46",
-   "FB1",
-   "R28",
-   "C40",
-   "C63",
-   "FID4",
-   "C39",
-   "D14",
-   "FID6",
-   "C55",
-   "D13",
-   "C45",
-   "C42",
+   "C61",
+   "C56",
    "C43",
    "C49",
-   "R30",
-   "R33",
+   "C51",
+   "J1",
+   "C44",
+   "C54",
+   "R32",
+   "R31",
    "C41",
+   "FID4",
+   "C40",
+   "C39",
+   "R29",
+   "C45",
+   "FID6",
+   "R33",
+   "C60",
    "Y1",
-   "C50",
-   "C62",
-   "R29"
+   "FID5",
+   "C55",
+   "L5"
   ],
   "polarizados": [
    "D12",
@@ -982,65 +919,65 @@
    "D1",
    "U3",
    "P1",
-   "J1",
-   "U7",
    "D14",
    "D13",
+   "U7",
+   "J1",
    "Y1"
   ],
   "ref_silk_escondida": [
-   "C58",
-   "C48",
    "C47",
-   "FID1",
+   "C58",
    "L4",
    "FID2",
    "FID3",
-   "C60",
-   "C57",
-   "L5",
-   "FID5",
-   "C53",
-   "R31",
-   "C61",
-   "C52",
-   "R32",
+   "FID1",
+   "C48",
    "C38",
-   "C54",
-   "C51",
-   "C56",
-   "C44",
-   "J1",
-   "C59",
-   "C46",
    "FB1",
-   "R28",
-   "C40",
-   "C63",
-   "FID4",
-   "C39",
    "D14",
-   "FID6",
-   "C55",
-   "D13",
-   "C45",
+   "C52",
    "C42",
+   "C63",
+   "C50",
+   "R28",
+   "C62",
+   "C53",
+   "C46",
+   "C57",
+   "R30",
+   "D13",
+   "C59",
+   "C61",
+   "C56",
    "C43",
    "C49",
-   "R30",
-   "R33",
+   "C51",
+   "J1",
+   "C44",
+   "C54",
+   "R32",
+   "R31",
    "C41",
-   "C50",
-   "C62",
-   "R29"
+   "FID4",
+   "C40",
+   "C39",
+   "R29",
+   "C45",
+   "FID6",
+   "R33",
+   "C60",
+   "FID5",
+   "C55",
+   "L5"
   ],
   "fiduciais": [
-   "FID1",
    "FID2",
    "FID3",
-   "FID5",
+   "FID1",
    "FID4",
-   "FID6"
+   "FID6",
+   "FID5"
   ],
   "total_fp": 120
  },
@@ -1048,47 +985,47 @@
   "+3V3": {
    "min_w": 0.2,
    "max_w": 1.0,
-   "len_mm": 316.6,
-   "n": 236,
-   "vias": 42,
-   "min_w_at": "137.65,68.88 F.Cu"
+   "len_mm": 318.8,
+   "n": 242,
+   "vias": 49,
+   "min_w_at": "95.74,45.18 F.Cu"
   },
   "GND": {
    "min_w": 0.2,
    "max_w": 0.8,
-   "len_mm": 225.7,
-   "n": 236,
-   "vias": 72,
+   "len_mm": 227.0,
+   "n": 224,
+   "vias": 73,
    "min_w_at": "97.94,63.39 F.Cu"
   },
   "+5V": {
    "min_w": 0.2,
    "max_w": 1.0,
-   "len_mm": 118.6,
-   "n": 90,
-   "vias": 11,
-   "min_w_at": "121.86,61.99 F.Cu"
+   "len_mm": 130.7,
+   "n": 94,
+   "vias": 14,
+   "min_w_at": "108.82,46.24 F.Cu"
   },
   "USB_PWR": {
    "min_w": 0.2,
    "max_w": 1.0,
-   "len_mm": 23.7,
-   "n": 14,
+   "len_mm": 26.5,
+   "n": 16,
    "vias": 0,
    "min_w_at": "118.50,53.80 F.Cu"
   },
   "+12V": {
    "min_w": 0.2,
    "max_w": 1.5,
-   "len_mm": 45.3,
-   "n": 38,
-   "vias": 5,
-   "min_w_at": "138.40,52.38 F.Cu"
+   "len_mm": 42.8,
+   "n": 34,
+   "vias": 4,
+   "min_w_at": "141.40,51.11 F.Cu"
   }
  },
- "acute_angles": 116,
+ "acute_angles": 122,
  "rules": {
-  "min_track_mm": 0.15,
+  "min_track_mm": 0.14,
   "min_via_drill_mm": 0.25,
   "ds_min_track": 0.1375,
   "ds_min_clear": 0.05,
@@ -1601,11 +1538,11 @@
    ]
   }
  ],
- "seconds": 18.2,
+ "seconds": 11.6,
  "by_severity": {
-  "ALTO": 10,
+  "ALTO": 9,
+  "INFO": 18,
   "MEDIO": 2,
-  "INFO": 17,
   "BAIXO": 1
  }
 }

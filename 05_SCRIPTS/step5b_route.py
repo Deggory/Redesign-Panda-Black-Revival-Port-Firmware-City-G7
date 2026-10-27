@@ -96,7 +96,7 @@ if z3:
     # faixa antiga (96.1-101 x 38.7-64.3) + bloco sob o U7 inteiro (fileira norte y=45.9 incluída);
     # x<=118.5 acima de y=47.6 para não disputar com a zona +5V In1 de prioridade 1 (x>=119, y 42.9-47.4);
     # a zona +5V In1 de prioridade 5 (108.9-122.9 x 45.0-46.7) prevalece sobre esta (prioridade 4)
-    Z3_OUTLINE = [(96.1, 38.7), (118.5, 38.7), (118.5, 47.6), (127.0, 47.6), (127.0, 76.5), (96.1, 76.5)]  # leste até 127 (R30-R33 pull-ups STB em x 124-126)
+    Z3_OUTLINE = [(96.1, 38.7), (118.5, 38.7), (118.5, 47.6), (130.0, 47.6), (130.0, 76.5), (96.1, 76.5)]  # leste até 130 (R30-R33 pull-ups STB em x 127-129 após o 5e, D-33)
     for v in Z3_OUTLINE:
         poly.Append(mm(v))
     z.SetOutline(poly)
@@ -328,11 +328,35 @@ def detour_5v_in1():
         for t in old: board.Add(t); base_tracks.append(t)
         return {"ok": False, "why": bad}
     for s, e in segs: add_track(s, e, w, pcbnew.In1_Cu, v5)
+    # D-33: via GND fora do pad U1.2 (centro do pad 119,45;53,425; bbox x 118,79-120,11). A oeste o corredor entre as
+    # colunas do SOT-23-6 e ocupado pela trilha USB_PWR (x = 118,5) do pad 1; a leste ha a diagonal USB_PWR F.Cu
+    # (120,245;54,375)->(126,92;50,7). Reencaminha essa diagonal por (121,9;54,375)->(123,0;52,858) (mesma reta a partir
+    # dai) e poe a via em x ~121,4 (cobre a 0,25 mm dos pads B.Cu do U7, borda direita 120,9), ligada ao pad por toco F.Cu.
+    # Ultimo recurso: via no centro do pad (via-in-pad, como antes).
+    p2c = p2.GetPosition(); upw = net("USB_PWR").GetNetCode()
+    diag = [t for t in base_tracks if t.GetClass() == "PCB_TRACK" and t.GetLayer() == pcbnew.F_Cu and t.GetNetCode() == upw
+            and {pt(t.GetStart()), pt(t.GetEnd())} == {(120.245, 54.375), (126.92, 50.7)}]
+    if diag:
+        dw = ToMM(diag[0].GetWidth()); board.RemoveNative(diag[0]); base_tracks.remove(diag[0])
+        dsegs = ((mm((120.245, 54.375)), mm((121.9, 54.375))), (mm((121.9, 54.375)), mm((123.0, 52.858))), (mm((123.0, 52.858)), mm((126.92, 50.7))))
+        dbad = [seg_collides(s, e, dw, pcbnew.F_Cu, upw, 0.1) for s, e in dsegs]
+        if any(dbad):
+            board.Add(diag[0]); base_tracks.append(diag[0]); diag = []
+        else:
+            dnew = [add_track(s, e, dw, pcbnew.F_Cu, upw) for s, e in dsegs]
+            for cx, cy in ((121.4, 53.3), (121.35, 53.4), (121.45, 53.2), (121.4, 53.425)):
+                c = mm((cx, cy))
+                if via_collides(c, 0.5, gnd_, 0.1): continue
+                if seg_collides(c, p2c, 0.3, pcbnew.F_Cu, gnd_, 0.1): continue
+                add_via(c, gnd_, 0.5, 0.3); add_track(c, p2c, 0.3, pcbnew.F_Cu, gnd_)
+                return {"ok": True, "x": 117.6, "u1_2_via": True, "u1_2_via_at": (cx, cy), "via_in_pad": False, "usb_pwr_rerouted": True}
+            for t in dnew: board.RemoveNative(t); new_items.remove(t)
+            board.Add(diag[0]); base_tracks.append(diag[0])
     hv = via_collides(vpos, 0.5, gnd_, 0.1)
     if hv:
         return {"ok": True, "x": 117.6, "u1_2_via": False, "why": hv}
     add_via(vpos, gnd_, 0.5, 0.3)
-    return {"ok": True, "x": 117.6, "u1_2_via": True}
+    return {"ok": True, "x": 117.6, "u1_2_via": True, "u1_2_via_at": (119.0, 53.42), "via_in_pad": True}
 report["phases"]["M"] = detour_5v_in1()
 if not report["phases"]["M"]["ok"]: W("M: desvio +5V In1 não aplicado: %s" % report["phases"]["M"]["why"])
 
