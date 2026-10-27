@@ -2,7 +2,8 @@
 
 Branch: `revive-f4` em `C:\Users\costabr\Downloads\openpilot\pandarevive\panda`
 (clone de kriptomad/panda, base = upstream/master 1305b78c, 2026-10-25).
-Nada foi enviado (push) para lugar nenhum. Nenhum commit foi feito neste
+Push autorizado em 2026-10-27: a branch esta em kriptomad/panda (PR de fork
+kriptomad/panda#1 so para rodar o CI). Nenhum commit foi feito neste
 repositorio HybridPanda.
 
 Status honesto: o firmware F4 COMPILA (debug e release) junto com o H7 e o
@@ -20,8 +21,9 @@ neste documento; apenas "compila" e "revisado por leitura".
 | 611b2d50 | python: restore STM32F4 / black panda support |
 | ee3ba954 | misra: check the STM32F4 variant again |
 | 9ed2fd36 | README: mention the black panda (STM32F413) target |
+| e78c41e6 | misra: clean the STM32F4 variant and the H7 self test findings |
 
-Total: 52 arquivos, +25405 / -29 linhas sobre 1305b78c. Todos os commits
+Total: 52 arquivos, +25435 / -38 linhas sobre 1305b78c. Todos os commits
 levam o trailer `Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>`.
 O commit ed13efa9 e intermediario (declarado na mensagem): o F4 so passa a
 ter alvo de build em a56ee038; o H7 compila em todos os commits.
@@ -78,7 +80,9 @@ modelo atual: `lluart.h` (driver UART nao existe mais no H7), `llspi.h`
   `adc_measure_avdd_mV()` por VREFINT calibrado (l.48),
   `adc_check(expected_avdd)` +-10% (l.59), `adc_get_mV()` (l.64).
   So existe ADC1 no F413 usado aqui.
-- `lldts.h` (novo): `dts_init()` (l.5) e `dts_get_temperature()` (l.10)
+- `lldts.h` (novo): `dts_init()` (l.5) e `dts_get_temperature()` (l.10;
+  l.18 converte cada temperatura de calibracao para float separadamente,
+  MISRA 10.8, e78c41e6)
   via canal 18 + calibracao de fabrica (0x1FFF7A2C/2E), reescalado pelo
   AVDD medido.
 - `clock.h`: `clock_check_init()` (l.42), `lsi_capture()` (l.53),
@@ -134,9 +138,24 @@ removido (nao existe mais no can_common).
   `_sram_start.._sram_end`, l.207-208), buffers de backup/DMA sem secao
   `.sram12`, `ram_test_skip` tambem pula os buffers no F4, sem scrub de
   ECC, sem checagem de BDMA/DMA1, sem flags de ECC no `self_test_check`
-  e `self_test_init`.
-- `board/drivers/harness.h`: l.9 e l.85 - cross-check com ADC2
-  (`adc_mismatches`) apenas no H7; F4 tem um unico ADC.
+  e `self_test_init`. Em e78c41e6: `ram_test_block` inicializa as
+  tabelas `alias`/`alias_val` inteiras antes da varredura (l.164-167,
+  cppcheck `uninitvar` na variante F4), `ram_test_next` troca o modulo
+  pelo wrap com ternario (l.227-229, `moduloofone` porque o F4 tem uma
+  unica regiao), `ram_test_backup` volta a ser static local de
+  `ram_test_block` no H7 (l.156-159, MISRA 8.9) e `ram_test_skip` nao
+  tem mais variavel sempre falsa no H7 (l.133-140). O binario H7 muda em
+  poucos bytes (text 68248 -> 68252 debug, 66432 -> 66456 release) por
+  causa do laco de inicializacao e do wrap; mesma semantica.
+- `board/drivers/harness.h`: l.9, l.72, l.86 e l.123 - cross-check com
+  ADC2 (`adc_mismatches` e o `FAULT_ADC` dele) apenas no H7; F4 tem um
+  unico ADC, entao o contador nem existe la (e78c41e6: cppcheck apontava
+  `unsignedLessThanZero` num contador que nunca era incrementado).
+- `board/drivers/clock_source.h`: so H7 (e78c41e6). O black panda nao
+  tem saida de clock source; `stm32f4/board.h` nao inclui mais o
+  driver, os prototipos em `drivers.h` l.82-89 ficam sob `STM32H7` e o
+  comando 0xe6 em `main_comms.h` l.266-271 e no-op no F4 (MISRA 8.7
+  acusava `clock_source_init` sem chamador no F4).
 - `board/sys/power_saving.h`: l.57 `enter_stop_mode()` H7; l.166-...
   versao F4 (GPIO A-D analogicos, transceivers off, ADC1 off, EXTI0 =
   PC0 SBU1, EXTI3 = PC3 SBU2, EXTI5 = PB5 CAN2 RX, EXTI8 = PA8 CAN3 RX
@@ -205,9 +224,12 @@ removido (nao existe mais no can_common).
 - `tests/misra/checkers.txt`: bloco F4 na frente do H7, reconstruido
   como copia do bloco H7 com a linha de opcoes trocada (a lista de
   checkers do cppcheck nao depende dos defines). NAO foi gerado pelo
-  cppcheck: `comma-deps-cppcheck` nao tem wheel para Windows e nao ha
-  cppcheck instalado. O CI (test_misra.sh) sai com codigo 4 se o
-  arquivo divergir; nesse caso basta commitar o que o CI gerar.
+  cppcheck 2.21.0 do CI: `comma-deps-cppcheck` nao tem wheel para
+  Windows. Com o cppcheck 2.22.0 local (secao 5.1) os relatorios
+  `--checkers-report` das variantes F4 e H7 sao identicos entre si, o
+  que sustenta a copia, mas 2.22 lista 269/389 checkers e 2.21 267/386,
+  entao o arquivo so pode ser confirmado pelo CI (test_misra.sh sai com
+  codigo 4 se divergir; nesse caso basta commitar o que o CI gerar).
 - `.github/workflows/test.yaml`: nao alterado; o job `build` roda
   `scons` (debug e `RELEASE=1`) que agora inclui o F4, e `./test.sh`
   roda ruff + unittest. Nao ha matriz por MCU para alterar.
@@ -247,6 +269,12 @@ bootstub.body_h7.bin    12936   body_h7.bin.signed    66368
 `RELEASE=1 CERT=board/crypto/certs/debug scons -j8`: tambem OK
 (F4 main text 57680, H7 main text 66432).
 
+Apos e78c41e6 (debug): F4 main text 58944 / data 900 / bss 262268,
+F4 bootstub text 10544, H7 main text 68252, body 65112;
+`bootstub.panda.bin` 11756, `panda.bin.signed` 59992,
+`panda_h7.bin.signed` 69520. Release: F4 main text 57144, H7 66456.
+O F4 encolheu porque `clock_source.h` saiu do build.
+
 Checagens no ELF F4: `.isr_vector` em 0x08004000 com 0x1D8 bytes
 (16 + 102 vetores), `_estack 0x2004FFF0`, cookies 0x2004FFF4/F8/FC,
 `.bss` termina em 0x2003FB3C, `_stack_guard 0x2003FC00`.
@@ -266,6 +294,60 @@ Python/lint:
 - Sanidade da API: `Panda.SUPPORTED_DEVICES` = [03, 07, 09, 0a, b1];
   `McuType.F4.config.sector_address(1) == 0x8004000`;
   `st_serial_to_dfu_serial(..., F4)` difere da H7 pelo `+0xA`.
+
+### 5.1 cppcheck/MISRA local e CI (2026-10-27)
+
+CI do fork, run 40521727858 (commit 9ed2fd36):
+- `windows pip package test`: OK.
+- `./test.sh (ubuntu-latest)`: FALHOU em `test_misra_mutation_0` (arvore
+  sem mutacao) com 6 achados, todos na variante F4: harness.h:121
+  unsignedLessThanZero, self_test.h:220 moduloofone, self_test.h:183
+  uninitvar (alias e alias_val), lldts.h:18 misra 10.8,
+  clock_source.h:18 misra 8.7. As mutacoes 1 e 2 (power_saving.h e
+  llbxcan.h) foram detectadas, ou seja, o checker roda a variante F4.
+- `build`: FALHOU no passo "Test python package installer" com
+  "Package 'pandacan' requires a different Python: 3.14.4 not in
+  '<3.13,>=3.12.3'". Causa: `ubuntu-latest` passou a resolver para a
+  imagem ubuntu-26.04 (Python de sistema 3.14.4); o passo roda `pip`
+  depois de `source .venv/bin/activate`, mas o venv do uv nao tem pip,
+  entao cai no pip do sistema ("Defaulting to user installation"). Nos
+  runs do upstream commaai/panda de 26-27/10 (40396070449 OK,
+  40431444057) a imagem ainda era ubuntu-24.04 com Python 3.12.3 e o
+  mesmo passo passou. Nao e regressao desta branch (`setup.sh`,
+  `pyproject.toml` e `test.yaml` sao identicos ao upstream) e o upstream
+  ainda nao tem correcao; nada foi alterado no workflow. Correcoes
+  possiveis quando o upstream decidir: fixar `runs-on: ubuntu-24.04` ou
+  trocar o passo por `uv pip install .[dev]`.
+- `./test.sh (macos-latest)`: cancelado pela falha do ubuntu.
+
+Correcao local (e78c41e6): cppcheck 2.22.0 extraido do MSI oficial
+(`msiexec /a`, sem instalar) e rodado com as mesmas opcoes de
+`tests/misra/test_misra.sh` (`--check-level=exhaustive --safety
+--addon=misra`, suppressions.txt, includes do arm-gcc e do opendbc),
+script `pandarevive\run_misra.ps1`. Resultado: variante F4 sem achados,
+variante H7 sem achados (a H7 tinha 2 achados introduzidos pelos
+commits anteriores e nao alcancados pelo CI: self_test.h
+knownConditionTrueFalse e misra 8.9). Build debug e release OK depois.
+Novo run do CI apos o push (commit e78c41e6): 40525636665.
+- `./test.sh (ubuntu-latest)` (imagem ubuntu-26.04): OK. scons das tres
+  imagens, ruff e `unittest`: 51 testes, OK (42 HITL skipped);
+  `test_misra_mutation_0` (arvore limpa, variantes F4 e H7 com cppcheck
+  2.21.0) OK, mutacoes 1 e 2 detectadas; `test_comms` com libpanda OK.
+- `windows pip package test`: OK.
+- `build`: FALHOU de novo no mesmo passo de pip/Python 3.14 (imagem
+  ubuntu-26.04), pre-existente, ver acima; os passos `scons` debug e
+  release desse job nao chegam a rodar no CI, mas o debug roda no
+  `./test.sh` e o release foi feito localmente.
+- `./test.sh (macos-latest)`: ainda em fila (queued) ~1h depois do push, no momento
+  deste relatorio; o run anterior tambem nao conseguiu runner macOS antes
+  de ser cancelado. Conferir em https://github.com/kriptomad/panda/actions/runs/40525636665
+
+Atencao: `test_mutation.py` chama `test_misra.sh` com
+`SKIP_TABLES_DIFF=1`, entao o CI NAO compara `tests/misra/checkers.txt`
+nem `coverage_table`. Esses arquivos so sao conferidos quando alguem
+roda `tests/misra/test_misra.sh` direto num Linux/macOS com o
+`comma-deps-cppcheck` 2.21.0 do pyproject; e isso que falta para
+confirmar o bloco F4 do checkers.txt.
 
 ## 6. O que NAO foi testado (tudo que depende de hardware)
 
@@ -340,9 +422,20 @@ Nao fazem parte desta execucao; lista do que conferir:
 ## 8. Itens em aberto (resumo)
 
 - Nenhum teste em hardware (secao 6 inteira).
-- `tests/misra/checkers.txt` reconstruido a mao; confirmar no CI.
-- `tests/libpanda` e `tests/misra` nao executaveis neste Windows.
+- `tests/misra/checkers.txt` reconstruido a mao; o CI nao o compara
+  (SKIP_TABLES_DIFF=1 no test_mutation.py). Rodar
+  `tests/misra/test_misra.sh` num Linux com o cppcheck 2.21.0 do
+  pyproject e commitar o que ele gerar, se divergir.
+- Job `build` do CI vermelho por causa da imagem ubuntu-26.04 / Python
+  3.14 no passo `pip install .[dev]` (pre-existente, igual no upstream
+  assim que os runners deles migrarem); decisao de correcao fica para
+  o upstream ou para o owner (fixar ubuntu-24.04 ou usar `uv pip`).
+- `tests/libpanda` nao executavel neste Windows (rodou OK no CI Linux);
+  cppcheck local e 2.22.0, o CI usa 2.21.0 (ambos limpos no commit
+  e78c41e6).
 - `.github/workflows/test.yaml` inalterado (ja cobre o F4 via `scons`);
   se quiser artefatos separados do F4, adicionar depois.
-- Arquivo auxiliar `local_build_windows.scons` existe so fora do repo.
-- Nada foi enviado por push; o owner revisa `revive-f4` localmente.
+- Arquivo auxiliar `local_build_windows.scons` existe so fora do repo
+  (idem `run_misra.ps1` em `pandarevive\`).
+- Branch `revive-f4` enviada para kriptomad/panda (push autorizado em
+  27/10); nada foi enviado para commaai/panda.
