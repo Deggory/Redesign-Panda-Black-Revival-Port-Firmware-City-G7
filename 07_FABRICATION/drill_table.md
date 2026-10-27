@@ -1,4 +1,4 @@
-# Tabela de furação — HybridPanda (gerada por step8_fabricate.py, 2026-10-26 15:01:52)
+# Tabela de furação — HybridPanda (gerada por step8_fabricate.py, 2026-10-27 08:31:13)
 
 Total de furos: 232 (PTH=26, NPTH=2, VIA=204). Menor broca: 0.250 mm (regra: 0.300). Anel anular mínimo: PTH 0.100 mm, VIA 0.100 mm (regra: 0.050 mm).
 

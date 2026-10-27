@@ -221,7 +221,7 @@ tht = [fp.GetReference() for fp in fps if any(p.GetAttribute() == pcbnew.PAD_ATT
 bottom = [fp.GetReference() for fp in fps if fp.IsFlipped()]
 pol = [fp.GetReference() for fp in fps if fp.GetReference()[0] in ("D", "U", "Q", "J", "P", "Y") or (fp.GetReference()[0] == "C" and "Polar" in fp.GetFPID().GetLibItemName().wx_str())]
 hidden_ref = [fp.GetReference() for fp in fps if not fp.Reference().IsVisible()]
-fid = [fp.GetReference() for fp in fps if fp.GetAttributes() & getattr(pcbnew, "FP_SMD", 0) and "Fiducial" in fp.GetFPID().GetLibItemName().wx_str()]
+fid = [fp.GetReference() for fp in fps if "Fiducial" in fp.GetFPID().GetLibItemName().wx_str() or fp.GetValue() == "Fiducial"]
 out["assembly"] = {"tht": tht, "bottom_side": bottom, "polarizados": pol, "ref_silk_escondida": hidden_ref, "fiduciais": fid, "total_fp": len(fps)}
 if not fid: F("MEDIO", "montagem", "sem fiduciais na placa — montagem automática usa pads como referência; adicionar 2–3 fiduciais (1 mm) por lado se for SMT em fábrica")
 F("INFO", "montagem", "%d componentes, %d no lado B (%s), THT: %s; %d referências sem serigrafia (identificação só pelo CPL)" % (len(fps), len(bottom), ", ".join(bottom[:12]) + ("…" if len(bottom) > 12 else ""), ", ".join(tht), len(hidden_ref)))

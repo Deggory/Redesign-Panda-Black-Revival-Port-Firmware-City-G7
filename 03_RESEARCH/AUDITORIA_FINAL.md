@@ -1,20 +1,20 @@
 # Auditoria final — PCB, esquemático e BOM (independente do DRC)
 
-Data: 2026-10-26 15:19:19 · `05_SCRIPTS\final_audit.py` (20 s) · placa `04_PROJECT\HybridPanda\HybridPanda.kicad_pcb` · JSON `06_REPORTS\final_audit.json`
+Data: 2026-10-27 08:36:18 · `05_SCRIPTS\final_audit.py` (18 s) · placa `04_PROJECT\HybridPanda\HybridPanda.kicad_pcb` · JSON `06_REPORTS\final_audit.json`
 
 ## Resumo por gravidade
 
 | Gravidade | Qtd |
 |---|---|
 | CRITICO | 0 |
-| ALTO | 11 |
-| MEDIO | 5 |
+| ALTO | 10 |
+| MEDIO | 2 |
 | BAIXO | 1 |
 | INFO | 17 |
 
 ## A. Teste de curtos virtuais (geométrico, folga 0)
 
-- Pares cobre×cobre de redes diferentes testados (caixas a < 0,10 mm): **724** → sobreposições (curto): **0**; folga < 0,10 mm: 0
+- Pares cobre×cobre de redes diferentes testados (caixas a < 0,10 mm): **755** → sobreposições (curto): **0**; folga < 0,10 mm: 0
 - Zona×cobre de outra rede: curtos **0**, folga < 0,10: 0
 - Furos (vias+PTH) × cobre de outra rede: furo dentro de cobre **0**, folga < 0,20: 8
 - Conectividade: KiCad unconnected = **0**; redes com pads isolados = **0** (de 63 redes com ≥ 2 pads)
@@ -31,48 +31,31 @@ Data: 2026-10-26 15:19:19 · `05_SCRIPTS\final_audit.py` (20 s) · placa `04_PRO
 | ALTO | curto | folga furo < 0,20 `{"layer": "In2.Cu", "hole": "pad P1. []", "item": "pad P1.0 [GND]", "kind": "folga furo < 0,20"}` |
 | ALTO | curto | folga furo < 0,20 `{"layer": "B.Cu", "hole": "pad P1. []", "item": "pad P1.0 [GND]", "kind": "folga furo < 0,20"}` |
 | ALTO | curto | folga furo < 0,20 `{"layer": "B.Cu", "hole": "pad P1. []", "item": "pad P1.0 [GND]", "kind": "folga furo < 0,20"}` |
-| ALTO | montagem | 15 vias dentro de pads SMD (via-in-pad): risco de sucção de solda/tombstone em 0402 — exigir vias tapadas (plugged/capped, IPC-4761 tipo VI/VII) ou aceitar retrabalho; sem isso, montagem por refluxo pode falhar nesses pads  |
-| MEDIO | borda | footprint com caixa fora do contorno (verificar visualmente) `{"ref": "D8", "bbox": [135.94, 64.3, 139.49, 68.14]}` |
+| ALTO | montagem | 2 vias dentro de pads SMD (via-in-pad): risco de sucção de solda/tombstone em 0402 — exigir vias tapadas (plugged/capped, IPC-4761 tipo VI/VII) ou aceitar retrabalho; sem isso, montagem por refluxo pode falhar nesses pads  |
 | MEDIO | borda | footprint com caixa fora do contorno (verificar visualmente) `{"ref": "U3", "bbox": [127.61, 32.29, 140.68, 47.27]}` |
 | MEDIO | borda | footprint com caixa fora do contorno (verificar visualmente) `{"ref": "P1", "bbox": [130.08, 53.83, 140.23, 63.93]}` |
-| ALTO | montagem | pátios (courtyard) sobrepostos — colisão física/pick&place `{"layer": "F.Courtyard", "a": "D7", "b": "U9"}` |
-| INFO | montagem | footprints sem courtyard (sem verificação de colisão possível): Q1, Q2, U5, L3, U3, P1  |
-| INFO | montagem | 134 vias sob corpos de componentes (tenting F/B = True/True)  |
-| MEDIO | montagem | sem fiduciais na placa — montagem automática usa pads como referência; adicionar 2–3 fiduciais (1 mm) por lado se for SMT em fábrica  |
-| INFO | montagem | 114 componentes, 38 no lado B (C60, C57, L5, C53, R31, C61, C52, C23, R32, C38, C54, C51…), THT: U6, U3, P1; 38 referências sem serigrafia (identificação só pelo CPL)  |
+| INFO | montagem | footprints sem courtyard (sem verificação de colisão possível): Q1, Q2, FID1, FID2, U5, L3, FID3, U3, P1, FID5, FID4, FID6  |
+| INFO | montagem | 114 vias sob corpos de componentes (tenting F/B = True/True)  |
+| INFO | montagem | 120 componentes, 41 no lado B (C60, C57, L5, FID5, C53, R31, C61, C52, C23, R32, C38, C54…), THT: U6, U3, P1; 44 referências sem serigrafia (identificação só pelo CPL)  |
 | INFO | montagem | polaridade/pino 1 a confirmar visualmente no render/F.Fab: D12, D7, U12, D2, U9, U1, U8, D11, D9, Q1, D5, D6, Q2, D8, U6, U5, D10, Q3, Q4, U10, U11, D1, U3, P1, J1, U7, D14, D13, Y1  |
-| MEDIO | potência | +3V3 tem trilha de 0.150 mm (em 95.74,45.18 F.Cu); H725 a 550 MHz pode consumir 200–300 mA — confirmar que o caminho principal (regulador→MCU) é largo/plano e que os troços finos são só ramos de desacoplamento  |
-| BAIXO | fabrico | 43 junções de trilha com ângulo agudo (< 90°) — 'acid traps' cosméticos em processo moderno; o Freerouting gera 45°/90° mas o A* do 5c pode gerar outros  |
+| BAIXO | fabrico | 116 junções de trilha com ângulo agudo (< 90°) — 'acid traps' cosméticos em processo moderno; o Freerouting gera 45°/90° mas o A* do 5c pode gerar outros  |
 | INFO | fabrico | trilha mín 0.1500 mm, broca mín 0.25 mm (regra 0,30 — 1 via herdada 0,25); folga mín testada 0,10 mm  |
 
 ### Via-in-pad (lista)
 
 | Via | Pad | Mesma rede |
 |---|---|---|
-| +3V3 @112.25,70.76 d0.60/0.30 | pad SW1.2 [+3V3] | True |
-| +3V3 @132.96,69.07 d0.60/0.30 | pad U11.5 [+3V3] | True |
-| +3V3 @134.45,69.30 d0.60/0.30 | pad C29.1 [+3V3] | True |
-| +3V3 @97.64,56.85 d0.60/0.30 | pad C2.1 [+3V3] | True |
-| +3V3 @97.26,40.93 d0.60/0.30 | pad J1.1 [+3V3] | True |
-| GND @123.97,52.65 d0.70/0.30 | pad C17.1 [GND] | True |
 | GND @127.59,67.11 d0.50/0.30 | pad D13.1 [GND] | True |
 | GND @119.00,53.42 d0.50/0.30 | pad U1.2 [GND] | True |
-| GND @124.12,63.12 d0.60/0.30 | pad C40.2 [GND] | True |
-| GND @124.50,64.05 d0.70/0.30 | pad C26.2 [GND] | True |
-| GND @123.66,52.10 d0.60/0.30 | pad C17.1 [GND] | True |
-| GND @109.25,68.76 d0.60/0.30 | pad C47.2 [GND] | True |
-| +5V @136.97,71.95 d0.60/0.30 | pad U10.3 [+5V] | True |
-| +5V @118.92,46.59 d0.60/0.30 | pad C21.2 [+5V] | True |
-| +5V @124.04,72.37 d0.60/0.30 | pad Q1.2 [+5V] | True |
 
 ### Trilhas de potência
 
 | Rede | Trilhas | Larg. mín (mm) @ | Larg. máx | Comp. (mm) | Vias |
 |---|---|---|---|---|---|
-| +12V | 37 | 0.200 @ 138.40,52.38 F.Cu | 1.500 | 44.2 | 5 |
-| +3V3 | 221 | 0.150 @ 95.74,45.18 F.Cu | 1.000 | 291.2 | 42 |
-| +5V | 87 | 0.200 @ 121.86,61.99 F.Cu | 1.000 | 114.4 | 11 |
-| GND | 215 | 0.200 @ 97.94,63.39 F.Cu | 0.800 | 190.3 | 72 |
+| +12V | 38 | 0.200 @ 138.40,52.38 F.Cu | 1.500 | 45.3 | 5 |
+| +3V3 | 236 | 0.200 @ 137.65,68.88 F.Cu | 1.000 | 316.6 | 42 |
+| +5V | 90 | 0.200 @ 121.86,61.99 F.Cu | 1.000 | 118.6 | 11 |
+| GND | 236 | 0.200 @ 97.94,63.39 F.Cu | 0.800 | 225.7 | 72 |
 | USB_PWR | 14 | 0.200 @ 118.50,53.80 F.Cu | 1.000 | 23.7 | 0 |
 
 ## C. Esquemático

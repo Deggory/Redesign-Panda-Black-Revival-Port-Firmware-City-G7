@@ -177,8 +177,9 @@ blocks += ["Impedância/skew CAN-FD e USB: apenas estimativa analítica (step6_r
            "BOM: %d referências sem MPN (PROVISÓRIO) e nenhuma com código LCSC — montagem JLC exige preencher." % len(out["assembly"]["refs_without_MPN"]),
            "Violações DRC herdadas do baseline OpenBlackPanda não corrigidas (text_height, lib_footprint_mismatch, silk, starved_thermal, hole_clearance P1, courtyards_overlap) — ver STEP5_layout_H725.md §7.3.",
            "Verificação em visualizador de gerber: NÃO EXECUTADA automaticamente (sem gerbv/gerbview CLI); apenas verificação sintática (gerber_check.json). Abrir gerbers/ no KiCad GerbView antes de qualquer pedido.",
-           "Toolchain ARM não instalada: firmware não foi compilado/assinado localmente; dependência do fluxo oficial de DFU/assinatura do commaai (ver STEP9).",
-           "Rotação dos componentes no CPL não normalizada para a convenção JLC (requer ajuste manual por footprint no painel JLC)."]
+           "Toolchain ARM: instalada localmente (Arm GNU 14.2.Rel1, %LOCALAPPDATA%\\arm-gnu-toolchain) mas firmware ainda NÃO compilado/assinado para este hardware; dependência do fluxo oficial de DFU/assinatura do commaai (ver STEP9).",
+           "Rotação dos componentes no CPL não normalizada para a convenção JLC (requer ajuste manual por footprint no painel JLC).",
+           "Via-in-pad remanescentes (4 de 47; fix_audit.py/fix_vip_rest.py resolveram 43): D13.1 (GND, B.Cu, SOT-23), U1.2 (GND, F.Cu, SOT-23-6), C30.2 e C33.2 (+5V, 0402, In2). Zonas densas (U7 LQFP144, U8/U11 transceptores) sem posição livre. EXIGIR do fabricante via preenchida+tampada (VIPPO / IPC-4761 tipo VII) nessas 4 vias, ou mover manualmente antes do pedido; caso contrário risco de solda drenar pelo furo (tombstone/open)."]
 R = ["HYBRID PANDA (Black Panda form factor + STM32H725ZGT6 / firmware red panda) — PACOTE DE FABRICAÇÃO", "Gerado: %s por 05_SCRIPTS\\step8_fabricate.py (KiCad 10.0.7 kicad-cli)" % out["date"], "",
      "=" * 78, "   ESTADO: NÃO FABRICAR", "=" * 78, "",
      "Este pacote foi gerado automaticamente para arquivo/revisão. NÃO foi validado para produção. Motivos:", ""]

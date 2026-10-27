@@ -1,5 +1,5 @@
 {
- "date": "2026-10-26 15:19:19",
+ "date": "2026-10-27 08:36:18",
  "board": "04_PROJECT\\HybridPanda\\HybridPanda.kicad_pcb",
  "findings": [
   {
@@ -77,19 +77,7 @@
   {
    "sev": "ALTO",
    "area": "montagem",
-   "msg": "15 vias dentro de pads SMD (via-in-pad): risco de sucção de solda/tombstone em 0402 — exigir vias tapadas (plugged/capped, IPC-4761 tipo VI/VII) ou aceitar retrabalho; sem isso, montagem por refluxo pode falhar nesses pads"
-  },
-  {
-   "sev": "MEDIO",
-   "area": "borda",
-   "msg": "footprint com caixa fora do contorno (verificar visualmente)",
-   "ref": "D8",
-   "bbox": [
-    135.94,
-    64.3,
-    139.49,
-    68.14
-   ]
+   "msg": "2 vias dentro de pads SMD (via-in-pad): risco de sucção de solda/tombstone em 0402 — exigir vias tapadas (plugged/capped, IPC-4761 tipo VI/VII) ou aceitar retrabalho; sem isso, montagem por refluxo pode falhar nesses pads"
   },
   {
    "sev": "MEDIO",
@@ -116,32 +104,19 @@
    ]
   },
   {
-   "sev": "ALTO",
+   "sev": "INFO",
    "area": "montagem",
-   "msg": "pátios (courtyard) sobrepostos — colisão física/pick&place",
-   "layer": "F.Courtyard",
-   "a": "D7",
-   "b": "U9"
+   "msg": "footprints sem courtyard (sem verificação de colisão possível): Q1, Q2, FID1, FID2, U5, L3, FID3, U3, P1, FID5, FID4, FID6"
   },
   {
    "sev": "INFO",
    "area": "montagem",
-   "msg": "footprints sem courtyard (sem verificação de colisão possível): Q1, Q2, U5, L3, U3, P1"
+   "msg": "114 vias sob corpos de componentes (tenting F/B = True/True)"
   },
   {
    "sev": "INFO",
    "area": "montagem",
-   "msg": "134 vias sob corpos de componentes (tenting F/B = True/True)"
-  },
-  {
-   "sev": "MEDIO",
-   "area": "montagem",
-   "msg": "sem fiduciais na placa — montagem automática usa pads como referência; adicionar 2–3 fiduciais (1 mm) por lado se for SMT em fábrica"
-  },
-  {
-   "sev": "INFO",
-   "area": "montagem",
-   "msg": "114 componentes, 38 no lado B (C60, C57, L5, C53, R31, C61, C52, C23, R32, C38, C54, C51…), THT: U6, U3, P1; 38 referências sem serigrafia (identificação só pelo CPL)"
+   "msg": "120 componentes, 41 no lado B (C60, C57, L5, FID5, C53, R31, C61, C52, C23, R32, C38, C54…), THT: U6, U3, P1; 44 referências sem serigrafia (identificação só pelo CPL)"
   },
   {
    "sev": "INFO",
@@ -149,14 +124,9 @@
    "msg": "polaridade/pino 1 a confirmar visualmente no render/F.Fab: D12, D7, U12, D2, U9, U1, U8, D11, D9, Q1, D5, D6, Q2, D8, U6, U5, D10, Q3, Q4, U10, U11, D1, U3, P1, J1, U7, D14, D13, Y1"
   },
   {
-   "sev": "MEDIO",
-   "area": "potência",
-   "msg": "+3V3 tem trilha de 0.150 mm (em 95.74,45.18 F.Cu); H725 a 550 MHz pode consumir 200–300 mA — confirmar que o caminho principal (regulador→MCU) é largo/plano e que os troços finos são só ramos de desacoplamento"
-  },
-  {
    "sev": "BAIXO",
    "area": "fabrico",
-   "msg": "43 junções de trilha com ângulo agudo (< 90°) — 'acid traps' cosméticos em processo moderno; o Freerouting gera 45°/90° mas o A* do 5c pode gerar outros"
+   "msg": "116 junções de trilha com ângulo agudo (< 90°) — 'acid traps' cosméticos em processo moderno; o Freerouting gera 45°/90° mas o A* do 5c pode gerar outros"
   },
   {
    "sev": "INFO",
@@ -230,7 +200,7 @@
   }
  ],
  "shorts": {
-  "pairs_tested": 724,
+  "pairs_tested": 755,
   "copper_overlap_other_net": [],
   "clearance_lt_0.10": [],
   "zone_overlap_other_net": [],
@@ -292,42 +262,6 @@
  },
  "via_in_pad": [
   {
-   "via": "+3V3 @112.25,70.76 d0.60/0.30",
-   "pad": "pad SW1.2 [+3V3]",
-   "mesma_rede": true,
-   "footprint": "SW_SPST_SKQG_WithStem"
-  },
-  {
-   "via": "+3V3 @132.96,69.07 d0.60/0.30",
-   "pad": "pad U11.5 [+3V3]",
-   "mesma_rede": true,
-   "footprint": "DFN-8-1EP_3x3mm_P0.65mm_EP1.55x2.4mm"
-  },
-  {
-   "via": "+3V3 @134.45,69.30 d0.60/0.30",
-   "pad": "pad C29.1 [+3V3]",
-   "mesma_rede": true,
-   "footprint": "C_0402_1005Metric"
-  },
-  {
-   "via": "+3V3 @97.64,56.85 d0.60/0.30",
-   "pad": "pad C2.1 [+3V3]",
-   "mesma_rede": true,
-   "footprint": "C_0402_1005Metric"
-  },
-  {
-   "via": "+3V3 @97.26,40.93 d0.60/0.30",
-   "pad": "pad J1.1 [+3V3]",
-   "mesma_rede": true,
-   "footprint": "PinHeader_2x05_P1.27mm_Vertical_SMD"
-  },
-  {
-   "via": "GND @123.97,52.65 d0.70/0.30",
-   "pad": "pad C17.1 [GND]",
-   "mesma_rede": true,
-   "footprint": "C_0805_2012Metric"
-  },
-  {
    "via": "GND @127.59,67.11 d0.50/0.30",
    "pad": "pad D13.1 [GND]",
    "mesma_rede": true,
@@ -338,48 +272,6 @@
    "pad": "pad U1.2 [GND]",
    "mesma_rede": true,
    "footprint": "SOT-23-6"
-  },
-  {
-   "via": "GND @124.12,63.12 d0.60/0.30",
-   "pad": "pad C40.2 [GND]",
-   "mesma_rede": true,
-   "footprint": "C_0603_1608Metric"
-  },
-  {
-   "via": "GND @124.50,64.05 d0.70/0.30",
-   "pad": "pad C26.2 [GND]",
-   "mesma_rede": true,
-   "footprint": "C_0402_1005Metric"
-  },
-  {
-   "via": "GND @123.66,52.10 d0.60/0.30",
-   "pad": "pad C17.1 [GND]",
-   "mesma_rede": true,
-   "footprint": "C_0805_2012Metric"
-  },
-  {
-   "via": "GND @109.25,68.76 d0.60/0.30",
-   "pad": "pad C47.2 [GND]",
-   "mesma_rede": true,
-   "footprint": "C_0402_1005Metric"
-  },
-  {
-   "via": "+5V @136.97,71.95 d0.60/0.30",
-   "pad": "pad U10.3 [+5V]",
-   "mesma_rede": true,
-   "footprint": "DFN-8-1EP_3x3mm_P0.65mm_EP1.55x2.4mm"
-  },
-  {
-   "via": "+5V @118.92,46.59 d0.60/0.30",
-   "pad": "pad C21.2 [+5V]",
-   "mesma_rede": true,
-   "footprint": "C_0805_2012Metric"
-  },
-  {
-   "via": "+5V @124.04,72.37 d0.60/0.30",
-   "pad": "pad Q1.2 [+5V]",
-   "mesma_rede": true,
-   "footprint": "SOT23-3"
   }
  ],
  "mask": {
@@ -396,15 +288,6 @@
    "pad U3.6 [unconnected-(U3-Pad6)]"
   ],
   "footprints_fora_bbox": [
-   {
-    "ref": "D8",
-    "bbox": [
-     135.94,
-     64.3,
-     139.49,
-     68.14
-    ]
-   },
    {
     "ref": "U3",
     "bbox": [
@@ -432,35 +315,30 @@
   ]
  },
  "courtyard": {
-  "overlaps": [
-   {
-    "layer": "F.Courtyard",
-    "a": "D7",
-    "b": "U9"
-   }
-  ],
+  "overlaps": [],
   "sem_courtyard": [
    "Q1",
    "Q2",
+   "FID1",
+   "FID2",
    "U5",
    "L3",
+   "FID3",
    "U3",
-   "P1"
+   "P1",
+   "FID5",
+   "FID4",
+   "FID6"
   ]
  },
  "vias_under_components": {
   "tent_front": true,
   "tent_back": true,
-  "count": 134,
+  "count": 114,
   "list": [
    {
     "via": "+3V3 @125.39,56.75",
     "sob": "U9",
-    "rede_do_componente": true
-   },
-   {
-    "via": "+3V3 @125.91,57.22",
-    "sob": "C27",
     "rede_do_componente": true
    },
    {
@@ -469,18 +347,8 @@
     "rede_do_componente": true
    },
    {
-    "via": "+3V3 @99.53,75.41",
-    "sob": "FB1",
-    "rede_do_componente": true
-   },
-   {
-    "via": "+3V3 @96.58,56.97",
+    "via": "+3V3 @96.72,56.91",
     "sob": "C61",
-    "rede_do_componente": true
-   },
-   {
-    "via": "+3V3 @112.25,70.76",
-    "sob": "SW1",
     "rede_do_componente": true
    },
    {
@@ -491,11 +359,6 @@
    {
     "via": "+3V3 @138.19,68.88",
     "sob": "U10",
-    "rede_do_componente": true
-   },
-   {
-    "via": "+3V3 @116.44,72.24",
-    "sob": "C60",
     "rede_do_componente": true
    },
    {
@@ -514,18 +377,8 @@
     "rede_do_componente": true
    },
    {
-    "via": "+3V3 @115.50,69.06",
+    "via": "+3V3 @115.30,68.75",
     "sob": "SW1",
-    "rede_do_componente": true
-   },
-   {
-    "via": "+3V3 @115.50,69.06",
-    "sob": "C45",
-    "rede_do_componente": true
-   },
-   {
-    "via": "+3V3 @126.26,64.60",
-    "sob": "D13",
     "rede_do_componente": true
    },
    {
@@ -549,7 +402,7 @@
     "rede_do_componente": false
    },
    {
-    "via": "+3V3 @132.96,69.07",
+    "via": "+3V3 @133.49,69.18",
     "sob": "U11",
     "rede_do_componente": true
    },
@@ -564,27 +417,17 @@
     "rede_do_componente": true
    },
    {
-    "via": "+3V3 @117.46,40.99",
+    "via": "+3V3 @117.53,41.09",
     "sob": "L4",
     "rede_do_componente": false
    },
    {
-    "via": "+3V3 @117.46,40.99",
-    "sob": "C62",
+    "via": "+3V3 @134.98,69.80",
+    "sob": "U10",
     "rede_do_componente": true
    },
    {
-    "via": "+3V3 @134.45,69.30",
-    "sob": "C29",
-    "rede_do_componente": true
-   },
-   {
-    "via": "+3V3 @97.64,56.85",
-    "sob": "C2",
-    "rede_do_componente": true
-   },
-   {
-    "via": "+3V3 @109.29,66.08",
+    "via": "+3V3 @109.27,66.15",
     "sob": "U7",
     "rede_do_componente": true
    },
@@ -604,24 +447,14 @@
     "rede_do_componente": false
    },
    {
-    "via": "+3V3 @125.44,62.71",
+    "via": "+3V3 @125.79,63.12",
     "sob": "U8",
     "rede_do_componente": true
    },
    {
-    "via": "+3V3 @97.26,40.93",
-    "sob": "D11",
+    "via": "GND @115.48,41.73",
+    "sob": "L4",
     "rede_do_componente": false
-   },
-   {
-    "via": "+3V3 @97.26,40.93",
-    "sob": "J1",
-    "rede_do_componente": true
-   },
-   {
-    "via": "GND @114.58,43.00",
-    "sob": "C12",
-    "rede_do_componente": true
    },
    {
     "via": "GND @116.36,69.88",
@@ -644,17 +477,12 @@
     "rede_do_componente": false
    },
    {
-    "via": "GND @106.19,69.53",
-    "sob": "Y1",
-    "rede_do_componente": true
-   },
-   {
-    "via": "GND @114.60,41.08",
+    "via": "GND @115.22,40.93",
     "sob": "C7",
     "rede_do_componente": true
    },
    {
-    "via": "GND @123.97,52.65",
+    "via": "GND @124.11,51.62",
     "sob": "C17",
     "rede_do_componente": true
    },
@@ -669,18 +497,8 @@
     "rede_do_componente": true
    },
    {
-    "via": "GND @113.25,47.67",
-    "sob": "C18",
-    "rede_do_componente": true
-   },
-   {
-    "via": "GND @113.25,47.67",
+    "via": "GND @113.36,47.65",
     "sob": "U7",
-    "rede_do_componente": true
-   },
-   {
-    "via": "GND @94.16,50.07",
-    "sob": "C39",
     "rede_do_componente": true
    },
    {
@@ -689,22 +507,12 @@
     "rede_do_componente": true
    },
    {
-    "via": "GND @104.16,72.57",
-    "sob": "Y1",
-    "rede_do_componente": true
-   },
-   {
-    "via": "GND @117.05,39.01",
+    "via": "GND @117.09,38.87",
     "sob": "L4",
     "rede_do_componente": false
    },
    {
-    "via": "GND @117.05,39.01",
-    "sob": "C62",
-    "rede_do_componente": true
-   },
-   {
-    "via": "GND @117.47,48.80",
+    "via": "GND @117.43,48.77",
     "sob": "U7",
     "rede_do_componente": true
    },
@@ -764,12 +572,12 @@
     "rede_do_componente": true
    },
    {
-    "via": "GND @124.12,63.12",
-    "sob": "U8",
+    "via": "GND @115.22,38.91",
+    "sob": "C6",
     "rede_do_componente": true
    },
    {
-    "via": "GND @124.12,63.12",
+    "via": "GND @123.60,63.98",
     "sob": "C40",
     "rede_do_componente": true
    },
@@ -794,18 +602,8 @@
     "rede_do_componente": true
    },
    {
-    "via": "GND @97.64,49.10",
+    "via": "GND @95.17,49.15",
     "sob": "U12",
-    "rede_do_componente": true
-   },
-   {
-    "via": "GND @124.50,64.05",
-    "sob": "C26",
-    "rede_do_componente": true
-   },
-   {
-    "via": "GND @124.50,64.05",
-    "sob": "C40",
     "rede_do_componente": true
    },
    {
@@ -814,7 +612,7 @@
     "rede_do_componente": true
    },
    {
-    "via": "GND @123.66,52.10",
+    "via": "GND @124.70,51.63",
     "sob": "C17",
     "rede_do_componente": true
    },
@@ -824,18 +622,13 @@
     "rede_do_componente": true
    },
    {
-    "via": "GND @113.92,42.06",
-    "sob": "C7",
+    "via": "GND @113.84,40.76",
+    "sob": "C6",
     "rede_do_componente": true
    },
    {
     "via": "GND @138.58,67.15",
     "sob": "D8",
-    "rede_do_componente": true
-   },
-   {
-    "via": "GND @109.25,68.76",
-    "sob": "C47",
     "rede_do_componente": true
    },
    {
@@ -849,7 +642,7 @@
     "rede_do_componente": true
    },
    {
-    "via": "GND @107.93,67.57",
+    "via": "GND @107.83,66.27",
     "sob": "U7",
     "rede_do_componente": true
    },
@@ -864,22 +657,17 @@
     "rede_do_componente": true
    },
    {
-    "via": "+5V @136.97,71.95",
-    "sob": "U10",
-    "rede_do_componente": true
-   },
-   {
-    "via": "+5V @118.92,46.59",
-    "sob": "C21",
-    "rede_do_componente": true
-   },
-   {
-    "via": "+5V @118.92,46.59",
+    "via": "+5V @119.53,46.44",
     "sob": "U7",
     "rede_do_componente": false
    },
    {
-    "via": "+5V @116.21,54.53",
+    "via": "+5V @116.50,54.95",
+    "sob": "U1",
+    "rede_do_componente": true
+   },
+   {
+    "via": "+5V @116.50,54.95",
     "sob": "U7",
     "rede_do_componente": false
    },
@@ -929,12 +717,7 @@
     "rede_do_componente": false
    },
    {
-    "via": "BUS2_TX @122.42,53.87",
-    "sob": "U9",
-    "rede_do_componente": true
-   },
-   {
-    "via": "BUS2_RX @123.02,56.62",
+    "via": "BUS2_RX @122.96,56.70",
     "sob": "U9",
     "rede_do_componente": true
    },
@@ -1009,7 +792,7 @@
     "rede_do_componente": true
    },
    {
-    "via": "+12V @137.83,52.97",
+    "via": "+12V @137.74,53.04",
     "sob": "Q4",
     "rede_do_componente": true
    },
@@ -1135,6 +918,7 @@
    "C60",
    "C57",
    "L5",
+   "FID5",
    "C53",
    "R31",
    "C61",
@@ -1155,8 +939,10 @@
    "R28",
    "C40",
    "C63",
+   "FID4",
    "C39",
    "D14",
+   "FID6",
    "C55",
    "D13",
    "C45",
@@ -1206,10 +992,14 @@
    "C58",
    "C48",
    "C47",
+   "FID1",
    "L4",
+   "FID2",
+   "FID3",
    "C60",
    "C57",
    "L5",
+   "FID5",
    "C53",
    "R31",
    "C61",
@@ -1227,8 +1017,10 @@
    "R28",
    "C40",
    "C63",
+   "FID4",
    "C39",
    "D14",
+   "FID6",
    "C55",
    "D13",
    "C45",
@@ -1242,31 +1034,38 @@
    "C62",
    "R29"
   ],
-  "fiduciais": [],
-  "total_fp": 114
+  "fiduciais": [
+   "FID1",
+   "FID2",
+   "FID3",
+   "FID5",
+   "FID4",
+   "FID6"
+  ],
+  "total_fp": 120
  },
  "power_tracks": {
   "+3V3": {
-   "min_w": 0.15,
+   "min_w": 0.2,
    "max_w": 1.0,
-   "len_mm": 291.2,
-   "n": 221,
+   "len_mm": 316.6,
+   "n": 236,
    "vias": 42,
-   "min_w_at": "95.74,45.18 F.Cu"
+   "min_w_at": "137.65,68.88 F.Cu"
   },
   "GND": {
    "min_w": 0.2,
    "max_w": 0.8,
-   "len_mm": 190.3,
-   "n": 215,
+   "len_mm": 225.7,
+   "n": 236,
    "vias": 72,
    "min_w_at": "97.94,63.39 F.Cu"
   },
   "+5V": {
    "min_w": 0.2,
    "max_w": 1.0,
-   "len_mm": 114.4,
-   "n": 87,
+   "len_mm": 118.6,
+   "n": 90,
    "vias": 11,
    "min_w_at": "121.86,61.99 F.Cu"
   },
@@ -1281,13 +1080,13 @@
   "+12V": {
    "min_w": 0.2,
    "max_w": 1.5,
-   "len_mm": 44.2,
-   "n": 37,
+   "len_mm": 45.3,
+   "n": 38,
    "vias": 5,
    "min_w_at": "138.40,52.38 F.Cu"
   }
  },
- "acute_angles": 43,
+ "acute_angles": 116,
  "rules": {
   "min_track_mm": 0.15,
   "min_via_drill_mm": 0.25,
@@ -1802,10 +1601,10 @@
    ]
   }
  ],
- "seconds": 19.5,
+ "seconds": 18.2,
  "by_severity": {
-  "ALTO": 11,
-  "MEDIO": 5,
+  "ALTO": 10,
+  "MEDIO": 2,
   "INFO": 17,
   "BAIXO": 1
  }

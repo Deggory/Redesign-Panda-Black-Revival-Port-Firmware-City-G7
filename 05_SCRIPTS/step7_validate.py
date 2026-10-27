@@ -86,6 +86,7 @@ board = pcbnew.LoadBoard(PCB)
 pcb_comp, pcb_pin_net = {}, {}
 for fp in board.GetFootprints():
     ref = fp.GetReference()
+    if fp.GetAttributes() & pcbnew.FP_BOARD_ONLY: continue  # fiduciais etc.: só PCB, sem símbolo no esquemático
     pcb_comp[ref] = {"value": fp.GetValue(), "footprint": str(fp.GetFPID().GetUniStringLibId())}
     for p in fp.Pads():
         if p.GetNumber() == "": continue

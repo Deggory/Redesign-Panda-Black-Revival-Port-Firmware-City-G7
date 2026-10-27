@@ -1,17 +1,17 @@
 {
  "HybridPanda-B_Cu.gbl": {
-  "bytes": 464963,
-  "apertures": 15,
-  "flashes_D03": 244,
-  "draws_D01": 16258,
+  "bytes": 472887,
+  "apertures": 17,
+  "flashes_D03": 247,
+  "draws_D01": 16554,
   "has_M02": true,
   "format_FS": true,
   "unit_MM": true
  },
  "HybridPanda-B_Mask.gbs": {
-  "bytes": 73530,
-  "apertures": 6,
-  "flashes_D03": 34,
+  "bytes": 73632,
+  "apertures": 7,
+  "flashes_D03": 37,
   "draws_D01": 1728,
   "has_M02": true,
   "format_FS": true,
@@ -27,9 +27,9 @@
   "unit_MM": true
  },
  "HybridPanda-B_Silkscreen.gbo": {
-  "bytes": 83326,
-  "apertures": 9,
-  "flashes_D03": 34,
+  "bytes": 83428,
+  "apertures": 10,
+  "flashes_D03": 37,
   "draws_D01": 1928,
   "has_M02": true,
   "format_FS": true,
@@ -45,18 +45,18 @@
   "unit_MM": true
  },
  "HybridPanda-F_Cu.gtl": {
-  "bytes": 408632,
-  "apertures": 43,
-  "flashes_D03": 342,
-  "draws_D01": 14243,
+  "bytes": 421702,
+  "apertures": 44,
+  "flashes_D03": 345,
+  "draws_D01": 14730,
   "has_M02": true,
   "format_FS": true,
   "unit_MM": true
  },
  "HybridPanda-F_Mask.gts": {
-  "bytes": 92735,
-  "apertures": 25,
-  "flashes_D03": 131,
+  "bytes": 92842,
+  "apertures": 26,
+  "flashes_D03": 134,
   "draws_D01": 2888,
   "has_M02": true,
   "format_FS": true,
@@ -72,28 +72,28 @@
   "unit_MM": true
  },
  "HybridPanda-F_Silkscreen.gto": {
-  "bytes": 212052,
-  "apertures": 34,
-  "flashes_D03": 131,
+  "bytes": 212159,
+  "apertures": 35,
+  "flashes_D03": 134,
   "draws_D01": 5260,
   "has_M02": true,
   "format_FS": true,
   "unit_MM": true
  },
  "HybridPanda-In1_Cu.g1": {
-  "bytes": 337133,
+  "bytes": 331308,
   "apertures": 13,
   "flashes_D03": 230,
-  "draws_D01": 12964,
+  "draws_D01": 12734,
   "has_M02": true,
   "format_FS": true,
   "unit_MM": true
  },
  "HybridPanda-In2_Cu.g2": {
-  "bytes": 225648,
+  "bytes": 223969,
   "apertures": 9,
   "flashes_D03": 230,
-  "draws_D01": 8631,
+  "draws_D01": 8567,
   "has_M02": true,
   "format_FS": true,
   "unit_MM": true

@@ -1,5 +1,5 @@
 HYBRID PANDA (Black Panda form factor + STM32H725ZGT6 / firmware red panda) — PACOTE DE FABRICAÇÃO
-Gerado: 2026-10-26 15:01:52 por 05_SCRIPTS\step8_fabricate.py (KiCad 10.0.7 kicad-cli)
+Gerado: 2026-10-27 08:31:13 por 05_SCRIPTS\step8_fabricate.py (KiCad 10.0.7 kicad-cli)
 
 ==============================================================================
    ESTADO: NÃO FABRICAR
@@ -7,18 +7,20 @@ Gerado: 2026-10-26 15:01:52 por 05_SCRIPTS\step8_fabricate.py (KiCad 10.0.7 kica
 
 Este pacote foi gerado automaticamente para arquivo/revisão. NÃO foi validado para produção. Motivos:
 
-  1. Impedância/skew CAN-FD e USB: apenas estimativa analítica (step6_reports.py); o DRC do KiCad não verifica impedância; stackup 4 camadas 1.59 mm assumido, não confirmado com o fabricante.
-  2. USB_D± não é par acoplado: Freerouting roteou com vias (ver STEP5_layout_H725.md §5/§7); FS 12 Mb/s tolera, mas não foi validado.
-  3. Nenhuma placa foi fabricada, montada ou medida — zero validação física; firmware red panda oficial NUNCA foi executado neste hardware.
-  4. BOM: 114 referências sem MPN (PROVISÓRIO) e nenhuma com código LCSC — montagem JLC exige preencher.
-  5. Violações DRC herdadas do baseline OpenBlackPanda não corrigidas (text_height, lib_footprint_mismatch, silk, starved_thermal, hole_clearance P1, courtyards_overlap) — ver STEP5_layout_H725.md §7.3.
-  6. Verificação em visualizador de gerber: NÃO EXECUTADA automaticamente (sem gerbv/gerbview CLI); apenas verificação sintática (gerber_check.json). Abrir gerbers/ no KiCad GerbView antes de qualquer pedido.
-  7. Toolchain ARM não instalada: firmware não foi compilado/assinado localmente; dependência do fluxo oficial de DFU/assinatura do commaai (ver STEP9).
-  8. Rotação dos componentes no CPL não normalizada para a convenção JLC (requer ajuste manual por footprint no painel JLC).
+  1. STEP 7: Netlist sch x pcb: só_sch 0 / só_pcb 6 / redes 0 / footprints 0
+  2. Impedância/skew CAN-FD e USB: apenas estimativa analítica (step6_reports.py); o DRC do KiCad não verifica impedância; stackup 4 camadas 1.59 mm assumido, não confirmado com o fabricante.
+  3. USB_D± não é par acoplado: Freerouting roteou com vias (ver STEP5_layout_H725.md §5/§7); FS 12 Mb/s tolera, mas não foi validado.
+  4. Nenhuma placa foi fabricada, montada ou medida — zero validação física; firmware red panda oficial NUNCA foi executado neste hardware.
+  5. BOM: 114 referências sem MPN (PROVISÓRIO) e nenhuma com código LCSC — montagem JLC exige preencher.
+  6. Violações DRC herdadas do baseline OpenBlackPanda não corrigidas (text_height, lib_footprint_mismatch, silk, starved_thermal, hole_clearance P1, courtyards_overlap) — ver STEP5_layout_H725.md §7.3.
+  7. Verificação em visualizador de gerber: NÃO EXECUTADA automaticamente (sem gerbv/gerbview CLI); apenas verificação sintática (gerber_check.json). Abrir gerbers/ no KiCad GerbView antes de qualquer pedido.
+  8. Toolchain ARM: instalada localmente (Arm GNU 14.2.Rel1, %LOCALAPPDATA%\arm-gnu-toolchain) mas firmware ainda NÃO compilado/assinado para este hardware; dependência do fluxo oficial de DFU/assinatura do commaai (ver STEP9).
+  9. Rotação dos componentes no CPL não normalizada para a convenção JLC (requer ajuste manual por footprint no painel JLC).
+  10. Via-in-pad remanescentes (4 de 47; fix_audit.py/fix_vip_rest.py resolveram 43): D13.1 (GND, B.Cu, SOT-23), U1.2 (GND, F.Cu, SOT-23-6), C30.2 e C33.2 (+5V, 0402, In2). Zonas densas (U7 LQFP144, U8/U11 transceptores) sem posição livre. EXIGIR do fabricante via preenchida+tampada (VIPPO / IPC-4761 tipo VII) nessas 4 vias, ou mover manualmente antes do pedido; caso contrário risco de solda drenar pelo furo (tombstone/open).
 
 Resultados do STEP 7 (06_REPORTS\step7_validation.json):
-  ERC erros=0 avisos=351 | DRC não ligados=0 clearance=0 curtos=0 courtyards=1 | netlist divergências=0 | paridade conflitos=0
-  DRC por tipo (híbrida/baseline): copper_edge_clearance 2/3, courtyards_overlap 1/1, drill_out_of_range 1/1, footprint_type_mismatch 10/11, hole_clearance 8/8, isolated_copper 1/1, lib_footprint_mismatch 58/67, silk_edge_clearance 4/4, silk_overlap 4/3, starved_thermal 18/13, text_height 72/82
+  ERC erros=0 avisos=351 | DRC não ligados=0 clearance=0 curtos=0 courtyards=0 | netlist divergências=0 | paridade conflitos=0
+  DRC por tipo (híbrida/baseline): copper_edge_clearance 2/3, drill_out_of_range 1/1, footprint_type_mismatch 10/11, hole_clearance 8/8, isolated_copper 1/1, lib_footprint_mismatch 64/67, silk_edge_clearance 4/4, silk_over_copper 2/0, silk_overlap 4/3, starved_thermal 18/13, text_height 72/82
 
 Conteúdo:
   gerbers\            RS-274X (Protel ext, sem X2) — F/In1/In2/B.Cu, F/B.Mask, F/B.SilkS, F/B.Paste, Edge.Cuts
@@ -33,4 +35,4 @@ Conteúdo:
 Especificação pretendida: 4 camadas, 1.59 mm, FR-4 (εr≈4.5 assumido), cobre 1 oz ext/0.5 oz int, trilha/espaço mín 0.1375/0.1 mm, via 0.4/0.3 mm, furo mín 0.30 mm, ENIG recomendado (QFN/LQFP 0.5 mm), máscara verde, HASL NÃO recomendado.
 
 Problemas na geração: nenhum
-Notas: STEP gerado (25.8 MB) com aviso: modelos VRML ignorados (kicad-cli exit 2; 6 avisos no stderr truncado) — corpos 3D desses footprints ausentes
+Notas: STEP gerado (26.1 MB) com aviso: modelos VRML ignorados (kicad-cli exit 2; 6 avisos no stderr truncado) — corpos 3D desses footprints ausentes
