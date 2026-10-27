@@ -1,5 +1,5 @@
 {
- "date": "2026-10-27 11:29:12",
+ "date": "2026-10-27 14:42:24",
  "board": "04_PROJECT\\HybridPanda\\HybridPanda.kicad_pcb",
  "findings": [
   {
@@ -106,12 +106,12 @@
   {
    "sev": "INFO",
    "area": "montagem",
-   "msg": "footprints sem courtyard (sem verificação de colisão possível): Q1, Q2, U5, FID2, L3, FID3, U3, FID1, P1, FID4, FID6, FID5"
+   "msg": "footprints sem courtyard (sem verificação de colisão possível): U5, FID2, FID3, U3, FID1, P1, FID4, FID6, FID5"
   },
   {
    "sev": "INFO",
    "area": "montagem",
-   "msg": "104 vias sob corpos de componentes (tenting F/B = True/True)"
+   "msg": "106 vias sob corpos de componentes (tenting F/B = True/True)"
   },
   {
    "sev": "INFO",
@@ -126,7 +126,7 @@
   {
    "sev": "BAIXO",
    "area": "fabrico",
-   "msg": "122 junções de trilha com ângulo agudo (< 90°) — 'acid traps' cosméticos em processo moderno; o Freerouting gera 45°/90° mas o A* do 5c pode gerar outros"
+   "msg": "120 junções de trilha com ângulo agudo (< 90°) — 'acid traps' cosméticos em processo moderno; o Freerouting gera 45°/90° mas o A* do 5c pode gerar outros"
   },
   {
    "sev": "INFO",
@@ -200,7 +200,7 @@
   }
  ],
  "shorts": {
-  "pairs_tested": 736,
+  "pairs_tested": 769,
   "copper_overlap_other_net": [],
   "clearance_lt_0.10": [],
   "zone_overlap_other_net": [],
@@ -304,11 +304,8 @@
  "courtyard": {
   "overlaps": [],
   "sem_courtyard": [
-   "Q1",
-   "Q2",
    "U5",
    "FID2",
-   "L3",
    "FID3",
    "U3",
    "FID1",
@@ -321,7 +318,7 @@
  "vias_under_components": {
   "tent_front": true,
   "tent_back": true,
-  "count": 104,
+  "count": 106,
   "list": [
    {
     "via": "+3V3 @103.00,65.86",
@@ -564,6 +561,11 @@
     "rede_do_componente": false
    },
    {
+    "via": "GND @96.13,33.70",
+    "sob": "L3",
+    "rede_do_componente": false
+   },
+   {
     "via": "GND @104.12,50.95",
     "sob": "U7",
     "rede_do_componente": true
@@ -726,6 +728,11 @@
    {
     "via": "GREEN- @100.72,66.04",
     "sob": "U7",
+    "rede_do_componente": false
+   },
+   {
+    "via": "relay_SBU1 @126.90,70.00",
+    "sob": "Q1",
     "rede_do_componente": false
    },
    {
@@ -985,7 +992,7 @@
   "+3V3": {
    "min_w": 0.2,
    "max_w": 1.0,
-   "len_mm": 318.8,
+   "len_mm": 318.9,
    "n": 242,
    "vias": 49,
    "min_w_at": "95.74,45.18 F.Cu"
@@ -1023,7 +1030,7 @@
    "min_w_at": "141.40,51.11 F.Cu"
   }
  },
- "acute_angles": 122,
+ "acute_angles": 120,
  "rules": {
   "min_track_mm": 0.14,
   "min_via_drill_mm": 0.25,
@@ -1395,7 +1402,7 @@
   {
    "refs": "R6",
    "value": "3.16K (1%)",
-   "footprint": "C_0603_1608Metric",
+   "footprint": "R_0603_1608Metric",
    "qty": "1",
    "notas": [
     "sem MPN"
@@ -1538,7 +1545,7 @@
    ]
   }
  ],
- "seconds": 11.6,
+ "seconds": 13.0,
  "by_severity": {
   "ALTO": 9,
   "INFO": 18,

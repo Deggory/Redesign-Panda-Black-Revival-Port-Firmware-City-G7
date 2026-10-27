@@ -1,6 +1,6 @@
 # Auditoria final — PCB, esquemático e BOM (independente do DRC)
 
-Data: 2026-10-27 11:29:12 · `05_SCRIPTS\final_audit.py` (12 s) · placa `04_PROJECT\HybridPanda\HybridPanda.kicad_pcb` · JSON `06_REPORTS\final_audit.json`
+Data: 2026-10-27 14:42:24 · `05_SCRIPTS\final_audit.py` (13 s) · placa `04_PROJECT\HybridPanda\HybridPanda.kicad_pcb` · JSON `06_REPORTS\final_audit.json`
 
 ## Resumo por gravidade
 
@@ -14,7 +14,7 @@ Data: 2026-10-27 11:29:12 · `05_SCRIPTS\final_audit.py` (12 s) · placa `04_PRO
 
 ## A. Teste de curtos virtuais (geométrico, folga 0)
 
-- Pares cobre×cobre de redes diferentes testados (caixas a < 0,10 mm): **736** → sobreposições (curto): **0**; folga < 0,10 mm: 0
+- Pares cobre×cobre de redes diferentes testados (caixas a < 0,10 mm): **769** → sobreposições (curto): **0**; folga < 0,10 mm: 0
 - Zona×cobre de outra rede: curtos **0**, folga < 0,10: 0
 - Furos (vias+PTH) × cobre de outra rede: furo dentro de cobre **0**, folga < 0,20: 8
 - Conectividade: KiCad unconnected = **0**; redes com pads isolados = **0** (de 63 redes com ≥ 2 pads)
@@ -34,11 +34,11 @@ Data: 2026-10-27 11:29:12 · `05_SCRIPTS\final_audit.py` (12 s) · placa `04_PRO
 | INFO | montagem | 0 vias dentro de pads SMD (via-in-pad): risco de sucção de solda/tombstone em 0402 — exigir vias tapadas (plugged/capped, IPC-4761 tipo VI/VII) ou aceitar retrabalho; sem isso, montagem por refluxo pode falhar nesses pads  |
 | MEDIO | borda | footprint com caixa fora do contorno (verificar visualmente) `{"ref": "U3", "bbox": [130.61, 32.29, 143.68, 47.27]}` |
 | MEDIO | borda | footprint com caixa fora do contorno (verificar visualmente) `{"ref": "P1", "bbox": [133.08, 53.83, 143.23, 63.93]}` |
-| INFO | montagem | footprints sem courtyard (sem verificação de colisão possível): Q1, Q2, U5, FID2, L3, FID3, U3, FID1, P1, FID4, FID6, FID5  |
-| INFO | montagem | 104 vias sob corpos de componentes (tenting F/B = True/True)  |
+| INFO | montagem | footprints sem courtyard (sem verificação de colisão possível): U5, FID2, FID3, U3, FID1, P1, FID4, FID6, FID5  |
+| INFO | montagem | 106 vias sob corpos de componentes (tenting F/B = True/True)  |
 | INFO | montagem | 120 componentes, 41 no lado B (C38, FB1, D14, C52, C42, C63, C23, C50, R28, C62, C53, C46…), THT: U6, U3, P1; 44 referências sem serigrafia (identificação só pelo CPL)  |
 | INFO | montagem | polaridade/pino 1 a confirmar visualmente no render/F.Fab: D12, D7, U12, D2, U9, U1, U8, D11, D9, Q1, D5, D6, Q2, D8, U6, U5, D10, Q3, Q4, U10, U11, D1, U3, P1, D14, D13, U7, J1, Y1  |
-| BAIXO | fabrico | 122 junções de trilha com ângulo agudo (< 90°) — 'acid traps' cosméticos em processo moderno; o Freerouting gera 45°/90° mas o A* do 5c pode gerar outros  |
+| BAIXO | fabrico | 120 junções de trilha com ângulo agudo (< 90°) — 'acid traps' cosméticos em processo moderno; o Freerouting gera 45°/90° mas o A* do 5c pode gerar outros  |
 | INFO | fabrico | trilha mín 0.1400 mm, broca mín 0.25 mm (regra 0,30 — 1 via herdada 0,25); folga mín testada 0,10 mm  |
 
 ### Via-in-pad (lista)
@@ -51,7 +51,7 @@ Data: 2026-10-27 11:29:12 · `05_SCRIPTS\final_audit.py` (12 s) · placa `04_PRO
 | Rede | Trilhas | Larg. mín (mm) @ | Larg. máx | Comp. (mm) | Vias |
 |---|---|---|---|---|---|
 | +12V | 34 | 0.200 @ 141.40,51.11 F.Cu | 1.500 | 42.8 | 4 |
-| +3V3 | 242 | 0.200 @ 95.74,45.18 F.Cu | 1.000 | 318.8 | 49 |
+| +3V3 | 242 | 0.200 @ 95.74,45.18 F.Cu | 1.000 | 318.9 | 49 |
 | +5V | 94 | 0.200 @ 108.82,46.24 F.Cu | 1.000 | 130.7 | 14 |
 | GND | 224 | 0.200 @ 97.94,63.39 F.Cu | 0.800 | 227.0 | 73 |
 | USB_PWR | 16 | 0.200 @ 118.50,53.80 F.Cu | 1.000 | 26.5 | 0 |
@@ -111,7 +111,7 @@ Pinos de sistema do U7 → rede: VCAP=VCAP; VDDLDO=+3V3; VDDSMPS=+3V3; VSSSMPS=G
 | R1,R2 | 1K | R_0402_1005Metric | 2 | sem MPN |
 | R3,R9,R23,R24,R26 | 10K | R_0402_1005Metric | 5 | sem MPN |
 | R5 | 10K (1%) | R_0402_1005Metric | 1 | sem MPN |
-| R6 | 3.16K (1%) | C_0603_1608Metric | 1 | sem MPN |
+| R6 | 3.16K (1%) | R_0603_1608Metric | 1 | sem MPN |
 | R14-R16,R28-R33 | 10k | R_0402_1005Metric | 9 | sem MPN |
 | R17 | 180R | R_0402_1005Metric | 1 | sem MPN |
 | R18 | 110R | R_0402_1005Metric | 1 | sem MPN |

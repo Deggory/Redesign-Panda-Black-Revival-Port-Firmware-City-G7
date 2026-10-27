@@ -1,7 +1,7 @@
 {
     "$schema": "https://schemas.kicad.org/erc.v1.json",
     "coordinate_units": "mm",
-    "date": "2026-10-27T11:26:56",
+    "date": "2026-10-27T14:43:30",
     "ignored_checks": [
         {
             "description": "Global label only appears once in the schematic",
@@ -3205,7 +3205,7 @@
                                 "x": 330.454,
                                 "y": 86.614
                             },
-                            "uuid": "2ee9be0c-a9dd-4035-98d7-7d885094337c"
+                            "uuid": "4f414af4-12e8-41b5-91b6-561d01d51f51"
                         },
                         {
                             "description": "Symbol #PWR014 Hidden pin 1 [GND, Power input, Line]",
@@ -4085,7 +4085,7 @@
                                 "x": 373.634,
                                 "y": 86.614
                             },
-                            "uuid": "b7e36d40-777e-4588-b319-86f0a439028d"
+                            "uuid": "f2d04ce1-f1c4-448c-9694-cc4a31ece982"
                         },
                         {
                             "description": "Symbol #PWR016 Hidden pin 1 [GND, Power input, Line]",
@@ -4138,7 +4138,7 @@
                                 "x": 373.634,
                                 "y": 89.154
                             },
-                            "uuid": "217b9a6e-8de3-48e4-9482-24db1ee269bd"
+                            "uuid": "e951ed59-305d-46f5-ac63-80b3cdbc39d6"
                         },
                         {
                             "description": "Symbol #PWR017 Hidden pin 1 [GND, Power input, Line]",
