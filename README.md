@@ -1,3 +1,9 @@
+> **Development history repository.** This repository is kept as the raw working tree of the project (numbered folders, process manifests).
+> The organized release repository, with the same content under a clean layout, submodules and a full README, is
+> **https://github.com/kriptomad/openpilot-honda-city-brasil** - use that one.
+>
+> Repositorio de historico de desenvolvimento. A versao organizada (release) esta em https://github.com/kriptomad/openpilot-honda-city-brasil.
+
 # Redesign Panda Black Revival + Port Firmware City G7
 
 Projeto de Bruno Costa (kriptomad): manter a panda preta (STM32F4) viva e levar o Honda City G7 2023 (Brasil)
