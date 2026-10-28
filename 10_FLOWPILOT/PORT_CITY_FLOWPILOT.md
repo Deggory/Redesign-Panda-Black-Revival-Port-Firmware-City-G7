@@ -250,6 +250,37 @@ param `Mycar`, que `car_helpers.fingerprint()` usa como fingerprint fixo (o CAN 
 Alternativa: deixar sem selecao e confiar no dicionario CAN (D1). Em ambos os casos a ignicao precisa estar
 ligada e o CAN fluindo antes de o app iniciar o `controlsd`.
 
+### 8.4 APK compilado (GitHub Actions)
+
+Workflow "Build" do repo kriptomad/flowpilot-city-g7, branch `flowpilot-city-g7-brazil`:
+
+- Run: 40697331404 (2026-10-28), commit `ffd228c`.
+- Artefato `android-release.apk`, copiado para `10_FLOWPILOT/apk_out/android-release.apk` e publicado no release
+  `v0.1-city-g7-brazil` como `flowpilot-city-g7-brazil-ffd228c.apk` (+ `SHA256SUMS.txt`).
+- Tamanho: 235.399.803 bytes. SHA256: `493891cd62d3f2eaf094e414489d7b0dae8bde297a673c305fba6eef298d4adb`.
+- Conteudo verificado: `assets/private.tar` (18,5 MB, 797 entradas: selfdrive/, panda/, opendbc/, common/, cereal/,
+  system/, rednose/, flowreset.pyc, messaging_pyx.so, acados_ocp_solver_pyx.so), `lib/arm64-v8a` com libmessaging,
+  libpandad, libpandaflash, libthneedrunner, libmodelparser, libusb-1.0, liblmdb, libjson11, libpython3.11;
+  `assets/allcars.txt` contem `HONDA CITY 7G`. Nao testado no celular nem no carro.
+- O APK anterior (run 40683947737, commit `d079568`) estava incompleto (sem arvore Python e sem as libs do scons,
+  travava em "Booting Flowpilot") e foi removido do release.
+
+Causas raiz corrigidas no branch (a importacao por tarball e a deriva do toolchain desde 2025-03):
+
+- `d079568`: `build>=1.4.3` (pypa) limpa o PYTHONPATH do ambiente PEP 517 e quebra o hostpython do p4a
+  (`_posixsubprocess`/mesonpy no numpy) -> `PIP_CONSTRAINT` com `build==1.2.2`, `virtualenv==20.29.3`.
+- `41801d8`: 16 symlinks (`flowy/src/{cereal,common,opendbc,panda,rednose,selfdrive,system}`, `laika`, `rednose`,
+  kernels do modeld, aliases libqpOASES_e) e arquivos ignorados (`panda/board/obj/.placeholder`,
+  `third_party/CL/libOpenCL.so`, ...) perdidos no tarball -> restaurados; CI confere as libs nativas.
+- `973e185`: buildozer 1.6.0 instala `cython<3`, que os headers Cython do numpy 2 rejeitam -> venv com
+  `cython==3.0.12` e `numpy==2.2.3`.
+- `ffd228c`: bit de execucao perdido em 164 arquivos (`panda/crypto/sign.py`, `third_party/acados/*/t_renderer`).
+
+Pins do toolchain em vigor: p4a develop `b0efb9f3`, `android.ndk = 25b`, Python 3.11.5 (host e alvo),
+buildozer 1.6.0, Cython 3.0.12 + numpy 2.2.3 no venv do Docker (ubuntu:24.04), `build==1.2.2`,
+`virtualenv==20.29.3`, no alvo numpy 1.26.5, setuptools 69.2.0, pycapnp 2.0.0, capnp 1.0.1, libzmq 4.3.5,
+pyzmq 25.1.2, casadi 3.8.2 (venv) / acados_template 0.2.2. Nao restaurado: `libs/linux/x86_64/*.so` (so desktop).
+
 ## 9. Gravar a panda preta - passo a passo
 
 Hardware: panda preta (STM32F413), chicote Bosch B ligado no carro, cabo USB. Primeira gravacao no PC

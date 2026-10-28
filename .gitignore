@@ -53,3 +53,7 @@ fp-info-cache
 10_FLOWPILOT/api_cache/
 10_FLOWPILOT/*.txt
 
+
+10_FLOWPILOT/apk_out/
+10_FLOWPILOT/ci_logs/
+10_FLOWPILOT/p4a_src/
