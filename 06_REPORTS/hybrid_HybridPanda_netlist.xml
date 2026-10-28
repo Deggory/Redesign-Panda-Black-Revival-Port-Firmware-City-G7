@@ -2,7 +2,7 @@
 <export version="E">
   <design>
     <source>C:\Users\costabr\Downloads\openpilot\HybridPanda_v2_20261022_1616\04_PROJECT\HybridPanda\HybridPanda.kicad_sch</source>
-    <date>2026-10-28T08:56:01</date>
+    <date>2026-10-28T09:09:33</date>
     <tool>Eeschema 10.0.7</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -28,11 +28,17 @@
       <value>100NF</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">CL05B104KB54PNC</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C307331</field>
         <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL05B104KB54PNC"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C307331"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -52,11 +58,17 @@
       <value>100NF</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">CL05B104KB54PNC</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C307331</field>
         <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL05B104KB54PNC"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C307331"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -77,12 +89,18 @@
       <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
       <fields>
         <field name="Note">100V Ceramic X5R</field>
+        <field name="MPN">0805X476M100NT</field>
+        <field name="Manufacturer">Fenghua</field>
+        <field name="LCSC">C178332</field>
         <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="Note" value="100V Ceramic X5R"/>
+      <property name="MPN" value="0805X476M100NT"/>
+      <property name="Manufacturer" value="Fenghua"/>
+      <property name="LCSC" value="C178332"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -103,12 +121,18 @@
       <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
       <fields>
         <field name="Note">100V Ceramic X7R</field>
+        <field name="MPN">CL21A106KBYQNNE</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C2932476</field>
         <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="Note" value="100V Ceramic X7R"/>
+      <property name="MPN" value="CL21A106KBYQNNE"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C2932476"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -128,11 +152,17 @@
       <value>100NF</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">CL05B104KB54PNC</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C307331</field>
         <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL05B104KB54PNC"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C307331"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -152,11 +182,17 @@
       <value>2.2uF</value>
       <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
       <fields>
+        <field name="MPN">CC0805KKX7R9BB225</field>
+        <field name="Manufacturer">Yageo</field>
+        <field name="LCSC">C125847</field>
         <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CC0805KKX7R9BB225"/>
+      <property name="Manufacturer" value="Yageo"/>
+      <property name="LCSC" value="C125847"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -176,11 +212,17 @@
       <value>2.2uF</value>
       <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
       <fields>
+        <field name="MPN">CC0805KKX7R9BB225</field>
+        <field name="Manufacturer">Yageo</field>
+        <field name="LCSC">C125847</field>
         <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CC0805KKX7R9BB225"/>
+      <property name="Manufacturer" value="Yageo"/>
+      <property name="LCSC" value="C125847"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -200,11 +242,17 @@
       <value>10uF</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">CL05A106MP5NUNC</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C315248</field>
         <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL05A106MP5NUNC"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C315248"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -225,12 +273,18 @@
       <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
       <fields>
         <field name="Note">100V Ceramic X5R</field>
+        <field name="MPN">0805X476M100NT</field>
+        <field name="Manufacturer">Fenghua</field>
+        <field name="LCSC">C178332</field>
         <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="Note" value="100V Ceramic X5R"/>
+      <property name="MPN" value="0805X476M100NT"/>
+      <property name="Manufacturer" value="Fenghua"/>
+      <property name="LCSC" value="C178332"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -250,11 +304,17 @@
       <value>100NF</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">CL05B104KB54PNC</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C307331</field>
         <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL05B104KB54PNC"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C307331"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -274,11 +334,17 @@
       <value>10uF</value>
       <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
       <fields>
+        <field name="MPN">CL21A106KBYQNNE</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C2932476</field>
         <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL21A106KBYQNNE"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C2932476"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -298,11 +364,17 @@
       <value>100NF</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">CL05B104KB54PNC</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C307331</field>
         <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL05B104KB54PNC"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C307331"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -323,12 +395,18 @@
       <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
       <fields>
         <field name="Note">Ceramic X7R</field>
+        <field name="MPN">0805X476M100NT</field>
+        <field name="Manufacturer">Fenghua</field>
+        <field name="LCSC">C178332</field>
         <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="Note" value="Ceramic X7R"/>
+      <property name="MPN" value="0805X476M100NT"/>
+      <property name="Manufacturer" value="Fenghua"/>
+      <property name="LCSC" value="C178332"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -348,11 +426,17 @@
       <value>47uF</value>
       <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
       <fields>
+        <field name="MPN">0805X476M100NT</field>
+        <field name="Manufacturer">Fenghua</field>
+        <field name="LCSC">C178332</field>
         <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="0805X476M100NT"/>
+      <property name="Manufacturer" value="Fenghua"/>
+      <property name="LCSC" value="C178332"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -373,12 +457,18 @@
       <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
       <fields>
         <field name="Note">100V Ceramic X5R</field>
+        <field name="MPN">0805X476M100NT</field>
+        <field name="Manufacturer">Fenghua</field>
+        <field name="LCSC">C178332</field>
         <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="Note" value="100V Ceramic X5R"/>
+      <property name="MPN" value="0805X476M100NT"/>
+      <property name="Manufacturer" value="Fenghua"/>
+      <property name="LCSC" value="C178332"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -399,12 +489,18 @@
       <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
       <fields>
         <field name="Note">100V Ceramic X5R</field>
+        <field name="MPN">0805X476M100NT</field>
+        <field name="Manufacturer">Fenghua</field>
+        <field name="LCSC">C178332</field>
         <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="Note" value="100V Ceramic X5R"/>
+      <property name="MPN" value="0805X476M100NT"/>
+      <property name="Manufacturer" value="Fenghua"/>
+      <property name="LCSC" value="C178332"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -425,12 +521,18 @@
       <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
       <fields>
         <field name="Note">100V Ceramic X5R</field>
+        <field name="MPN">0805X476M100NT</field>
+        <field name="Manufacturer">Fenghua</field>
+        <field name="LCSC">C178332</field>
         <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="Note" value="100V Ceramic X5R"/>
+      <property name="MPN" value="0805X476M100NT"/>
+      <property name="Manufacturer" value="Fenghua"/>
+      <property name="LCSC" value="C178332"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -451,12 +553,18 @@
       <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
       <fields>
         <field name="Note">100V Ceramic X5R</field>
+        <field name="MPN">0805X476M100NT</field>
+        <field name="Manufacturer">Fenghua</field>
+        <field name="LCSC">C178332</field>
         <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="Note" value="100V Ceramic X5R"/>
+      <property name="MPN" value="0805X476M100NT"/>
+      <property name="Manufacturer" value="Fenghua"/>
+      <property name="LCSC" value="C178332"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -476,11 +584,17 @@
       <value>15pF</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">0402CG150J500NT</field>
+        <field name="Manufacturer">Fenghua</field>
+        <field name="LCSC">C1548</field>
         <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="0402CG150J500NT"/>
+      <property name="Manufacturer" value="Fenghua"/>
+      <property name="LCSC" value="C1548"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -500,11 +614,17 @@
       <value>15pF</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">0402CG150J500NT</field>
+        <field name="Manufacturer">Fenghua</field>
+        <field name="LCSC">C1548</field>
         <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="0402CG150J500NT"/>
+      <property name="Manufacturer" value="Fenghua"/>
+      <property name="LCSC" value="C1548"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -524,11 +644,17 @@
       <value>100NF</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">CL05B104KB54PNC</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C307331</field>
         <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL05B104KB54PNC"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C307331"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -548,11 +674,17 @@
       <value>100NF</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">CL05B104KB54PNC</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C307331</field>
         <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL05B104KB54PNC"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C307331"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -572,11 +704,17 @@
       <value>100NF</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">CL05B104KB54PNC</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C307331</field>
         <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL05B104KB54PNC"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C307331"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -596,11 +734,17 @@
       <value>100NF</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">CL05B104KB54PNC</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C307331</field>
         <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL05B104KB54PNC"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C307331"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -620,11 +764,17 @@
       <value>100NF</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">CL05B104KB54PNC</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C307331</field>
         <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL05B104KB54PNC"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C307331"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -644,11 +794,17 @@
       <value>100NF</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">CL05B104KB54PNC</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C307331</field>
         <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL05B104KB54PNC"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C307331"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -668,11 +824,17 @@
       <value>100NF</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">CL05B104KB54PNC</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C307331</field>
         <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL05B104KB54PNC"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C307331"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -692,11 +854,17 @@
       <value>100NF</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">CL05B104KB54PNC</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C307331</field>
         <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL05B104KB54PNC"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C307331"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -716,11 +884,17 @@
       <value>0.1uF</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">CL05B104KB54PNC</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C307331</field>
         <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL05B104KB54PNC"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C307331"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -740,11 +914,17 @@
       <value>10nF (LOW ESR)</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">CL05B103KB5NNNC</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C15195</field>
         <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL05B103KB5NNNC"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C15195"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -764,11 +944,17 @@
       <value>100nF</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">CL05B104KB54PNC</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C307331</field>
         <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL05B104KB54PNC"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C307331"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -788,11 +974,17 @@
       <value>2.2uF</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
       <fields>
+        <field name="MPN">CL10A225KO8NNNC</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C23630</field>
         <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL10A225KO8NNNC"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C23630"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -812,11 +1004,17 @@
       <value>2.2uF</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
       <fields>
+        <field name="MPN">CL10A225KO8NNNC</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C23630</field>
         <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL10A225KO8NNNC"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C23630"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -836,11 +1034,17 @@
       <value>220pF</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">0402B221K500NT</field>
+        <field name="Manufacturer">Fenghua</field>
+        <field name="LCSC">C1530</field>
         <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="0402B221K500NT"/>
+      <property name="Manufacturer" value="Fenghua"/>
+      <property name="LCSC" value="C1530"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -860,11 +1064,17 @@
       <value>10uF</value>
       <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
       <fields>
+        <field name="MPN">CL21A106KAYNNNE</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C15850</field>
         <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL21A106KAYNNNE"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C15850"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -884,11 +1094,17 @@
       <value>1uF</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">CL05A105KA5NQNC</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C52923</field>
         <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL05A105KA5NQNC"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C52923"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -908,11 +1124,17 @@
       <value>100nF</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">CL05B104KB54PNC</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C307331</field>
         <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL05B104KB54PNC"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C307331"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -932,11 +1154,17 @@
       <value>100nF</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">CL05B104KB54PNC</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C307331</field>
         <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL05B104KB54PNC"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C307331"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -956,11 +1184,17 @@
       <value>100nF</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">CL05B104KB54PNC</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C307331</field>
         <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL05B104KB54PNC"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C307331"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -980,11 +1214,17 @@
       <value>100nF</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">CL05B104KB54PNC</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C307331</field>
         <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL05B104KB54PNC"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C307331"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -1004,11 +1244,17 @@
       <value>100nF</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">CL05B104KB54PNC</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C307331</field>
         <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL05B104KB54PNC"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C307331"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -1028,11 +1274,17 @@
       <value>100nF</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">CL05B104KB54PNC</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C307331</field>
         <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL05B104KB54PNC"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C307331"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -1052,11 +1304,17 @@
       <value>100nF</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">CL05B104KB54PNC</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C307331</field>
         <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL05B104KB54PNC"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C307331"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -1076,11 +1334,17 @@
       <value>100nF</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">CL05B104KB54PNC</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C307331</field>
         <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL05B104KB54PNC"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C307331"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -1100,11 +1364,17 @@
       <value>100nF</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">CL05B104KB54PNC</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C307331</field>
         <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL05B104KB54PNC"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C307331"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -1124,11 +1394,17 @@
       <value>100nF</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">CL05B104KB54PNC</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C307331</field>
         <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL05B104KB54PNC"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C307331"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -1148,11 +1424,17 @@
       <value>100nF</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">CL05B104KB54PNC</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C307331</field>
         <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL05B104KB54PNC"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C307331"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -1172,11 +1454,17 @@
       <value>100nF</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">CL05B104KB54PNC</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C307331</field>
         <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL05B104KB54PNC"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C307331"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -1196,11 +1484,17 @@
       <value>100nF</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">CL05B104KB54PNC</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C307331</field>
         <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL05B104KB54PNC"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C307331"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -1220,11 +1514,17 @@
       <value>100nF</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">CL05B104KB54PNC</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C307331</field>
         <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL05B104KB54PNC"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C307331"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -1244,11 +1544,17 @@
       <value>100nF</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">CL05B104KB54PNC</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C307331</field>
         <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL05B104KB54PNC"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C307331"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -1268,11 +1574,17 @@
       <value>100nF</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">CL05B104KB54PNC</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C307331</field>
         <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL05B104KB54PNC"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C307331"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -1292,11 +1604,17 @@
       <value>4.7uF</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
       <fields>
+        <field name="MPN">CL10A475KO8NNNC</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C19666</field>
         <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL10A475KO8NNNC"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C19666"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -1316,11 +1634,17 @@
       <value>4.7uF</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
       <fields>
+        <field name="MPN">CL10A475KO8NNNC</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C19666</field>
         <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL10A475KO8NNNC"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C19666"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -1340,11 +1664,17 @@
       <value>4.7uF</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
       <fields>
+        <field name="MPN">CL10A475KO8NNNC</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C19666</field>
         <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL10A475KO8NNNC"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C19666"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -1364,11 +1694,17 @@
       <value>1uF</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">CL05A105KA5NQNC</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C52923</field>
         <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL05A105KA5NQNC"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C52923"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -1388,11 +1724,17 @@
       <value>2.2uF</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">CL05A225MP5NSNC</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C23733</field>
         <field name="Footprint">Capacitor_SMD:C_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL05A225MP5NSNC"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C23733"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -1412,11 +1754,17 @@
       <value>4.7uF</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
       <fields>
+        <field name="MPN">CL10A475KO8NNNC</field>
+        <field name="Manufacturer">Samsung</field>
+        <field name="LCSC">C19666</field>
         <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="MPN" value="CL10A475KO8NNNC"/>
+      <property name="Manufacturer" value="Samsung"/>
+      <property name="LCSC" value="C19666"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="capacitor cap"/>
@@ -1440,6 +1788,9 @@
         <field name="MANUFACTURER">Taiwan Semiconductor</field>
         <field name="PARTREV">S2102</field>
         <field name="STANDARD">IPC-7351B</field>
+        <field name="MPN">SMAJ16CA</field>
+        <field name="Manufacturer">Littelfuse</field>
+        <field name="LCSC">C148217</field>
         <field name="Footprint">BlackPanda:DIOM4325X250N</field>
         <field name="Datasheet"/>
         <field name="Description"/>
@@ -1449,6 +1800,9 @@
       <property name="MANUFACTURER" value="Taiwan Semiconductor"/>
       <property name="PARTREV" value="S2102"/>
       <property name="STANDARD" value="IPC-7351B"/>
+      <property name="MPN" value="SMAJ16CA"/>
+      <property name="Manufacturer" value="Littelfuse"/>
+      <property name="LCSC" value="C148217"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -1466,11 +1820,17 @@
       <value>BAS40WS 43</value>
       <footprint>Diode_SMD:D_SOD-323</footprint>
       <fields>
+        <field name="MPN">BAS40WS 43</field>
+        <field name="Manufacturer">Changjing</field>
+        <field name="LCSC">C22648</field>
         <field name="Footprint">Diode_SMD:D_SOD-323</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="D_Schottky" description="Schottky diode"/>
+      <property name="MPN" value="BAS40WS 43"/>
+      <property name="Manufacturer" value="Changjing"/>
+      <property name="LCSC" value="C22648"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="diode Schottky"/>
@@ -1491,12 +1851,18 @@
       <footprint>BlackPanda:SOT95P230X110-3N</footprint>
       <fields>
         <field name="MANUFACTURER">NXP</field>
+        <field name="MPN">PESD2CAN,215</field>
+        <field name="Manufacturer">Nexperia</field>
+        <field name="LCSC">C75176</field>
         <field name="Footprint">BlackPanda:SOT95P230X110-3N</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="PESD2CAN_215" part="PESD2CAN,215" description=""/>
       <property name="MANUFACTURER" value="NXP"/>
+      <property name="MPN" value="PESD2CAN,215"/>
+      <property name="Manufacturer" value="Nexperia"/>
+      <property name="LCSC" value="C75176"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -1516,12 +1882,18 @@
       <footprint>BlackPanda:SOT95P230X110-3N</footprint>
       <fields>
         <field name="MANUFACTURER">NXP</field>
+        <field name="MPN">PESD2CAN,215</field>
+        <field name="Manufacturer">Nexperia</field>
+        <field name="LCSC">C75176</field>
         <field name="Footprint">BlackPanda:SOT95P230X110-3N</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="PESD2CAN_215" part="PESD2CAN,215" description=""/>
       <property name="MANUFACTURER" value="NXP"/>
+      <property name="MPN" value="PESD2CAN,215"/>
+      <property name="Manufacturer" value="Nexperia"/>
+      <property name="LCSC" value="C75176"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -1541,12 +1913,18 @@
       <footprint>BlackPanda:SOT95P230X110-3N</footprint>
       <fields>
         <field name="MANUFACTURER">NXP</field>
+        <field name="MPN">PESD2CAN,215</field>
+        <field name="Manufacturer">Nexperia</field>
+        <field name="LCSC">C75176</field>
         <field name="Footprint">BlackPanda:SOT95P230X110-3N</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="PESD2CAN_215" part="PESD2CAN,215" description=""/>
       <property name="MANUFACTURER" value="NXP"/>
+      <property name="MPN" value="PESD2CAN,215"/>
+      <property name="Manufacturer" value="Nexperia"/>
+      <property name="LCSC" value="C75176"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -1566,12 +1944,18 @@
       <footprint>BlackPanda:SOT95P230X110-3N</footprint>
       <fields>
         <field name="MANUFACTURER">NXP</field>
+        <field name="MPN">PESD2CAN,215</field>
+        <field name="Manufacturer">Nexperia</field>
+        <field name="LCSC">C75176</field>
         <field name="Footprint">BlackPanda:SOT95P230X110-3N</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="PESD2CAN_215" part="PESD2CAN,215" description=""/>
       <property name="MANUFACTURER" value="NXP"/>
+      <property name="MPN" value="PESD2CAN,215"/>
+      <property name="Manufacturer" value="Nexperia"/>
+      <property name="LCSC" value="C75176"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -1591,12 +1975,18 @@
       <footprint>BlackPanda:SOT95P230X110-3N</footprint>
       <fields>
         <field name="MANUFACTURER">NXP</field>
+        <field name="MPN">PESD2CAN,215</field>
+        <field name="Manufacturer">Nexperia</field>
+        <field name="LCSC">C75176</field>
         <field name="Footprint">BlackPanda:SOT95P230X110-3N</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="PESD2CAN_215" part="PESD2CAN,215" description=""/>
       <property name="MANUFACTURER" value="NXP"/>
+      <property name="MPN" value="PESD2CAN,215"/>
+      <property name="Manufacturer" value="Nexperia"/>
+      <property name="LCSC" value="C75176"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -1614,13 +2004,19 @@
     <comp ref="D10">
       <value>BAS70H 115</value>
       <footprint>Diode_SMD:D_SOD-123F</footprint>
-      <datasheet>https://www.onsemi.com/pub/Collateral/MBR1020VL-D.PDF</datasheet>
+      <datasheet>https://assets.nexperia.com/documents/data-sheet/BAS70H.pdf</datasheet>
       <fields>
+        <field name="MPN">BAS70H,115</field>
+        <field name="Manufacturer">Nexperia</field>
+        <field name="LCSC">C426766</field>
         <field name="Footprint">Diode_SMD:D_SOD-123F</field>
-        <field name="Datasheet">https://www.onsemi.com/pub/Collateral/MBR1020VL-D.PDF</field>
+        <field name="Datasheet">https://assets.nexperia.com/documents/data-sheet/BAS70H.pdf</field>
         <field name="Description"/>
       </fields>
       <libsource lib="Diode" part="MBR1020VL" description="20V, 1A, 340 mV, Schottky Diode Rectifier, SOD-123F"/>
+      <property name="MPN" value="BAS70H,115"/>
+      <property name="Manufacturer" value="Nexperia"/>
+      <property name="LCSC" value="C426766"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="forward voltage diode"/>
@@ -1640,11 +2036,17 @@
       <value>B320AE-13</value>
       <footprint>Diode_SMD:D_SMA</footprint>
       <fields>
+        <field name="MPN">B340A-13-F</field>
+        <field name="Manufacturer">Diodes Inc</field>
+        <field name="LCSC">C85098</field>
         <field name="Footprint">Diode_SMD:D_SMA</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="D_Schottky" description="Schottky diode"/>
+      <property name="MPN" value="B340A-13-F"/>
+      <property name="Manufacturer" value="Diodes Inc"/>
+      <property name="LCSC" value="C85098"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="diode Schottky"/>
@@ -1664,11 +2066,17 @@
       <value>SM540C</value>
       <footprint>Diode_SMD:D_SMC</footprint>
       <fields>
+        <field name="MPN">B540C-13-F</field>
+        <field name="Manufacturer">Diodes Inc</field>
+        <field name="LCSC">C72264</field>
         <field name="Footprint">Diode_SMD:D_SMC</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="D_Schottky" description="Schottky diode"/>
+      <property name="MPN" value="B540C-13-F"/>
+      <property name="Manufacturer" value="Diodes Inc"/>
+      <property name="LCSC" value="C72264"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="diode Schottky"/>
@@ -1688,11 +2096,17 @@
       <value>BAT54S</value>
       <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
       <fields>
+        <field name="MPN">BAT54S,215</field>
+        <field name="Manufacturer">Nexperia</field>
+        <field name="LCSC">C47546</field>
         <field name="Footprint">Package_TO_SOT_SMD:SOT-23</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Diode" part="BAT54S" description="Vr 30V, If 200mA, Dual schottky barrier diode, in series, SOT-323"/>
+      <property name="MPN" value="BAT54S,215"/>
+      <property name="Manufacturer" value="Nexperia"/>
+      <property name="LCSC" value="C47546"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="schottky diode"/>
@@ -1713,11 +2127,17 @@
       <value>BAT54S</value>
       <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
       <fields>
+        <field name="MPN">BAT54S,215</field>
+        <field name="Manufacturer">Nexperia</field>
+        <field name="LCSC">C47546</field>
         <field name="Footprint">Package_TO_SOT_SMD:SOT-23</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Diode" part="BAT54S" description="Vr 30V, If 200mA, Dual schottky barrier diode, in series, SOT-323"/>
+      <property name="MPN" value="BAT54S,215"/>
+      <property name="Manufacturer" value="Nexperia"/>
+      <property name="LCSC" value="C47546"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="schottky diode"/>
@@ -1738,11 +2158,17 @@
       <value>BZT52C12</value>
       <footprint>Diode_SMD:D_SOD-123</footprint>
       <fields>
+        <field name="MPN">BZT52C12</field>
+        <field name="Manufacturer">High Diode (ou equivalente)</field>
+        <field name="LCSC">C571379</field>
         <field name="Footprint">Diode_SMD:D_SOD-123</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="D_Zener" description="Zener diode"/>
+      <property name="MPN" value="BZT52C12"/>
+      <property name="Manufacturer" value="High Diode (ou equivalente)"/>
+      <property name="LCSC" value="C571379"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="diode"/>
@@ -1762,11 +2188,17 @@
       <value>600R@100MHz</value>
       <footprint>Inductor_SMD:L_0603_1608Metric</footprint>
       <fields>
+        <field name="MPN">GZ1608D601TF</field>
+        <field name="Manufacturer">Sunlord</field>
+        <field name="LCSC">C1002</field>
         <field name="Footprint">Inductor_SMD:L_0603_1608Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="FerriteBead_Small" description="Ferrite bead, small symbol"/>
+      <property name="MPN" value="GZ1608D601TF"/>
+      <property name="Manufacturer" value="Sunlord"/>
+      <property name="LCSC" value="C1002"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="L ferrite bead inductor filter"/>
@@ -1786,11 +2218,17 @@
       <value>SWD</value>
       <footprint>Connector_PinHeader_1.27mm:PinHeader_2x05_P1.27mm_Vertical_SMD</footprint>
       <fields>
+        <field name="MPN">20021121-00010C4LF</field>
+        <field name="Manufacturer">Amphenol ICC</field>
+        <field name="LCSC">C150517</field>
         <field name="Footprint">Connector_PinHeader_1.27mm:PinHeader_2x05_P1.27mm_Vertical_SMD</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Connector_Generic" part="Conn_02x05_Odd_Even" description="Generic connector, double row, 02x05, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="MPN" value="20021121-00010C4LF"/>
+      <property name="Manufacturer" value="Amphenol ICC"/>
+      <property name="LCSC" value="C150517"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="connector"/>
@@ -1843,12 +2281,18 @@
       <footprint>BlackPanda:IND-SMD_L7.3-W6.8</footprint>
       <fields>
         <field name="JLCPCB">C149588</field>
+        <field name="MPN">SMMS0650-470M</field>
+        <field name="Manufacturer">SXN</field>
+        <field name="LCSC">C149588</field>
         <field name="Footprint">BlackPanda:IND-SMD_L7.3-W6.8</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="L" description="Inductor"/>
       <property name="JLCPCB" value="C149588"/>
+      <property name="MPN" value="SMMS0650-470M"/>
+      <property name="Manufacturer" value="SXN"/>
+      <property name="LCSC" value="C149588"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="inductor choke coil reactor magnetic"/>
@@ -1868,11 +2312,17 @@
       <value>15uH</value>
       <footprint>BlackPanda:L_10.5x11.5_H4.0</footprint>
       <fields>
+        <field name="MPN">MWSA1004S-150MT</field>
+        <field name="Manufacturer">Sunlord</field>
+        <field name="LCSC">C151872</field>
         <field name="Footprint">BlackPanda:L_10.5x11.5_H4.0</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="L" description="Inductor"/>
+      <property name="MPN" value="MWSA1004S-150MT"/>
+      <property name="Manufacturer" value="Sunlord"/>
+      <property name="LCSC" value="C151872"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="inductor choke coil reactor magnetic"/>
@@ -1893,11 +2343,17 @@
       <footprint>Inductor_SMD:L_Murata_DFE201610P</footprint>
       <datasheet>https://www.lcsc.com/product-detail/C337891.html</datasheet>
       <fields>
+        <field name="MPN">DFE201610E-2R2M=P2</field>
+        <field name="Manufacturer">Murata</field>
+        <field name="LCSC">C337891</field>
         <field name="Footprint">Inductor_SMD:L_Murata_DFE201610P</field>
         <field name="Datasheet">https://www.lcsc.com/product-detail/C337891.html</field>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="L" description="Inductor"/>
+      <property name="MPN" value="DFE201610E-2R2M=P2"/>
+      <property name="Manufacturer" value="Murata"/>
+      <property name="LCSC" value="C337891"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="inductor choke coil reactor magnetic"/>
@@ -1919,12 +2375,16 @@
       <datasheet>https://atta.szlcsc.com/upload/public/pdf/source/20190321/C129018_ECAF745BBC5FC08427E0CBD0F9A58A2A.pdf</datasheet>
       <fields>
         <field name="LCSC">C129018</field>
+        <field name="MPN">TYPE-C-31-M-04</field>
+        <field name="Manufacturer">Korean Hroparts</field>
         <field name="Footprint">BlackPanda:USB-C-SMD_TYPE-C-USB-20</field>
         <field name="Datasheet">https://atta.szlcsc.com/upload/public/pdf/source/20190321/C129018_ECAF745BBC5FC08427E0CBD0F9A58A2A.pdf</field>
         <field name="Description"/>
       </fields>
       <libsource lib="TYPE-C-31-M-04" part="TYPE-C-31-M-04" description=""/>
       <property name="LCSC" value="C129018"/>
+      <property name="MPN" value="TYPE-C-31-M-04"/>
+      <property name="Manufacturer" value="Korean Hroparts"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="C129018"/>
@@ -1967,11 +2427,17 @@
       <footprint>BlackPanda:SOT23-3</footprint>
       <datasheet>https://www.mouser.de/datasheet/2/115/DIOD_S_A0006456122_1-2542719.pdf</datasheet>
       <fields>
+        <field name="MPN">DDTA143ECA-7-F</field>
+        <field name="Manufacturer">Diodes Inc</field>
+        <field name="LCSC">C460029</field>
         <field name="Footprint">BlackPanda:SOT23-3</field>
         <field name="Datasheet">https://www.mouser.de/datasheet/2/115/DIOD_S_A0006456122_1-2542719.pdf</field>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="Q_PNP_BEC_BRT" description="PNP bias resistor transistor, base/emitter/collector"/>
+      <property name="MPN" value="DDTA143ECA-7-F"/>
+      <property name="Manufacturer" value="Diodes Inc"/>
+      <property name="LCSC" value="C460029"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="transistor PNP"/>
@@ -1992,11 +2458,17 @@
       <footprint>BlackPanda:SOT23-3</footprint>
       <datasheet>https://www.mouser.de/datasheet/2/115/DIOD_S_A0006456122_1-2542719.pdf</datasheet>
       <fields>
+        <field name="MPN">DDTA143ECA-7-F</field>
+        <field name="Manufacturer">Diodes Inc</field>
+        <field name="LCSC">C460029</field>
         <field name="Footprint">BlackPanda:SOT23-3</field>
         <field name="Datasheet">https://www.mouser.de/datasheet/2/115/DIOD_S_A0006456122_1-2542719.pdf</field>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="Q_PNP_BEC_BRT" description="PNP bias resistor transistor, base/emitter/collector"/>
+      <property name="MPN" value="DDTA143ECA-7-F"/>
+      <property name="Manufacturer" value="Diodes Inc"/>
+      <property name="LCSC" value="C460029"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="transistor PNP"/>
@@ -2017,11 +2489,17 @@
       <footprint>Package_TO_SOT_SMD:SOT-323_SC-70</footprint>
       <datasheet>https://www.mouser.de/datasheet/2/916/PDTC114E_SER-2937084.pdf</datasheet>
       <fields>
+        <field name="MPN">PDTC114EU,115</field>
+        <field name="Manufacturer">Nexperia</field>
+        <field name="LCSC">C135830</field>
         <field name="Footprint">Package_TO_SOT_SMD:SOT-323_SC-70</field>
         <field name="Datasheet">https://www.mouser.de/datasheet/2/916/PDTC114E_SER-2937084.pdf</field>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="Q_NPN_BEC_BRT" description="NPN bias resistor transistor, base/emitter/collector"/>
+      <property name="MPN" value="PDTC114EU,115"/>
+      <property name="Manufacturer" value="Nexperia"/>
+      <property name="LCSC" value="C135830"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="transistor NPN"/>
@@ -2042,11 +2520,17 @@
       <footprint>Package_SO:PowerPAK_SO-8_Single</footprint>
       <datasheet>https://www.vishay.com/docs/65596/si7141dp.pdf</datasheet>
       <fields>
+        <field name="MPN">HY12P03C2</field>
+        <field name="Manufacturer">HUAYI</field>
+        <field name="LCSC">C358006</field>
         <field name="Footprint">Package_SO:PowerPAK_SO-8_Single</field>
         <field name="Datasheet">https://www.vishay.com/docs/65596/si7141dp.pdf</field>
         <field name="Description"/>
       </fields>
       <libsource lib="Transistor_FET" part="Si7141DP" description="60A Id, 20V Vds, 1.9 mOhm Ron, PowerPAK-8"/>
+      <property name="MPN" value="HY12P03C2"/>
+      <property name="Manufacturer" value="HUAYI"/>
+      <property name="LCSC" value="C358006"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="P-Channel MOSFET"/>
@@ -2069,11 +2553,17 @@
       <value>10k</value>
       <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
       <fields>
+        <field name="MPN">0603WAF1002T5E</field>
+        <field name="Manufacturer">Uniroyal</field>
+        <field name="LCSC">C25804</field>
         <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <property name="MPN" value="0603WAF1002T5E"/>
+      <property name="Manufacturer" value="Uniroyal"/>
+      <property name="LCSC" value="C25804"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="R resistor"/>
@@ -2093,11 +2583,17 @@
       <value>1K</value>
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">0402WGF1001TCE</field>
+        <field name="Manufacturer">Uniroyal</field>
+        <field name="LCSC">C11702</field>
         <field name="Footprint">Resistor_SMD:R_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <property name="MPN" value="0402WGF1001TCE"/>
+      <property name="Manufacturer" value="Uniroyal"/>
+      <property name="LCSC" value="C11702"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="R resistor"/>
@@ -2117,11 +2613,17 @@
       <value>10K</value>
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">0402WGF1002TCE</field>
+        <field name="Manufacturer">Uniroyal</field>
+        <field name="LCSC">C25744</field>
         <field name="Footprint">Resistor_SMD:R_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <property name="MPN" value="0402WGF1002TCE"/>
+      <property name="Manufacturer" value="Uniroyal"/>
+      <property name="LCSC" value="C25744"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="R resistor"/>
@@ -2141,11 +2643,17 @@
       <value>10K (1%)</value>
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">0402WGF1002TCE</field>
+        <field name="Manufacturer">Uniroyal</field>
+        <field name="LCSC">C25744</field>
         <field name="Footprint">Resistor_SMD:R_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="MPN" value="0402WGF1002TCE"/>
+      <property name="Manufacturer" value="Uniroyal"/>
+      <property name="LCSC" value="C25744"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="R res resistor"/>
@@ -2165,11 +2673,17 @@
       <value>3.16K (1%)</value>
       <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
       <fields>
+        <field name="MPN">0603WAF3161T5E</field>
+        <field name="Manufacturer">Uniroyal</field>
+        <field name="LCSC">C22993</field>
         <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="MPN" value="0603WAF3161T5E"/>
+      <property name="Manufacturer" value="Uniroyal"/>
+      <property name="LCSC" value="C22993"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="R res resistor"/>
@@ -2189,11 +2703,17 @@
       <value>10K</value>
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">0402WGF1002TCE</field>
+        <field name="Manufacturer">Uniroyal</field>
+        <field name="LCSC">C25744</field>
         <field name="Footprint">Resistor_SMD:R_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <property name="MPN" value="0402WGF1002TCE"/>
+      <property name="Manufacturer" value="Uniroyal"/>
+      <property name="LCSC" value="C25744"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="R resistor"/>
@@ -2213,11 +2733,17 @@
       <value>10k</value>
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">0402WGF1002TCE</field>
+        <field name="Manufacturer">Uniroyal</field>
+        <field name="LCSC">C25744</field>
         <field name="Footprint">Resistor_SMD:R_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <property name="MPN" value="0402WGF1002TCE"/>
+      <property name="Manufacturer" value="Uniroyal"/>
+      <property name="LCSC" value="C25744"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="R resistor"/>
@@ -2237,11 +2763,17 @@
       <value>10k</value>
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">0402WGF1002TCE</field>
+        <field name="Manufacturer">Uniroyal</field>
+        <field name="LCSC">C25744</field>
         <field name="Footprint">Resistor_SMD:R_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <property name="MPN" value="0402WGF1002TCE"/>
+      <property name="Manufacturer" value="Uniroyal"/>
+      <property name="LCSC" value="C25744"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="R resistor"/>
@@ -2261,11 +2793,17 @@
       <value>10k</value>
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">0402WGF1002TCE</field>
+        <field name="Manufacturer">Uniroyal</field>
+        <field name="LCSC">C25744</field>
         <field name="Footprint">Resistor_SMD:R_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <property name="MPN" value="0402WGF1002TCE"/>
+      <property name="Manufacturer" value="Uniroyal"/>
+      <property name="LCSC" value="C25744"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="R resistor"/>
@@ -2285,11 +2823,17 @@
       <value>180R</value>
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">0402WGF1800TCE</field>
+        <field name="Manufacturer">Uniroyal</field>
+        <field name="LCSC">C38941</field>
         <field name="Footprint">Resistor_SMD:R_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <property name="MPN" value="0402WGF1800TCE"/>
+      <property name="Manufacturer" value="Uniroyal"/>
+      <property name="LCSC" value="C38941"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="R resistor"/>
@@ -2309,11 +2853,17 @@
       <value>110R</value>
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">ERJ2RKF1100X</field>
+        <field name="Manufacturer">Panasonic</field>
+        <field name="LCSC">C413064</field>
         <field name="Footprint">Resistor_SMD:R_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <property name="MPN" value="ERJ2RKF1100X"/>
+      <property name="Manufacturer" value="Panasonic"/>
+      <property name="LCSC" value="C413064"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="R resistor"/>
@@ -2333,11 +2883,17 @@
       <value>100R</value>
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">0402WGF1000TCE</field>
+        <field name="Manufacturer">Uniroyal</field>
+        <field name="LCSC">C25076</field>
         <field name="Footprint">Resistor_SMD:R_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <property name="MPN" value="0402WGF1000TCE"/>
+      <property name="Manufacturer" value="Uniroyal"/>
+      <property name="LCSC" value="C25076"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="R resistor"/>
@@ -2357,11 +2913,17 @@
       <value>22R</value>
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">0402WGF220JTCE</field>
+        <field name="Manufacturer">Uniroyal</field>
+        <field name="LCSC">C25092</field>
         <field name="Footprint">Resistor_SMD:R_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <property name="MPN" value="0402WGF220JTCE"/>
+      <property name="Manufacturer" value="Uniroyal"/>
+      <property name="LCSC" value="C25092"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="R resistor"/>
@@ -2381,11 +2943,17 @@
       <value>22R</value>
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">0402WGF220JTCE</field>
+        <field name="Manufacturer">Uniroyal</field>
+        <field name="LCSC">C25092</field>
         <field name="Footprint">Resistor_SMD:R_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <property name="MPN" value="0402WGF220JTCE"/>
+      <property name="Manufacturer" value="Uniroyal"/>
+      <property name="LCSC" value="C25092"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="R resistor"/>
@@ -2405,11 +2973,17 @@
       <value>10K</value>
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">0402WGF1002TCE</field>
+        <field name="Manufacturer">Uniroyal</field>
+        <field name="LCSC">C25744</field>
         <field name="Footprint">Resistor_SMD:R_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <property name="MPN" value="0402WGF1002TCE"/>
+      <property name="Manufacturer" value="Uniroyal"/>
+      <property name="LCSC" value="C25744"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="R resistor"/>
@@ -2429,11 +3003,17 @@
       <value>10K</value>
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">0402WGF1002TCE</field>
+        <field name="Manufacturer">Uniroyal</field>
+        <field name="LCSC">C25744</field>
         <field name="Footprint">Resistor_SMD:R_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <property name="MPN" value="0402WGF1002TCE"/>
+      <property name="Manufacturer" value="Uniroyal"/>
+      <property name="LCSC" value="C25744"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="R resistor"/>
@@ -2453,11 +3033,17 @@
       <value>10K</value>
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">0402WGF1002TCE</field>
+        <field name="Manufacturer">Uniroyal</field>
+        <field name="LCSC">C25744</field>
         <field name="Footprint">Resistor_SMD:R_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <property name="MPN" value="0402WGF1002TCE"/>
+      <property name="Manufacturer" value="Uniroyal"/>
+      <property name="LCSC" value="C25744"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="R resistor"/>
@@ -2477,11 +3063,17 @@
       <value>2.4K</value>
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">0402WGF2401TCE</field>
+        <field name="Manufacturer">Uniroyal</field>
+        <field name="LCSC">C25882</field>
         <field name="Footprint">Resistor_SMD:R_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <property name="MPN" value="0402WGF2401TCE"/>
+      <property name="Manufacturer" value="Uniroyal"/>
+      <property name="LCSC" value="C25882"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="R resistor"/>
@@ -2501,11 +3093,17 @@
       <value>10k</value>
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">0402WGF1002TCE</field>
+        <field name="Manufacturer">Uniroyal</field>
+        <field name="LCSC">C25744</field>
         <field name="Footprint">Resistor_SMD:R_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <property name="MPN" value="0402WGF1002TCE"/>
+      <property name="Manufacturer" value="Uniroyal"/>
+      <property name="LCSC" value="C25744"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="R resistor"/>
@@ -2525,11 +3123,17 @@
       <value>10k</value>
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">0402WGF1002TCE</field>
+        <field name="Manufacturer">Uniroyal</field>
+        <field name="LCSC">C25744</field>
         <field name="Footprint">Resistor_SMD:R_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <property name="MPN" value="0402WGF1002TCE"/>
+      <property name="Manufacturer" value="Uniroyal"/>
+      <property name="LCSC" value="C25744"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="R resistor"/>
@@ -2549,11 +3153,17 @@
       <value>10k</value>
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">0402WGF1002TCE</field>
+        <field name="Manufacturer">Uniroyal</field>
+        <field name="LCSC">C25744</field>
         <field name="Footprint">Resistor_SMD:R_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <property name="MPN" value="0402WGF1002TCE"/>
+      <property name="Manufacturer" value="Uniroyal"/>
+      <property name="LCSC" value="C25744"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="R resistor"/>
@@ -2573,11 +3183,17 @@
       <value>10k</value>
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">0402WGF1002TCE</field>
+        <field name="Manufacturer">Uniroyal</field>
+        <field name="LCSC">C25744</field>
         <field name="Footprint">Resistor_SMD:R_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <property name="MPN" value="0402WGF1002TCE"/>
+      <property name="Manufacturer" value="Uniroyal"/>
+      <property name="LCSC" value="C25744"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="R resistor"/>
@@ -2597,11 +3213,17 @@
       <value>10k</value>
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">0402WGF1002TCE</field>
+        <field name="Manufacturer">Uniroyal</field>
+        <field name="LCSC">C25744</field>
         <field name="Footprint">Resistor_SMD:R_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <property name="MPN" value="0402WGF1002TCE"/>
+      <property name="Manufacturer" value="Uniroyal"/>
+      <property name="LCSC" value="C25744"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="R resistor"/>
@@ -2621,11 +3243,17 @@
       <value>10k</value>
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
       <fields>
+        <field name="MPN">0402WGF1002TCE</field>
+        <field name="Manufacturer">Uniroyal</field>
+        <field name="LCSC">C25744</field>
         <field name="Footprint">Resistor_SMD:R_0402_1005Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <property name="MPN" value="0402WGF1002TCE"/>
+      <property name="Manufacturer" value="Uniroyal"/>
+      <property name="LCSC" value="C25744"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="R resistor"/>
@@ -2645,11 +3273,17 @@
       <value>SW_Push</value>
       <footprint>Button_Switch_SMD:SW_SPST_SKQG_WithStem</footprint>
       <fields>
+        <field name="MPN">SKQGAFE010</field>
+        <field name="Manufacturer">Alps Alpine</field>
+        <field name="LCSC">C202424</field>
         <field name="Footprint">Button_Switch_SMD:SW_SPST_SKQG_WithStem</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Switch" part="SW_Push" description="Push button switch, generic, two pins"/>
+      <property name="MPN" value="SKQGAFE010"/>
+      <property name="Manufacturer" value="Alps Alpine"/>
+      <property name="LCSC" value="C202424"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="switch normally-open pushbutton push-button"/>
@@ -2669,11 +3303,15 @@
       <footprint>Package_TO_SOT_SMD:SOT-23-6</footprint>
       <datasheet>https://datasheet.lcsc.com/lcsc/2108071730_Diodes-Incorporated-AP22615AWU-7_C2680357.pdf</datasheet>
       <fields>
+        <field name="MPN">AP22615AWU-7</field>
+        <field name="Manufacturer">Diodes Inc</field>
         <field name="Footprint">Package_TO_SOT_SMD:SOT-23-6</field>
         <field name="Datasheet">https://datasheet.lcsc.com/lcsc/2108071730_Diodes-Incorporated-AP22615AWU-7_C2680357.pdf</field>
         <field name="Description"/>
       </fields>
       <libsource lib="Analog_ADC" part="AP22615AWU-7" description="16 Bit Analog to Digital converter with on board reference"/>
+      <property name="MPN" value="AP22615AWU-7"/>
+      <property name="Manufacturer" value="Diodes Inc"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="16 Bit Analog to digital converter ADC"/>
@@ -2699,12 +3337,16 @@
       <datasheet>https://item.szlcsc.com/698534.html</datasheet>
       <fields>
         <field name="LCSC">C668591</field>
+        <field name="MPN">10.0 QHHTZB6.3</field>
+        <field name="Manufacturer">SHOU HAN</field>
         <field name="Footprint">BlackPanda:USB-A-TH_10.0QHHTZB6.3</field>
         <field name="Datasheet">https://item.szlcsc.com/698534.html</field>
         <field name="Description"/>
       </fields>
       <libsource lib="10_0_QHHTZB6_3" part="10_0_QHHTZB6_3" description=""/>
       <property name="LCSC" value="C668591"/>
+      <property name="MPN" value="10.0 QHHTZB6.3"/>
+      <property name="Manufacturer" value="SHOU HAN"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="C668591"/>
@@ -2729,12 +3371,16 @@
       <datasheet>https://atta.szlcsc.com/upload/public/pdf/source/20210824/394DCB7C803784CE665F52BCF49E41B5.pdf</datasheet>
       <fields>
         <field name="LCSC">C727904</field>
+        <field name="MPN">FM-B1921RGBA-SH</field>
+        <field name="Manufacturer">Foshan NationStar</field>
         <field name="Footprint">BlackPanda:LED-ARRAY-SMD_4P-L2.2-W2.1-BR</field>
         <field name="Datasheet">https://atta.szlcsc.com/upload/public/pdf/source/20210824/394DCB7C803784CE665F52BCF49E41B5.pdf</field>
         <field name="Description"/>
       </fields>
       <libsource lib="FM-B1921RGBA-SH" part="FM-B1921RGBA-SH" description=""/>
       <property name="LCSC" value="C727904"/>
+      <property name="MPN" value="FM-B1921RGBA-SH"/>
+      <property name="Manufacturer" value="Foshan NationStar"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="C727904"/>
@@ -2759,6 +3405,9 @@
         <field name="PARTREV">D</field>
         <field name="MANUFACTURER">Texas Instruments</field>
         <field name="STANDARD">Manufacturer Recommendations</field>
+        <field name="MPN">TPS5450DDAR</field>
+        <field name="Manufacturer">Texas Instruments</field>
+        <field name="LCSC">C114425</field>
         <field name="Footprint">BlackPanda:CONV_TPS5450DDAR</field>
         <field name="Datasheet"/>
         <field name="Description"/>
@@ -2768,6 +3417,9 @@
       <property name="PARTREV" value="D"/>
       <property name="MANUFACTURER" value="Texas Instruments"/>
       <property name="STANDARD" value="Manufacturer Recommendations"/>
+      <property name="MPN" value="TPS5450DDAR"/>
+      <property name="Manufacturer" value="Texas Instruments"/>
+      <property name="LCSC" value="C114425"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -2793,11 +3445,17 @@
       <footprint>Package_QFP:LQFP-144_20x20mm_P0.5mm</footprint>
       <datasheet>https://www.st.com/resource/en/datasheet/stm32h725zg.pdf</datasheet>
       <fields>
+        <field name="MPN">STM32H725ZGT6</field>
+        <field name="Manufacturer">STMicroelectronics</field>
+        <field name="LCSC">C730156</field>
         <field name="Footprint">Package_QFP:LQFP-144_20x20mm_P0.5mm</field>
         <field name="Datasheet">https://www.st.com/resource/en/datasheet/stm32h725zg.pdf</field>
         <field name="Description"/>
       </fields>
       <libsource lib="MCU_ST_STM32H7" part="STM32H725ZGTx" description="STMicroelectronics Arm Cortex-M7 MCU, 1024KB flash, 564KB RAM, 550 MHz, 1.62-3.6V, 99 GPIO, LQFP144"/>
+      <property name="MPN" value="STM32H725ZGT6"/>
+      <property name="Manufacturer" value="STMicroelectronics"/>
+      <property name="LCSC" value="C730156"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="Arm Cortex-M7 STM32H7 STM32H725/735"/>
@@ -2960,11 +3618,17 @@
       <footprint>Package_DFN_QFN:DFN-8-1EP_3x3mm_P0.65mm_EP1.55x2.4mm</footprint>
       <datasheet>http://www.nxp.com/documents/data_sheet/TJA1042.pdf</datasheet>
       <fields>
+        <field name="MPN">TJA1042TK/3/1J</field>
+        <field name="Manufacturer">NXP</field>
+        <field name="LCSC">C131480</field>
         <field name="Footprint">Package_DFN_QFN:DFN-8-1EP_3x3mm_P0.65mm_EP1.55x2.4mm</field>
         <field name="Datasheet">http://www.nxp.com/documents/data_sheet/TJA1042.pdf</field>
         <field name="Description"/>
       </fields>
       <libsource lib="Interface_CAN_LIN" part="TJA1042TK-3" description="High-Speed CAN Transceiver, separate VIO, standby mode, DFN-8-1EP"/>
+      <property name="MPN" value="TJA1042TK/3/1J"/>
+      <property name="Manufacturer" value="NXP"/>
+      <property name="LCSC" value="C131480"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="High-Speed CAN Transceiver HVSON-8"/>
@@ -2992,11 +3656,17 @@
       <footprint>Package_DFN_QFN:DFN-8-1EP_3x3mm_P0.65mm_EP1.55x2.4mm</footprint>
       <datasheet>http://www.nxp.com/documents/data_sheet/TJA1042.pdf</datasheet>
       <fields>
+        <field name="MPN">TJA1042TK/3/1J</field>
+        <field name="Manufacturer">NXP</field>
+        <field name="LCSC">C131480</field>
         <field name="Footprint">Package_DFN_QFN:DFN-8-1EP_3x3mm_P0.65mm_EP1.55x2.4mm</field>
         <field name="Datasheet">http://www.nxp.com/documents/data_sheet/TJA1042.pdf</field>
         <field name="Description"/>
       </fields>
       <libsource lib="Interface_CAN_LIN" part="TJA1042TK-3" description="High-Speed CAN Transceiver, separate VIO, standby mode, DFN-8-1EP"/>
+      <property name="MPN" value="TJA1042TK/3/1J"/>
+      <property name="Manufacturer" value="NXP"/>
+      <property name="LCSC" value="C131480"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="High-Speed CAN Transceiver HVSON-8"/>
@@ -3024,11 +3694,17 @@
       <footprint>Package_DFN_QFN:DFN-8-1EP_3x3mm_P0.65mm_EP1.55x2.4mm</footprint>
       <datasheet>http://www.nxp.com/documents/data_sheet/TJA1042.pdf</datasheet>
       <fields>
+        <field name="MPN">TJA1042TK/3/1J</field>
+        <field name="Manufacturer">NXP</field>
+        <field name="LCSC">C131480</field>
         <field name="Footprint">Package_DFN_QFN:DFN-8-1EP_3x3mm_P0.65mm_EP1.55x2.4mm</field>
         <field name="Datasheet">http://www.nxp.com/documents/data_sheet/TJA1042.pdf</field>
         <field name="Description"/>
       </fields>
       <libsource lib="Interface_CAN_LIN" part="TJA1042TK-3" description="High-Speed CAN Transceiver, separate VIO, standby mode, DFN-8-1EP"/>
+      <property name="MPN" value="TJA1042TK/3/1J"/>
+      <property name="Manufacturer" value="NXP"/>
+      <property name="LCSC" value="C131480"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="High-Speed CAN Transceiver HVSON-8"/>
@@ -3056,11 +3732,17 @@
       <footprint>Package_DFN_QFN:DFN-8-1EP_3x3mm_P0.65mm_EP1.55x2.4mm</footprint>
       <datasheet>http://www.nxp.com/documents/data_sheet/TJA1042.pdf</datasheet>
       <fields>
+        <field name="MPN">TJA1042TK/3/1J</field>
+        <field name="Manufacturer">NXP</field>
+        <field name="LCSC">C131480</field>
         <field name="Footprint">Package_DFN_QFN:DFN-8-1EP_3x3mm_P0.65mm_EP1.55x2.4mm</field>
         <field name="Datasheet">http://www.nxp.com/documents/data_sheet/TJA1042.pdf</field>
         <field name="Description"/>
       </fields>
       <libsource lib="Interface_CAN_LIN" part="TJA1042TK-3" description="High-Speed CAN Transceiver, separate VIO, standby mode, DFN-8-1EP"/>
+      <property name="MPN" value="TJA1042TK/3/1J"/>
+      <property name="Manufacturer" value="NXP"/>
+      <property name="LCSC" value="C131480"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="High-Speed CAN Transceiver HVSON-8"/>
@@ -3088,11 +3770,17 @@
       <footprint>Package_SO:Diodes_PSOP-8</footprint>
       <datasheet>https://datasheet.lcsc.com/lcsc/1809050422_XLSEMI-XL1509-5-0E1_C61063.pdf</datasheet>
       <fields>
+        <field name="MPN">XL1509-3.3E1</field>
+        <field name="Manufacturer">XLSEMI</field>
+        <field name="LCSC">C74193</field>
         <field name="Footprint">Package_SO:Diodes_PSOP-8</field>
         <field name="Datasheet">https://datasheet.lcsc.com/lcsc/1809050422_XLSEMI-XL1509-5-0E1_C61063.pdf</field>
         <field name="Description"/>
       </fields>
       <libsource lib="Regulator_Linear" part="XL1509-3.3" description="150mA low dropout adjustable linear regulator, wide input voltage range, PSOP-8 package"/>
+      <property name="MPN" value="XL1509-3.3E1"/>
+      <property name="Manufacturer" value="XLSEMI"/>
+      <property name="LCSC" value="C74193"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="linear regulator ldo adjustable positive"/>
@@ -3118,11 +3806,17 @@
       <value>USBLC6-2SC6</value>
       <footprint>Package_TO_SOT_SMD:SOT-23-6</footprint>
       <fields>
+        <field name="MPN">USBLC6-2SC6</field>
+        <field name="Manufacturer">STMicroelectronics</field>
+        <field name="LCSC">C7519</field>
         <field name="Footprint">Package_TO_SOT_SMD:SOT-23-6</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Power_Protection" part="USBLC6-2P6" description="Very low capacitance ESD protection diode, 2 data-line, SOT-666"/>
+      <property name="MPN" value="USBLC6-2SC6"/>
+      <property name="Manufacturer" value="STMicroelectronics"/>
+      <property name="LCSC" value="C7519"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="usb ethernet video"/>
@@ -3147,11 +3841,17 @@
       <footprint>Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm</footprint>
       <datasheet>https://www.lcsc.com/product-detail/C9006.html</datasheet>
       <fields>
+        <field name="MPN">X322525MOB4SI</field>
+        <field name="Manufacturer">YXC</field>
+        <field name="LCSC">C9006</field>
         <field name="Footprint">Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm</field>
         <field name="Datasheet">https://www.lcsc.com/product-detail/C9006.html</field>
         <field name="Description"/>
       </fields>
       <libsource lib="Device" part="Crystal_GND24_Small" description="Four pin crystal, GND on pins 2 and 4, small symbol"/>
+      <property name="MPN" value="X322525MOB4SI"/>
+      <property name="Manufacturer" value="YXC"/>
+      <property name="LCSC" value="C9006"/>
       <property name="Sheetname" value="BlackPanda"/>
       <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
       <property name="ki_keywords" value="quartz ceramic resonator oscillator"/>

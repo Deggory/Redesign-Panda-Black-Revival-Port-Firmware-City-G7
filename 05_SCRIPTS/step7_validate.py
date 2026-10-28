@@ -116,7 +116,7 @@ if only_sch or only_pcb or real_div or fp_diff: out["failures"].append("Netlist 
 # ---------------------------------------------------------------- 4. BOM x sch x pcb
 bom_csv = os.path.join(REP, "hybrid_BOM.csv")
 run([CLI, "sch", "export", "bom", "--fields", "Reference,Value,Footprint,${QUANTITY},${DNP},MPN,Manufacturer,Datasheet",
-     "--labels", "Reference,Value,Footprint,Qty,DNP,MPN,Manufacturer,Datasheet", "--group-by", "Value,Footprint", "--exclude-dnp", "-o", bom_csv, SCH], "step7_bom.log")
+     "--labels", "Reference,Value,Footprint,Qty,DNP,MPN,Manufacturer,Datasheet", "--group-by", "Value,Footprint,MPN", "--exclude-dnp", "-o", bom_csv, SCH], "step7_bom.log")
 def expand_refs(field):
     """'C1,C16-C21,U8-U11' -> ['C1','C16',...,'C21','U8',...,'U11'] (o --group-by do kicad-cli comprime intervalos)."""
     import re
