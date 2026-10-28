@@ -192,3 +192,33 @@ Formato: ID | data | decisão | alternativas | evidência | status.
 - Resultado (2026-10-27): 5b 4 nao roteados -> 5c 0; 5d DRC 0/0/178; fix_audit 44 via-in-pad movidas + 6 FID; fix_drc_relayout (via do keepout SW1, via GNDxSWDIO, trilha solta, FID2 -> 140,485; 76,71); 1 unconnected (+3V3: ilha In1 cortada pelas vias movidas) fechado por `step5c --rounds 3` (via +3V3 em 113,125; 50,75); fix_vip_reroute -> **via-in-pad 0**; DRC **0 clearance / 0 unconnected / 182** (starved_thermal 17, resto herdado); step7 `failures` vazio; final_audit ALTO = 8 hole_clearance P1 + BOM sem MPN (herdados), MEDIO = caixas U3/P1 fora do contorno (conectores de borda).
 - Limites: as folgas de courtyard < 1 mm dentro do bloco transladado (U8xD6, U9xD7, UxxCyy, Dx x P1) sao as do baseline OpenBlackPanda e nao foram alteradas; so se abriu espaco entre o U7 e o bloco. As caixas STL do baseline ja nao serviam (D-24) e agora a largura tambem muda. Nenhuma verificacao fisica; "nao fabricar" mantem-se.
 - Status: ATIVA. Snapshot aceite: `HybridPanda.kicad_pcb.step5_final` (= placa actual).
+
+## D-34 - Campanha de correcao pos-auditoria em passos com gate de DRC (commits a8b98a9 .. final)
+- Contexto: as auditorias de footprint (06_REPORTS/footprint_audit), SI/PI (06_REPORTS/si_pi_audit, 36 itens) e BOM (06_REPORTS/bom_real) encontraram erros reais no snapshot `.step5_final` (VFBSMPS separado de VCAP, pads de Q1/Q2/Q3 fora da geometria, R1 1k no gate do Q4, sem ESD no USB, etc.).
+- Decisao: aplicar as correcoes por passos (1 footprints, 2 criticos de alimentacao, 3 ALTO, 4 BOM, 5 MEDIO, final) com scripts idempotentes `05_SCRIPTS/corr_step*.py` e um gate unico `05_SCRIPTS/corr_gate.py` (kicad-cli DRC JSON apos cada edicao; aceite = 0 clearance / 0 unconnected / 0 paridade e nenhuma categoria de erro nova face ao baseline). Esquema e PCB alterados em conjunto. Item que falhe o gate e revertido e registado como deferido, nunca forcado.
+- Resultado: DRC 182 -> 135 (0/0/0), ERC 0, via-in-pad 0, step7 sem falhas. Tabela completa em `06_REPORTS/CORRECOES_APLICADAS.md`.
+- Status: ATIVA. O snapshot `.step5_final` deixa de ser a placa aceite; a placa aceite e o HEAD de main.
+
+## D-35 - VFBSMPS unido a VCAP (topologia Direct SMPS, AN5419) e PF9 em jumper JP1
+- Contexto: o esquema tinha VFBSMPS e VCAP como redes distintas; em Direct SMPS o pino 17 (VFBSMPS) tem de ligar ao no VCAP (DS13311 ?6.3.3 / AN5419 fig. 5). PF7-PF10 estavam todos a GND, o que fixa HW_TYPE RED sem possibilidade de distinguir a placa hibrida.
+- Decisao: renomear os labels VFBSMPS para VCAP; C64 2.2 uF 0402 junto a U7.103 (0603 nao cabe) e C65 4.7 uF 0603 junto a VDDSMPS U7.16; PF9 passa a JP1 (SolderJumper_2_Open): fechado = RED (id1 = 0), aberto = HYBRID (id1 = 4) - decisao de firmware fica em aberto, por defeito fechado.
+- Status: ATIVA (commit a5d60b8).
+
+## D-36 - Desvios aceites face a proposed_changes.md
+- Item 6: Cin do TPS5450 10 uF em 0805 50 V X5R (1206 nao cabe sem mover L4/C6/C7); derating DC registado.
+- Item 30: anel anular minimo 0.125 mm (nao 0.13): os PTH do footprint TYPE-C-31-M-04 do P1 tem anel 0.125 e nao podem ser alterados sem trocar o footprint.
+- Item 20/17: 12V_Protected e VCAP mantem um trecho em In1 (0.35/0.3 mm) porque remove-lo deixa redes abertas; so In2 ficou livre de +12V/12V_Protected.
+- Item 26: 9 segmentos CAN ficam em 0.15 mm (borda da placa junto a BUS1N_H e entrada do P1).
+- Item 32: hole_clearance do P1 (8) aceite como desvio herdado; deslocar os PTH 0.15 mm cria curto com BUS0_H/SBU2.
+- Item 15: 5 vias termicas no EP do U6 em vez de 8 (SWDIO em In2 passa por baixo da fila inferior). final_audit.py passa a distinguir via termica (mesma rede, pad >= 2 mm) de via-in-pad.
+- Status: ATIVA.
+
+## D-37 - Itens deferidos por exigirem relayout (nao aplicar sem nova sessao de floorplan)
+- 9 (funcao do D10), 10 (100 nF opcionais), 16 (no SW do TPS5450), 21/22/23 (C41/C42/C38/U5 junto ao U7), 25 (D8/D5 junto ao P1), 27 (In2 so GND), 29 pad 69 (via-in-pad em U12.6), 34 (D1 junto ao P1), 36 (polimero 7343), C8 0603, U1 TPS2553.
+- Motivo comum: cada um exige mover blocos de componentes e rerotear redes com o Freerouting (nao deterministico) ou decisao do dono; nenhum e bloqueante para o DRC. Lista com razoes em `06_REPORTS/CORRECOES_APLICADAS.md` ?5.
+- Status: ATIVA (em aberto).
+
+## D-38 - BOM com MPN/LCSC no esquema, codigos "a verificar"
+- Contexto: step8_fabricate.py exporta BOM_JLC.csv a partir dos campos MPN/LCSC do esquema; antes estavam vazios.
+- Decisao: campos MPN/LCSC preenchidos no `.kicad_sch` (commit 9305ef2) a partir de `06_REPORTS/bom_real/BOM_HYBRIDPANDA_v1.csv`; 117/119 referencias com LCSC (JP1 e U1 sem). Nenhum codigo foi confirmado no catalogo JLC em sessao - todos "a verificar" antes de encomendar; C23/C24 18 pF: C1555 nao confirmado (alternativa CL05C180JB5NNNC C307443).
+- Status: ATIVA.

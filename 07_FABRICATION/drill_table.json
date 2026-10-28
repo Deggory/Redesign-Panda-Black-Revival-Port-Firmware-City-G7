@@ -165,7 +165,7 @@
 "pad": "B1",
 "drill_mm": 0.4,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.125,
 "x": 135.59,
 "y": 56.08
 },
@@ -175,7 +175,7 @@
 "pad": "B2",
 "drill_mm": 0.4,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.125,
 "x": 136.29,
 "y": 56.48
 },
@@ -185,7 +185,7 @@
 "pad": "B3",
 "drill_mm": 0.4,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.125,
 "x": 136.29,
 "y": 57.28
 },
@@ -195,7 +195,7 @@
 "pad": "B4",
 "drill_mm": 0.4,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.125,
 "x": 135.59,
 "y": 57.68
 },
@@ -205,7 +205,7 @@
 "pad": "B5",
 "drill_mm": 0.4,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.125,
 "x": 136.29,
 "y": 58.08
 },
@@ -215,7 +215,7 @@
 "pad": "B6",
 "drill_mm": 0.4,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.125,
 "x": 135.59,
 "y": 58.48
 },
@@ -225,7 +225,7 @@
 "pad": "B7",
 "drill_mm": 0.4,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.125,
 "x": 135.59,
 "y": 59.28
 },
@@ -235,7 +235,7 @@
 "pad": "B8",
 "drill_mm": 0.4,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.125,
 "x": 136.29,
 "y": 59.68
 },
@@ -245,7 +245,7 @@
 "pad": "B9",
 "drill_mm": 0.4,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.125,
 "x": 135.59,
 "y": 60.08
 },
@@ -255,7 +255,7 @@
 "pad": "B10",
 "drill_mm": 0.4,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.125,
 "x": 136.29,
 "y": 60.48
 },
@@ -265,7 +265,7 @@
 "pad": "B11",
 "drill_mm": 0.4,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.125,
 "x": 136.29,
 "y": 61.28
 },
@@ -275,7 +275,7 @@
 "pad": "B12",
 "drill_mm": 0.4,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.125,
 "x": 135.59,
 "y": 61.68
 },
@@ -365,7 +365,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 98.922,
 "y": 69.962
 },
@@ -465,7 +465,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 113.125,
 "y": 50.75
 },
@@ -765,7 +765,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 97.278,
 "y": 43.114
 },
@@ -818,6 +818,16 @@
 "annular_mm": 0.15,
 "x": 137.375,
 "y": 70.65
+},
+{
+"kind": "VIA",
+"ref": "GND",
+"pad": "",
+"drill_mm": 0.3,
+"slot": false,
+"annular_mm": 0.15,
+"x": 108.06,
+"y": 41.2
 },
 {
 "kind": "VIA",
@@ -886,6 +896,26 @@
 "drill_mm": 0.3,
 "slot": false,
 "annular_mm": 0.15,
+"x": 135.0,
+"y": 43.5
+},
+{
+"kind": "VIA",
+"ref": "GND",
+"pad": "",
+"drill_mm": 0.3,
+"slot": false,
+"annular_mm": 0.15,
+"x": 108.71,
+"y": 40.84
+},
+{
+"kind": "VIA",
+"ref": "GND",
+"pad": "",
+"drill_mm": 0.3,
+"slot": false,
+"annular_mm": 0.15,
 "x": 102.004,
 "y": 41.999
 },
@@ -895,9 +925,9 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.2,
-"x": 107.051,
-"y": 66.217
+"annular_mm": 0.15,
+"x": 105.5,
+"y": 34.5
 },
 {
 "kind": "VIA",
@@ -935,6 +965,16 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
+"annular_mm": 0.15,
+"x": 135.0,
+"y": 76.0
+},
+{
+"kind": "VIA",
+"ref": "GND",
+"pad": "",
+"drill_mm": 0.3,
+"slot": false,
 "annular_mm": 0.2,
 "x": 106.269,
 "y": 47.349
@@ -956,8 +996,28 @@
 "drill_mm": 0.3,
 "slot": false,
 "annular_mm": 0.15,
+"x": 127.47,
+"y": 49.64
+},
+{
+"kind": "VIA",
+"ref": "GND",
+"pad": "",
+"drill_mm": 0.3,
+"slot": false,
+"annular_mm": 0.15,
 "x": 112.75,
 "y": 65.863
+},
+{
+"kind": "VIA",
+"ref": "GND",
+"pad": "",
+"drill_mm": 0.3,
+"slot": false,
+"annular_mm": 0.15,
+"x": 138.0,
+"y": 45.0
 },
 {
 "kind": "VIA",
@@ -996,6 +1056,16 @@
 "drill_mm": 0.3,
 "slot": false,
 "annular_mm": 0.15,
+"x": 138.0,
+"y": 77.5
+},
+{
+"kind": "VIA",
+"ref": "GND",
+"pad": "",
+"drill_mm": 0.3,
+"slot": false,
+"annular_mm": 0.15,
 "x": 104.25,
 "y": 43.337
 },
@@ -1008,6 +1078,16 @@
 "annular_mm": 0.2,
 "x": 93.739,
 "y": 57.539
+},
+{
+"kind": "VIA",
+"ref": "GND",
+"pad": "",
+"drill_mm": 0.3,
+"slot": false,
+"annular_mm": 0.15,
+"x": 130.5,
+"y": 76.0
 },
 {
 "kind": "VIA",
@@ -1056,8 +1136,18 @@
 "drill_mm": 0.3,
 "slot": false,
 "annular_mm": 0.15,
-"x": 129.12,
-"y": 43.42
+"x": 116.28,
+"y": 42.75
+},
+{
+"kind": "VIA",
+"ref": "GND",
+"pad": "",
+"drill_mm": 0.3,
+"slot": false,
+"annular_mm": 0.15,
+"x": 138.0,
+"y": 40.5
 },
 {
 "kind": "VIA",
@@ -1086,6 +1176,16 @@
 "drill_mm": 0.3,
 "slot": false,
 "annular_mm": 0.15,
+"x": 135.0,
+"y": 34.5
+},
+{
+"kind": "VIA",
+"ref": "GND",
+"pad": "",
+"drill_mm": 0.3,
+"slot": false,
+"annular_mm": 0.15,
 "x": 131.32,
 "y": 55.23
 },
@@ -1096,8 +1196,28 @@
 "drill_mm": 0.3,
 "slot": false,
 "annular_mm": 0.15,
+"x": 128.85,
+"y": 39.2
+},
+{
+"kind": "VIA",
+"ref": "GND",
+"pad": "",
+"drill_mm": 0.3,
+"slot": false,
+"annular_mm": 0.15,
 "x": 95.26,
 "y": 42.53
+},
+{
+"kind": "VIA",
+"ref": "GND",
+"pad": "",
+"drill_mm": 0.3,
+"slot": false,
+"annular_mm": 0.15,
+"x": 141.0,
+"y": 42.0
 },
 {
 "kind": "VIA",
@@ -1118,6 +1238,16 @@
 "annular_mm": 0.15,
 "x": 131.513,
 "y": 70.047
+},
+{
+"kind": "VIA",
+"ref": "GND",
+"pad": "",
+"drill_mm": 0.3,
+"slot": false,
+"annular_mm": 0.15,
+"x": 132.0,
+"y": 42.0
 },
 {
 "kind": "VIA",
@@ -1255,9 +1385,39 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
+"x": 135.0,
+"y": 39.0
+},
+{
+"kind": "VIA",
+"ref": "GND",
+"pad": "",
+"drill_mm": 0.3,
+"slot": false,
+"annular_mm": 0.15,
 "x": 121.35,
 "y": 53.4
+},
+{
+"kind": "VIA",
+"ref": "GND",
+"pad": "",
+"drill_mm": 0.3,
+"slot": false,
+"annular_mm": 0.15,
+"x": 108.71,
+"y": 42.14
+},
+{
+"kind": "VIA",
+"ref": "GND",
+"pad": "",
+"drill_mm": 0.3,
+"slot": false,
+"annular_mm": 0.15,
+"x": 132.0,
+"y": 37.5
 },
 {
 "kind": "VIA",
@@ -1278,16 +1438,6 @@
 "annular_mm": 0.15,
 "x": 94.88,
 "y": 63.75
-},
-{
-"kind": "VIA",
-"ref": "GND",
-"pad": "",
-"drill_mm": 0.3,
-"slot": false,
-"annular_mm": 0.15,
-"x": 116.25,
-"y": 44.438
 },
 {
 "kind": "VIA",
@@ -1335,7 +1485,17 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
+"x": 106.75,
+"y": 65.5
+},
+{
+"kind": "VIA",
+"ref": "GND",
+"pad": "",
+"drill_mm": 0.3,
+"slot": false,
+"annular_mm": 0.15,
 "x": 109.15,
 "y": 71.042
 },
@@ -1353,11 +1513,31 @@
 "kind": "VIA",
 "ref": "GND",
 "pad": "",
-"drill_mm": 0.25,
+"drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
+"x": 130.5,
+"y": 34.5
+},
+{
+"kind": "VIA",
+"ref": "GND",
+"pad": "",
+"drill_mm": 0.3,
+"slot": false,
+"annular_mm": 0.15,
 "x": 104.125,
 "y": 50.945
+},
+{
+"kind": "VIA",
+"ref": "GND",
+"pad": "",
+"drill_mm": 0.3,
+"slot": false,
+"annular_mm": 0.15,
+"x": 132.0,
+"y": 49.5
 },
 {
 "kind": "VIA",
@@ -1376,8 +1556,28 @@
 "drill_mm": 0.3,
 "slot": false,
 "annular_mm": 0.15,
+"x": 141.0,
+"y": 37.5
+},
+{
+"kind": "VIA",
+"ref": "GND",
+"pad": "",
+"drill_mm": 0.3,
+"slot": false,
+"annular_mm": 0.15,
 "x": 137.96,
 "y": 66.47
+},
+{
+"kind": "VIA",
+"ref": "GND",
+"pad": "",
+"drill_mm": 0.3,
+"slot": false,
+"annular_mm": 0.15,
+"x": 107.41,
+"y": 42.14
 },
 {
 "kind": "VIA",
@@ -1465,6 +1665,26 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
+"annular_mm": 0.15,
+"x": 138.0,
+"y": 36.0
+},
+{
+"kind": "VIA",
+"ref": "GND",
+"pad": "",
+"drill_mm": 0.3,
+"slot": false,
+"annular_mm": 0.15,
+"x": 107.41,
+"y": 40.84
+},
+{
+"kind": "VIA",
+"ref": "GND",
+"pad": "",
+"drill_mm": 0.3,
+"slot": false,
 "annular_mm": 0.2,
 "x": 114.079,
 "y": 73.567
@@ -1475,9 +1695,19 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 125.018,
 "y": 63.673
+},
+{
+"kind": "VIA",
+"ref": "GND",
+"pad": "",
+"drill_mm": 0.3,
+"slot": false,
+"annular_mm": 0.15,
+"x": 107.6,
+"y": 74.4
 },
 {
 "kind": "VIA",
@@ -1505,7 +1735,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 117.49,
 "y": 61.972
 },
@@ -1626,6 +1856,16 @@
 "drill_mm": 0.3,
 "slot": false,
 "annular_mm": 0.15,
+"x": 117.3,
+"y": 55.0
+},
+{
+"kind": "VIA",
+"ref": "+5V",
+"pad": "",
+"drill_mm": 0.3,
+"slot": false,
+"annular_mm": 0.15,
 "x": 119.533,
 "y": 46.437
 },
@@ -1655,9 +1895,19 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 123.789,
 "y": 67.126
+},
+{
+"kind": "VIA",
+"ref": "Net-(D15-A)",
+"pad": "",
+"drill_mm": 0.3,
+"slot": false,
+"annular_mm": 0.15,
+"x": 134.7,
+"y": 51.5
 },
 {
 "kind": "VIA",
@@ -1665,7 +1915,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 128.938,
 "y": 67.303
 },
@@ -1675,7 +1925,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 131.817,
 "y": 59.053
 },
@@ -1685,7 +1935,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 103.037,
 "y": 55.112
 },
@@ -1725,7 +1975,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 103.766,
 "y": 52.516
 },
@@ -1805,7 +2055,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 97.411,
 "y": 61.474
 },
@@ -1815,7 +2065,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 125.362,
 "y": 53.734
 },
@@ -1825,7 +2075,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 125.362,
 "y": 56.756
 },
@@ -1835,7 +2085,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 127.738,
 "y": 51.65
 },
@@ -1845,7 +2095,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 117.366,
 "y": 51.192
 },
@@ -1855,7 +2105,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 115.081,
 "y": 64.398
 },
@@ -1865,9 +2115,29 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 107.207,
 "y": 69.04
+},
+{
+"kind": "VIA",
+"ref": "USB_PWR",
+"pad": "",
+"drill_mm": 0.3,
+"slot": false,
+"annular_mm": 0.15,
+"x": 128.85,
+"y": 43.547
+},
+{
+"kind": "VIA",
+"ref": "USB_PWR",
+"pad": "",
+"drill_mm": 0.3,
+"slot": false,
+"annular_mm": 0.15,
+"x": 129.78,
+"y": 46.5
 },
 {
 "kind": "VIA",
@@ -1875,7 +2145,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 123.142,
 "y": 56.932
 },
@@ -1885,7 +2155,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 102.971,
 "y": 47.674
 },
@@ -1895,7 +2165,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 121.352,
 "y": 62.645
 },
@@ -1905,7 +2175,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 101.508,
 "y": 47.525
 },
@@ -1915,7 +2185,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 129.682,
 "y": 60.487
 },
@@ -1925,7 +2195,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 126.816,
 "y": 59.676
 },
@@ -1935,7 +2205,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 130.095,
 "y": 59.033
 },
@@ -1945,7 +2215,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 118.726,
 "y": 59.955
 },
@@ -1955,7 +2225,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 102.915,
 "y": 72.639
 },
@@ -1965,7 +2235,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 117.319,
 "y": 64.398
 },
@@ -1975,7 +2245,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 99.276,
 "y": 69.262
 },
@@ -1985,7 +2255,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 100.725,
 "y": 66.044
 },
@@ -1995,7 +2265,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 122.31,
 "y": 74.108
 },
@@ -2005,7 +2275,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 124.718,
 "y": 47.267
 },
@@ -2015,7 +2285,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 98.217,
 "y": 69.255
 },
@@ -2025,7 +2295,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 120.626,
 "y": 68.583
 },
@@ -2035,7 +2305,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 101.015,
 "y": 72.165
 },
@@ -2045,7 +2315,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 98.538,
 "y": 68.36
 },
@@ -2055,9 +2325,9 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
-"x": 122.607,
-"y": 47.015
+"annular_mm": 0.15,
+"x": 126.9,
+"y": 70.0
 },
 {
 "kind": "VIA",
@@ -2065,29 +2335,9 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
-"x": 125.322,
-"y": 71.358
-},
-{
-"kind": "VIA",
-"ref": "USB_D+",
-"pad": "",
-"drill_mm": 0.3,
-"slot": false,
-"annular_mm": 0.2,
-"x": 112.672,
-"y": 49.685
-},
-{
-"kind": "VIA",
-"ref": "USB_D+",
-"pad": "",
-"drill_mm": 0.3,
-"slot": false,
-"annular_mm": 0.2,
-"x": 124.014,
-"y": 46.631
+"annular_mm": 0.15,
+"x": 122.607,
+"y": 47.015
 },
 {
 "kind": "VIA",
@@ -2095,7 +2345,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 110.263,
 "y": 49.899
 },
@@ -2105,7 +2355,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 101.13,
 "y": 42.732
 },
@@ -2155,7 +2405,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 136.834,
 "y": 74.108
 },
@@ -2165,7 +2415,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 121.468,
 "y": 60.328
 },
@@ -2175,7 +2425,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 140.141,
 "y": 74.867
 },
@@ -2185,7 +2435,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 121.684,
 "y": 59.537
 },
@@ -2195,7 +2445,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 139.07,
 "y": 67.802
 },
@@ -2205,7 +2455,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 118.697,
 "y": 58.851
 },
@@ -2215,7 +2465,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 118.831,
 "y": 62.316
 },
@@ -2225,7 +2475,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 132.117,
 "y": 69.254
 },
@@ -2235,7 +2485,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 136.128,
 "y": 74.835
 },
@@ -2245,39 +2495,59 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 133.852,
 "y": 66.067
 },
 {
 "kind": "VIA",
-"ref": "USB_D-",
+"ref": "USB_R_D-",
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.2,
-"x": 117.438,
-"y": 47.85
+"annular_mm": 0.15,
+"x": 128.8,
+"y": 45.1
 },
 {
 "kind": "VIA",
-"ref": "USB_D-",
+"ref": "USB_R_D-",
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
-"x": 112.778,
-"y": 48.747
+"annular_mm": 0.15,
+"x": 113.635,
+"y": 42.75
 },
 {
 "kind": "VIA",
-"ref": "USB_D-",
+"ref": "USB_R_D+",
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.2,
-"x": 113.606,
-"y": 43.011
+"annular_mm": 0.15,
+"x": 113.635,
+"y": 44.78
+},
+{
+"kind": "VIA",
+"ref": "USB_R_D+",
+"pad": "",
+"drill_mm": 0.3,
+"slot": false,
+"annular_mm": 0.15,
+"x": 127.9,
+"y": 45.65
+},
+{
+"kind": "VIA",
+"ref": "Net-(JP1-B)",
+"pad": "",
+"drill_mm": 0.3,
+"slot": false,
+"annular_mm": 0.15,
+"x": 107.3,
+"y": 66.2
 },
 {
 "kind": "VIA",
@@ -2285,7 +2555,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 111.444,
 "y": 38.141
 },
@@ -2295,7 +2565,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 105.446,
 "y": 64.4
 },
@@ -2305,7 +2575,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 104.297,
 "y": 74.178
 },
@@ -2315,7 +2585,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 101.295,
 "y": 63.415
 },
@@ -2325,39 +2595,9 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 120.004,
 "y": 66.013
-},
-{
-"kind": "VIA",
-"ref": "SBU1_ADC",
-"pad": "",
-"drill_mm": 0.3,
-"slot": false,
-"annular_mm": 0.1,
-"x": 128.094,
-"y": 69.325
-},
-{
-"kind": "VIA",
-"ref": "SBU1_ADC",
-"pad": "",
-"drill_mm": 0.3,
-"slot": false,
-"annular_mm": 0.1,
-"x": 131.013,
-"y": 66.303
-},
-{
-"kind": "VIA",
-"ref": "SBU1_ADC",
-"pad": "",
-"drill_mm": 0.3,
-"slot": false,
-"annular_mm": 0.1,
-"x": 100.729,
-"y": 61.66
 },
 {
 "kind": "VIA",
@@ -2365,7 +2605,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 118.193,
 "y": 62.679
 },
@@ -2375,19 +2615,49 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 114.514,
 "y": 48.642
 },
 {
 "kind": "VIA",
-"ref": "SWDIO",
+"ref": "VCAP",
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
-"x": 115.711,
-"y": 43.3
+"annular_mm": 0.15,
+"x": 110.725,
+"y": 72.752
+},
+{
+"kind": "VIA",
+"ref": "SBU1_ADC",
+"pad": "",
+"drill_mm": 0.3,
+"slot": false,
+"annular_mm": 0.15,
+"x": 128.094,
+"y": 69.325
+},
+{
+"kind": "VIA",
+"ref": "SBU1_ADC",
+"pad": "",
+"drill_mm": 0.3,
+"slot": false,
+"annular_mm": 0.15,
+"x": 131.013,
+"y": 66.303
+},
+{
+"kind": "VIA",
+"ref": "SBU1_ADC",
+"pad": "",
+"drill_mm": 0.3,
+"slot": false,
+"annular_mm": 0.15,
+"x": 100.729,
+"y": 61.66
 },
 {
 "kind": "VIA",
@@ -2395,7 +2665,17 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
+"x": 115.56,
+"y": 43.42
+},
+{
+"kind": "VIA",
+"ref": "SWDIO",
+"pad": "",
+"drill_mm": 0.3,
+"slot": false,
+"annular_mm": 0.15,
 "x": 100.12,
 "y": 42.936
 },
@@ -2405,7 +2685,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 119.899,
 "y": 41.934
 },
@@ -2415,7 +2695,7 @@
 "pad": "",
 "drill_mm": 0.3,
 "slot": false,
-"annular_mm": 0.1,
+"annular_mm": 0.15,
 "x": 104.331,
 "y": 42.133
 }

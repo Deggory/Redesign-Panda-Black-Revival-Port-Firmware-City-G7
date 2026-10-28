@@ -77,3 +77,10 @@ clr 0, hole_hits 8. step7_validate: falhas [].
   sem espaco), 32 (P1 +0.15 mm resolve hole_clearance mas cria curto com BUS0_H/SBU2), 34, 36, C8 0402->0603, U1 alt.
 - final_audit.py: finding BOM "0 com MPN" era texto fixo; agora conta MPN reais; os._exit(0) evita o hang no teardown.
 - Make-Manifest falhava enquanto 10_FLOWPILOT/apk_out/*.zip estava bloqueado por outro agente; passou na re-execucao.
+
+## Passo final
+- Item 15 aplicado: 5 vias termicas GND 0.6/0.3 no EP do U6 (corr_step5_pcb.py u6ep); a fila inferior (y 43.1-43.44)
+  curto-circuitava SWDIO em In2 -> removida. DRC step5r/final: 135, 0/0/0. final_audit distingue via termica de via-in-pad.
+- Nota: `u6ep --revert` com 8 vias provocou crash do pcbnew no save (access violation); restaurado com git checkout.
+- DRC/ERC finais: 06_REPORTS/hybrid_DRC_final.json, hybrid_ERC_final.json; exports regenerados em 07_FABRICATION.
+- Docs: 06_REPORTS/CORRECOES_APLICADAS.md, DECISIONS D-34..D-38, 08_DOCS/PROGRESS.md, RELATORIO_FINAL.md ?1.1.

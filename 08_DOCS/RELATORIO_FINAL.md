@@ -1,6 +1,6 @@
 # RELATÓRIO FINAL — Hybrid Panda (Black Panda × STM32H725ZGT6 / firmware red panda)
 
-Data: 2026-10-26 · Protocolo v3 (`08_DOCS\PROTOCOLO_v3_COMPLETO.md`), STEP 1–9 · Raiz: `C:\Users\costabr\Downloads\openpilot\HybridPanda_v2_20261022_1616` · Repositório: github.com/kriptomad/PandaH7Openpilot
+Data: 2026-10-26 (rev. 2026-10-28, campanha de correção §1.1) · Protocolo v3 (`08_DOCS\PROTOCOLO_v3_COMPLETO.md`), STEP 1–9 · Raiz: `C:\Users\costabr\Downloads\openpilot\HybridPanda_v2_20261022_1616` · Repositório: github.com/kriptomad/PandaH7Openpilot
 
 ## 1. Resumo e estado real
 
@@ -14,11 +14,15 @@ Estado em uma frase: **projeto eletrónico completo em análise estática (esque
 | 2 Ingestão / HRS | FEITO | `03_RESEARCH\HRS_red_panda.md`, `coverage_matrix.md` (61/61 requisitos provados), `02_REFERENCE` (clones só leitura, hashes em `reference_clones.sha256`) |
 | 3 Eng. reversa / tabela híbrida | FEITO | `03_RESEARCH\STEP3_engenharia_reversa_tabela_hibrida.md`, `05_SCRIPTS\parity_check.py` + `firmware_pins.json` |
 | 4 Esquemático | FEITO | `04_PROJECT\HybridPanda\HybridPanda.kicad_sch`, `STEP4_esquematico_H725.md`, ERC 0 erros |
-| 5 PCB | FEITO | `HybridPanda.kicad_pcb` (= `.step5_final`), `STEP5_layout_H725.md`, DRC 0 não ligados / 0 clearance / 0 curtos (182 itens, herdados + starved_thermal); via-in-pad 0 apos relayout leste +3 mm (D-33) |
+| 5 PCB | FEITO + campanha de correção (D-34..D-38) | `HybridPanda.kicad_pcb` (HEAD de main; `.step5_final` obsoleto), `STEP5_layout_H725.md`, `06_REPORTS\CORRECOES_APLICADAS.md`; DRC final 0 não ligados / 0 clearance / 0 curtos (135 itens herdados: P1 hole 8, lib mismatch 73, silk 9, text 45); via-in-pad 0 |
 | 6 Roteamento / impedância | FEITO (analítico) | `STEP6_roteamento_impedancia.md` |
-| 7 Validação | FEITO — **nenhuma falha** | `STEP7_validacao.md`, `06_REPORTS\step7_validation.json` |
-| 8 Fabricação | FEITO — **NÃO FABRICAR** | `07_FABRICATION\` + `LEIA-ME.txt` |
+| 7 Validação | FEITO — **nenhuma falha** (re-executado 2026-10-28) | `STEP7_validacao.md`, `06_REPORTS\step7_validation.json`, `hybrid_DRC_final.json`, `hybrid_ERC_final.json` (0 erros / 373 avisos) |
+| 8 Fabricação | FEITO — **NÃO FABRICAR** (regenerado 2026-10-28) | `07_FABRICATION\` + `LEIA-ME.txt`; BOM_JLC.csv com LCSC em 117/119 refs ("a verificar") |
 | 9 Bring-up / relatório | FEITO (documental) | `STEP9_bringup_e_teste_veiculo.md`, este ficheiro |
+
+### 1.1 Campanha de correção pós-auditoria (2026-10-28)
+
+Três auditorias independentes sobre o snapshot `.step5_final` (`06_REPORTS\footprint_audit`, `06_REPORTS\si_pi_audit` com 36 itens, `06_REPORTS\bom_real`) encontraram erros reais: VFBSMPS separado de VCAP (Direct SMPS inoperante), pads de Q1/Q2/Q3/U5 fora da geometria dos fabricantes, R1 1 k no gate do Q4, USB sem ESD, Cin do TPS5450 subdimensionado, pistas de potência de 0,2 mm, zona GND com thermals famintos. As correções foram aplicadas em seis commits (a8b98a9, a5d60b8, b209b08, eb14492, 9305ef2, 15e11dd, final), cada edição validada por `05_SCRIPTS\corr_gate.py` (DRC kicad-cli: 0 clearance / 0 unconnected / 0 paridade, nenhuma categoria de erro nova) e ERC 0; esquema e PCB alterados em conjunto. Resultado: DRC 182 -> 135, categorias `copper_edge_clearance`, `starved_thermal`, `drill_out_of_range` e `footprint_type_mismatch` eliminadas; 21 itens aplicados, 6 parciais, 13 deferidos por exigirem relayout (D-37). Tabela item -> estado -> commit -> evidência, delta de BOM e lista do que continua sem verificação física: `06_REPORTS\CORRECOES_APLICADAS.md`. **Nada foi testado em hardware.**
 
 ## 2. Resultado das premissas P1–P11
 

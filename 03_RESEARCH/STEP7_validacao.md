@@ -1,6 +1,6 @@
 # STEP 7 — Validação automatizada (logs reais em `06_REPORTS`)
 
-Data: 2026-10-28 10:04:52. Gerado por `05_SCRIPTS\step7_validate.py` (177 s).
+Data: 2026-10-28 10:16:52. Gerado por `05_SCRIPTS\step7_validate.py` (148 s).
 
 ## Resumo
 
@@ -79,18 +79,18 @@ Nota: quase todas as 'novas' são do mesmo tipo das herdadas (text_height/lib_fo
 ## 7. Manifestos
 
 - `Make-Manifest.ps1 -Step STEP7 -Original` exit 0:
-  - OUTPUT_ROOT manifest: 20779 files -> C:\Users\costabr\Downloads\openpilot\HybridPanda_v2_20261022_1616\00_MANIFESTS\OUTPUT_ROOT_STEP7_20261028_1005.sha256
+  - OUTPUT_ROOT manifest: 20789 files -> C:\Users\costabr\Downloads\openpilot\HybridPanda_v2_20261022_1616\00_MANIFESTS\OUTPUT_ROOT_STEP7_20261028_1017.sha256
   - 02_REFERENCE unchanged vs reference_clones.sha256: False
   - ORIGINAL vs BEFORE: IDENTICAL (377 files)
-  - INDEX.md rows: 14928
+  - INDEX.md rows: 14938
 
 ## 8. Comandos executados
 
 | Comando | Exit | s | Log |
 |---|---|---|---|
-| `C:\Users\costabr\AppData\Local\Programs\KiCad\10.0\bin\kicad-cli.exe sch erc --format json --severity-all -o C:\Users\costabr\Downloads\openpilot\HybridPanda_v2` | 0 | 5.8 | step7_erc.log |
-| `C:\Users\costabr\AppData\Local\Programs\KiCad\10.0\bin\kicad-cli.exe pcb drc --format json --severity-all --units mm -o C:\Users\costabr\Downloads\openpilot\Hyb` | 0 | 7.5 | step7_drc.log |
-| `C:\Users\costabr\AppData\Local\Programs\KiCad\10.0\bin\kicad-cli.exe sch export netlist --format kicadxml -o C:\Users\costabr\Downloads\openpilot\HybridPanda_v2` | 0 | 0.9 | step7_netlist.log |
-| `C:\Users\costabr\AppData\Local\Programs\KiCad\10.0\bin\kicad-cli.exe sch export bom --fields Reference,Value,Footprint,${QUANTITY},${DNP},MPN,Manufacturer,Datas` | 0 | 0.8 | step7_bom.log |
+| `C:\Users\costabr\AppData\Local\Programs\KiCad\10.0\bin\kicad-cli.exe sch erc --format json --severity-all -o C:\Users\costabr\Downloads\openpilot\HybridPanda_v2` | 0 | 3.9 | step7_erc.log |
+| `C:\Users\costabr\AppData\Local\Programs\KiCad\10.0\bin\kicad-cli.exe pcb drc --format json --severity-all --units mm -o C:\Users\costabr\Downloads\openpilot\Hyb` | 0 | 5.6 | step7_drc.log |
+| `C:\Users\costabr\AppData\Local\Programs\KiCad\10.0\bin\kicad-cli.exe sch export netlist --format kicadxml -o C:\Users\costabr\Downloads\openpilot\HybridPanda_v2` | 0 | 0.7 | step7_netlist.log |
+| `C:\Users\costabr\AppData\Local\Programs\KiCad\10.0\bin\kicad-cli.exe sch export bom --fields Reference,Value,Footprint,${QUANTITY},${DNP},MPN,Manufacturer,Datas` | 0 | 0.7 | step7_bom.log |
 | `C:\Users\costabr\Downloads\openpilot\HybridPanda_v2_20261022_1616\05_SCRIPTS\.venv\Scripts\python.exe C:\Users\costabr\Downloads\openpilot\HybridPanda_v2_202610` | 0 | 0.4 | step7_parity.log |
-| `powershell -NoProfile -ExecutionPolicy Bypass -File C:\Users\costabr\Downloads\openpilot\HybridPanda_v2_20261022_1616\05_SCRIPTS\Make-Manifest.ps1 -Step STEP7 -` | 0 | 160.9 | step7_manifest.log |
+| `powershell -NoProfile -ExecutionPolicy Bypass -File C:\Users\costabr\Downloads\openpilot\HybridPanda_v2_20261022_1616\05_SCRIPTS\Make-Manifest.ps1 -Step STEP7 -` | 0 | 136.3 | step7_manifest.log |

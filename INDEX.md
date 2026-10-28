@@ -1,7 +1,7 @@
 ﻿# INDEX - HybridPanda_v2
 
 OUTPUT_ROOT: `C:\Users\costabr\Downloads\openpilot\HybridPanda_v2_20261022_1616`
-Atualizado: 2026-10-28 10:07 (STEP7). Manifesto: `OUTPUT_ROOT_STEP7_20261028_1005.sha256`. ORIGINAL: IDENTICAL (377 files). 02_REFERENCE inalterado: False.
+Atualizado: 2026-10-28 10:19 (STEP7). Manifesto: `OUTPUT_ROOT_STEP7_20261028_1017.sha256`. ORIGINAL: IDENTICAL (377 files). 02_REFERENCE inalterado: False.
 
 | Caminho relativo | Finalidade | STEP | SHA-256 (16 primeiros) |
 |---|---|---|---|
@@ -20,6 +20,7 @@ Atualizado: 2026-10-28 10:07 (STEP7). Manifesto: `OUTPUT_ROOT_STEP7_20261028_100
 | 00_MANIFESTS\original_AFTER_STEP7_20261027_1552.sha256 |  |  | A8EDE60CB29A4926 |
 | 00_MANIFESTS\original_AFTER_STEP7_20261028_0856.sha256 |  |  | A8EDE60CB29A4926 |
 | 00_MANIFESTS\original_AFTER_STEP7_20261028_0909.sha256 |  |  | A8EDE60CB29A4926 |
+| 00_MANIFESTS\original_AFTER_STEP7_20261028_1005.sha256 |  |  | A8EDE60CB29A4926 |
 | 00_MANIFESTS\original_AFTER_STEP9_20261026_1504.sha256 |  |  | A8EDE60CB29A4926 |
 | 00_MANIFESTS\original_BEFORE.sha256 |  |  | 50C8C724BF1899E2 |
 | 00_MANIFESTS\OUTPUT_ROOT_STEP2_20261023_0842.sha256 |  |  | D580BFA395D8C8CD |
@@ -37,9 +38,10 @@ Atualizado: 2026-10-28 10:07 (STEP7). Manifesto: `OUTPUT_ROOT_STEP7_20261028_100
 | 00_MANIFESTS\OUTPUT_ROOT_STEP7_20261027_1552.sha256 |  |  | 921F179D168A1D82 |
 | 00_MANIFESTS\OUTPUT_ROOT_STEP7_20261028_0856.sha256 |  |  | EA2ADB22EB3E6BCC |
 | 00_MANIFESTS\OUTPUT_ROOT_STEP7_20261028_0909.sha256 |  |  | B0C59EF9590DE7C4 |
+| 00_MANIFESTS\OUTPUT_ROOT_STEP7_20261028_1005.sha256 |  |  | FAFA7D597B43273A |
 | 00_MANIFESTS\OUTPUT_ROOT_STEP9_20261026_1504.sha256 |  |  | 65E8F6037D959AAB |
 | 00_MANIFESTS\reference_clones.sha256 |  |  | F5A3B5A3CED28CBB |
-| 03_RESEARCH\AUDITORIA_FINAL.md |  |  | C67DB7BD8582D34A |
+| 03_RESEARCH\AUDITORIA_FINAL.md |  |  | 8514E7AB5DC66AAE |
 | 03_RESEARCH\coverage_matrix.csv |  |  | EEF50CBD8DAFEC28 |
 | 03_RESEARCH\coverage_matrix.md |  |  | 963056990201A03C |
 | 03_RESEARCH\DECISIONS.md |  |  | 207307D1D0B56E70 |
@@ -71,7 +73,7 @@ Atualizado: 2026-10-28 10:07 (STEP7). Manifesto: `OUTPUT_ROOT_STEP7_20261028_100
 | 03_RESEARCH\STEP4_esquematico_H725.md |  |  | 5BD5A0BE68DC106C |
 | 03_RESEARCH\STEP5_layout_H725.md |  |  | 7F234C7E0FDDBA0F |
 | 03_RESEARCH\STEP6_roteamento_impedancia.md |  |  | 8ED4E5CCA18108D3 |
-| 03_RESEARCH\STEP7_validacao.md |  |  | 8D492B16804DC2BB |
+| 03_RESEARCH\STEP7_validacao.md |  |  | 4651E2B30BC947FF |
 | 03_RESEARCH\STEP9_bringup_e_teste_veiculo.md |  |  | E11B30A736D96787 |
 | 04_PROJECT\HybridPanda\fp-lib-table |  |  | 08D2B61EDDF22D97 |
 | 04_PROJECT\HybridPanda\gerber\HybridPanda-B_Cu.gbr |  |  | E496286BD12B3747 |
@@ -103,7 +105,7 @@ Atualizado: 2026-10-28 10:07 (STEP7). Manifesto: `OUTPUT_ROOT_STEP7_20261028_100
 | 04_PROJECT\HybridPanda\HybridPanda.3d\U.FL Connector.stp |  |  | 0386F375C898572B |
 | 04_PROJECT\HybridPanda\HybridPanda.3d\USB-A-TH_10.0QHHTZB6.3.wrl |  |  | F83351CFC0C0AB82 |
 | 04_PROJECT\HybridPanda\HybridPanda.3d\USB-C-SMD_TYPE-C-USB-20.wrl |  |  | 4ADFCAABA889B5F0 |
-| 04_PROJECT\HybridPanda\HybridPanda.kicad_pcb |  |  | FA0D16211F32FC1C |
+| 04_PROJECT\HybridPanda\HybridPanda.kicad_pcb |  |  | BB274802CC6B0A0B |
 | 04_PROJECT\HybridPanda\HybridPanda.kicad_pcb.baseline |  |  | 423865B30F7DE185 |
 | 04_PROJECT\HybridPanda\HybridPanda.kicad_pcb.pre_fixaudit |  |  | 05E7F498E099ED2D |
 | 04_PROJECT\HybridPanda\HybridPanda.kicad_pcb.pre_fixdrc |  |  | 61BCD004E7698F33 |
@@ -152,11 +154,11 @@ Atualizado: 2026-10-28 10:07 (STEP7). Manifesto: `OUTPUT_ROOT_STEP7_20261028_100
 | 05_SCRIPTS\corr_step3_u13link.py |  |  | 017CFAAC4E27A0AF |
 | 05_SCRIPTS\corr_step4_bom.py |  |  | FCB87DD051FDE4A8 |
 | 05_SCRIPTS\corr_step5_bom.py |  |  | DC85E14E7A9EE493 |
-| 05_SCRIPTS\corr_step5_pcb.py |  |  | 702D536B25C032EC |
+| 05_SCRIPTS\corr_step5_pcb.py |  |  | 387560DADC595E76 |
 | 05_SCRIPTS\corr_step5_sch.py |  |  | 6B36FBD023812E10 |
 | 05_SCRIPTS\coverage_matrix.py |  |  | 6E6A433F6DE42397 |
 | 05_SCRIPTS\extract_ds_pins.py |  |  | 81B284700B486C2F |
-| 05_SCRIPTS\final_audit.py |  |  | 68AD4A537437803E |
+| 05_SCRIPTS\final_audit.py |  |  | B88853EB158FA94D |
 | 05_SCRIPTS\firmware_pins.json |  |  | 8A2003D896D3D3A2 |
 | 05_SCRIPTS\fix_audit.py |  |  | CA5268DFFB5DEA68 |
 | 05_SCRIPTS\fix_drc_regressions.py |  |  | ECDBD96937EB5A9F |
@@ -180,7 +182,7 @@ Atualizado: 2026-10-28 10:07 (STEP7). Manifesto: `OUTPUT_ROOT_STEP7_20261028_100
 | 05_SCRIPTS\step5e_relayout_east.py |  |  | 2E6A64F87BDD0316 |
 | 05_SCRIPTS\step6_reports.py |  |  | 590C523196FE8998 |
 | 05_SCRIPTS\step7_validate.py |  |  | 6CA2B45DF014677F |
-| 05_SCRIPTS\step8_fabricate.py |  |  | 79F40CF56CF9D8D7 |
+| 05_SCRIPTS\step8_fabricate.py |  |  | F1C23476CA3CC7C4 |
 | 05_SCRIPTS\tools\dump_geom.py |  |  | A7F6B37017047C03 |
 | 05_SCRIPTS\tools\free_space.py |  |  | 12E2B2E95FBE498A |
 | 05_SCRIPTS\tools\freerouting\freerouting-2.5.0.jar |  |  | F6F51BB02245E8E7 |
@@ -196,6 +198,7 @@ Atualizado: 2026-10-28 10:07 (STEP7). Manifesto: `OUTPUT_ROOT_STEP7_20261028_100
 | 06_REPORTS\bom_real\netlist_kicadxml_scratch.xml |  |  | F121942DA1BB6706 |
 | 06_REPORTS\corr\drc_baseline.json |  |  | 8F5C530A1F383D2D |
 | 06_REPORTS\corr\drc_baseline_step7_orig.json |  |  | 04662C1ABD1DD4E0 |
+| 06_REPORTS\corr\drc_final.json |  |  | FED1C44D88F7481D |
 | 06_REPORTS\corr\drc_step1.json |  |  | 981CC42C0A3DA6B0 |
 | 06_REPORTS\corr\drc_step1b.json |  |  | DDA6A1045949922B |
 | 06_REPORTS\corr\drc_step1c.json |  |  | B87E4D69D1D4DB8D |
@@ -225,6 +228,8 @@ Atualizado: 2026-10-28 10:07 (STEP7). Manifesto: `OUTPUT_ROOT_STEP7_20261028_100
 | 06_REPORTS\corr\drc_step5n.json |  |  | AF84406C24B63390 |
 | 06_REPORTS\corr\drc_step5o.json |  |  | EE012ADE40A1EF6F |
 | 06_REPORTS\corr\drc_step5p.json |  |  | 1CEF54AA4E89E82C |
+| 06_REPORTS\corr\drc_step5q.json |  |  | 2F39108C533B9695 |
+| 06_REPORTS\corr\drc_step5r.json |  |  | 395BB142B141E46F |
 | 06_REPORTS\corr\erc_145136.json |  |  | 69B964C4EBBAFA83 |
 | 06_REPORTS\corr\erc_145210.json |  |  | BAFCEC70D43B89E8 |
 | 06_REPORTS\corr\erc_155443.json |  |  | A3C7887336C3DEA6 |
@@ -232,6 +237,7 @@ Atualizado: 2026-10-28 10:07 (STEP7). Manifesto: `OUTPUT_ROOT_STEP7_20261028_100
 | 06_REPORTS\corr\erc_155753.json |  |  | C6B5354BE657FDF9 |
 | 06_REPORTS\corr\erc_155808.json |  |  | 2D52269B7BC67236 |
 | 06_REPORTS\corr\erc_155912.json |  |  | 9211CF9947AD03A3 |
+| 06_REPORTS\corr\erc_final.json |  |  | 3FFD7E149FFF6E2C |
 | 06_REPORTS\corr\erc_step3d.json |  |  | 3077171C7FC92EF1 |
 | 06_REPORTS\corr\erc_step4.json |  |  | FA130A6A820DD5DE |
 | 06_REPORTS\corr\erc_step5.json |  |  | A527DB435B5488F7 |
@@ -239,7 +245,7 @@ Atualizado: 2026-10-28 10:07 (STEP7). Manifesto: `OUTPUT_ROOT_STEP7_20261028_100
 | 06_REPORTS\corr\netlist_step2.xml |  |  | 4637C0327362E6A8 |
 | 06_REPORTS\corr\netlist_step3.xml |  |  | 3C9C489B20C6850B |
 | 06_REPORTS\corr\padnets_baseline.json |  |  | 9A3EFF133315FF75 |
-| 06_REPORTS\corr\RESUME_STEP3.md |  |  | DDCF20619533EC1B |
+| 06_REPORTS\corr\RESUME_STEP3.md |  |  | D1BB0B684A2C2D05 |
 | 06_REPORTS\corr\step1_footprints.json |  |  | 69546343E7BC6B43 |
 | 06_REPORTS\corr\step1b_fix.json |  |  | 7C7F17E954765079 |
 | 06_REPORTS\corr\step2_pcb.json |  |  | 6C632EA216F9575E |
@@ -248,11 +254,12 @@ Atualizado: 2026-10-28 10:07 (STEP7). Manifesto: `OUTPUT_ROOT_STEP7_20261028_100
 | 06_REPORTS\corr\step3_sch.json |  |  | 2141C4FA549BF53A |
 | 06_REPORTS\corr\step4_bom.json |  |  | 3B982B5BC11AFFDB |
 | 06_REPORTS\corr\step5_inspect.txt |  |  | E62206377F4E5DE5 |
-| 06_REPORTS\corr\step5_pcb.json |  |  | 5A6844507A179C10 |
+| 06_REPORTS\corr\step5_pcb.json |  |  | 6DE3B02939B7CF1B |
+| 06_REPORTS\CORRECOES_APLICADAS.md |  |  | 8EBC6826D461B547 |
 | 06_REPORTS\coverage_matrix.json |  |  | D2C725778AB8E429 |
 | 06_REPORTS\en\freerouting.log |  |  | 0E931935211D6E35 |
 | 06_REPORTS\extract_ds_pins.json |  |  | DEF770E44ED351CC |
-| 06_REPORTS\final_audit.json |  |  | 863C03B69A1C7B49 |
+| 06_REPORTS\final_audit.json |  |  | A342C787A9D420D0 |
 | 06_REPORTS\fix_audit.json |  |  | A95F867101C0E132 |
 | 06_REPORTS\fix_drc_regressions.json |  |  | B740837DE958A986 |
 | 06_REPORTS\fix_drc_relayout.json |  |  | E744F9B842F27A91 |
@@ -282,22 +289,24 @@ Atualizado: 2026-10-28 10:07 (STEP7). Manifesto: `OUTPUT_ROOT_STEP7_20261028_100
 | 06_REPORTS\footprint_audit\polarity_dump.py |  |  | 0BBA0EFE7011DA7A |
 | 06_REPORTS\footprint_audit\proposed_fixes.py |  |  | 03CBDC7EC388DDCA |
 | 06_REPORTS\hybrid_BOM.csv |  |  | 12FDAF1165FEF693 |
+| 06_REPORTS\hybrid_DRC_final.json |  |  | FED1C44D88F7481D |
 | 06_REPORTS\hybrid_DRC_fix_relayout.json |  |  | 2A609C900747FA3D |
 | 06_REPORTS\hybrid_DRC_fix_vip.json |  |  | C136F97B2437146A |
 | 06_REPORTS\hybrid_DRC_step5_final.json |  |  | E8C6628900132AD6 |
 | 06_REPORTS\hybrid_DRC_step5a.json |  |  | ADAA7B6A0E65A834 |
 | 06_REPORTS\hybrid_DRC_step5b.json |  |  | 543A7D0DD552D8BB |
 | 06_REPORTS\hybrid_DRC_step5e.json |  |  | 097934844249EF68 |
-| 06_REPORTS\hybrid_DRC_step7.json |  |  | B1723F4A9E9E71C6 |
+| 06_REPORTS\hybrid_DRC_step7.json |  |  | A828D47E04493F90 |
 | 06_REPORTS\hybrid_ERC.json |  |  | 446F3CE83B3E5970 |
-| 06_REPORTS\hybrid_ERC_step7.json |  |  | 487CF72C3812D2F3 |
-| 06_REPORTS\hybrid_HybridPanda_netlist.xml |  |  | 7615ECED13251079 |
+| 06_REPORTS\hybrid_ERC_final.json |  |  | 3FFD7E149FFF6E2C |
+| 06_REPORTS\hybrid_ERC_step7.json |  |  | EB4C02B3EBDC2226 |
+| 06_REPORTS\hybrid_HybridPanda_netlist.xml |  |  | BB9A8E67E97430B7 |
 | 06_REPORTS\hybrid_schematic.pdf |  |  | A70FD48BFBC059E9 |
 | 06_REPORTS\HybridPanda_step5b.dsn |  |  | 98DF418D65D4A924 |
 | 06_REPORTS\HybridPanda_step5b.ses |  |  | 4F2A877B05A74895 |
 | 06_REPORTS\parity_black_f4_baseline_BlackPanda_netlist.json |  |  | 65D70F469F72ED3A |
 | 06_REPORTS\parity_black_f4_baseline_BlackPanda_netlist.md |  |  | F431B864453A3173 |
-| 06_REPORTS\parity_red_h7_hybrid_HybridPanda_netlist.json |  |  | 11BA7FF706E905D2 |
+| 06_REPORTS\parity_red_h7_hybrid_HybridPanda_netlist.json |  |  | D5772D0C4E30E26B |
 | 06_REPORTS\parity_red_h7_hybrid_HybridPanda_netlist.md |  |  | 7915C8C624C63BB0 |
 | 06_REPORTS\si_pi_audit\drc_audit.json |  |  | 75B3BDFC88F5CF1A |
 | 06_REPORTS\si_pi_audit\power_nets.json |  |  | 50776E1AB0F64F63 |
@@ -325,47 +334,47 @@ Atualizado: 2026-10-28 10:07 (STEP7). Manifesto: `OUTPUT_ROOT_STEP7_20261028_100
 | 06_REPORTS\step7_bom.log |  |  | 2046DF6C25AAD4D0 |
 | 06_REPORTS\step7_drc.log |  |  | D61DBB419D79C460 |
 | 06_REPORTS\step7_erc.log |  |  | 9BCF82601BEFE2B7 |
-| 06_REPORTS\step7_manifest.log |  |  | AE7B0D0C50309947 |
+| 06_REPORTS\step7_manifest.log |  |  | 875CDF36DAFDCD59 |
 | 06_REPORTS\step7_netlist.log |  |  | D448E3B890B40222 |
 | 06_REPORTS\step7_parity.log |  |  | CA003849E444DD29 |
-| 06_REPORTS\step7_validation.json |  |  | AFA6F5DDC766AF08 |
-| 06_REPORTS\step8_fabrication.json |  |  | F1E05CF8ECF64382 |
-| 07_FABRICATION\3d\HybridPanda.step |  |  | B5C8F52B5DFC83F6 |
-| 07_FABRICATION\assembly\BOM_JLC.csv |  |  | DB3483B67A46C41F |
-| 07_FABRICATION\assembly\CPL_JLC.csv |  |  | 8AB6A02E5C2FDD8F |
-| 07_FABRICATION\assembly\pos_kicad_both.csv |  |  | 2EDA7121F4AE04FE |
-| 07_FABRICATION\drill\HybridPanda-NPTH.drl |  |  | 819D0A36A9586B5B |
-| 07_FABRICATION\drill\HybridPanda-NPTH-drl_map.gbr |  |  | AE9C820AC782461C |
-| 07_FABRICATION\drill\HybridPanda-NPTH-drl_map.pdf |  |  | 1667CD9F7E4EA6CB |
-| 07_FABRICATION\drill\HybridPanda-PTH.drl |  |  | 59ACB1FE27466D94 |
-| 07_FABRICATION\drill\HybridPanda-PTH-drl_map.gbr |  |  | F0CE7C185F6969CA |
-| 07_FABRICATION\drill\HybridPanda-PTH-drl_map.pdf |  |  | 23F5F7E114FDA8F7 |
-| 07_FABRICATION\drill_table.json |  |  | EDE7C6FD187620FE |
-| 07_FABRICATION\drill_table.md |  |  | A0082C05DFC67D54 |
-| 07_FABRICATION\gerber_check.json |  |  | 2D279327866ABC21 |
-| 07_FABRICATION\gerbers\HybridPanda-B_Cu.gbl |  |  | 89CA812D91974291 |
-| 07_FABRICATION\gerbers\HybridPanda-B_Mask.gbs |  |  | 98E1198A449DC311 |
-| 07_FABRICATION\gerbers\HybridPanda-B_Paste.gbp |  |  | 5FBC0112C11105FE |
-| 07_FABRICATION\gerbers\HybridPanda-B_Silkscreen.gbo |  |  | D31253B9672C06DF |
-| 07_FABRICATION\gerbers\HybridPanda-Edge_Cuts.gm1 |  |  | 33C37698F1C00B33 |
-| 07_FABRICATION\gerbers\HybridPanda-F_Cu.gtl |  |  | 66DDFF0BCD04432A |
-| 07_FABRICATION\gerbers\HybridPanda-F_Mask.gts |  |  | 59D8187284D57D8F |
-| 07_FABRICATION\gerbers\HybridPanda-F_Paste.gtp |  |  | 4B94D7A7881DE97F |
-| 07_FABRICATION\gerbers\HybridPanda-F_Silkscreen.gto |  |  | 959D90256A417A97 |
-| 07_FABRICATION\gerbers\HybridPanda-In1_Cu.g1 |  |  | 07A0DAD13869C0BF |
-| 07_FABRICATION\gerbers\HybridPanda-In2_Cu.g2 |  |  | FD7B15C462357460 |
-| 07_FABRICATION\gerbers\HybridPanda-job.gbrjob |  |  | 6D6D4D5609D8EF9E |
-| 07_FABRICATION\HybridPanda_gerbers_JLC.zip |  |  | 9340184C8C77FFB6 |
-| 07_FABRICATION\LEIA-ME.txt |  |  | 4093C6F9B395DF54 |
-| 07_FABRICATION\pdf\HybridPanda_assembly_bottom.pdf |  |  | 64A0076638E430B0 |
-| 07_FABRICATION\pdf\HybridPanda_assembly_top.pdf |  |  | D79C3719B79709D6 |
-| 07_FABRICATION\pdf\HybridPanda_copper_B.pdf |  |  | 565096C528FF549C |
-| 07_FABRICATION\pdf\HybridPanda_copper_F.pdf |  |  | 1FDF5AC18FF984C8 |
-| 07_FABRICATION\pdf\HybridPanda_copper_In1.pdf |  |  | FC8E100577E1E563 |
-| 07_FABRICATION\pdf\HybridPanda_copper_In2.pdf |  |  | 27F421236C8C4982 |
-| 07_FABRICATION\pdf\HybridPanda_fab_bottom.pdf |  |  | 47E84D887CD5D681 |
-| 07_FABRICATION\pdf\HybridPanda_fab_top.pdf |  |  | 6567D8BC8CDE9FE4 |
-| 07_FABRICATION\pdf\HybridPanda_schematic.pdf |  |  | 214FD2D480F7EB54 |
+| 06_REPORTS\step7_validation.json |  |  | A990AE053DDB2517 |
+| 06_REPORTS\step8_fabrication.json |  |  | 05CC1AA0B8EF24E5 |
+| 07_FABRICATION\3d\HybridPanda.step |  |  | 3C8E77AF9C875524 |
+| 07_FABRICATION\assembly\BOM_JLC.csv |  |  | ECE16B4632ADC574 |
+| 07_FABRICATION\assembly\CPL_JLC.csv |  |  | E89981F855707C71 |
+| 07_FABRICATION\assembly\pos_kicad_both.csv |  |  | 8AF02F591CC69FE5 |
+| 07_FABRICATION\drill\HybridPanda-NPTH.drl |  |  | 606AE2227DED3BFB |
+| 07_FABRICATION\drill\HybridPanda-NPTH-drl_map.gbr |  |  | 3B0C12801F39A85B |
+| 07_FABRICATION\drill\HybridPanda-NPTH-drl_map.pdf |  |  | 16947BDF209F48AC |
+| 07_FABRICATION\drill\HybridPanda-PTH.drl |  |  | 8FF1CE63A7B09C89 |
+| 07_FABRICATION\drill\HybridPanda-PTH-drl_map.gbr |  |  | 40160ACBE5855409 |
+| 07_FABRICATION\drill\HybridPanda-PTH-drl_map.pdf |  |  | 445B719E39757F25 |
+| 07_FABRICATION\drill_table.json |  |  | 9052358F071FB5BC |
+| 07_FABRICATION\drill_table.md |  |  | EECB4CB08DAF3A98 |
+| 07_FABRICATION\gerber_check.json |  |  | 1BBFF95BA4B433BE |
+| 07_FABRICATION\gerbers\HybridPanda-B_Cu.gbl |  |  | 1DA7EA5D4104AC6F |
+| 07_FABRICATION\gerbers\HybridPanda-B_Mask.gbs |  |  | 20E3F5EAD711C1E0 |
+| 07_FABRICATION\gerbers\HybridPanda-B_Paste.gbp |  |  | 60BC4E28DAE7A675 |
+| 07_FABRICATION\gerbers\HybridPanda-B_Silkscreen.gbo |  |  | 72814B184AF6B79C |
+| 07_FABRICATION\gerbers\HybridPanda-Edge_Cuts.gm1 |  |  | 4ACDFC55F56E250B |
+| 07_FABRICATION\gerbers\HybridPanda-F_Cu.gtl |  |  | C1183186C7D8CCDD |
+| 07_FABRICATION\gerbers\HybridPanda-F_Mask.gts |  |  | 0B94AB50318454F6 |
+| 07_FABRICATION\gerbers\HybridPanda-F_Paste.gtp |  |  | 1D3420EEF33AC121 |
+| 07_FABRICATION\gerbers\HybridPanda-F_Silkscreen.gto |  |  | 519B52C5C5003337 |
+| 07_FABRICATION\gerbers\HybridPanda-In1_Cu.g1 |  |  | CC01E36CF82A7711 |
+| 07_FABRICATION\gerbers\HybridPanda-In2_Cu.g2 |  |  | A8EE4FB83D94C368 |
+| 07_FABRICATION\gerbers\HybridPanda-job.gbrjob |  |  | DD0B56D1863327E1 |
+| 07_FABRICATION\HybridPanda_gerbers_JLC.zip |  |  | 6CDBF041D7C34A84 |
+| 07_FABRICATION\LEIA-ME.txt |  |  | 77AA8C8CBA8DAB78 |
+| 07_FABRICATION\pdf\HybridPanda_assembly_bottom.pdf |  |  | 8A8D090DBD57743C |
+| 07_FABRICATION\pdf\HybridPanda_assembly_top.pdf |  |  | 1B9C7197BB2AFFBC |
+| 07_FABRICATION\pdf\HybridPanda_copper_B.pdf |  |  | 5CB7ADBB38DC791B |
+| 07_FABRICATION\pdf\HybridPanda_copper_F.pdf |  |  | B74DEBF674739437 |
+| 07_FABRICATION\pdf\HybridPanda_copper_In1.pdf |  |  | 27271BBAC00E448F |
+| 07_FABRICATION\pdf\HybridPanda_copper_In2.pdf |  |  | 61F66111E64EAF52 |
+| 07_FABRICATION\pdf\HybridPanda_fab_bottom.pdf |  |  | A99A74773E504630 |
+| 07_FABRICATION\pdf\HybridPanda_fab_top.pdf |  |  | C396F53D68ED9479 |
+| 07_FABRICATION\pdf\HybridPanda_schematic.pdf |  |  | 4335FF993B94195F |
 | 08_DOCS\LICENSE_OpenBlackPanda.txt |  |  | 9035DB7C5B72D230 |
 | 08_DOCS\LICENSE_opendbc.txt |  |  | 6543C4A66B46AFFD |
 | 08_DOCS\LICENSE_panda_MIT.txt |  |  | 0F8F541EE42CF973 |
@@ -12826,6 +12835,7 @@ Atualizado: 2026-10-28 10:07 (STEP7). Manifesto: `OUTPUT_ROOT_STEP7_20261028_100
 | 10_FLOWPILOT\ci_logs\local_files.txt |  |  | 10E39A43666F1BB7 |
 | 10_FLOWPILOT\ci_logs\msg.txt |  |  | EB7A0475CB0B09EA |
 | 10_FLOWPILOT\ci_logs\msg2.txt |  |  | 4C9E01316D2985FE |
+| 10_FLOWPILOT\ci_logs\msg3.txt |  |  | DBCA4487A97AE66C |
 | 10_FLOWPILOT\ci_logs\run_40574515751.log |  |  | 37F2A3C5671FFC9E |
 | 10_FLOWPILOT\ci_logs\run_40683947737.log |  |  | 9814305C06A1AD3C |
 | 10_FLOWPILOT\ci_logs\upstream_files.txt |  |  | F91A6520CE07B6FB |
@@ -14929,7 +14939,7 @@ Atualizado: 2026-10-28 10:07 (STEP7). Manifesto: `OUTPUT_ROOT_STEP7_20261028_100
 | 10_FLOWPILOT\tests_windows\run_panda_safety.py |  |  | C2292D7C9446A4B7 |
 | 10_FLOWPILOT\tests_windows\run_script.py |  |  | C51DE5874738E92D |
 | 10_FLOWPILOT\tests_windows\sim_city_fp.py |  |  | 1437CC4BA0A01156 |
-| INDEX.md |  |  | EF4FAABB3F768B8C |
+| INDEX.md |  |  | C930B9F1AEBB1E9B |
 | OUTPUT_ROOT.txt |  |  | C79B60B017ADD081 |
 | README.md |  |  | F45FDD62F11B4E22 |
 

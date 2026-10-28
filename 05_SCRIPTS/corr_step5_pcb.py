@@ -219,6 +219,35 @@ def vss_revert(b):
     save(b, "vss_revert")
 
 
+# ----------------------------------------------------------------------------- u6ep (item 15)
+# Positions sit in the gaps between the 0.6 mm paste squares of the U6 (TPS5450 DDA) exposed pad.
+# The lower row (y >= 43.1) is excluded: SWDIO runs on In2.Cu at y ~43.56 under the EP (shorting_items).
+U6EP = [(107.41, 40.84), (108.71, 40.84), (107.41, 42.14), (108.71, 42.14), (108.06, 41.2)]
+
+
+def u6ep(b, revert=False):
+    gnd = b.FindNet("GND")
+    # U6 has 9 pads numbered "9" (EP + 8 paste squares); take the copper EP (largest)
+    p = max((q for q in b.FindFootprintByReference("U6").Pads() if q.GetNumber() == "9"), key=lambda q: q.GetSize().x * q.GetSize().y)
+    if revert:
+        n = 0
+        for t in list(b.GetTracks()):
+            if t.GetClass() == "PCB_VIA" and any(same(t.GetPosition(), q) for q in U6EP):
+                b.Remove(t); n += 1
+        p.SetLocalZoneConnection(pcbnew.ZONE_CONNECTION_INHERITED)
+        print("u6ep reverted %d" % n); log({"step": "u6ep_revert", "n": n}); save(b, "u6ep_revert"); return
+    bb = p.GetBoundingBox()
+    added = []
+    for q in U6EP:
+        if not bb.Contains(P(*q)):
+            print("skip outside EP", q); continue
+        add_via(b, gnd, q, 0.6, 0.3); added.append(q)
+    p.SetLocalZoneConnection(pcbnew.ZONE_CONNECTION_FULL)
+    print("u6ep vias", len(added))
+    log({"step": "u6ep", "added": added})
+    save(b, "u6ep")
+
+
 # ----------------------------------------------------------------------------- can (item 26)
 def can(b, revert=None):
     n = 0
@@ -536,6 +565,8 @@ def main():
         outline(b)
     elif cmd == "thermal":
         thermal(b)
+    elif cmd == "u6ep":
+        u6ep(b, revert=bool(a and a[0] == "--revert"))
     elif cmd == "vss":
         if a and a[0] == "--revert":
             vss_revert(b)

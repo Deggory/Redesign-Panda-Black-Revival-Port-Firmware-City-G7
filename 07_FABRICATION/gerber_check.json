@@ -1,99 +1,99 @@
 {
  "HybridPanda-B_Cu.gbl": {
-  "bytes": 498283,
-  "apertures": 17,
-  "flashes_D03": 257,
-  "draws_D01": 17580,
+  "bytes": 482793,
+  "apertures": 16,
+  "flashes_D03": 285,
+  "draws_D01": 16887,
   "has_M02": true,
   "format_FS": true,
   "unit_MM": true
  },
  "HybridPanda-B_Mask.gbs": {
-  "bytes": 73632,
+  "bytes": 76336,
   "apertures": 7,
   "flashes_D03": 37,
-  "draws_D01": 1728,
+  "draws_D01": 1792,
   "has_M02": true,
   "format_FS": true,
   "unit_MM": true
  },
  "HybridPanda-B_Paste.gbp": {
-  "bytes": 72911,
+  "bytes": 75615,
   "apertures": 2,
   "flashes_D03": 14,
-  "draws_D01": 1728,
+  "draws_D01": 1792,
   "has_M02": true,
   "format_FS": true,
   "unit_MM": true
  },
  "HybridPanda-B_Silkscreen.gbo": {
-  "bytes": 83428,
+  "bytes": 86582,
   "apertures": 10,
   "flashes_D03": 37,
-  "draws_D01": 1928,
+  "draws_D01": 2001,
   "has_M02": true,
   "format_FS": true,
   "unit_MM": true
  },
  "HybridPanda-Edge_Cuts.gm1": {
-  "bytes": 6955,
+  "bytes": 7005,
   "apertures": 1,
   "flashes_D03": 0,
-  "draws_D01": 264,
+  "draws_D01": 266,
   "has_M02": true,
   "format_FS": true,
   "unit_MM": true
  },
  "HybridPanda-F_Cu.gtl": {
-  "bytes": 453160,
+  "bytes": 466148,
   "apertures": 45,
-  "flashes_D03": 355,
-  "draws_D01": 15950,
+  "flashes_D03": 385,
+  "draws_D01": 16435,
   "has_M02": true,
   "format_FS": true,
   "unit_MM": true
  },
  "HybridPanda-F_Mask.gts": {
-  "bytes": 92842,
+  "bytes": 94288,
   "apertures": 26,
-  "flashes_D03": 134,
-  "draws_D01": 2888,
+  "flashes_D03": 132,
+  "draws_D01": 2924,
   "has_M02": true,
   "format_FS": true,
   "unit_MM": true
  },
  "HybridPanda-F_Paste.gtp": {
-  "bytes": 46724,
-  "apertures": 20,
-  "flashes_D03": 123,
-  "draws_D01": 992,
+  "bytes": 46135,
+  "apertures": 18,
+  "flashes_D03": 119,
+  "draws_D01": 1000,
   "has_M02": true,
   "format_FS": true,
   "unit_MM": true
  },
  "HybridPanda-F_Silkscreen.gto": {
-  "bytes": 212159,
+  "bytes": 210225,
   "apertures": 35,
-  "flashes_D03": 134,
-  "draws_D01": 5260,
+  "flashes_D03": 132,
+  "draws_D01": 5227,
   "has_M02": true,
   "format_FS": true,
   "unit_MM": true
  },
  "HybridPanda-In1_Cu.g1": {
-  "bytes": 359077,
-  "apertures": 13,
-  "flashes_D03": 240,
-  "draws_D01": 13780,
+  "bytes": 389226,
+  "apertures": 14,
+  "flashes_D03": 268,
+  "draws_D01": 14934,
   "has_M02": true,
   "format_FS": true,
   "unit_MM": true
  },
  "HybridPanda-In2_Cu.g2": {
-  "bytes": 232485,
-  "apertures": 9,
-  "flashes_D03": 240,
-  "draws_D01": 8945,
+  "bytes": 192419,
+  "apertures": 8,
+  "flashes_D03": 268,
+  "draws_D01": 7335,
   "has_M02": true,
   "format_FS": true,
   "unit_MM": true
@@ -106,15 +106,15 @@
   "metric": true
  },
  "HybridPanda-PTH.drl": {
-  "bytes": 4324,
-  "tools": 6,
-  "hits": 240,
+  "bytes": 4690,
+  "tools": 5,
+  "hits": 268,
   "has_M30": true,
   "metric": true
  },
  "_excellon_total_hits_vs_pcb": {
-  "excellon": 242,
-  "pcb_holes": 242,
+  "excellon": 270,
+  "pcb_holes": 270,
   "match": true
  }
 }

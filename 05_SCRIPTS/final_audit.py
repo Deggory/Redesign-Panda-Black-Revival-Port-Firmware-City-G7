@@ -134,18 +134,27 @@ for s in zone_clr[:50]: F("MEDIO", "folga", "zona a < 0,10 mm de outra rede", **
 outline = pcbnew.SHAPE_POLY_SET(); board.GetBoardPolygonOutlines(outline, True)
 bbox_board = outline.BBox()
 # via-in-pad
-vip = []
+vip, thermal_vias = [], []
 for v in vias:
     for p in pads:
         if p.GetDrillSize().x == 0 and p.GetBoundingBox().Contains(v.GetPosition()):
             l = pcbnew.F_Cu if p.IsOnLayer(pcbnew.F_Cu) else pcbnew.B_Cu
             if p.GetEffectiveShape(l).Collide(pcbnew.SHAPE_CIRCLE(v.GetPosition(), v.GetWidth() // 2), 0):
-                vip.append({"via": "%s @%.2f,%.2f d%.2f/%.2f" % (v.GetNetname(), ToMM(v.GetPosition().x), ToMM(v.GetPosition().y), ToMM(v.GetWidth()), ToMM(v.GetDrill())),
-                            "pad": desc_pad(p), "mesma_rede": v.GetNetCode() == p.GetNetCode(), "footprint": p.GetParentFootprint().GetFPID().GetLibItemName().wx_str()})
+                rec = {"via": "%s @%.2f,%.2f d%.2f/%.2f" % (v.GetNetname(), ToMM(v.GetPosition().x), ToMM(v.GetPosition().y), ToMM(v.GetWidth()), ToMM(v.GetDrill())),
+                       "pad": desc_pad(p), "mesma_rede": v.GetNetCode() == p.GetNetCode(), "footprint": p.GetParentFootprint().GetFPID().GetLibItemName().wx_str()}
+                sz = p.GetSize()
+                # same-net via inside an exposed/thermal pad (>= 2 mm both ways) is a deliberate thermal via, not a defect
+                if rec["mesma_rede"] and min(ToMM(sz.x), ToMM(sz.y)) >= 2.0:
+                    thermal_vias.append(rec)
+                else:
+                    vip.append(rec)
 out["via_in_pad"] = vip
+out["thermal_vias"] = thermal_vias
 for x in vip:
     if not x["mesma_rede"]: F("CRITICO", "curto", "via de outra rede dentro de pad SMD", **x)
 F("ALTO" if vip else "INFO", "montagem", "%d vias dentro de pads SMD (via-in-pad): risco de sucção de solda/tombstone em 0402 — exigir vias tapadas (plugged/capped, IPC-4761 tipo VI/VII) ou aceitar retrabalho; sem isso, montagem por refluxo pode falhar nesses pads" % len(vip))
+if thermal_vias:
+    F("INFO", "montagem", "%d vias térmicas (mesma rede) em pads expostos (%s): voiding/sucção de solda no EP é esperado; posicionadas entre os quadrados de pasta" % (len(thermal_vias), ", ".join(sorted(set(x["footprint"] for x in thermal_vias)))))
 # teia de máscara entre pads de redes diferentes (mesma camada)
 exp = ToMM(ds.m_SolderMaskExpansion) if hasattr(ds, "m_SolderMaskExpansion") else None
 mask_web = []

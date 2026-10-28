@@ -1,5 +1,5 @@
 {
- "date": "2026-10-28 10:04:27",
+ "date": "2026-10-28 10:16:21",
  "board": "04_PROJECT\\HybridPanda\\HybridPanda.kicad_pcb",
  "findings": [
   {
@@ -80,6 +80,11 @@
    "msg": "0 vias dentro de pads SMD (via-in-pad): risco de sucção de solda/tombstone em 0402 — exigir vias tapadas (plugged/capped, IPC-4761 tipo VI/VII) ou aceitar retrabalho; sem isso, montagem por refluxo pode falhar nesses pads"
   },
   {
+   "sev": "INFO",
+   "area": "montagem",
+   "msg": "5 vias térmicas (mesma rede) em pads expostos (CONV_TPS5450DDAR): voiding/sucção de solda no EP é esperado; posicionadas entre os quadrados de pasta"
+  },
+  {
    "sev": "MEDIO",
    "area": "borda",
    "msg": "footprint com caixa fora do contorno (verificar visualmente)",
@@ -111,7 +116,7 @@
   {
    "sev": "INFO",
    "area": "montagem",
-   "msg": "119 vias sob corpos de componentes (tenting F/B = True/True)"
+   "msg": "124 vias sob corpos de componentes (tenting F/B = True/True)"
   },
   {
    "sev": "INFO",
@@ -261,6 +266,38 @@
   "nets_multi_pad": 63
  },
  "via_in_pad": [],
+ "thermal_vias": [
+  {
+   "via": "GND @108.06,41.20 d0.60/0.30",
+   "pad": "pad U6.9 [GND]",
+   "mesma_rede": true,
+   "footprint": "CONV_TPS5450DDAR"
+  },
+  {
+   "via": "GND @108.71,40.84 d0.60/0.30",
+   "pad": "pad U6.9 [GND]",
+   "mesma_rede": true,
+   "footprint": "CONV_TPS5450DDAR"
+  },
+  {
+   "via": "GND @108.71,42.14 d0.60/0.30",
+   "pad": "pad U6.9 [GND]",
+   "mesma_rede": true,
+   "footprint": "CONV_TPS5450DDAR"
+  },
+  {
+   "via": "GND @107.41,42.14 d0.60/0.30",
+   "pad": "pad U6.9 [GND]",
+   "mesma_rede": true,
+   "footprint": "CONV_TPS5450DDAR"
+  },
+  {
+   "via": "GND @107.41,40.84 d0.60/0.30",
+   "pad": "pad U6.9 [GND]",
+   "mesma_rede": true,
+   "footprint": "CONV_TPS5450DDAR"
+  }
+ ],
  "mask": {
   "expansion_mm_global": 0.0,
   "webs_lt_0.10": [],
@@ -316,7 +353,7 @@
  "vias_under_components": {
   "tent_front": true,
   "tent_back": true,
-  "count": 119,
+  "count": 124,
   "list": [
    {
     "via": "+3V3 @103.00,65.86",
@@ -454,8 +491,18 @@
     "rede_do_componente": true
    },
    {
+    "via": "GND @108.06,41.20",
+    "sob": "U6",
+    "rede_do_componente": true
+   },
+   {
     "via": "GND @109.99,33.32",
     "sob": "D12",
+    "rede_do_componente": true
+   },
+   {
+    "via": "GND @108.71,40.84",
+    "sob": "U6",
     "rede_do_componente": true
    },
    {
@@ -559,6 +606,11 @@
     "rede_do_componente": true
    },
    {
+    "via": "GND @108.71,42.14",
+    "sob": "U6",
+    "rede_do_componente": true
+   },
+   {
     "via": "GND @117.62,42.20",
     "sob": "L4",
     "rede_do_componente": false
@@ -589,6 +641,11 @@
     "rede_do_componente": true
    },
    {
+    "via": "GND @107.41,42.14",
+    "sob": "U6",
+    "rede_do_componente": true
+   },
+   {
     "via": "GND @108.64,71.37",
     "sob": "JP1",
     "rede_do_componente": true
@@ -611,6 +668,11 @@
    {
     "via": "GND @141.58,67.15",
     "sob": "D8",
+    "rede_do_componente": true
+   },
+   {
+    "via": "GND @107.41,40.84",
+    "sob": "U6",
     "rede_do_componente": true
    },
    {
@@ -1080,7 +1142,7 @@
    "max_w": 0.8,
    "len_mm": 215.5,
    "n": 222,
-   "vias": 91,
+   "vias": 96,
    "min_w_at": "97.94,63.39 F.Cu"
   },
   "+5V": {
@@ -1578,10 +1640,10 @@
    ]
   }
  ],
- "seconds": 10.8,
+ "seconds": 21.2,
  "by_severity": {
   "ALTO": 9,
-  "INFO": 18,
+  "INFO": 19,
   "MEDIO": 2,
   "BAIXO": 1
  }

@@ -105,7 +105,7 @@ run([CLI, "pcb", "export", "pos", "--format", "csv", "--units", "mm", "--side", 
 out["assembly"] = {"bom_lines": len(bom_rows), "bom_refs": sum(r["Qty"] for r in bom_rows), "cpl_rows": len(cpl), "cpl_top": sum(1 for c in cpl if c["Layer"] == "Top"),
                    "cpl_bottom": sum(1 for c in cpl if c["Layer"] == "Bottom"), "refs_without_LCSC": sorted(set(no_lcsc)), "refs_without_MPN": sorted(set(no_mpn)),
                    "aux_origin_mm": [pcbnew.ToMM(aux.x), pcbnew.ToMM(aux.y)],
-                   "note": "Rotação CPL = orientação KiCad; JLC pode exigir correção por footprint (não verificado). LCSC vazio em todas as linhas: campo não existe no esquemático."}
+                   "note": "Rotação CPL = orientação KiCad; JLC pode exigir correção por footprint (não verificado). LCSC lido do campo 'LCSC' do esquemático (códigos 'a verificar' em 06_REPORTS/bom_real/BOM_HYBRIDPANDA_v1.csv)."}
 # ------------------------------------------------------------------ tabela de furação
 holes = []
 for fp in board.GetFootprints():
@@ -174,8 +174,8 @@ inherited = {k: v for k, v in drc7.get("by_type", {}).items() if v.get("hibrida"
 blocks += ["Impedância/skew CAN-FD e USB: apenas estimativa analítica (step6_reports.py); o DRC do KiCad não verifica impedância; stackup 4 camadas 1.59 mm assumido, não confirmado com o fabricante.",
            "USB_D± não é par acoplado: Freerouting roteou com vias (ver STEP5_layout_H725.md §5/§7); FS 12 Mb/s tolera, mas não foi validado.",
            "Nenhuma placa foi fabricada, montada ou medida — zero validação física; firmware red panda oficial NUNCA foi executado neste hardware.",
-           "BOM: %d referências sem MPN (PROVISÓRIO) e nenhuma com código LCSC — montagem JLC exige preencher." % len(out["assembly"]["refs_without_MPN"]),
-           "Violações DRC herdadas do baseline OpenBlackPanda não corrigidas (text_height, lib_footprint_mismatch, silk, starved_thermal, hole_clearance P1, courtyards_overlap) — ver STEP5_layout_H725.md §7.3.",
+           "BOM: %d referências sem MPN e %d sem código LCSC (de %d); códigos LCSC marcados 'a verificar' em 06_REPORTS\\bom_real\\BOM_HYBRIDPANDA_v1.csv ainda não confirmados no catálogo JLC — montagem JLC exige confirmar." % (len(out["assembly"]["refs_without_MPN"]), len(out["assembly"]["refs_without_LCSC"]), out["assembly"]["bom_refs"]),
+           "Violações DRC herdadas do baseline OpenBlackPanda não corrigidas (%s) — ver STEP5_layout_H725.md §7.3 e 06_REPORTS\\CORRECOES_APLICADAS.md." % (", ".join("%s %d" % (k, v["hibrida"]) for k, v in inherited.items()) or "nenhuma"),
            "Verificação em visualizador de gerber: NÃO EXECUTADA automaticamente (sem gerbv/gerbview CLI); apenas verificação sintática (gerber_check.json). Abrir gerbers/ no KiCad GerbView antes de qualquer pedido.",
            "Toolchain ARM: instalada localmente (Arm GNU 14.2.Rel1, %LOCALAPPDATA%\\arm-gnu-toolchain) mas firmware ainda NÃO compilado/assinado para este hardware; dependência do fluxo oficial de DFU/assinatura do commaai (ver STEP9).",
            "Rotação dos componentes no CPL não normalizada para a convenção JLC (requer ajuste manual por footprint no painel JLC).",
