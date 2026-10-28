@@ -295,19 +295,24 @@ Necessario porque a panda vem com bootstub de release (secao 5).
 2. Com o venv ativo: `pip install pyusb libusb1`.
 3. Colocar a panda em DFU: desconectar, manter o botao de boot pressionado (ou curto entre BOOT0 e 3V3 nas
    pandas sem botao) e conectar o USB; ou, se ja houver firmware funcional, `python -c "from panda import Panda; Panda().reset(enter_bootloader=True)"`.
-4. Gravar bootstub e aplicacao (a partir de `flowpilot\panda`, com `board\obj\` ja compilado pela secao 5):
+4. Gravar o bootstub (a partir da raiz `flowpilot\`, com `panda\board\obj\` ja compilado pela secao 5).
+   `PandaDFU.recover()` apaga os setores 0 e 1, grava `bootstub.panda.bin` em 0x8000000 e salta para ele;
+   ele NAO grava a aplicacao:
 
 ```
-python - <<'PY'   (no Windows: salvar como script .py e executar)
-from panda import PandaDFU
-d = PandaDFU(None)
-# recover() grava bootstub.panda.bin em 0x8000000 e panda.bin.signed em 0x8004000 e reinicia
-d.recover()
-PY
+python -c "from panda import PandaDFU; PandaDFU(None).recover()"
 ```
 
-   Alternativa equivalente: `python board/recover.py` (ele chama `scons` antes; no Windows substituir pelo
-   comando da secao 5 e depois chamar `PandaDFU.recover()` como acima).
+   A placa reenumera como bootstub (`bbaa:ddee`; no Windows, Zadig/WinUSB de novo). Em seguida gravar a
+   aplicacao (`panda.bin.signed`, 0x8004000):
+
+```
+python -c "from panda import Panda; Panda().flash()"
+```
+
+   Equivalente no Linux: `python board/recover.py` seguido de `python board/flash.py` (ambos chamam `scons`
+   antes). Passo a passo completo, incluindo a placa do Lukas (SW1 = BOOT0) e as tres arvores de firmware:
+   `09_FIRMWARECITYG7_BLACKPANDA\FLASH_BLACK_PANDA_CITY_G7.pt-BR.md`.
 5. Reconectar e verificar: `python -c "from panda import Panda; p=Panda(); print(p.get_type(), p.get_version(), p.get_signature().hex()[:16])"`.
    Esperado: tipo `b'\x03'` (black), versao `DEV-a2f1983c-DEBUG`.
 

@@ -22,6 +22,7 @@ Nada foi validado em hardware ou no carro ate agora. Documentacao em PT-BR (ASCI
 - `05_SCRIPTS/` - scripts de geracao, verificacao e correcao (KiCad python, DRC gate).
 - `06_REPORTS/` - auditorias (SI/PI, footprint vs datasheet, BOM com pecas reais), DRC/ERC, correcoes.
 - `09_FIRMWARECITYG7_BLACKPANDA/` - port do City para v0.9.9: LEIA-ME, auditorias, patches `git format-patch`, tools.
+  Guia de gravacao da panda preta (placa do Lukas, DFU, 3 arvores de firmware): `FLASH_BLACK_PANDA_CITY_G7.md` (EN) / `.pt-BR.md`; binarios `revive-f4` em `panda_fw_out_revive_f4/`.
 - `10_FLOWPILOT/` - escopo, relatorio do port, firmware F4 do flowpilot (`panda_fw_out/`), shims de teste Windows.
 
 Espelho historico: [kriptomad/PandaH7Openpilot](https://github.com/kriptomad/PandaH7Openpilot).
