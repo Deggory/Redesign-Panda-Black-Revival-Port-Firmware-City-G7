@@ -2,7 +2,7 @@
 <export version="E">
   <design>
     <source>C:\Users\costabr\Downloads\openpilot\HybridPanda_v2_20261022_1616\04_PROJECT\HybridPanda\HybridPanda.kicad_sch</source>
-    <date>2026-10-27T15:52:06</date>
+    <date>2026-10-28T08:56:01</date>
     <tool>Eeschema 10.0.7</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -99,7 +99,7 @@
       </units>
     </comp>
     <comp ref="C4">
-      <value>2.2uF</value>
+      <value>10uF</value>
       <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
       <fields>
         <field name="Note">100V Ceramic X7R</field>
@@ -271,7 +271,7 @@
       </units>
     </comp>
     <comp ref="C12">
-      <value>2.2uF</value>
+      <value>10uF</value>
       <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
       <fields>
         <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
@@ -1734,6 +1734,30 @@
         </unit>
       </units>
     </comp>
+    <comp ref="D15">
+      <value>BZT52C12</value>
+      <footprint>Diode_SMD:D_SOD-123</footprint>
+      <fields>
+        <field name="Footprint">Diode_SMD:D_SOD-123</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Device" part="D_Zener" description="Zener diode"/>
+      <property name="Sheetname" value="BlackPanda"/>
+      <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
+      <property name="ki_keywords" value="diode"/>
+      <property name="ki_fp_filters" value="TO-???* *_Diode_* *SingleDiode* D_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>2f9e4a72-2d0f-4173-a5a5-a36c7050c1ea</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
     <comp ref="FB1">
       <value>600R@100MHz</value>
       <footprint>Inductor_SMD:L_0603_1608Metric</footprint>
@@ -2042,10 +2066,10 @@
       </units>
     </comp>
     <comp ref="R1">
-      <value>1K</value>
-      <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <value>10k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
       <fields>
-        <field name="Footprint">Resistor_SMD:R_0402_1005Metric</field>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
@@ -3090,6 +3114,34 @@
         </unit>
       </units>
     </comp>
+    <comp ref="U13">
+      <value>USBLC6-2SC6</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23-6</footprint>
+      <fields>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23-6</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="Power_Protection" part="USBLC6-2P6" description="Very low capacitance ESD protection diode, 2 data-line, SOT-666"/>
+      <property name="Sheetname" value="BlackPanda"/>
+      <property name="Sheetfile" value="HybridPanda.kicad_sch"/>
+      <property name="ki_keywords" value="usb ethernet video"/>
+      <property name="ki_fp_filters" value="SOT?666*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>fbd6bd0a-c259-4b32-8a00-dc7993adb901</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="3"/>
+            <pin num="5"/>
+            <pin num="2"/>
+            <pin num="6"/>
+            <pin num="4"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
     <comp ref="Y1">
       <value>25MHz X322525MOB4SI</value>
       <footprint>Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm</footprint>
@@ -3235,6 +3287,26 @@
         <field name="Footprint"/>
         <field name="Datasheet"/>
         <field name="Description">Schottky diode</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="D_Zener">
+      <description>Zener diode</description>
+      <footprints>
+        <fp>TO-???*</fp>
+        <fp>*_Diode_*</fp>
+        <fp>*SingleDiode*</fp>
+        <fp>D_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">D_Zener</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Zener diode</field>
       </fields>
       <pins>
         <pin num="1" name="K" type="passive"/>
@@ -3616,6 +3688,28 @@
         <pin num="3" name="" type="passive"/>
       </pins>
     </libpart>
+    <libpart lib="Power_Protection" part="USBLC6-2P6">
+      <description>Very low capacitance ESD protection diode, 2 data-line, SOT-666</description>
+      <docs>https://www.st.com/resource/en/datasheet/usblc6-2.pdf</docs>
+      <footprints>
+        <fp>SOT?666*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">USBLC6-2P6</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-666</field>
+        <field name="Datasheet">https://www.st.com/resource/en/datasheet/usblc6-2.pdf</field>
+        <field name="Description">Very low capacitance ESD protection diode, 2 data-line, SOT-666</field>
+      </fields>
+      <pins>
+        <pin num="1" name="I/O1" type="passive"/>
+        <pin num="2" name="GND" type="passive"/>
+        <pin num="3" name="I/O2" type="passive"/>
+        <pin num="4" name="I/O2" type="passive"/>
+        <pin num="5" name="VBUS" type="passive"/>
+        <pin num="6" name="I/O1" type="passive"/>
+      </pins>
+    </libpart>
     <libpart lib="Regulator_Linear" part="XL1509-3.3">
       <description>150mA low dropout adjustable linear regulator, wide input voltage range, PSOP-8 package</description>
       <docs>https://datasheet.lcsc.com/lcsc/1809050422_XLSEMI-XL1509-5-0E1_C61063.pdf</docs>
@@ -3786,6 +3880,9 @@
     <library logical="PESD2CAN_215">
       <uri>${KIPRJMOD}/HybridPanda.symbols/PESD2CAN_215.lib</uri>
     </library>
+    <library logical="Power_Protection">
+      <uri>${KICAD10_SYMBOL_DIR}/Power_Protection.kicad_sym</uri>
+    </library>
     <library logical="Regulator_Linear">
       <uri>${KICAD10_SYMBOL_DIR}/Regulator_Linear.kicad_sym</uri>
     </library>
@@ -3919,6 +4016,7 @@
       <node ref="C4" pin="1" pintype="passive"/>
       <node ref="C6" pin="1" pintype="passive"/>
       <node ref="C7" pin="1" pintype="passive"/>
+      <node ref="D15" pin="1" pinfunction="K_1" pintype="passive"/>
       <node ref="D2" pin="1" pinfunction="K_1" pintype="passive"/>
       <node ref="Q4" pin="1" pinfunction="S_1" pintype="passive"/>
       <node ref="Q4" pin="2" pinfunction="S_2" pintype="passive"/>
@@ -4121,6 +4219,7 @@
       <node ref="U12" pin="6" pinfunction="GND_6" pintype="power_in"/>
       <node ref="U12" pin="7" pinfunction="GND_7" pintype="power_in"/>
       <node ref="U12" pin="8" pinfunction="GND_8" pintype="power_in"/>
+      <node ref="U13" pin="2" pinfunction="GND_2" pintype="passive"/>
       <node ref="U3" pin="4" pinfunction="GND_4" pintype="unspecified"/>
       <node ref="U6" pin="6" pinfunction="GND_6" pintype="power_in"/>
       <node ref="U6" pin="9" pinfunction="POWERPAD_9" pintype="power_in"/>
@@ -4186,15 +4285,16 @@
       <node ref="J1" pin="10" pinfunction="Pin_10_10" pintype="passive"/>
       <node ref="U7" pin="27" pinfunction="NRST_27" pintype="input"/>
     </net>
-    <net code="37" name="Net-(D2-A)" class="Default">
-      <node ref="D2" pin="2" pinfunction="A_2" pintype="passive"/>
-      <node ref="Q4" pin="4" pinfunction="G_4" pintype="input"/>
-      <node ref="R1" pin="2" pintype="passive"/>
-    </net>
-    <net code="38" name="Net-(D11-K)" class="Default">
+    <net code="37" name="Net-(D11-K)" class="Default">
       <node ref="D11" pin="1" pinfunction="K_1" pintype="passive"/>
       <node ref="L3" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="U12" pin="2" pinfunction="OUT_2" pintype="output"/>
+    </net>
+    <net code="38" name="Net-(D15-A)" class="Default">
+      <node ref="D15" pin="2" pinfunction="A_2" pintype="passive"/>
+      <node ref="D2" pin="2" pinfunction="A_2" pintype="passive"/>
+      <node ref="Q4" pin="4" pinfunction="G_4" pintype="input"/>
+      <node ref="R1" pin="2" pintype="passive"/>
     </net>
     <net code="39" name="Net-(JP1-B)" class="Default">
       <node ref="JP1" pin="2" pinfunction="B_2" pintype="passive"/>
@@ -4270,14 +4370,19 @@
       <node ref="C34" pin="2" pintype="passive"/>
       <node ref="D10" pin="2" pinfunction="A_2" pintype="passive"/>
       <node ref="U1" pin="1" pinfunction="OUT_1" pintype="output"/>
+      <node ref="U13" pin="5" pinfunction="VBUS_5" pintype="passive"/>
       <node ref="U3" pin="1" pinfunction="VCC_1" pintype="unspecified"/>
     </net>
     <net code="55" name="USB_R_D+" class="USB">
       <node ref="R21" pin="1" pintype="passive"/>
+      <node ref="U13" pin="3" pinfunction="I/O2_3" pintype="passive"/>
+      <node ref="U13" pin="4" pinfunction="I/O2_4" pintype="passive"/>
       <node ref="U3" pin="3" pinfunction="D+_3" pintype="unspecified"/>
     </net>
     <net code="56" name="USB_R_D-" class="USB">
       <node ref="R20" pin="2" pintype="passive"/>
+      <node ref="U13" pin="1" pinfunction="I/O1_1" pintype="passive"/>
+      <node ref="U13" pin="6" pinfunction="I/O1_6" pintype="passive"/>
       <node ref="U3" pin="2" pinfunction="D-_2" pintype="unspecified"/>
     </net>
     <net code="57" name="VCAP" class="Default">

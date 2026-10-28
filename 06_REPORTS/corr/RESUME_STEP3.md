@@ -49,3 +49,12 @@ Pendente / nao aplicado:
    U3 shell GND, regras de drc_audit.json, P1 hole clearance.
 6. Final: final_audit + DRC + step7 + step8_fabricate.py (exports); docs RELATORIO_FINAL.md, PROGRESS.md,
    DECISIONS.md (D-34+), 06_REPORTS/CORRECOES_APLICADAS.md. Sem push.
+
+## Fechamento do passo 3 (sessao seguinte)
+- Item 6: campo Footprint de C4/C12 revertido para C_0805_2012Metric (corr_step3_c4c12.py); peca BOM 10uF 50V X5R 0805.
+- tracks_crossing (U13.2 GND x link USB_R_D+ em F.Cu, herdado do 3c) corrigido por corr_step3_u13gnd.py: trilho D+ do conector
+  movido para y=38.4, GND do U13.2 sai para cima ate via (128.85,39.2). DRC step3e: total 179, clearance 0, unconnected 0.
+- Item 16: DEFERIDO. A posicao proposta para D12 (109.3,38.6 rot 90) colide com U6; a zona SW e o unico cobre largo entre
+  U6.8 e D12.1 (apaga-la deixaria 0.4 mm para a corrente do indutor); aproximar L4 exige realocar C4/C6/C7/L4 (re-floorplan).
+  C37.2->PH < 2 mm impossivel (BOOT pino 1 e PH pino 8 em lados opostos do DDA). Ver CORRECOES_APLICADAS.md.
+- step7_validate.py: falhas []; final_audit.py: shorts 0, vip 0, hole_hits 8 (P1, herdado).

@@ -1,7 +1,7 @@
 {
     "$schema": "https://schemas.kicad.org/drc.v1.json",
     "coordinate_units": "mm",
-    "date": "2026-10-27T15:52:05",
+    "date": "2026-10-28T08:56:00",
     "ignored_checks": [
         {
             "description": "Footprint has no courtyard defined",
@@ -330,52 +330,6 @@
             "type": "starved_thermal"
         },
         {
-            "description": "Thermal relief connection to zone incomplete (layer In1.Cu; zone min spoke count 2; actual 1)",
-            "items": [
-                {
-                    "description": "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
-                    "pos": {
-                        "x": 85.07,
-                        "y": 26.88
-                    },
-                    "uuid": "c983a438-601f-4ab9-a61f-435bbeaecf84"
-                },
-                {
-                    "description": "PTH pad 9 [GND] of U6",
-                    "pos": {
-                        "x": 108.71,
-                        "y": 40.19
-                    },
-                    "uuid": "d3ad4325-5bbe-493d-b84c-88556184a59f"
-                }
-            ],
-            "severity": "error",
-            "type": "starved_thermal"
-        },
-        {
-            "description": "Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)",
-            "items": [
-                {
-                    "description": "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
-                    "pos": {
-                        "x": 85.07,
-                        "y": 26.88
-                    },
-                    "uuid": "c983a438-601f-4ab9-a61f-435bbeaecf84"
-                },
-                {
-                    "description": "Pad 1 [GND] of C10 on F.Cu",
-                    "pos": {
-                        "x": 110.58,
-                        "y": 47.33
-                    },
-                    "uuid": "250a6f71-118d-4cd3-9e92-03f599c42880"
-                }
-            ],
-            "severity": "error",
-            "type": "starved_thermal"
-        },
-        {
             "description": "Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)",
             "items": [
                 {
@@ -416,6 +370,52 @@
                         "y": 54.749952
                     },
                     "uuid": "1f7c6ebc-dcc0-47cf-8058-db09994f81e8"
+                }
+            ],
+            "severity": "error",
+            "type": "starved_thermal"
+        },
+        {
+            "description": "Thermal relief connection to zone incomplete (layer In1.Cu; zone min spoke count 2; actual 1)",
+            "items": [
+                {
+                    "description": "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
+                    "pos": {
+                        "x": 85.07,
+                        "y": 26.88
+                    },
+                    "uuid": "c983a438-601f-4ab9-a61f-435bbeaecf84"
+                },
+                {
+                    "description": "PTH pad 9 [GND] of U6",
+                    "pos": {
+                        "x": 108.71,
+                        "y": 40.19
+                    },
+                    "uuid": "d3ad4325-5bbe-493d-b84c-88556184a59f"
+                }
+            ],
+            "severity": "error",
+            "type": "starved_thermal"
+        },
+        {
+            "description": "Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)",
+            "items": [
+                {
+                    "description": "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
+                    "pos": {
+                        "x": 85.07,
+                        "y": 26.88
+                    },
+                    "uuid": "c983a438-601f-4ab9-a61f-435bbeaecf84"
+                },
+                {
+                    "description": "Pad 1 [GND] of C10 on F.Cu",
+                    "pos": {
+                        "x": 110.58,
+                        "y": 47.33
+                    },
+                    "uuid": "250a6f71-118d-4cd3-9e92-03f599c42880"
                 }
             ],
             "severity": "error",
@@ -560,6 +560,29 @@
             "type": "starved_thermal"
         },
         {
+            "description": "Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)",
+            "items": [
+                {
+                    "description": "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
+                    "pos": {
+                        "x": 85.07,
+                        "y": 26.88
+                    },
+                    "uuid": "c983a438-601f-4ab9-a61f-435bbeaecf84"
+                },
+                {
+                    "description": "Pad 3 [GND] of D6 on F.Cu",
+                    "pos": {
+                        "x": 130.07,
+                        "y": 62.46
+                    },
+                    "uuid": "55a3c525-0791-4291-a85b-8f5c9e237408"
+                }
+            ],
+            "severity": "error",
+            "type": "starved_thermal"
+        },
+        {
             "description": "Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)",
             "items": [
                 {
@@ -623,29 +646,6 @@
                         "y": 45.9375
                     },
                     "uuid": "8ca5ae76-dca4-429e-9b25-1d1f2d37eeda"
-                }
-            ],
-            "severity": "error",
-            "type": "starved_thermal"
-        },
-        {
-            "description": "Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)",
-            "items": [
-                {
-                    "description": "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
-                    "pos": {
-                        "x": 85.07,
-                        "y": 26.88
-                    },
-                    "uuid": "c983a438-601f-4ab9-a61f-435bbeaecf84"
-                },
-                {
-                    "description": "Pad 3 [GND] of D6 on F.Cu",
-                    "pos": {
-                        "x": 130.07,
-                        "y": 62.46
-                    },
-                    "uuid": "55a3c525-0791-4291-a85b-8f5c9e237408"
                 }
             ],
             "severity": "error",
@@ -1300,21 +1300,6 @@
             "type": "lib_footprint_mismatch"
         },
         {
-            "description": "Footprint 'R_0402_1005Metric' does not match copy in library 'Resistor_SMD'",
-            "items": [
-                {
-                    "description": "Footprint R21",
-                    "pos": {
-                        "x": 122.0,
-                        "y": 48.205
-                    },
-                    "uuid": "90e39039-09cb-4966-b38f-67dbc12f60f9"
-                }
-            ],
-            "severity": "warning",
-            "type": "lib_footprint_mismatch"
-        },
-        {
             "description": "Footprint 'SOT95P230X110-3N' does not match copy in library 'BlackPanda'",
             "items": [
                 {
@@ -1600,21 +1585,6 @@
             "type": "lib_footprint_mismatch"
         },
         {
-            "description": "Footprint 'R_0402_1005Metric' does not match copy in library 'Resistor_SMD'",
-            "items": [
-                {
-                    "description": "Footprint R20",
-                    "pos": {
-                        "x": 122.0,
-                        "y": 49.225
-                    },
-                    "uuid": "d14ff9c1-3bfc-460f-979c-cb31d8e01ed9"
-                }
-            ],
-            "severity": "warning",
-            "type": "lib_footprint_mismatch"
-        },
-        {
             "description": "Footprint 'C_0402_1005Metric' does not match copy in library 'Capacitor_SMD'",
             "items": [
                 {
@@ -1735,21 +1705,6 @@
             "type": "lib_footprint_mismatch"
         },
         {
-            "description": "Footprint 'R_0402_1005Metric' does not match copy in library 'Resistor_SMD'",
-            "items": [
-                {
-                    "description": "Footprint R1",
-                    "pos": {
-                        "x": 133.975,
-                        "y": 52.4
-                    },
-                    "uuid": "e1d563fa-89b4-43cb-a279-990a77a7bfb9"
-                }
-            ],
-            "severity": "warning",
-            "type": "lib_footprint_mismatch"
-        },
-        {
             "description": "Footprint 'USB-C-SMD_TYPE-C-USB-20' does not match copy in library 'BlackPanda'",
             "items": [
                 {
@@ -1840,6 +1795,21 @@
             "type": "lib_footprint_mismatch"
         },
         {
+            "description": "Footprint 'R_0402_1005Metric' does not match copy in library 'Resistor_SMD'",
+            "items": [
+                {
+                    "description": "Footprint R21",
+                    "pos": {
+                        "x": 114.25,
+                        "y": 44.25
+                    },
+                    "uuid": "90e39039-09cb-4966-b38f-67dbc12f60f9"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_mismatch"
+        },
+        {
             "description": "Footprint 'Fiducial_1mm_Mask2mm' does not match copy in library 'Fiducial'",
             "items": [
                 {
@@ -1864,6 +1834,21 @@
                         "y": 43.66
                     },
                     "uuid": "cd63b18e-4ddf-4dc4-a694-668df5c12ffa"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_mismatch"
+        },
+        {
+            "description": "Footprint 'R_0402_1005Metric' does not match copy in library 'Resistor_SMD'",
+            "items": [
+                {
+                    "description": "Footprint R20",
+                    "pos": {
+                        "x": 114.25,
+                        "y": 43.15
+                    },
+                    "uuid": "d14ff9c1-3bfc-460f-979c-cb31d8e01ed9"
                 }
             ],
             "severity": "warning",
@@ -2443,21 +2428,6 @@
             "description": "Text height out of range (board setup constraints silk text height min height 0,8000 mm; actual 0,5000 mm)",
             "items": [
                 {
-                    "description": "Reference field of R21",
-                    "pos": {
-                        "x": 122.0,
-                        "y": 47.44
-                    },
-                    "uuid": "9c5dc8f0-f327-4f4a-8756-4367b492ae61"
-                }
-            ],
-            "severity": "warning",
-            "type": "text_height"
-        },
-        {
-            "description": "Text height out of range (board setup constraints silk text height min height 0,8000 mm; actual 0,5000 mm)",
-            "items": [
-                {
                     "description": "Reference field of D8",
                     "pos": {
                         "x": 139.539998,
@@ -2728,21 +2698,6 @@
             "description": "Text height out of range (board setup constraints silk text height min height 0,8000 mm; actual 0,5000 mm)",
             "items": [
                 {
-                    "description": "Reference field of R20",
-                    "pos": {
-                        "x": 122.03,
-                        "y": 50.09
-                    },
-                    "uuid": "ed120bfc-d2db-49d8-8852-4a7928368e16"
-                }
-            ],
-            "severity": "warning",
-            "type": "text_height"
-        },
-        {
-            "description": "Text height out of range (board setup constraints silk text height min height 0,8000 mm; actual 0,5000 mm)",
-            "items": [
-                {
                     "description": "Reference field of C2",
                     "pos": {
                         "x": 96.54,
@@ -2854,21 +2809,6 @@
                         "y": 51.44
                     },
                     "uuid": "b0dee745-e296-4a30-9dc4-ec86ecf64141"
-                }
-            ],
-            "severity": "warning",
-            "type": "text_height"
-        },
-        {
-            "description": "Text height out of range (board setup constraints silk text height min height 0,8000 mm; actual 0,5000 mm)",
-            "items": [
-                {
-                    "description": "Reference field of R1",
-                    "pos": {
-                        "x": 133.975,
-                        "y": 53.29
-                    },
-                    "uuid": "ebab04b1-f602-43a6-a1e8-cc26c8d2d434"
                 }
             ],
             "severity": "warning",
@@ -2991,6 +2931,29 @@
             "description": "Silkscreen clearance",
             "items": [
                 {
+                    "description": "Segment of C30 on F.Silkscreen",
+                    "pos": {
+                        "x": 123.1,
+                        "y": 61.402164
+                    },
+                    "uuid": "3a4c173c-c11e-4e7a-acde-cff3eb235a84"
+                },
+                {
+                    "description": "Reference field of C30",
+                    "pos": {
+                        "x": 122.77,
+                        "y": 61.51
+                    },
+                    "uuid": "5b394403-cb07-4170-9e2f-03da85bf768e"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
                     "description": "Reference field of C31",
                     "pos": {
                         "x": 122.945,
@@ -3011,27 +2974,27 @@
             "type": "silk_overlap"
         },
         {
-            "description": "Silkscreen clearance",
+            "description": "Silkscreen clipped by solder mask",
             "items": [
                 {
-                    "description": "Segment of C30 on F.Silkscreen",
+                    "description": "Segment of P1 on F.Silkscreen",
                     "pos": {
-                        "x": 123.1,
-                        "y": 61.402164
+                        "x": 133.205066,
+                        "y": 53.955032
                     },
-                    "uuid": "3a4c173c-c11e-4e7a-acde-cff3eb235a84"
+                    "uuid": "8a7db01b-d277-4b11-b85d-dc9b12f4c438"
                 },
                 {
-                    "description": "Reference field of C30",
+                    "description": "Pad 1 [GND] of R1 on F.Cu",
                     "pos": {
-                        "x": 122.77,
-                        "y": 61.51
+                        "x": 134.0,
+                        "y": 54.225
                     },
-                    "uuid": "5b394403-cb07-4170-9e2f-03da85bf768e"
+                    "uuid": "be25bf2f-0cc5-4b0c-9ac5-144846913499"
                 }
             ],
             "severity": "warning",
-            "type": "silk_overlap"
+            "type": "silk_over_copper"
         },
         {
             "description": "Silkscreen clearance",

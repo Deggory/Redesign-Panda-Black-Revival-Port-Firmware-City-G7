@@ -1,5 +1,5 @@
 {
- "date": "2026-10-27 15:54:31",
+ "date": "2026-10-28 08:58:28",
  "board": "04_PROJECT\\HybridPanda\\HybridPanda.kicad_pcb",
  "findings": [
   {
@@ -111,22 +111,22 @@
   {
    "sev": "INFO",
    "area": "montagem",
-   "msg": "109 vias sob corpos de componentes (tenting F/B = True/True)"
+   "msg": "117 vias sob corpos de componentes (tenting F/B = True/True)"
   },
   {
    "sev": "INFO",
    "area": "montagem",
-   "msg": "123 componentes, 42 no lado B (C38, FB1, D14, C52, C42, C63, C23, C50, R28, C62, C53, C46…), THT: U6, U3, P1; 47 referências sem serigrafia (identificação só pelo CPL)"
+   "msg": "125 componentes, 45 no lado B (C38, FB1, D14, C52, C42, C63, C23, C50, R28, C62, D15, C53…), THT: U6, U3, P1; 52 referências sem serigrafia (identificação só pelo CPL)"
   },
   {
    "sev": "INFO",
    "area": "montagem",
-   "msg": "polaridade/pino 1 a confirmar visualmente no render/F.Fab: D12, D7, U12, D2, U9, U1, U8, D11, D9, Q1, D5, D6, Q2, D8, U6, U5, D10, Q3, Q4, U10, U11, D1, U3, P1, JP1, D14, D13, U7, J1, Y1"
+   "msg": "polaridade/pino 1 a confirmar visualmente no render/F.Fab: D12, D7, U12, D2, U9, U1, U8, D11, D9, Q1, D5, D6, Q2, D8, U6, U5, D10, Q3, Q4, U10, U11, D1, U3, P1, U13, JP1, D14, D15, D13, U7, J1, Y1"
   },
   {
    "sev": "BAIXO",
    "area": "fabrico",
-   "msg": "120 junções de trilha com ângulo agudo (< 90°) — 'acid traps' cosméticos em processo moderno; o Freerouting gera 45°/90° mas o A* do 5c pode gerar outros"
+   "msg": "122 junções de trilha com ângulo agudo (< 90°) — 'acid traps' cosméticos em processo moderno; o Freerouting gera 45°/90° mas o A* do 5c pode gerar outros"
   },
   {
    "sev": "INFO",
@@ -196,11 +196,11 @@
   {
    "sev": "ALTO",
    "area": "BOM",
-   "msg": "50 linhas / 114 referências; 0 com MPN — não encomendável sem preencher; itens críticos marcados (VCAP ESR, SMPS, L5, Y1 CL)"
+   "msg": "53 linhas / 114 referências; 0 com MPN — não encomendável sem preencher; itens críticos marcados (VCAP ESR, SMPS, L5, Y1 CL)"
   }
  ],
  "shorts": {
-  "pairs_tested": 779,
+  "pairs_tested": 740,
   "copper_overlap_other_net": [],
   "clearance_lt_0.10": [],
   "zone_overlap_other_net": [],
@@ -318,7 +318,7 @@
  "vias_under_components": {
   "tent_front": true,
   "tent_back": true,
-  "count": 109,
+  "count": 117,
   "list": [
    {
     "via": "+3V3 @103.00,65.86",
@@ -516,6 +516,11 @@
     "rede_do_componente": true
    },
    {
+    "via": "GND @128.85,39.20",
+    "sob": "U13",
+    "rede_do_componente": true
+   },
+   {
     "via": "GND @95.26,42.53",
     "sob": "D11",
     "rede_do_componente": true
@@ -651,9 +656,29 @@
     "rede_do_componente": true
    },
    {
+    "via": "+5V @117.30,55.00",
+    "sob": "U1",
+    "rede_do_componente": true
+   },
+   {
+    "via": "+5V @117.30,55.00",
+    "sob": "U7",
+    "rede_do_componente": false
+   },
+   {
     "via": "+5V @119.53,46.44",
     "sob": "U7",
     "rede_do_componente": false
+   },
+   {
+    "via": "Net-(D15-A) @134.70,51.50",
+    "sob": "D2",
+    "rede_do_componente": true
+   },
+   {
+    "via": "Net-(D15-A) @134.70,51.50",
+    "sob": "D15",
+    "rede_do_componente": true
    },
    {
     "via": "SBU1 @128.94,67.30",
@@ -686,8 +711,23 @@
     "rede_do_componente": true
    },
    {
+    "via": "12V_Protected @134.75,49.42",
+    "sob": "D15",
+    "rede_do_componente": true
+   },
+   {
     "via": "12V_Protected @134.80,50.35",
     "sob": "D2",
+    "rede_do_componente": true
+   },
+   {
+    "via": "12V_Protected @134.80,50.35",
+    "sob": "D15",
+    "rede_do_componente": true
+   },
+   {
+    "via": "12V_Protected @134.75,48.60",
+    "sob": "D15",
     "rede_do_componente": true
    },
    {
@@ -714,6 +754,11 @@
     "via": "LED_RED @115.08,64.40",
     "sob": "U7",
     "rede_do_componente": true
+   },
+   {
+    "via": "USB_PWR @129.78,46.50",
+    "sob": "D1",
+    "rede_do_componente": false
    },
    {
     "via": "BUS1O_TX @102.97,47.67",
@@ -744,11 +789,6 @@
     "via": "relay_SBU1 @126.90,70.00",
     "sob": "Q1",
     "rede_do_componente": false
-   },
-   {
-    "via": "USB_D+ @112.67,49.69",
-    "sob": "U7",
-    "rede_do_componente": true
    },
    {
     "via": "USB_LOAD @110.26,49.90",
@@ -791,19 +831,24 @@
     "rede_do_componente": true
    },
    {
-    "via": "USB_D- @117.44,47.85",
-    "sob": "U7",
+    "via": "USB_R_D- @113.64,42.75",
+    "sob": "C7",
+    "rede_do_componente": false
+   },
+   {
+    "via": "USB_R_D- @113.64,42.75",
+    "sob": "R20",
     "rede_do_componente": true
    },
    {
-    "via": "USB_D- @112.78,48.75",
-    "sob": "U7",
-    "rede_do_componente": true
-   },
-   {
-    "via": "USB_D- @113.61,43.01",
+    "via": "USB_R_D+ @113.64,44.78",
     "sob": "C12",
     "rede_do_componente": false
+   },
+   {
+    "via": "Net-(JP1-B) @107.30,66.20",
+    "sob": "U7",
+    "rede_do_componente": true
    },
    {
     "via": "NRST @111.44,38.14",
@@ -821,7 +866,12 @@
     "rede_do_componente": true
    },
    {
-    "via": "Net-(JP1-B) @107.30,66.20",
+    "via": "VCAP @118.19,62.68",
+    "sob": "U7",
+    "rede_do_componente": true
+   },
+   {
+    "via": "VCAP @114.51,48.64",
     "sob": "U7",
     "rede_do_componente": true
    },
@@ -837,16 +887,6 @@
    },
    {
     "via": "SBU1_ADC @100.73,61.66",
-    "sob": "U7",
-    "rede_do_componente": true
-   },
-   {
-    "via": "VCAP @118.19,62.68",
-    "sob": "U7",
-    "rede_do_componente": true
-   },
-   {
-    "via": "VCAP @114.51,48.64",
     "sob": "U7",
     "rede_do_componente": true
    },
@@ -884,6 +924,7 @@
    "C50",
    "R28",
    "C62",
+   "D15",
    "C53",
    "C46",
    "C24",
@@ -898,6 +939,7 @@
    "C49",
    "C51",
    "J1",
+   "R21",
    "C44",
    "C54",
    "R32",
@@ -909,6 +951,7 @@
    "R29",
    "C45",
    "FID6",
+   "R20",
    "R33",
    "C60",
    "Y1",
@@ -942,14 +985,17 @@
    "D1",
    "U3",
    "P1",
+   "U13",
    "JP1",
    "D14",
+   "D15",
    "D13",
    "U7",
    "J1",
    "Y1"
   ],
   "ref_silk_escondida": [
+   "R1",
    "C47",
    "C58",
    "L4",
@@ -957,6 +1003,7 @@
    "FID3",
    "C65",
    "FID1",
+   "U13",
    "C48",
    "JP1",
    "C38",
@@ -968,6 +1015,7 @@
    "C50",
    "R28",
    "C62",
+   "D15",
    "C53",
    "C46",
    "C57",
@@ -980,6 +1028,7 @@
    "C49",
    "C51",
    "J1",
+   "R21",
    "C44",
    "C54",
    "R32",
@@ -991,6 +1040,7 @@
    "R29",
    "C45",
    "FID6",
+   "R20",
    "R33",
    "C60",
    "FID5",
@@ -1006,7 +1056,7 @@
    "FID6",
    "FID5"
   ],
-  "total_fp": 123
+  "total_fp": 125
  },
  "power_tracks": {
   "+3V3": {
@@ -1020,25 +1070,25 @@
   "GND": {
    "min_w": 0.2,
    "max_w": 0.8,
-   "len_mm": 223.3,
-   "n": 225,
-   "vias": 74,
+   "len_mm": 215.5,
+   "n": 222,
+   "vias": 75,
    "min_w_at": "97.94,63.39 F.Cu"
   },
   "+5V": {
    "min_w": 0.2,
    "max_w": 1.0,
-   "len_mm": 130.7,
-   "n": 94,
-   "vias": 14,
+   "len_mm": 131.3,
+   "n": 95,
+   "vias": 15,
    "min_w_at": "108.82,46.24 F.Cu"
   },
   "USB_PWR": {
    "min_w": 0.2,
    "max_w": 1.0,
-   "len_mm": 26.5,
-   "n": 16,
-   "vias": 0,
+   "len_mm": 31.1,
+   "n": 19,
+   "vias": 2,
    "min_w_at": "118.50,53.80 F.Cu"
   },
   "+12V": {
@@ -1050,7 +1100,7 @@
    "min_w_at": "141.40,51.11 F.Cu"
   }
  },
- "acute_angles": 120,
+ "acute_angles": 122,
  "rules": {
   "min_track_mm": 0.14,
   "min_via_drill_mm": 0.25,
@@ -1144,10 +1194,20 @@
    ]
   },
   {
-   "refs": "C4,C6,C7,C12",
+   "refs": "C4,C12,C42",
+   "value": "10uF",
+   "footprint": "C_0805_2012Metric",
+   "qty": "3",
+   "notas": [
+    "sem MPN",
+    "SMPS Cout 10 µF ESR 20 mΩ (DS13311 §6.3.3)"
+   ]
+  },
+  {
+   "refs": "C6,C7",
    "value": "2.2uF",
    "footprint": "C_0805_2012Metric",
-   "qty": "4",
+   "qty": "2",
    "notas": [
     "sem MPN"
    ]
@@ -1216,16 +1276,6 @@
    "notas": [
     "sem MPN",
     "SMPS Cin/Cfilt (DS13311 §6.3.3)"
-   ]
-  },
-  {
-   "refs": "C42",
-   "value": "10uF",
-   "footprint": "C_0805_2012Metric",
-   "qty": "1",
-   "notas": [
-    "sem MPN",
-    "SMPS Cout 10 µF ESR 20 mΩ (DS13311 §6.3.3)"
    ]
   },
   {
@@ -1314,6 +1364,15 @@
    "value": "BAT54S",
    "footprint": "SOT-23",
    "qty": "2",
+   "notas": [
+    "sem MPN"
+   ]
+  },
+  {
+   "refs": "D15",
+   "value": "BZT52C12",
+   "footprint": "D_SOD-123",
+   "qty": "1",
    "notas": [
     "sem MPN"
    ]
@@ -1411,10 +1470,19 @@
    ]
   },
   {
-   "refs": "R1,R2",
+   "refs": "R1",
+   "value": "10k",
+   "footprint": "R_0603_1608Metric",
+   "qty": "1",
+   "notas": [
+    "sem MPN"
+   ]
+  },
+  {
+   "refs": "R2",
    "value": "1K",
    "footprint": "R_0402_1005Metric",
-   "qty": "2",
+   "qty": "1",
    "notas": [
     "sem MPN"
    ]
@@ -1573,6 +1641,15 @@
    ]
   },
   {
+   "refs": "U13",
+   "value": "USBLC6-2SC6",
+   "footprint": "SOT-23-6",
+   "qty": "1",
+   "notas": [
+    "sem MPN"
+   ]
+  },
+  {
    "refs": "Y1",
    "value": "25MHz X322525MOB4SI",
    "footprint": "Crystal_SMD_3225-4Pin_3.2x2.5mm",
@@ -1583,7 +1660,7 @@
    ]
   }
  ],
- "seconds": 11.3,
+ "seconds": 9.5,
  "by_severity": {
   "ALTO": 9,
   "INFO": 18,

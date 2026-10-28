@@ -25,7 +25,10 @@ SCH = os.path.join(ROOT, "04_PROJECT", "HybridPanda", "HybridPanda.kicad_sch")
 PRO = os.path.join(ROOT, "04_PROJECT", "HybridPanda", "HybridPanda.kicad_pro")
 CLI = str(hp.KICAD_CLI)
 CORR_DIR = os.path.join(ROOT, "06_REPORTS", "corr")
-BASELINE = os.path.join(ROOT, "06_REPORTS", "hybrid_DRC_step7.json")
+# frozen copy of the pre-correction step7 DRC (step7_validate.py rewrites hybrid_DRC_step7.json on every run)
+BASELINE = os.path.join(CORR_DIR, "drc_baseline_step7_orig.json")
+if not os.path.exists(BASELINE):
+    BASELINE = os.path.join(ROOT, "06_REPORTS", "hybrid_DRC_step7.json")
 
 
 def summarize(path):
