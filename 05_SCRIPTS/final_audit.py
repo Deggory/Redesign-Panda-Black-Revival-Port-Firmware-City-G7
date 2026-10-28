@@ -316,7 +316,12 @@ for r in bom:
     if "FB1" in refs: note.append("ferrite VDDA: PROVISÓRIO (ex. BLM18 600 Ω/100 MHz)")
     flags.append({"refs": refs, "value": v, "footprint": fp_, "qty": r.get("Qty"), "notas": note})
 out["bom"] = flags
-F("ALTO", "BOM", "%d linhas / 114 referências; 0 com MPN — não encomendável sem preencher; itens críticos marcados (VCAP ESR, SMPS, L5, Y1 CL)" % len(bom))
+n_refs = sum(len([x for x in f["refs"].split(",") if x.strip()]) for f in flags)
+n_mpn = sum(1 for f in flags if "sem MPN" not in f["notas"])
+if n_mpn < len(flags):
+    F("ALTO", "BOM", "%d linhas / %d referências; %d linhas com MPN — não encomendável sem preencher as restantes; itens críticos marcados (VCAP ESR, SMPS, L5, Y1 CL)" % (len(flags), n_refs, n_mpn))
+else:
+    F("INFO", "BOM", "%d linhas / %d referências; todas com MPN (LCSC 'a verificar' em 06_REPORTS/bom_real/BOM_HYBRIDPANDA_v1.csv); itens críticos marcados (VCAP ESR, SMPS, L5, Y1 CL)" % (len(flags), n_refs))
 for f in flags:
     if any("duvidos" in n or "não serve" in n for n in f["notas"]): F("MEDIO", "BOM", "; ".join(f["notas"]), refs=f["refs"], value=f["value"], footprint=f["footprint"])
 
@@ -353,3 +358,5 @@ L += ["", "## Veredicto honesto", "",
       "Os achados ALTO/MEDIO de montagem (via-in-pad, teia de máscara, fiduciais, BOM sem MPN) têm de ser resolvidos antes de qualquer encomenda. **Não fabricar** nesta revisão."]
 hp.guarded_write_text(os.path.join(ROOT, "03_RESEARCH", "AUDITORIA_FINAL.md"), "\n".join(L) + "\n")
 print(json.dumps({"by_severity": out["by_severity"], "shorts": len(shorts), "zone_shorts": len(zone_shorts), "hole_hits": len(hole_hits), "clr": len(clr_viol), "zone_clr": len(zone_clr), "split": len(split_nets), "unconn": unconn, "vip": len(vip), "mask_web": len(mask_web), "cy": len(cy_overlap), "seconds": out["seconds"]}, ensure_ascii=False))
+sys.stdout.flush(); os._exit(0)  # pcbnew teardown can hang the interpreter (KiCad 10)
+

@@ -1,7 +1,7 @@
 ﻿# INDEX - HybridPanda_v2
 
 OUTPUT_ROOT: `C:\Users\costabr\Downloads\openpilot\HybridPanda_v2_20261022_1616`
-Atualizado: 2026-10-28 09:12 (STEP7). Manifesto: `OUTPUT_ROOT_STEP7_20261028_0909.sha256`. ORIGINAL: IDENTICAL (377 files). 02_REFERENCE inalterado: False.
+Atualizado: 2026-10-28 10:07 (STEP7). Manifesto: `OUTPUT_ROOT_STEP7_20261028_1005.sha256`. ORIGINAL: IDENTICAL (377 files). 02_REFERENCE inalterado: False.
 
 | Caminho relativo | Finalidade | STEP | SHA-256 (16 primeiros) |
 |---|---|---|---|
@@ -19,6 +19,7 @@ Atualizado: 2026-10-28 09:12 (STEP7). Manifesto: `OUTPUT_ROOT_STEP7_20261028_090
 | 00_MANIFESTS\original_AFTER_STEP7_20261027_1545.sha256 |  |  | A8EDE60CB29A4926 |
 | 00_MANIFESTS\original_AFTER_STEP7_20261027_1552.sha256 |  |  | A8EDE60CB29A4926 |
 | 00_MANIFESTS\original_AFTER_STEP7_20261028_0856.sha256 |  |  | A8EDE60CB29A4926 |
+| 00_MANIFESTS\original_AFTER_STEP7_20261028_0909.sha256 |  |  | A8EDE60CB29A4926 |
 | 00_MANIFESTS\original_AFTER_STEP9_20261026_1504.sha256 |  |  | A8EDE60CB29A4926 |
 | 00_MANIFESTS\original_BEFORE.sha256 |  |  | 50C8C724BF1899E2 |
 | 00_MANIFESTS\OUTPUT_ROOT_STEP2_20261023_0842.sha256 |  |  | D580BFA395D8C8CD |
@@ -35,9 +36,10 @@ Atualizado: 2026-10-28 09:12 (STEP7). Manifesto: `OUTPUT_ROOT_STEP7_20261028_090
 | 00_MANIFESTS\OUTPUT_ROOT_STEP7_20261027_1545.sha256 |  |  | 6DF1D7499E5FFD0D |
 | 00_MANIFESTS\OUTPUT_ROOT_STEP7_20261027_1552.sha256 |  |  | 921F179D168A1D82 |
 | 00_MANIFESTS\OUTPUT_ROOT_STEP7_20261028_0856.sha256 |  |  | EA2ADB22EB3E6BCC |
+| 00_MANIFESTS\OUTPUT_ROOT_STEP7_20261028_0909.sha256 |  |  | B0C59EF9590DE7C4 |
 | 00_MANIFESTS\OUTPUT_ROOT_STEP9_20261026_1504.sha256 |  |  | 65E8F6037D959AAB |
 | 00_MANIFESTS\reference_clones.sha256 |  |  | F5A3B5A3CED28CBB |
-| 03_RESEARCH\AUDITORIA_FINAL.md |  |  | 6D644DA01F1E5669 |
+| 03_RESEARCH\AUDITORIA_FINAL.md |  |  | C67DB7BD8582D34A |
 | 03_RESEARCH\coverage_matrix.csv |  |  | EEF50CBD8DAFEC28 |
 | 03_RESEARCH\coverage_matrix.md |  |  | 963056990201A03C |
 | 03_RESEARCH\DECISIONS.md |  |  | 207307D1D0B56E70 |
@@ -69,7 +71,7 @@ Atualizado: 2026-10-28 09:12 (STEP7). Manifesto: `OUTPUT_ROOT_STEP7_20261028_090
 | 03_RESEARCH\STEP4_esquematico_H725.md |  |  | 5BD5A0BE68DC106C |
 | 03_RESEARCH\STEP5_layout_H725.md |  |  | 7F234C7E0FDDBA0F |
 | 03_RESEARCH\STEP6_roteamento_impedancia.md |  |  | 8ED4E5CCA18108D3 |
-| 03_RESEARCH\STEP7_validacao.md |  |  | B8157ED076C1169A |
+| 03_RESEARCH\STEP7_validacao.md |  |  | 8D492B16804DC2BB |
 | 03_RESEARCH\STEP9_bringup_e_teste_veiculo.md |  |  | E11B30A736D96787 |
 | 04_PROJECT\HybridPanda\fp-lib-table |  |  | 08D2B61EDDF22D97 |
 | 04_PROJECT\HybridPanda\gerber\HybridPanda-B_Cu.gbr |  |  | E496286BD12B3747 |
@@ -101,7 +103,7 @@ Atualizado: 2026-10-28 09:12 (STEP7). Manifesto: `OUTPUT_ROOT_STEP7_20261028_090
 | 04_PROJECT\HybridPanda\HybridPanda.3d\U.FL Connector.stp |  |  | 0386F375C898572B |
 | 04_PROJECT\HybridPanda\HybridPanda.3d\USB-A-TH_10.0QHHTZB6.3.wrl |  |  | F83351CFC0C0AB82 |
 | 04_PROJECT\HybridPanda\HybridPanda.3d\USB-C-SMD_TYPE-C-USB-20.wrl |  |  | 4ADFCAABA889B5F0 |
-| 04_PROJECT\HybridPanda\HybridPanda.kicad_pcb |  |  | 66E24AE5F4E5CAC1 |
+| 04_PROJECT\HybridPanda\HybridPanda.kicad_pcb |  |  | FA0D16211F32FC1C |
 | 04_PROJECT\HybridPanda\HybridPanda.kicad_pcb.baseline |  |  | 423865B30F7DE185 |
 | 04_PROJECT\HybridPanda\HybridPanda.kicad_pcb.pre_fixaudit |  |  | 05E7F498E099ED2D |
 | 04_PROJECT\HybridPanda\HybridPanda.kicad_pcb.pre_fixdrc |  |  | 61BCD004E7698F33 |
@@ -112,8 +114,8 @@ Atualizado: 2026-10-28 09:12 (STEP7). Manifesto: `OUTPUT_ROOT_STEP7_20261028_090
 | 04_PROJECT\HybridPanda\HybridPanda.kicad_pcb.step5a |  |  | D974C85C08DFDA41 |
 | 04_PROJECT\HybridPanda\HybridPanda.kicad_pcb.step5e_in |  |  | 3F42586A7FE38B56 |
 | 04_PROJECT\HybridPanda\HybridPanda.kicad_prl |  |  | 8DD83658B3AF41E1 |
-| 04_PROJECT\HybridPanda\HybridPanda.kicad_pro |  |  | 1CA3E3088E1AB057 |
-| 04_PROJECT\HybridPanda\HybridPanda.kicad_sch |  |  | 64761307544208CA |
+| 04_PROJECT\HybridPanda\HybridPanda.kicad_pro |  |  | 7D2DB747C2181F9A |
+| 04_PROJECT\HybridPanda\HybridPanda.kicad_sch |  |  | 26A04715CF997CA3 |
 | 04_PROJECT\HybridPanda\HybridPanda.kicad_sch.baseline |  |  | 1C5F81E5752D2FCB |
 | 04_PROJECT\HybridPanda\HybridPanda.pretty\CONV_TPS5450DDAR.kicad_mod |  |  | 2340F333974AFE50 |
 | 04_PROJECT\HybridPanda\HybridPanda.pretty\DIOM4325X250N.kicad_mod |  |  | 32DD4A58A7122E9E |
@@ -149,9 +151,12 @@ Atualizado: 2026-10-28 09:12 (STEP7). Manifesto: `OUTPUT_ROOT_STEP7_20261028_090
 | 05_SCRIPTS\corr_step3_u13gnd.py |  |  | F505D70BCC0AC6EB |
 | 05_SCRIPTS\corr_step3_u13link.py |  |  | 017CFAAC4E27A0AF |
 | 05_SCRIPTS\corr_step4_bom.py |  |  | FCB87DD051FDE4A8 |
+| 05_SCRIPTS\corr_step5_bom.py |  |  | DC85E14E7A9EE493 |
+| 05_SCRIPTS\corr_step5_pcb.py |  |  | 702D536B25C032EC |
+| 05_SCRIPTS\corr_step5_sch.py |  |  | 6B36FBD023812E10 |
 | 05_SCRIPTS\coverage_matrix.py |  |  | 6E6A433F6DE42397 |
 | 05_SCRIPTS\extract_ds_pins.py |  |  | 81B284700B486C2F |
-| 05_SCRIPTS\final_audit.py |  |  | FDF8B66DA5012CAE |
+| 05_SCRIPTS\final_audit.py |  |  | 68AD4A537437803E |
 | 05_SCRIPTS\firmware_pins.json |  |  | 8A2003D896D3D3A2 |
 | 05_SCRIPTS\fix_audit.py |  |  | CA5268DFFB5DEA68 |
 | 05_SCRIPTS\fix_drc_regressions.py |  |  | ECDBD96937EB5A9F |
@@ -185,9 +190,9 @@ Atualizado: 2026-10-28 09:12 (STEP7). Manifesto: `OUTPUT_ROOT_STEP7_20261028_090
 | 06_REPORTS\baseline_DRC.rpt |  |  | AF5BB2EFBC067105 |
 | 06_REPORTS\baseline_ERC.json |  |  | 8522BCA0F378EC9E |
 | 06_REPORTS\baseline_ERC.rpt |  |  | 0CADE17533F2A384 |
-| 06_REPORTS\bom_real\BOM_HYBRIDPANDA_v1.csv |  |  | 836ED5264B102311 |
-| 06_REPORTS\bom_real\BOM_JLCPCB.csv |  |  | 2C9AF22234AB6446 |
-| 06_REPORTS\bom_real\BOM_REPORT.md |  |  | 473D9EB7B09B9BDC |
+| 06_REPORTS\bom_real\BOM_HYBRIDPANDA_v1.csv |  |  | F103FD7A62DB96FB |
+| 06_REPORTS\bom_real\BOM_JLCPCB.csv |  |  | BADEB9CAA7C9ACAB |
+| 06_REPORTS\bom_real\BOM_REPORT.md |  |  | 986D8C688529DA7F |
 | 06_REPORTS\bom_real\netlist_kicadxml_scratch.xml |  |  | F121942DA1BB6706 |
 | 06_REPORTS\corr\drc_baseline.json |  |  | 8F5C530A1F383D2D |
 | 06_REPORTS\corr\drc_baseline_step7_orig.json |  |  | 04662C1ABD1DD4E0 |
@@ -204,6 +209,22 @@ Atualizado: 2026-10-28 09:12 (STEP7). Manifesto: `OUTPUT_ROOT_STEP7_20261028_090
 | 06_REPORTS\corr\drc_step3c.json |  |  | 1DEE250EDD9D7012 |
 | 06_REPORTS\corr\drc_step3d.json |  |  | 252FB2D1F16AF4A3 |
 | 06_REPORTS\corr\drc_step3e.json |  |  | 565B39EFF6F1013D |
+| 06_REPORTS\corr\drc_step5a.json |  |  | 170386C04F0BD92D |
+| 06_REPORTS\corr\drc_step5b.json |  |  | E1EB0B08B86A365A |
+| 06_REPORTS\corr\drc_step5c.json |  |  | F1C8062F8D929229 |
+| 06_REPORTS\corr\drc_step5d.json |  |  | 9D676D3DFFE58682 |
+| 06_REPORTS\corr\drc_step5e.json |  |  | 3A12F390AAB8B66D |
+| 06_REPORTS\corr\drc_step5f.json |  |  | 7F31B542BACE2308 |
+| 06_REPORTS\corr\drc_step5g.json |  |  | 344C8E2B309EFC1C |
+| 06_REPORTS\corr\drc_step5h.json |  |  | 85E1539BE1A8B5A8 |
+| 06_REPORTS\corr\drc_step5i.json |  |  | 9F648E59A212033F |
+| 06_REPORTS\corr\drc_step5j.json |  |  | FD4FC82CAE52B172 |
+| 06_REPORTS\corr\drc_step5k.json |  |  | 68AE0AFEA1B74318 |
+| 06_REPORTS\corr\drc_step5l.json |  |  | FF3928EC037C070D |
+| 06_REPORTS\corr\drc_step5m.json |  |  | E043F8E8FC2448C5 |
+| 06_REPORTS\corr\drc_step5n.json |  |  | AF84406C24B63390 |
+| 06_REPORTS\corr\drc_step5o.json |  |  | EE012ADE40A1EF6F |
+| 06_REPORTS\corr\drc_step5p.json |  |  | 1CEF54AA4E89E82C |
 | 06_REPORTS\corr\erc_145136.json |  |  | 69B964C4EBBAFA83 |
 | 06_REPORTS\corr\erc_145210.json |  |  | BAFCEC70D43B89E8 |
 | 06_REPORTS\corr\erc_155443.json |  |  | A3C7887336C3DEA6 |
@@ -213,6 +234,7 @@ Atualizado: 2026-10-28 09:12 (STEP7). Manifesto: `OUTPUT_ROOT_STEP7_20261028_090
 | 06_REPORTS\corr\erc_155912.json |  |  | 9211CF9947AD03A3 |
 | 06_REPORTS\corr\erc_step3d.json |  |  | 3077171C7FC92EF1 |
 | 06_REPORTS\corr\erc_step4.json |  |  | FA130A6A820DD5DE |
+| 06_REPORTS\corr\erc_step5.json |  |  | A527DB435B5488F7 |
 | 06_REPORTS\corr\free_space_step2.txt |  |  | D969C6DC5F9B5138 |
 | 06_REPORTS\corr\netlist_step2.xml |  |  | 4637C0327362E6A8 |
 | 06_REPORTS\corr\netlist_step3.xml |  |  | 3C9C489B20C6850B |
@@ -225,10 +247,12 @@ Atualizado: 2026-10-28 09:12 (STEP7). Manifesto: `OUTPUT_ROOT_STEP7_20261028_090
 | 06_REPORTS\corr\step3_pcb.json |  |  | 849D29BF61421A5A |
 | 06_REPORTS\corr\step3_sch.json |  |  | 2141C4FA549BF53A |
 | 06_REPORTS\corr\step4_bom.json |  |  | 3B982B5BC11AFFDB |
+| 06_REPORTS\corr\step5_inspect.txt |  |  | E62206377F4E5DE5 |
+| 06_REPORTS\corr\step5_pcb.json |  |  | 5A6844507A179C10 |
 | 06_REPORTS\coverage_matrix.json |  |  | D2C725778AB8E429 |
 | 06_REPORTS\en\freerouting.log |  |  | 0E931935211D6E35 |
 | 06_REPORTS\extract_ds_pins.json |  |  | DEF770E44ED351CC |
-| 06_REPORTS\final_audit.json |  |  | 9140940393C83ADA |
+| 06_REPORTS\final_audit.json |  |  | 863C03B69A1C7B49 |
 | 06_REPORTS\fix_audit.json |  |  | A95F867101C0E132 |
 | 06_REPORTS\fix_drc_regressions.json |  |  | B740837DE958A986 |
 | 06_REPORTS\fix_drc_relayout.json |  |  | E744F9B842F27A91 |
@@ -257,23 +281,23 @@ Atualizado: 2026-10-28 09:12 (STEP7). Manifesto: `OUTPUT_ROOT_STEP7_20261028_090
 | 06_REPORTS\footprint_audit\pads_nonpassive.txt |  |  | 7EAAEFE2262D3664 |
 | 06_REPORTS\footprint_audit\polarity_dump.py |  |  | 0BBA0EFE7011DA7A |
 | 06_REPORTS\footprint_audit\proposed_fixes.py |  |  | 03CBDC7EC388DDCA |
-| 06_REPORTS\hybrid_BOM.csv |  |  | CE161AE42B7E59F2 |
+| 06_REPORTS\hybrid_BOM.csv |  |  | 12FDAF1165FEF693 |
 | 06_REPORTS\hybrid_DRC_fix_relayout.json |  |  | 2A609C900747FA3D |
 | 06_REPORTS\hybrid_DRC_fix_vip.json |  |  | C136F97B2437146A |
 | 06_REPORTS\hybrid_DRC_step5_final.json |  |  | E8C6628900132AD6 |
 | 06_REPORTS\hybrid_DRC_step5a.json |  |  | ADAA7B6A0E65A834 |
 | 06_REPORTS\hybrid_DRC_step5b.json |  |  | 543A7D0DD552D8BB |
 | 06_REPORTS\hybrid_DRC_step5e.json |  |  | 097934844249EF68 |
-| 06_REPORTS\hybrid_DRC_step7.json |  |  | 08B6B884B0C64EE0 |
+| 06_REPORTS\hybrid_DRC_step7.json |  |  | B1723F4A9E9E71C6 |
 | 06_REPORTS\hybrid_ERC.json |  |  | 446F3CE83B3E5970 |
-| 06_REPORTS\hybrid_ERC_step7.json |  |  | 967DD19E7D58B57C |
-| 06_REPORTS\hybrid_HybridPanda_netlist.xml |  |  | 3A7F3E0C3E552600 |
+| 06_REPORTS\hybrid_ERC_step7.json |  |  | 487CF72C3812D2F3 |
+| 06_REPORTS\hybrid_HybridPanda_netlist.xml |  |  | 7615ECED13251079 |
 | 06_REPORTS\hybrid_schematic.pdf |  |  | A70FD48BFBC059E9 |
 | 06_REPORTS\HybridPanda_step5b.dsn |  |  | 98DF418D65D4A924 |
 | 06_REPORTS\HybridPanda_step5b.ses |  |  | 4F2A877B05A74895 |
 | 06_REPORTS\parity_black_f4_baseline_BlackPanda_netlist.json |  |  | 65D70F469F72ED3A |
 | 06_REPORTS\parity_black_f4_baseline_BlackPanda_netlist.md |  |  | F431B864453A3173 |
-| 06_REPORTS\parity_red_h7_hybrid_HybridPanda_netlist.json |  |  | 372FAF6C63CACE22 |
+| 06_REPORTS\parity_red_h7_hybrid_HybridPanda_netlist.json |  |  | 11BA7FF706E905D2 |
 | 06_REPORTS\parity_red_h7_hybrid_HybridPanda_netlist.md |  |  | 7915C8C624C63BB0 |
 | 06_REPORTS\si_pi_audit\drc_audit.json |  |  | 75B3BDFC88F5CF1A |
 | 06_REPORTS\si_pi_audit\power_nets.json |  |  | 50776E1AB0F64F63 |
@@ -299,12 +323,12 @@ Atualizado: 2026-10-28 09:12 (STEP7). Manifesto: `OUTPUT_ROOT_STEP7_20261028_090
 | 06_REPORTS\step5e_relayout_east.json |  |  | 12975F16E8733F3D |
 | 06_REPORTS\step6_reports.json |  |  | 3CF4B7547A88845C |
 | 06_REPORTS\step7_bom.log |  |  | 2046DF6C25AAD4D0 |
-| 06_REPORTS\step7_drc.log |  |  | B2349CC87699DDB9 |
-| 06_REPORTS\step7_erc.log |  |  | 0D4E4B164DA5E1FC |
-| 06_REPORTS\step7_manifest.log |  |  | 254CB7D456FCB52C |
+| 06_REPORTS\step7_drc.log |  |  | D61DBB419D79C460 |
+| 06_REPORTS\step7_erc.log |  |  | 9BCF82601BEFE2B7 |
+| 06_REPORTS\step7_manifest.log |  |  | AE7B0D0C50309947 |
 | 06_REPORTS\step7_netlist.log |  |  | D448E3B890B40222 |
 | 06_REPORTS\step7_parity.log |  |  | CA003849E444DD29 |
-| 06_REPORTS\step7_validation.json |  |  | 250D5F5103F2A29C |
+| 06_REPORTS\step7_validation.json |  |  | AFA6F5DDC766AF08 |
 | 06_REPORTS\step8_fabrication.json |  |  | F1E05CF8ECF64382 |
 | 07_FABRICATION\3d\HybridPanda.step |  |  | B5C8F52B5DFC83F6 |
 | 07_FABRICATION\assembly\BOM_JLC.csv |  |  | DB3483B67A46C41F |
@@ -12798,10 +12822,16 @@ Atualizado: 2026-10-28 09:12 (STEP7). Manifesto: `OUTPUT_ROOT_STEP7_20261028_090
 | 10_FLOWPILOT\api_cache\safety_honda.h |  |  | 042C89EC5F208ABF |
 | 10_FLOWPILOT\api_cache\values.py |  |  | 979E304BC8A963FE |
 | 10_FLOWPILOT\api_cache\version.py |  |  | E3054B605B420A70 |
+| 10_FLOWPILOT\apk_out\android-release.apk |  |  | CBFC2AB9C425D6E5 |
+| 10_FLOWPILOT\ci_logs\local_files.txt |  |  | 10E39A43666F1BB7 |
 | 10_FLOWPILOT\ci_logs\msg.txt |  |  | EB7A0475CB0B09EA |
+| 10_FLOWPILOT\ci_logs\msg2.txt |  |  | 4C9E01316D2985FE |
 | 10_FLOWPILOT\ci_logs\run_40574515751.log |  |  | 37F2A3C5671FFC9E |
+| 10_FLOWPILOT\ci_logs\run_40683947737.log |  |  | 9814305C06A1AD3C |
+| 10_FLOWPILOT\ci_logs\upstream_files.txt |  |  | F91A6520CE07B6FB |
+| 10_FLOWPILOT\ci_logs\upstream_symlinks.txt |  |  | C40104AF8C89BA84 |
 | 10_FLOWPILOT\flowpilot\.github\ISSUE_TEMPLATE\bug_report.md |  |  | 64F020FB4C250611 |
-| 10_FLOWPILOT\flowpilot\.github\workflows\build.yml |  |  | 404DE4BF78BDDC4B |
+| 10_FLOWPILOT\flowpilot\.github\workflows\build.yml |  |  | EC38DB2171F2DE87 |
 | 10_FLOWPILOT\flowpilot\.gitignore |  |  | 49226D41F7B19979 |
 | 10_FLOWPILOT\flowpilot\.gitmodules |  |  | 3EB06634523DF1C2 |
 | 10_FLOWPILOT\flowpilot\.pre-commit-config.yaml |  |  | EB8044BE52816605 |
@@ -13022,7 +13052,7 @@ Atualizado: 2026-10-28 09:12 (STEP7). Manifesto: `OUTPUT_ROOT_STEP7_20261028_090
 | 10_FLOWPILOT\flowpilot\common\version.h |  |  | 7BE2F6FE5C18294F |
 | 10_FLOWPILOT\flowpilot\common\watchdog.cc |  |  | B2BB34987D11C0DD |
 | 10_FLOWPILOT\flowpilot\common\watchdog.h |  |  | 24C46FDEA2AC8020 |
-| 10_FLOWPILOT\flowpilot\docker\Dockerfile |  |  | D87AE019E8025E2B |
+| 10_FLOWPILOT\flowpilot\docker\Dockerfile |  |  | 81FCF31FA4EF234E |
 | 10_FLOWPILOT\flowpilot\docs\CARS.md |  |  | E1ECBFE0B8D6D6ED |
 | 10_FLOWPILOT\flowpilot\flowy\buildozer.spec |  |  | 010332E7ED73D315 |
 | 10_FLOWPILOT\flowpilot\flowy\pip-constraints.txt |  |  | B145430DD4386E0F |
@@ -13038,20 +13068,30 @@ Atualizado: 2026-10-28 09:12 (STEP7). Manifesto: `OUTPUT_ROOT_STEP7_20261028_090
 | 10_FLOWPILOT\flowpilot\flowy\recipes\pyzmq\__init__.py |  |  | 91B53D9BAF28537C |
 | 10_FLOWPILOT\flowpilot\flowy\settings.gradle |  |  | 628EAEFFF5E557C6 |
 | 10_FLOWPILOT\flowpilot\flowy\src\calibrationd.py |  |  | BE97D93C70420083 |
+| 10_FLOWPILOT\flowpilot\flowy\src\cereal |  |  | B7D59B97E153C607 |
+| 10_FLOWPILOT\flowpilot\flowy\src\common |  |  | D3321637308A81B1 |
 | 10_FLOWPILOT\flowpilot\flowy\src\controlsd.py |  |  | 7E30DE3A9BFE81D9 |
 | 10_FLOWPILOT\flowpilot\flowy\src\debugd.py |  |  | ACD2998F7DACFA44 |
 | 10_FLOWPILOT\flowpilot\flowy\src\flowreset.py |  |  | 503EF7EA9053B775 |
 | 10_FLOWPILOT\flowpilot\flowy\src\keyvald.py |  |  | 80C2D7D105163F6B |
 | 10_FLOWPILOT\flowpilot\flowy\src\logmessaged.py |  |  | CDA43141834A2264 |
+| 10_FLOWPILOT\flowpilot\flowy\src\opendbc |  |  | 9BF1F7E5D9A185F8 |
+| 10_FLOWPILOT\flowpilot\flowy\src\panda |  |  | FC483C750DE610A5 |
 | 10_FLOWPILOT\flowpilot\flowy\src\plannerd.py |  |  | 933105EAE8085438 |
 | 10_FLOWPILOT\flowpilot\flowy\src\radard.py |  |  | 6231C29A06B459A4 |
+| 10_FLOWPILOT\flowpilot\flowy\src\rednose |  |  | D7B9A04CD56FF7DF |
+| 10_FLOWPILOT\flowpilot\flowy\src\selfdrive |  |  | 105F3B32B04B100F |
 | 10_FLOWPILOT\flowpilot\flowy\src\service.py |  |  | A21BA11C7E8214C2 |
+| 10_FLOWPILOT\flowpilot\flowy\src\system |  |  | 6E2FCAFF62680531 |
 | 10_FLOWPILOT\flowpilot\flowy\src\thermald.py |  |  | 4DBDCD76CE2168F8 |
+| 10_FLOWPILOT\flowpilot\flowy\src\third_party\cluster |  |  | 3FC79A458A80566D |
 | 10_FLOWPILOT\flowpilot\gradle.properties |  |  | ACAEA056F1E256ED |
 | 10_FLOWPILOT\flowpilot\gradle\wrapper\gradle-wrapper.jar |  |  | E996D452D2645E70 |
 | 10_FLOWPILOT\flowpilot\gradle\wrapper\gradle-wrapper.properties |  |  | CFD32BBD477095C2 |
 | 10_FLOWPILOT\flowpilot\gradlew |  |  | 6BA3AF5ABC634F4A |
 | 10_FLOWPILOT\flowpilot\gradlew.bat |  |  | 51BE969A7A38C212 |
+| 10_FLOWPILOT\flowpilot\laika |  |  | 12487B04EB307AB5 |
+| 10_FLOWPILOT\flowpilot\libs\android |  |  | DD08F5E00A481F9D |
 | 10_FLOWPILOT\flowpilot\libs\capnpc-java\build.sh |  |  | 6084B30D346CD681 |
 | 10_FLOWPILOT\flowpilot\libs\linux\x86_64\libjzmq.so |  |  | 558877AB8DAA0306 |
 | 10_FLOWPILOT\flowpilot\libs\linux\x86_64\libopencv_java451.so |  |  | 78123A0C36BB32FC |
@@ -13615,7 +13655,8 @@ Atualizado: 2026-10-28 09:12 (STEP7). Manifesto: `OUTPUT_ROOT_STEP7_20261028_090
 | 10_FLOWPILOT\flowpilot\panda\tests\usbprotocol\test_pandalib.py |  |  | B44414370720C981 |
 | 10_FLOWPILOT\flowpilot\Pipfile |  |  | 0DB4511CBDE3D605 |
 | 10_FLOWPILOT\flowpilot\Pipfile.lock |  |  | 6C17F2C2D30BE2A6 |
-| 10_FLOWPILOT\flowpilot\README.md |  |  | 96E66C0090DCCA0C |
+| 10_FLOWPILOT\flowpilot\README.md |  |  | 091FD05D59A67478 |
+| 10_FLOWPILOT\flowpilot\rednose |  |  | 6000E4D8B8058052 |
 | 10_FLOWPILOT\flowpilot\requirements.txt |  |  | C9CA34C3E9A2EEB6 |
 | 10_FLOWPILOT\flowpilot\SAFETY.md |  |  | 4E9C85AE7CF66E1B |
 | 10_FLOWPILOT\flowpilot\SConscript |  |  | 389957D249DA8B12 |
@@ -13970,6 +14011,7 @@ Atualizado: 2026-10-28 09:12 (STEP7). Manifesto: `OUTPUT_ROOT_STEP7_20261028_090
 | 10_FLOWPILOT\flowpilot\selfdrive\modeld\java\ai.flow.modeld\Preprocess.java |  |  | 2C60BEC5381A536C |
 | 10_FLOWPILOT\flowpilot\selfdrive\modeld\java\ai.flow.modeld\TNN.java |  |  | 8B4157E78F9357D1 |
 | 10_FLOWPILOT\flowpilot\selfdrive\modeld\java\ai.flow.modeld\TNNModelRunner.java |  |  | 0BB411415B032003 |
+| 10_FLOWPILOT\flowpilot\selfdrive\modeld\java\ai.flow.modeld\transforms\kernels |  |  | F5E418067EB92E8A |
 | 10_FLOWPILOT\flowpilot\selfdrive\modeld\java\ai.flow.modeld\transforms\LoadYUVCL.java |  |  | 4D8CF076716B27F8 |
 | 10_FLOWPILOT\flowpilot\selfdrive\modeld\java\ai.flow.modeld\transforms\TransformCL.java |  |  | 7F06B80D5855C6D0 |
 | 10_FLOWPILOT\flowpilot\selfdrive\modeld\libs\onnxruntime-mobile-1.16.0.aar |  |  | 173C957B3B317291 |
@@ -14082,6 +14124,7 @@ Atualizado: 2026-10-28 09:12 (STEP7). Manifesto: `OUTPUT_ROOT_STEP7_20261028_090
 | 10_FLOWPILOT\flowpilot\third_party\acados\aarch64\lib\libacados.so |  |  | 2200F61345D6EFE7 |
 | 10_FLOWPILOT\flowpilot\third_party\acados\aarch64\lib\libblasfeo.so |  |  | F3665D59D7DA80FD |
 | 10_FLOWPILOT\flowpilot\third_party\acados\aarch64\lib\libhpipm.so |  |  | 50DD9FE1688A4209 |
+| 10_FLOWPILOT\flowpilot\third_party\acados\aarch64\lib\libqpOASES_e.so |  |  | C08DC9B4F83E5E73 |
 | 10_FLOWPILOT\flowpilot\third_party\acados\aarch64\lib\libqpOASES_e.so.3.1 |  |  | B89EB61D3DAB418D |
 | 10_FLOWPILOT\flowpilot\third_party\acados\aarch64\t_renderer |  |  | B5F7532D0B4EA27A |
 | 10_FLOWPILOT\flowpilot\third_party\acados\acados_template\.gitignore |  |  | 477F73573A50B1AE |
@@ -14144,6 +14187,7 @@ Atualizado: 2026-10-28 09:12 (STEP7). Manifesto: `OUTPUT_ROOT_STEP7_20261028_090
 | 10_FLOWPILOT\flowpilot\third_party\acados\Darwin\lib\libblasfeo.dylib |  |  | 288C5CD192C5D1B4 |
 | 10_FLOWPILOT\flowpilot\third_party\acados\Darwin\lib\libhpipm.dylib |  |  | 5B5AF77374594077 |
 | 10_FLOWPILOT\flowpilot\third_party\acados\Darwin\lib\libqpOASES_e.3.1.dylib |  |  | AC2857E8BD630146 |
+| 10_FLOWPILOT\flowpilot\third_party\acados\Darwin\lib\libqpOASES_e.dylib |  |  | D5CEC0B690BD5396 |
 | 10_FLOWPILOT\flowpilot\third_party\acados\Darwin\t_renderer |  |  | 605AC85907005A38 |
 | 10_FLOWPILOT\flowpilot\third_party\acados\include\acados\dense_qp\dense_qp_common.h |  |  | BCBA7F75BBA4563F |
 | 10_FLOWPILOT\flowpilot\third_party\acados\include\acados\dense_qp\dense_qp_hpipm.h |  |  | 15E5AA613ECAC95F |
@@ -14368,11 +14412,13 @@ Atualizado: 2026-10-28 09:12 (STEP7). Manifesto: `OUTPUT_ROOT_STEP7_20261028_090
 | 10_FLOWPILOT\flowpilot\third_party\acados\larch64\lib\libacados.so |  |  | D320459A896C765A |
 | 10_FLOWPILOT\flowpilot\third_party\acados\larch64\lib\libblasfeo.so |  |  | 3DDFFC8ED63D42B4 |
 | 10_FLOWPILOT\flowpilot\third_party\acados\larch64\lib\libhpipm.so |  |  | C7494826F51CCBBE |
+| 10_FLOWPILOT\flowpilot\third_party\acados\larch64\lib\libqpOASES_e.so |  |  | C08DC9B4F83E5E73 |
 | 10_FLOWPILOT\flowpilot\third_party\acados\larch64\lib\libqpOASES_e.so.3.1 |  |  | 9E936002DEB7BB95 |
 | 10_FLOWPILOT\flowpilot\third_party\acados\larch64\t_renderer |  |  | 0C4EB7CA23AF7909 |
 | 10_FLOWPILOT\flowpilot\third_party\acados\x86_64\lib\libacados.so |  |  | AB9CB6079675937D |
 | 10_FLOWPILOT\flowpilot\third_party\acados\x86_64\lib\libblasfeo.so |  |  | E64A78C320F1ED03 |
 | 10_FLOWPILOT\flowpilot\third_party\acados\x86_64\lib\libhpipm.so |  |  | 0CABD3D3B9CEFFBE |
+| 10_FLOWPILOT\flowpilot\third_party\acados\x86_64\lib\libqpOASES_e.so |  |  | C08DC9B4F83E5E73 |
 | 10_FLOWPILOT\flowpilot\third_party\acados\x86_64\lib\libqpOASES_e.so.3.1 |  |  | 67661C8BE478B346 |
 | 10_FLOWPILOT\flowpilot\third_party\acados\x86_64\t_renderer |  |  | F39CC2F561109C4D |
 | 10_FLOWPILOT\flowpilot\third_party\CL\cl.h |  |  | 065F453D561C93FD |
@@ -14883,7 +14929,7 @@ Atualizado: 2026-10-28 09:12 (STEP7). Manifesto: `OUTPUT_ROOT_STEP7_20261028_090
 | 10_FLOWPILOT\tests_windows\run_panda_safety.py |  |  | C2292D7C9446A4B7 |
 | 10_FLOWPILOT\tests_windows\run_script.py |  |  | C51DE5874738E92D |
 | 10_FLOWPILOT\tests_windows\sim_city_fp.py |  |  | 1437CC4BA0A01156 |
-| INDEX.md |  |  | CEA0CC4426CF12FC |
+| INDEX.md |  |  | EF4FAABB3F768B8C |
 | OUTPUT_ROOT.txt |  |  | C79B60B017ADD081 |
 | README.md |  |  | F45FDD62F11B4E22 |
 

@@ -58,3 +58,22 @@ Pendente / nao aplicado:
   U6.8 e D12.1 (apaga-la deixaria 0.4 mm para a corrente do indutor); aproximar L4 exige realocar C4/C6/C7/L4 (re-floorplan).
   C37.2->PH < 2 mm impossivel (BOOT pino 1 e PH pino 8 em lados opostos do DDA). Ver CORRECOES_APLICADAS.md.
 - step7_validate.py: falhas []; final_audit.py: shorts 0, vip 0, hole_hits 8 (P1, herdado).
+
+## Fechamento do passo 5 (itens MEDIUM de proposed_changes.md)
+Scripts: 05_SCRIPTS/corr_step5_pcb.py (sub-comandos; log em 06_REPORTS/corr/step5_pcb.json), corr_step5_sch.py,
+corr_step5_bom.py. Gate DRC apos cada edicao: 06_REPORTS/corr/drc_step5a..p.json. Estado final (step5p): total 135
+(hole_clearance 8 herdado P1, lib_footprint_mismatch 73, silk_edge 4, silk_over_copper 1, silk_overlap 4,
+text_height 45); clearance 0, unconnected 0, parity 0. ERC 0 erros / 373 avisos. final_audit: shorts 0, vip 0,
+clr 0, hole_hits 8. step7_validate: falhas [].
+- Aplicado: 24 (C23/C24 15pF->18pF, esquema+BOM; LCSC C1555 A VERIFICAR), 26 parcial (CAN 0.15->0.25 em 61 segmentos;
+  16 em 0.20 e 5+3+1 mantidos em 0.15 por clearance/borda/P1), 28 (zona GND gap 0.3/spoke 0.4, ilhas <5 mm2 removidas,
+  pads solidos C28.2 U9.2 U7.104 U3.5 U3.6: starved_thermal 18->0), 30 (72 vias 0.5->0.6; via 0.45/0.25->0.6/0.3;
+  regras ann 0.125 / min track 0.1 / via 0.127), 31 (16 vias de costura GND 0.6/0.3), 33a (borda direita +0.4 mm
+  para y<48.6: copper_edge 2->0), 33b (U3 shell pinos 5/6 ligados a GND no esquema e PCB), 35 parcial (23 refs
+  silk 0.5->0.8; 45 mantidos em 0.5 por sobreposicao), 12/13/14 parcial (alargamento +5V->U12 0.5, USB_PWR 1.0/0.8,
+  +3V3 0.4 excepto entrada de pads), 17 parcial (+12V e 12V_Protected removidos de In2; 12V_Protected In1 0.35/0.3/0.2),
+  20 (VCAP In1 mantido em 0.3 - o trecho e necessario, remover deixa unconnected).
+- Deferido: 16, 9, 21, 22, 23, 25, 27, 29 (via no pad 69 cai em U12.6; pads 6/89 ja tem vias GND a <1.3 mm; pad 104
+  sem espaco), 32 (P1 +0.15 mm resolve hole_clearance mas cria curto com BUS0_H/SBU2), 34, 36, C8 0402->0603, U1 alt.
+- final_audit.py: finding BOM "0 com MPN" era texto fixo; agora conta MPN reais; os._exit(0) evita o hang no teardown.
+- Make-Manifest falhava enquanto 10_FLOWPILOT/apk_out/*.zip estava bloqueado por outro agente; passou na re-execucao.

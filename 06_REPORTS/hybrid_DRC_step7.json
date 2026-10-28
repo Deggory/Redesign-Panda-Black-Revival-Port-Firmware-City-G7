@@ -1,7 +1,7 @@
 {
     "$schema": "https://schemas.kicad.org/drc.v1.json",
     "coordinate_units": "mm",
-    "date": "2026-10-28T09:09:32",
+    "date": "2026-10-28T10:05:05",
     "ignored_checks": [
         {
             "description": "Footprint has no courtyard defined",
@@ -223,487 +223,12 @@
             "type": "hole_clearance"
         },
         {
-            "description": "Board edge clearance violation (board setup constraints edge clearance 0,2000 mm; actual 0,0950 mm)",
-            "items": [
-                {
-                    "description": "Polygon on Edge.Cuts",
-                    "pos": {
-                        "x": 141.534585,
-                        "y": 32.061229
-                    },
-                    "uuid": "3fb694f7-b7af-493f-84be-8bbe486a91ea"
-                },
-                {
-                    "description": "PTH pad 5 [unconnected-(U3-Pad5)] of U3",
-                    "pos": {
-                        "x": 140.839971,
-                        "y": 46.229989
-                    },
-                    "uuid": "924aaf53-e64b-4974-a9d2-3a3670c3e3d1"
-                }
-            ],
-            "severity": "error",
-            "type": "copper_edge_clearance"
-        },
-        {
-            "description": "Board edge clearance violation (board setup constraints edge clearance 0,2000 mm; actual 0,1824 mm)",
-            "items": [
-                {
-                    "description": "Polygon on Edge.Cuts",
-                    "pos": {
-                        "x": 141.534585,
-                        "y": 32.061229
-                    },
-                    "uuid": "3fb694f7-b7af-493f-84be-8bbe486a91ea"
-                },
-                {
-                    "description": "PTH pad 6 [unconnected-(U3-Pad6)] of U3",
-                    "pos": {
-                        "x": 140.839971,
-                        "y": 33.329811
-                    },
-                    "uuid": "7af1439e-dbf3-4f05-8e26-d88023e0272c"
-                }
-            ],
-            "severity": "error",
-            "type": "copper_edge_clearance"
-        },
-        {
-            "description": "Hole size out of range (board setup constraints min hole 0,3000 mm; actual 0,2500 mm)",
-            "items": [
-                {
-                    "description": "Via [GND] on F.Cu - B.Cu",
-                    "pos": {
-                        "x": 104.125,
-                        "y": 50.945
-                    },
-                    "uuid": "d02771eb-9657-4523-8e1d-887bcaed7462"
-                }
-            ],
-            "severity": "error",
-            "type": "drill_out_of_range"
-        },
-        {
-            "description": "Thermal relief connection to zone incomplete (layer In1.Cu; zone min spoke count 2; actual 1)",
-            "items": [
-                {
-                    "description": "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
-                    "pos": {
-                        "x": 85.07,
-                        "y": 26.88
-                    },
-                    "uuid": "c983a438-601f-4ab9-a61f-435bbeaecf84"
-                },
-                {
-                    "description": "PTH pad 9 [GND] of U6",
-                    "pos": {
-                        "x": 107.41,
-                        "y": 40.19
-                    },
-                    "uuid": "3e84a074-2dc9-4432-b409-0b4143c945a4"
-                }
-            ],
-            "severity": "error",
-            "type": "starved_thermal"
-        },
-        {
-            "description": "Thermal relief connection to zone incomplete (layer In1.Cu; zone min spoke count 2; actual 1)",
-            "items": [
-                {
-                    "description": "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
-                    "pos": {
-                        "x": 85.07,
-                        "y": 26.88
-                    },
-                    "uuid": "c983a438-601f-4ab9-a61f-435bbeaecf84"
-                },
-                {
-                    "description": "PTH pad 9 [GND] of U6",
-                    "pos": {
-                        "x": 107.41,
-                        "y": 44.09
-                    },
-                    "uuid": "aa4e9d5e-407b-4194-81de-fd48e27adb0b"
-                }
-            ],
-            "severity": "error",
-            "type": "starved_thermal"
-        },
-        {
-            "description": "Thermal relief connection to zone incomplete (layer In2.Cu; zone min spoke count 2; actual 1)",
-            "items": [
-                {
-                    "description": "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
-                    "pos": {
-                        "x": 85.07,
-                        "y": 26.88
-                    },
-                    "uuid": "c983a438-601f-4ab9-a61f-435bbeaecf84"
-                },
-                {
-                    "description": "PTH pad 0 [GND] of P1",
-                    "pos": {
-                        "x": 136.180072,
-                        "y": 54.749952
-                    },
-                    "uuid": "1f7c6ebc-dcc0-47cf-8058-db09994f81e8"
-                }
-            ],
-            "severity": "error",
-            "type": "starved_thermal"
-        },
-        {
-            "description": "Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)",
-            "items": [
-                {
-                    "description": "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
-                    "pos": {
-                        "x": 85.07,
-                        "y": 26.88
-                    },
-                    "uuid": "c983a438-601f-4ab9-a61f-435bbeaecf84"
-                },
-                {
-                    "description": "PTH pad 0 [GND] of P1",
-                    "pos": {
-                        "x": 136.180072,
-                        "y": 54.749952
-                    },
-                    "uuid": "1f7c6ebc-dcc0-47cf-8058-db09994f81e8"
-                }
-            ],
-            "severity": "error",
-            "type": "starved_thermal"
-        },
-        {
-            "description": "Thermal relief connection to zone incomplete (layer In1.Cu; zone min spoke count 2; actual 1)",
-            "items": [
-                {
-                    "description": "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
-                    "pos": {
-                        "x": 85.07,
-                        "y": 26.88
-                    },
-                    "uuid": "c983a438-601f-4ab9-a61f-435bbeaecf84"
-                },
-                {
-                    "description": "PTH pad 9 [GND] of U6",
-                    "pos": {
-                        "x": 108.71,
-                        "y": 40.19
-                    },
-                    "uuid": "d3ad4325-5bbe-493d-b84c-88556184a59f"
-                }
-            ],
-            "severity": "error",
-            "type": "starved_thermal"
-        },
-        {
-            "description": "Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)",
-            "items": [
-                {
-                    "description": "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
-                    "pos": {
-                        "x": 85.07,
-                        "y": 26.88
-                    },
-                    "uuid": "c983a438-601f-4ab9-a61f-435bbeaecf84"
-                },
-                {
-                    "description": "PTH pad B1 [GND] of P1",
-                    "pos": {
-                        "x": 135.590029,
-                        "y": 56.079898
-                    },
-                    "uuid": "20229526-8b00-445b-b8db-2b3d1a982949"
-                }
-            ],
-            "severity": "error",
-            "type": "starved_thermal"
-        },
-        {
-            "description": "Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)",
-            "items": [
-                {
-                    "description": "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
-                    "pos": {
-                        "x": 85.07,
-                        "y": 26.88
-                    },
-                    "uuid": "c983a438-601f-4ab9-a61f-435bbeaecf84"
-                },
-                {
-                    "description": "Pad 1 [GND] of C10 on F.Cu",
-                    "pos": {
-                        "x": 110.58,
-                        "y": 47.33
-                    },
-                    "uuid": "250a6f71-118d-4cd3-9e92-03f599c42880"
-                }
-            ],
-            "severity": "error",
-            "type": "starved_thermal"
-        },
-        {
-            "description": "Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)",
-            "items": [
-                {
-                    "description": "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
-                    "pos": {
-                        "x": 85.07,
-                        "y": 26.88
-                    },
-                    "uuid": "c983a438-601f-4ab9-a61f-435bbeaecf84"
-                },
-                {
-                    "description": "Pad 2 [GND] of C52 on B.Cu",
-                    "pos": {
-                        "x": 102.95,
-                        "y": 42.8575
-                    },
-                    "uuid": "00a9da92-5b46-4da2-8121-2eec87e7c71f"
-                }
-            ],
-            "severity": "error",
-            "type": "starved_thermal"
-        },
-        {
-            "description": "Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)",
-            "items": [
-                {
-                    "description": "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
-                    "pos": {
-                        "x": 85.07,
-                        "y": 26.88
-                    },
-                    "uuid": "c983a438-601f-4ab9-a61f-435bbeaecf84"
-                },
-                {
-                    "description": "Pad 2 [GND] of C46 on B.Cu",
-                    "pos": {
-                        "x": 113.05,
-                        "y": 70.3425
-                    },
-                    "uuid": "8cbf7c60-4f81-4a09-b0f7-a6ee6816a950"
-                }
-            ],
-            "severity": "error",
-            "type": "starved_thermal"
-        },
-        {
-            "description": "Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)",
-            "items": [
-                {
-                    "description": "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
-                    "pos": {
-                        "x": 85.07,
-                        "y": 26.88
-                    },
-                    "uuid": "c983a438-601f-4ab9-a61f-435bbeaecf84"
-                },
-                {
-                    "description": "Pad 2 [GND] of C28 on F.Cu",
-                    "pos": {
-                        "x": 141.9125,
-                        "y": 70.042
-                    },
-                    "uuid": "ba15bdec-59f4-4892-98b1-a2483b76ad68"
-                }
-            ],
-            "severity": "error",
-            "type": "starved_thermal"
-        },
-        {
-            "description": "Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)",
-            "items": [
-                {
-                    "description": "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
-                    "pos": {
-                        "x": 85.07,
-                        "y": 26.88
-                    },
-                    "uuid": "c983a438-601f-4ab9-a61f-435bbeaecf84"
-                },
-                {
-                    "description": "Pad 6 [GND] of U7 on B.Cu",
-                    "pos": {
-                        "x": 115.75,
-                        "y": 67.2625
-                    },
-                    "uuid": "139b7a62-f11a-474e-ac42-1f5d02e5923a"
-                }
-            ],
-            "severity": "error",
-            "type": "starved_thermal"
-        },
-        {
-            "description": "Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)",
-            "items": [
-                {
-                    "description": "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
-                    "pos": {
-                        "x": 85.07,
-                        "y": 26.88
-                    },
-                    "uuid": "c983a438-601f-4ab9-a61f-435bbeaecf84"
-                },
-                {
-                    "description": "Pad 2 [GND] of U9 on F.Cu",
-                    "pos": {
-                        "x": 125.47,
-                        "y": 54.92
-                    },
-                    "uuid": "a0379dab-8aa4-44af-a44a-813ec71e007b"
-                }
-            ],
-            "severity": "error",
-            "type": "starved_thermal"
-        },
-        {
-            "description": "Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)",
-            "items": [
-                {
-                    "description": "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
-                    "pos": {
-                        "x": 85.07,
-                        "y": 26.88
-                    },
-                    "uuid": "c983a438-601f-4ab9-a61f-435bbeaecf84"
-                },
-                {
-                    "description": "Pad 69 [GND] of U7 on B.Cu",
-                    "pos": {
-                        "x": 98.8375,
-                        "y": 49.35
-                    },
-                    "uuid": "a91c33ee-4f26-45a1-99b6-56fabed0d1ef"
-                }
-            ],
-            "severity": "error",
-            "type": "starved_thermal"
-        },
-        {
-            "description": "Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)",
-            "items": [
-                {
-                    "description": "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
-                    "pos": {
-                        "x": 85.07,
-                        "y": 26.88
-                    },
-                    "uuid": "c983a438-601f-4ab9-a61f-435bbeaecf84"
-                },
-                {
-                    "description": "Pad 89 [GND] of U7 on B.Cu",
-                    "pos": {
-                        "x": 108.75,
-                        "y": 45.9375
-                    },
-                    "uuid": "224026e7-a033-459d-bf4a-8f2650bce2fb"
-                }
-            ],
-            "severity": "error",
-            "type": "starved_thermal"
-        },
-        {
-            "description": "Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)",
-            "items": [
-                {
-                    "description": "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
-                    "pos": {
-                        "x": 85.07,
-                        "y": 26.88
-                    },
-                    "uuid": "c983a438-601f-4ab9-a61f-435bbeaecf84"
-                },
-                {
-                    "description": "Pad 104 [GND] of U7 on B.Cu",
-                    "pos": {
-                        "x": 116.25,
-                        "y": 45.9375
-                    },
-                    "uuid": "8ca5ae76-dca4-429e-9b25-1d1f2d37eeda"
-                }
-            ],
-            "severity": "error",
-            "type": "starved_thermal"
-        },
-        {
-            "description": "Thermal relief connection to zone incomplete (layer B.Cu; zone min spoke count 2; actual 1)",
-            "items": [
-                {
-                    "description": "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
-                    "pos": {
-                        "x": 85.07,
-                        "y": 26.88
-                    },
-                    "uuid": "c983a438-601f-4ab9-a61f-435bbeaecf84"
-                },
-                {
-                    "description": "Pad 2 [GND] of C40 on B.Cu",
-                    "pos": {
-                        "x": 124.2375,
-                        "y": 63.35
-                    },
-                    "uuid": "09131e87-0940-4604-aef4-7a956cbab3e5"
-                }
-            ],
-            "severity": "error",
-            "type": "starved_thermal"
-        },
-        {
-            "description": "Thermal relief connection to zone incomplete (layer F.Cu; zone min spoke count 2; actual 1)",
-            "items": [
-                {
-                    "description": "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
-                    "pos": {
-                        "x": 85.07,
-                        "y": 26.88
-                    },
-                    "uuid": "c983a438-601f-4ab9-a61f-435bbeaecf84"
-                },
-                {
-                    "description": "Pad 3 [GND] of D6 on F.Cu",
-                    "pos": {
-                        "x": 130.07,
-                        "y": 62.46
-                    },
-                    "uuid": "55a3c525-0791-4291-a85b-8f5c9e237408"
-                }
-            ],
-            "severity": "error",
-            "type": "starved_thermal"
-        },
-        {
-            "description": "Thermal relief connection to zone incomplete (layer F.Cu; 1 spokes connected to isolated island)",
-            "items": [
-                {
-                    "description": "Zone [GND] on F.Cu, B.Cu and 2 more, priority 0",
-                    "pos": {
-                        "x": 85.07,
-                        "y": 26.88
-                    },
-                    "uuid": "c983a438-601f-4ab9-a61f-435bbeaecf84"
-                },
-                {
-                    "description": "Pad A1 [GND] of P1 on F.Cu",
-                    "pos": {
-                        "x": 134.379971,
-                        "y": 61.630318
-                    },
-                    "uuid": "ec6c6974-024b-4ab3-9312-f546dc68e3d3"
-                }
-            ],
-            "severity": "error",
-            "type": "starved_thermal"
-        },
-        {
             "description": "Silkscreen clipped by board edge",
             "items": [
                 {
                     "description": "Polygon on Edge.Cuts",
                     "pos": {
-                        "x": 141.534585,
+                        "x": 141.934585,
                         "y": 32.061229
                     },
                     "uuid": "3fb694f7-b7af-493f-84be-8bbe486a91ea"
@@ -726,7 +251,7 @@
                 {
                     "description": "Polygon on Edge.Cuts",
                     "pos": {
-                        "x": 141.534585,
+                        "x": 141.934585,
                         "y": 32.061229
                     },
                     "uuid": "3fb694f7-b7af-493f-84be-8bbe486a91ea"
@@ -749,7 +274,7 @@
                 {
                     "description": "Polygon on Edge.Cuts",
                     "pos": {
-                        "x": 141.534585,
+                        "x": 141.934585,
                         "y": 32.061229
                     },
                     "uuid": "3fb694f7-b7af-493f-84be-8bbe486a91ea"
@@ -772,7 +297,7 @@
                 {
                     "description": "Polygon on Edge.Cuts",
                     "pos": {
-                        "x": 141.534585,
+                        "x": 141.934585,
                         "y": 32.061229
                     },
                     "uuid": "3fb694f7-b7af-493f-84be-8bbe486a91ea"
@@ -1903,57 +1428,12 @@
             "description": "Text height out of range (board setup constraints silk text height min height 0,8000 mm; actual 0,5000 mm)",
             "items": [
                 {
-                    "description": "Reference field of SW1",
-                    "pos": {
-                        "x": 116.02,
-                        "y": 68.83
-                    },
-                    "uuid": "1eed01e9-a589-4fb7-9ab8-b45dbfddc991"
-                }
-            ],
-            "severity": "warning",
-            "type": "text_height"
-        },
-        {
-            "description": "Text height out of range (board setup constraints silk text height min height 0,8000 mm; actual 0,5000 mm)",
-            "items": [
-                {
-                    "description": "Reference field of D12",
-                    "pos": {
-                        "x": 112.4,
-                        "y": 33.245
-                    },
-                    "uuid": "dd5bdef5-7902-41ea-bbd3-510273e4cda9"
-                }
-            ],
-            "severity": "warning",
-            "type": "text_height"
-        },
-        {
-            "description": "Text height out of range (board setup constraints silk text height min height 0,8000 mm; actual 0,5000 mm)",
-            "items": [
-                {
                     "description": "Reference field of R27",
                     "pos": {
                         "x": 117.348,
                         "y": 56.642
                     },
                     "uuid": "975d273a-9e94-48ae-9c1a-d2013b774ee9"
-                }
-            ],
-            "severity": "warning",
-            "type": "text_height"
-        },
-        {
-            "description": "Text height out of range (board setup constraints silk text height min height 0,8000 mm; actual 0,5000 mm)",
-            "items": [
-                {
-                    "description": "Reference field of D7",
-                    "pos": {
-                        "x": 130.12,
-                        "y": 54.38
-                    },
-                    "uuid": "aa7d0dad-7560-4fbe-85b5-1d40486ec15d"
                 }
             ],
             "severity": "warning",
@@ -2023,51 +1503,6 @@
             "description": "Text height out of range (board setup constraints silk text height min height 0,8000 mm; actual 0,5000 mm)",
             "items": [
                 {
-                    "description": "Reference field of U12",
-                    "pos": {
-                        "x": 101.04,
-                        "y": 46.83
-                    },
-                    "uuid": "528e87e8-1b4f-4f48-9e68-c465fd52e35d"
-                }
-            ],
-            "severity": "warning",
-            "type": "text_height"
-        },
-        {
-            "description": "Text height out of range (board setup constraints silk text height min height 0,8000 mm; actual 0,5000 mm)",
-            "items": [
-                {
-                    "description": "Reference field of R2",
-                    "pos": {
-                        "x": 102.13,
-                        "y": 50.33
-                    },
-                    "uuid": "8aa848d6-50ba-4f43-8685-28b6b51d927a"
-                }
-            ],
-            "severity": "warning",
-            "type": "text_height"
-        },
-        {
-            "description": "Text height out of range (board setup constraints silk text height min height 0,8000 mm; actual 0,5000 mm)",
-            "items": [
-                {
-                    "description": "Reference field of C37",
-                    "pos": {
-                        "x": 102.95,
-                        "y": 40.19
-                    },
-                    "uuid": "adf57f80-92e9-4829-957a-4e1742d4dd3c"
-                }
-            ],
-            "severity": "warning",
-            "type": "text_height"
-        },
-        {
-            "description": "Text height out of range (board setup constraints silk text height min height 0,8000 mm; actual 0,5000 mm)",
-            "items": [
-                {
                     "description": "Reference field of D2",
                     "pos": {
                         "x": 133.68,
@@ -2104,21 +1539,6 @@
                         "y": 67.92
                     },
                     "uuid": "cf3b2836-c0b5-4c7b-8bda-d092967414cb"
-                }
-            ],
-            "severity": "warning",
-            "type": "text_height"
-        },
-        {
-            "description": "Text height out of range (board setup constraints silk text height min height 0,8000 mm; actual 0,5000 mm)",
-            "items": [
-                {
-                    "description": "Reference field of U9",
-                    "pos": {
-                        "x": 124.96,
-                        "y": 53.35
-                    },
-                    "uuid": "08980029-c2ce-4719-a8e5-97a88e7ffa2d"
                 }
             ],
             "severity": "warning",
@@ -2218,21 +1638,6 @@
             "description": "Text height out of range (board setup constraints silk text height min height 0,8000 mm; actual 0,5000 mm)",
             "items": [
                 {
-                    "description": "Reference field of U8",
-                    "pos": {
-                        "x": 125.09,
-                        "y": 59.53
-                    },
-                    "uuid": "0cfa4747-3d23-4854-844a-f3d05d9a8c52"
-                }
-            ],
-            "severity": "warning",
-            "type": "text_height"
-        },
-        {
-            "description": "Text height out of range (board setup constraints silk text height min height 0,8000 mm; actual 0,5000 mm)",
-            "items": [
-                {
                     "description": "Reference field of C29",
                     "pos": {
                         "x": 137.2675,
@@ -2308,21 +1713,6 @@
             "description": "Text height out of range (board setup constraints silk text height min height 0,8000 mm; actual 0,5000 mm)",
             "items": [
                 {
-                    "description": "Reference field of D9",
-                    "pos": {
-                        "x": 135.71,
-                        "y": 67.3
-                    },
-                    "uuid": "96382667-2ebc-4a3d-b37e-9a63d262a4bd"
-                }
-            ],
-            "severity": "warning",
-            "type": "text_height"
-        },
-        {
-            "description": "Text height out of range (board setup constraints silk text height min height 0,8000 mm; actual 0,5000 mm)",
-            "items": [
-                {
                     "description": "Reference field of C32",
                     "pos": {
                         "x": 138.01,
@@ -2353,42 +1743,12 @@
             "description": "Text height out of range (board setup constraints silk text height min height 0,8000 mm; actual 0,5000 mm)",
             "items": [
                 {
-                    "description": "Reference field of D5",
-                    "pos": {
-                        "x": 128.51,
-                        "y": 68.57
-                    },
-                    "uuid": "008360f0-8d23-41f3-901f-1b2151f63bb2"
-                }
-            ],
-            "severity": "warning",
-            "type": "text_height"
-        },
-        {
-            "description": "Text height out of range (board setup constraints silk text height min height 0,8000 mm; actual 0,5000 mm)",
-            "items": [
-                {
                     "description": "Reference field of R17",
                     "pos": {
                         "x": 101.9,
                         "y": 67.45
                     },
                     "uuid": "152fc61e-4a9f-47a1-b2ae-7ea782fb5441"
-                }
-            ],
-            "severity": "warning",
-            "type": "text_height"
-        },
-        {
-            "description": "Text height out of range (board setup constraints silk text height min height 0,8000 mm; actual 0,5000 mm)",
-            "items": [
-                {
-                    "description": "Reference field of D6",
-                    "pos": {
-                        "x": 130.08,
-                        "y": 61.63
-                    },
-                    "uuid": "04c92876-a528-490e-9a02-64d469362f93"
                 }
             ],
             "severity": "warning",
@@ -2419,51 +1779,6 @@
                         "y": 48.71
                     },
                     "uuid": "dec847b5-52b9-46ac-ac33-d174234c7757"
-                }
-            ],
-            "severity": "warning",
-            "type": "text_height"
-        },
-        {
-            "description": "Text height out of range (board setup constraints silk text height min height 0,8000 mm; actual 0,5000 mm)",
-            "items": [
-                {
-                    "description": "Reference field of D8",
-                    "pos": {
-                        "x": 139.539998,
-                        "y": 67.35
-                    },
-                    "uuid": "ae5052a8-f2e3-414d-9bd3-2a34c61d2a61"
-                }
-            ],
-            "severity": "warning",
-            "type": "text_height"
-        },
-        {
-            "description": "Text height out of range (board setup constraints silk text height min height 0,8000 mm; actual 0,5000 mm)",
-            "items": [
-                {
-                    "description": "Reference field of U6",
-                    "pos": {
-                        "x": 103.96,
-                        "y": 42.02
-                    },
-                    "uuid": "abcad46a-630f-4e09-8327-fb7a519ca3e1"
-                }
-            ],
-            "severity": "warning",
-            "type": "text_height"
-        },
-        {
-            "description": "Text height out of range (board setup constraints silk text height min height 0,8000 mm; actual 0,5000 mm)",
-            "items": [
-                {
-                    "description": "Reference field of C17",
-                    "pos": {
-                        "x": 128.6,
-                        "y": 51.64
-                    },
-                    "uuid": "24ea8271-a933-429f-b9f2-e1f70430327f"
                 }
             ],
             "severity": "warning",
@@ -2518,57 +1833,12 @@
             "description": "Text height out of range (board setup constraints silk text height min height 0,8000 mm; actual 0,5000 mm)",
             "items": [
                 {
-                    "description": "Reference field of L3",
-                    "pos": {
-                        "x": 101.41,
-                        "y": 33.03
-                    },
-                    "uuid": "eee65287-db7f-484b-b46d-fa59016bb8f6"
-                }
-            ],
-            "severity": "warning",
-            "type": "text_height"
-        },
-        {
-            "description": "Text height out of range (board setup constraints silk text height min height 0,8000 mm; actual 0,5000 mm)",
-            "items": [
-                {
-                    "description": "Reference field of D10",
-                    "pos": {
-                        "x": 119.902,
-                        "y": 59.355
-                    },
-                    "uuid": "dfba311f-43de-4cbc-b6cc-76558d855cd2"
-                }
-            ],
-            "severity": "warning",
-            "type": "text_height"
-        },
-        {
-            "description": "Text height out of range (board setup constraints silk text height min height 0,8000 mm; actual 0,5000 mm)",
-            "items": [
-                {
                     "description": "Reference field of C31",
                     "pos": {
                         "x": 122.945,
                         "y": 55.32
                     },
                     "uuid": "06d07bc6-9f8f-42a8-a0aa-5e93e1119532"
-                }
-            ],
-            "severity": "warning",
-            "type": "text_height"
-        },
-        {
-            "description": "Text height out of range (board setup constraints silk text height min height 0,8000 mm; actual 0,5000 mm)",
-            "items": [
-                {
-                    "description": "Reference field of Q3",
-                    "pos": {
-                        "x": 113.375,
-                        "y": 51.075
-                    },
-                    "uuid": "fa879818-b816-48d7-9197-45ba6b76d2aa"
                 }
             ],
             "severity": "warning",
@@ -2623,42 +1893,12 @@
             "description": "Text height out of range (board setup constraints silk text height min height 0,8000 mm; actual 0,5000 mm)",
             "items": [
                 {
-                    "description": "Reference field of C16",
-                    "pos": {
-                        "x": 93.465,
-                        "y": 46.95
-                    },
-                    "uuid": "e919d8fa-8477-4da1-9e91-d8ca44180efa"
-                }
-            ],
-            "severity": "warning",
-            "type": "text_height"
-        },
-        {
-            "description": "Text height out of range (board setup constraints silk text height min height 0,8000 mm; actual 0,5000 mm)",
-            "items": [
-                {
                     "description": "Reference field of C8",
                     "pos": {
                         "x": 114.5425,
                         "y": 54.635
                     },
                     "uuid": "814b7768-e0e8-4ef0-a3a7-830d2e535ef4"
-                }
-            ],
-            "severity": "warning",
-            "type": "text_height"
-        },
-        {
-            "description": "Text height out of range (board setup constraints silk text height min height 0,8000 mm; actual 0,5000 mm)",
-            "items": [
-                {
-                    "description": "Reference field of U11",
-                    "pos": {
-                        "x": 132.92,
-                        "y": 71.32
-                    },
-                    "uuid": "ffcb9e22-ddaa-4fc2-a888-d7380e74ae30"
                 }
             ],
             "severity": "warning",
@@ -2698,57 +1938,12 @@
             "description": "Text height out of range (board setup constraints silk text height min height 0,8000 mm; actual 0,5000 mm)",
             "items": [
                 {
-                    "description": "Reference field of C2",
-                    "pos": {
-                        "x": 96.54,
-                        "y": 56.26
-                    },
-                    "uuid": "7177938d-c9ef-4aa9-ba8d-87655fea018b"
-                }
-            ],
-            "severity": "warning",
-            "type": "text_height"
-        },
-        {
-            "description": "Text height out of range (board setup constraints silk text height min height 0,8000 mm; actual 0,5000 mm)",
-            "items": [
-                {
                     "description": "Reference field of C5",
                     "pos": {
                         "x": 110.525,
                         "y": 64.785
                     },
                     "uuid": "8d8c46f2-b584-4374-afdf-162d7b66e135"
-                }
-            ],
-            "severity": "warning",
-            "type": "text_height"
-        },
-        {
-            "description": "Text height out of range (board setup constraints silk text height min height 0,8000 mm; actual 0,5000 mm)",
-            "items": [
-                {
-                    "description": "Reference field of C26",
-                    "pos": {
-                        "x": 127.96,
-                        "y": 64.7
-                    },
-                    "uuid": "ec4722c2-173c-49ca-92ca-c10822032599"
-                }
-            ],
-            "severity": "warning",
-            "type": "text_height"
-        },
-        {
-            "description": "Text height out of range (board setup constraints silk text height min height 0,8000 mm; actual 0,5000 mm)",
-            "items": [
-                {
-                    "description": "Reference field of U3",
-                    "pos": {
-                        "x": 136.579971,
-                        "y": 36.739989
-                    },
-                    "uuid": "d9c5f04c-ced1-4764-b913-6900a0fb1acc"
                 }
             ],
             "severity": "warning",
@@ -2794,21 +1989,6 @@
                         "y": 48.55
                     },
                     "uuid": "b38a6789-c666-4b76-af23-25171563a65d"
-                }
-            ],
-            "severity": "warning",
-            "type": "text_height"
-        },
-        {
-            "description": "Text height out of range (board setup constraints silk text height min height 0,8000 mm; actual 0,5000 mm)",
-            "items": [
-                {
-                    "description": "Reference field of R26",
-                    "pos": {
-                        "x": 115.72,
-                        "y": 51.44
-                    },
-                    "uuid": "b0dee745-e296-4a30-9dc4-ec86ecf64141"
                 }
             ],
             "severity": "warning",
@@ -2908,6 +2088,29 @@
             "description": "Silkscreen clearance",
             "items": [
                 {
+                    "description": "Reference field of C31",
+                    "pos": {
+                        "x": 122.945,
+                        "y": 55.32
+                    },
+                    "uuid": "06d07bc6-9f8f-42a8-a0aa-5e93e1119532"
+                },
+                {
+                    "description": "Segment of C31 on F.Silkscreen",
+                    "pos": {
+                        "x": 123.265,
+                        "y": 55.242164
+                    },
+                    "uuid": "fa217c00-99cd-4e7b-ad96-46571e81dd69"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_overlap"
+        },
+        {
+            "description": "Silkscreen clearance",
+            "items": [
+                {
                     "description": "Segment of C11 on F.Silkscreen",
                     "pos": {
                         "x": 112.385,
@@ -2945,29 +2148,6 @@
                         "y": 61.51
                     },
                     "uuid": "5b394403-cb07-4170-9e2f-03da85bf768e"
-                }
-            ],
-            "severity": "warning",
-            "type": "silk_overlap"
-        },
-        {
-            "description": "Silkscreen clearance",
-            "items": [
-                {
-                    "description": "Reference field of C31",
-                    "pos": {
-                        "x": 122.945,
-                        "y": 55.32
-                    },
-                    "uuid": "06d07bc6-9f8f-42a8-a0aa-5e93e1119532"
-                },
-                {
-                    "description": "Segment of C31 on F.Silkscreen",
-                    "pos": {
-                        "x": 123.265,
-                        "y": 55.242164
-                    },
-                    "uuid": "fa217c00-99cd-4e7b-ad96-46571e81dd69"
                 }
             ],
             "severity": "warning",

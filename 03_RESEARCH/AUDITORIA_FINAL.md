@@ -1,6 +1,6 @@
 # Auditoria final — PCB, esquemático e BOM (independente do DRC)
 
-Data: 2026-10-28 08:58:28 · `05_SCRIPTS\final_audit.py` (10 s) · placa `04_PROJECT\HybridPanda\HybridPanda.kicad_pcb` · JSON `06_REPORTS\final_audit.json`
+Data: 2026-10-28 10:04:27 · `05_SCRIPTS\final_audit.py` (11 s) · placa `04_PROJECT\HybridPanda\HybridPanda.kicad_pcb` · JSON `06_REPORTS\final_audit.json`
 
 ## Resumo por gravidade
 
@@ -14,7 +14,7 @@ Data: 2026-10-28 08:58:28 · `05_SCRIPTS\final_audit.py` (10 s) · placa `04_PRO
 
 ## A. Teste de curtos virtuais (geométrico, folga 0)
 
-- Pares cobre×cobre de redes diferentes testados (caixas a < 0,10 mm): **740** → sobreposições (curto): **0**; folga < 0,10 mm: 0
+- Pares cobre×cobre de redes diferentes testados (caixas a < 0,10 mm): **748** → sobreposições (curto): **0**; folga < 0,10 mm: 0
 - Zona×cobre de outra rede: curtos **0**, folga < 0,10: 0
 - Furos (vias+PTH) × cobre de outra rede: furo dentro de cobre **0**, folga < 0,20: 8
 - Conectividade: KiCad unconnected = **0**; redes com pads isolados = **0** (de 63 redes com ≥ 2 pads)
@@ -35,11 +35,11 @@ Data: 2026-10-28 08:58:28 · `05_SCRIPTS\final_audit.py` (10 s) · placa `04_PRO
 | MEDIO | borda | footprint com caixa fora do contorno (verificar visualmente) `{"ref": "U3", "bbox": [130.61, 32.29, 143.68, 47.27]}` |
 | MEDIO | borda | footprint com caixa fora do contorno (verificar visualmente) `{"ref": "P1", "bbox": [133.08, 53.83, 143.23, 63.93]}` |
 | INFO | montagem | footprints sem courtyard (sem verificação de colisão possível): U5, FID2, FID3, U3, FID1, P1, FID4, FID6, FID5  |
-| INFO | montagem | 117 vias sob corpos de componentes (tenting F/B = True/True)  |
+| INFO | montagem | 119 vias sob corpos de componentes (tenting F/B = True/True)  |
 | INFO | montagem | 125 componentes, 45 no lado B (C38, FB1, D14, C52, C42, C63, C23, C50, R28, C62, D15, C53…), THT: U6, U3, P1; 52 referências sem serigrafia (identificação só pelo CPL)  |
 | INFO | montagem | polaridade/pino 1 a confirmar visualmente no render/F.Fab: D12, D7, U12, D2, U9, U1, U8, D11, D9, Q1, D5, D6, Q2, D8, U6, U5, D10, Q3, Q4, U10, U11, D1, U3, P1, U13, JP1, D14, D15, D13, U7, J1, Y1  |
 | BAIXO | fabrico | 122 junções de trilha com ângulo agudo (< 90°) — 'acid traps' cosméticos em processo moderno; o Freerouting gera 45°/90° mas o A* do 5c pode gerar outros  |
-| INFO | fabrico | trilha mín 0.1400 mm, broca mín 0.25 mm (regra 0,30 — 1 via herdada 0,25); folga mín testada 0,10 mm  |
+| INFO | fabrico | trilha mín 0.1400 mm, broca mín 0.30 mm (regra 0,30 — 1 via herdada 0,25); folga mín testada 0,10 mm  |
 
 ### Via-in-pad (lista)
 
@@ -50,11 +50,11 @@ Data: 2026-10-28 08:58:28 · `05_SCRIPTS\final_audit.py` (10 s) · placa `04_PRO
 
 | Rede | Trilhas | Larg. mín (mm) @ | Larg. máx | Comp. (mm) | Vias |
 |---|---|---|---|---|---|
-| +12V | 34 | 0.200 @ 141.40,51.11 F.Cu | 1.500 | 42.8 | 4 |
-| +3V3 | 244 | 0.200 @ 95.74,45.18 F.Cu | 1.000 | 320.0 | 49 |
-| +5V | 95 | 0.200 @ 108.82,46.24 F.Cu | 1.000 | 131.3 | 15 |
-| GND | 222 | 0.200 @ 97.94,63.39 F.Cu | 0.800 | 215.5 | 75 |
-| USB_PWR | 19 | 0.200 @ 118.50,53.80 F.Cu | 1.000 | 31.1 | 2 |
+| +12V | 30 | 0.200 @ 141.40,51.11 F.Cu | 1.500 | 34.2 | 4 |
+| +3V3 | 244 | 0.200 @ 136.64,68.46 F.Cu | 1.000 | 320.0 | 49 |
+| +5V | 95 | 0.200 @ 125.47,55.57 F.Cu | 1.000 | 131.3 | 15 |
+| GND | 222 | 0.200 @ 97.94,63.39 F.Cu | 0.800 | 215.5 | 91 |
+| USB_PWR | 19 | 0.200 @ 119.08,54.38 F.Cu | 1.000 | 31.1 | 2 |
 
 ## C. Esquemático
 
@@ -75,63 +75,64 @@ Data: 2026-10-28 08:58:28 · `05_SCRIPTS\final_audit.py` (10 s) · placa `04_PRO
 
 Pinos de sistema do U7 → rede: VCAP=VCAP; VDDLDO=+3V3; VDDSMPS=+3V3; VSSSMPS=GND; VLXSMPS=VLXSMPS; VFBSMPS=VCAP; VDD50USB=+3V3; VDD33USB=+3V3; VREF+=VDDA; VDDA=VDDA; VSSA=GND; VBAT=+3V3; BOOT0=BOOT0; NRST=NRST; PDR_ON=+3V3; PH0/OSC_IN=HSE_IN; PH1/OSC_OUT=HSE_OUT; PF7=GND; PF8=GND; PF9=Net-(JP1-B); PF10=GND
 
-## D. BOM (53 linhas)
+## D. BOM (54 linhas)
 
 | Refs | Valor | Footprint | Qtd | Notas |
 |---|---|---|---|---|
-| C1,C2,C5,C11,C14,C26-C33 | 100NF | C_0402_1005Metric | 13 | sem MPN |
-| C3,C10,C16-C21 | 47uF | C_0805_2012Metric | 8 | sem MPN |
-| C4,C12,C42 | 10uF | C_0805_2012Metric | 3 | sem MPN; SMPS Cout 10 µF ESR 20 mΩ (DS13311 §6.3.3) |
-| C6,C7 | 2.2uF | C_0805_2012Metric | 2 | sem MPN |
-| C8 | 10uF | C_0402_1005Metric | 1 | sem MPN |
-| C23,C24 | 15pF | C_0402_1005Metric | 2 | sem MPN |
-| C34 | 0.1uF | C_0402_1005Metric | 1 | sem MPN |
-| C37 | 10nF (LOW ESR) | C_0402_1005Metric | 1 | sem MPN |
-| C38,C44-C59 | 100nF | C_0402_1005Metric | 17 | sem MPN; VCAP: exigir ESR < 100 mΩ, X7R/X5R, ≥6,3 V (DS13311 §6.3.2) |
-| C39,C40 | 2.2uF | C_0603_1608Metric | 2 | sem MPN; VCAP: exigir ESR < 100 mΩ, X7R/X5R, ≥6,3 V (DS13311 §6.3.2) |
-| C41 | 220pF | C_0402_1005Metric | 1 | sem MPN; SMPS Cin/Cfilt (DS13311 §6.3.3) |
-| C43,C63 | 1uF | C_0402_1005Metric | 2 | sem MPN |
-| C60-C62,C65 | 4.7uF | C_0603_1608Metric | 4 | sem MPN |
-| C64 | 2.2uF | C_0402_1005Metric | 1 | sem MPN |
-| D1 | SMAJ16CA-13-F | DIOM4325X250N | 1 | sem MPN |
-| D2 | BAS40WS 43 | D_SOD-323 | 1 | sem MPN |
-| D5-D9 | PESD2CAN,215 | SOT95P230X110-3N | 5 | sem MPN |
-| D10 | BAS70H 115 | D_SOD-123F | 1 | sem MPN |
-| D11 | B320AE-13 | D_SMA | 1 | sem MPN |
-| D12 | SM540C | D_SMC | 1 | sem MPN |
-| D13,D14 | BAT54S | SOT-23 | 2 | sem MPN |
-| D15 | BZT52C12 | D_SOD-123 | 1 | sem MPN |
-| FB1 | 600R@100MHz | L_0603_1608Metric | 1 | sem MPN; ferrite VDDA: PROVISÓRIO (ex. BLM18 600 Ω/100 MHz) |
-| J1 | SWD | PinHeader_2x05_P1.27mm_Vertical_SMD | 1 | sem MPN |
+| C1,C2,C5,C11,C14,C26-C33 | 100NF | C_0402_1005Metric | 13 |  |
+| C3,C10,C16-C21 | 47uF | C_0805_2012Metric | 8 |  |
+| C4,C12 | 10uF | C_0805_2012Metric | 2 |  |
+| C6,C7 | 2.2uF | C_0805_2012Metric | 2 |  |
+| C8 | 10uF | C_0402_1005Metric | 1 |  |
+| C23,C24 | 18pF | C_0402_1005Metric | 2 |  |
+| C34 | 0.1uF | C_0402_1005Metric | 1 |  |
+| C37 | 10nF (LOW ESR) | C_0402_1005Metric | 1 |  |
+| C38,C44-C59 | 100nF | C_0402_1005Metric | 17 | VCAP: exigir ESR < 100 mΩ, X7R/X5R, ≥6,3 V (DS13311 §6.3.2) |
+| C39,C40 | 2.2uF | C_0603_1608Metric | 2 | VCAP: exigir ESR < 100 mΩ, X7R/X5R, ≥6,3 V (DS13311 §6.3.2) |
+| C41 | 220pF | C_0402_1005Metric | 1 | SMPS Cin/Cfilt (DS13311 §6.3.3) |
+| C42 | 10uF | C_0805_2012Metric | 1 | SMPS Cout 10 µF ESR 20 mΩ (DS13311 §6.3.3) |
+| C43,C63 | 1uF | C_0402_1005Metric | 2 |  |
+| C60-C62,C65 | 4.7uF | C_0603_1608Metric | 4 |  |
+| C64 | 2.2uF | C_0402_1005Metric | 1 |  |
+| D1 | SMAJ16CA-13-F | DIOM4325X250N | 1 |  |
+| D2 | BAS40WS 43 | D_SOD-323 | 1 |  |
+| D5-D9 | PESD2CAN,215 | SOT95P230X110-3N | 5 |  |
+| D10 | BAS70H 115 | D_SOD-123F | 1 |  |
+| D11 | B320AE-13 | D_SMA | 1 |  |
+| D12 | SM540C | D_SMC | 1 |  |
+| D13,D14 | BAT54S | SOT-23 | 2 |  |
+| D15 | BZT52C12 | D_SOD-123 | 1 |  |
+| FB1 | 600R@100MHz | L_0603_1608Metric | 1 | ferrite VDDA: PROVISÓRIO (ex. BLM18 600 Ω/100 MHz) |
+| J1 | SWD | PinHeader_2x05_P1.27mm_Vertical_SMD | 1 |  |
 | JP1 | HW_ID1 | SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm | 1 | sem MPN |
-| L3 | 47uH 2A - SMMS0650-470M | IND-SMD_L7.3-W6.8 | 1 | sem MPN |
-| L4 | 15uH | L_10.5x11.5_H4.0 | 1 | sem MPN |
-| L5 | 2.2uH DFE201610E-2R2M | L_Murata_DFE201610P | 1 | sem MPN; DFE201610E 2,2 µH: Isat ≥ 1,7 A / DCR ≤ 150 mΩ (PROVISÓRIO) |
-| P1 | TYPE-C-31-M-04 | USB-C-SMD_TYPE-C-USB-20 | 1 | sem MPN |
-| Q1,Q2 | DDTA143ECA-7-F P08 | SOT23-3 | 2 | sem MPN |
-| Q3 | PDTC114EU | SOT-323_SC-70 | 1 | sem MPN |
-| Q4 | HY12P03C2 | PowerPAK_SO-8_Single | 1 | sem MPN |
-| R1 | 10k | R_0603_1608Metric | 1 | sem MPN |
-| R2 | 1K | R_0402_1005Metric | 1 | sem MPN |
-| R3,R9,R23,R24,R26 | 10K | R_0402_1005Metric | 5 | sem MPN |
-| R5 | 10K (1%) | R_0402_1005Metric | 1 | sem MPN |
-| R6 | 3.16K (1%) | R_0603_1608Metric | 1 | sem MPN |
-| R14-R16,R28-R33 | 10k | R_0402_1005Metric | 9 | sem MPN |
-| R17 | 180R | R_0402_1005Metric | 1 | sem MPN |
-| R18 | 110R | R_0402_1005Metric | 1 | sem MPN |
-| R19 | 100R | R_0402_1005Metric | 1 | sem MPN |
-| R20,R21 | 22R | R_0402_1005Metric | 2 | sem MPN |
-| R27 | 2.4K | R_0402_1005Metric | 1 | sem MPN |
-| SW1 | SW_Push | SW_SPST_SKQG_WithStem | 1 | sem MPN |
-| U1 | AP22615AWU-7 | SOT-23-6 | 1 | sem MPN |
-| U3 | 10_0_QHHTZB6_3 | USB-A-TH_10.0QHHTZB6.3 | 1 | sem MPN |
-| U5 | FM-B1921RGBA-SH | LED-ARRAY-SMD_4P-L2.2-W2.1-BR | 1 | sem MPN |
-| U6 | TPS5450DDAR | CONV_TPS5450DDAR | 1 | sem MPN |
-| U7 | STM32H725ZGT6 | LQFP-144_20x20mm_P0.5mm | 1 | sem MPN |
-| U8-U11 | TJA1042TK-3 | DFN-8-1EP_3x3mm_P0.65mm_EP1.55x2.4mm | 4 | sem MPN |
-| U12 | XL1509-3.3 | Diodes_PSOP-8 | 1 | sem MPN |
-| U13 | USBLC6-2SC6 | SOT-23-6 | 1 | sem MPN |
-| Y1 | 25MHz X322525MOB4SI | Crystal_SMD_3225-4Pin_3.2x2.5mm | 1 | sem MPN; 25 MHz: CL = 2·(C_load − C_stray) — C de carga 15 pF PROVISÓRIO; validar com CL do cristal escolhido |
+| L3 | 47uH 2A - SMMS0650-470M | IND-SMD_L7.3-W6.8 | 1 |  |
+| L4 | 15uH | L_10.5x11.5_H4.0 | 1 |  |
+| L5 | 2.2uH DFE201610E-2R2M | L_Murata_DFE201610P | 1 | DFE201610E 2,2 µH: Isat ≥ 1,7 A / DCR ≤ 150 mΩ (PROVISÓRIO) |
+| P1 | TYPE-C-31-M-04 | USB-C-SMD_TYPE-C-USB-20 | 1 |  |
+| Q1,Q2 | DDTA143ECA-7-F P08 | SOT23-3 | 2 |  |
+| Q3 | PDTC114EU | SOT-323_SC-70 | 1 |  |
+| Q4 | HY12P03C2 | PowerPAK_SO-8_Single | 1 |  |
+| R1 | 10k | R_0603_1608Metric | 1 |  |
+| R2 | 1K | R_0402_1005Metric | 1 |  |
+| R3,R9,R23,R24,R26 | 10K | R_0402_1005Metric | 5 |  |
+| R5 | 10K (1%) | R_0402_1005Metric | 1 |  |
+| R6 | 3.16K (1%) | R_0603_1608Metric | 1 |  |
+| R14-R16,R28-R33 | 10k | R_0402_1005Metric | 9 |  |
+| R17 | 180R | R_0402_1005Metric | 1 |  |
+| R18 | 110R | R_0402_1005Metric | 1 |  |
+| R19 | 100R | R_0402_1005Metric | 1 |  |
+| R20,R21 | 22R | R_0402_1005Metric | 2 |  |
+| R27 | 2.4K | R_0402_1005Metric | 1 |  |
+| SW1 | SW_Push | SW_SPST_SKQG_WithStem | 1 |  |
+| U1 | AP22615AWU-7 | SOT-23-6 | 1 |  |
+| U3 | 10_0_QHHTZB6_3 | USB-A-TH_10.0QHHTZB6.3 | 1 |  |
+| U5 | FM-B1921RGBA-SH | LED-ARRAY-SMD_4P-L2.2-W2.1-BR | 1 |  |
+| U6 | TPS5450DDAR | CONV_TPS5450DDAR | 1 |  |
+| U7 | STM32H725ZGT6 | LQFP-144_20x20mm_P0.5mm | 1 |  |
+| U8-U11 | TJA1042TK-3 | DFN-8-1EP_3x3mm_P0.65mm_EP1.55x2.4mm | 4 |  |
+| U12 | XL1509-3.3 | Diodes_PSOP-8 | 1 |  |
+| U13 | USBLC6-2SC6 | SOT-23-6 | 1 |  |
+| Y1 | 25MHz X322525MOB4SI | Crystal_SMD_3225-4Pin_3.2x2.5mm | 1 | 25 MHz: CL = 2·(C_load − C_stray) — C de carga 15 pF PROVISÓRIO; validar com CL do cristal escolhido |
 
 ## Veredicto honesto
 

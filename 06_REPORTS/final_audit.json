@@ -1,5 +1,5 @@
 {
- "date": "2026-10-28 08:58:28",
+ "date": "2026-10-28 10:04:27",
  "board": "04_PROJECT\\HybridPanda\\HybridPanda.kicad_pcb",
  "findings": [
   {
@@ -111,7 +111,7 @@
   {
    "sev": "INFO",
    "area": "montagem",
-   "msg": "117 vias sob corpos de componentes (tenting F/B = True/True)"
+   "msg": "119 vias sob corpos de componentes (tenting F/B = True/True)"
   },
   {
    "sev": "INFO",
@@ -131,7 +131,7 @@
   {
    "sev": "INFO",
    "area": "fabrico",
-   "msg": "trilha mín 0.1400 mm, broca mín 0.25 mm (regra 0,30 — 1 via herdada 0,25); folga mín testada 0,10 mm"
+   "msg": "trilha mín 0.1400 mm, broca mín 0.30 mm (regra 0,30 — 1 via herdada 0,25); folga mín testada 0,10 mm"
   },
   {
    "sev": "INFO",
@@ -196,11 +196,11 @@
   {
    "sev": "ALTO",
    "area": "BOM",
-   "msg": "53 linhas / 114 referências; 0 com MPN — não encomendável sem preencher; itens críticos marcados (VCAP ESR, SMPS, L5, Y1 CL)"
+   "msg": "54 linhas / 76 referências; 53 linhas com MPN — não encomendável sem preencher as restantes; itens críticos marcados (VCAP ESR, SMPS, L5, Y1 CL)"
   }
  ],
  "shorts": {
-  "pairs_tested": 740,
+  "pairs_tested": 748,
   "copper_overlap_other_net": [],
   "clearance_lt_0.10": [],
   "zone_overlap_other_net": [],
@@ -257,7 +257,7 @@
   ],
   "kicad_unconnected": 0,
   "nets_split": [],
-  "nets_total": 144,
+  "nets_total": 142,
   "nets_multi_pad": 63
  },
  "via_in_pad": [],
@@ -270,9 +270,7 @@
   "pads_fora": [],
   "pads_a_lt_0.3_da_borda": [
    "pad C28.1 [+3V3]",
-   "pad C28.2 [GND]",
-   "pad U3.5 [unconnected-(U3-Pad5)]",
-   "pad U3.6 [unconnected-(U3-Pad6)]"
+   "pad C28.2 [GND]"
   ],
   "footprints_fora_bbox": [
    {
@@ -297,7 +295,7 @@
   "board_mm": [
    91.96,
    32.06,
-   142.48,
+   142.88,
    78.71
   ]
  },
@@ -318,7 +316,7 @@
  "vias_under_components": {
   "tent_front": true,
   "tent_back": true,
-  "count": 117,
+  "count": 119,
   "list": [
    {
     "via": "+3V3 @103.00,65.86",
@@ -461,6 +459,11 @@
     "rede_do_componente": true
    },
    {
+    "via": "GND @105.50,34.50",
+    "sob": "D12",
+    "rede_do_componente": true
+   },
+   {
     "via": "GND @100.24,56.35",
     "sob": "U7",
     "rede_do_componente": true
@@ -573,6 +576,11 @@
    {
     "via": "GND @104.12,50.95",
     "sob": "U7",
+    "rede_do_componente": true
+   },
+   {
+    "via": "GND @132.00,49.50",
+    "sob": "D1",
     "rede_do_componente": true
    },
    {
@@ -1065,14 +1073,14 @@
    "len_mm": 320.0,
    "n": 244,
    "vias": 49,
-   "min_w_at": "95.74,45.18 F.Cu"
+   "min_w_at": "136.64,68.46 F.Cu"
   },
   "GND": {
    "min_w": 0.2,
    "max_w": 0.8,
    "len_mm": 215.5,
    "n": 222,
-   "vias": 75,
+   "vias": 91,
    "min_w_at": "97.94,63.39 F.Cu"
   },
   "+5V": {
@@ -1081,7 +1089,7 @@
    "len_mm": 131.3,
    "n": 95,
    "vias": 15,
-   "min_w_at": "108.82,46.24 F.Cu"
+   "min_w_at": "125.47,55.57 F.Cu"
   },
   "USB_PWR": {
    "min_w": 0.2,
@@ -1089,13 +1097,13 @@
    "len_mm": 31.1,
    "n": 19,
    "vias": 2,
-   "min_w_at": "118.50,53.80 F.Cu"
+   "min_w_at": "119.08,54.38 F.Cu"
   },
   "+12V": {
    "min_w": 0.2,
    "max_w": 1.5,
-   "len_mm": 42.8,
-   "n": 34,
+   "len_mm": 34.2,
+   "n": 30,
    "vias": 4,
    "min_w_at": "141.40,51.11 F.Cu"
   }
@@ -1103,9 +1111,9 @@
  "acute_angles": 122,
  "rules": {
   "min_track_mm": 0.14,
-  "min_via_drill_mm": 0.25,
-  "ds_min_track": 0.1375,
-  "ds_min_clear": 0.05,
+  "min_via_drill_mm": 0.3,
+  "ds_min_track": 0.127,
+  "ds_min_clear": 0.1,
   "ds_min_drill": 0.3
  },
  "sch_u7_system": {
@@ -1180,73 +1188,56 @@
    "value": "100NF",
    "footprint": "C_0402_1005Metric",
    "qty": "13",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "C3,C10,C16-C21",
    "value": "47uF",
    "footprint": "C_0805_2012Metric",
    "qty": "8",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
-   "refs": "C4,C12,C42",
+   "refs": "C4,C12",
    "value": "10uF",
    "footprint": "C_0805_2012Metric",
-   "qty": "3",
-   "notas": [
-    "sem MPN",
-    "SMPS Cout 10 µF ESR 20 mΩ (DS13311 §6.3.3)"
-   ]
+   "qty": "2",
+   "notas": []
   },
   {
    "refs": "C6,C7",
    "value": "2.2uF",
    "footprint": "C_0805_2012Metric",
    "qty": "2",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "C8",
    "value": "10uF",
    "footprint": "C_0402_1005Metric",
    "qty": "1",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "C23,C24",
-   "value": "15pF",
+   "value": "18pF",
    "footprint": "C_0402_1005Metric",
    "qty": "2",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "C34",
    "value": "0.1uF",
    "footprint": "C_0402_1005Metric",
    "qty": "1",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "C37",
    "value": "10nF (LOW ESR)",
    "footprint": "C_0402_1005Metric",
    "qty": "1",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "C38,C44-C59",
@@ -1254,7 +1245,6 @@
    "footprint": "C_0402_1005Metric",
    "qty": "17",
    "notas": [
-    "sem MPN",
     "VCAP: exigir ESR < 100 mΩ, X7R/X5R, ≥6,3 V (DS13311 §6.3.2)"
    ]
   },
@@ -1264,7 +1254,6 @@
    "footprint": "C_0603_1608Metric",
    "qty": "2",
    "notas": [
-    "sem MPN",
     "VCAP: exigir ESR < 100 mΩ, X7R/X5R, ≥6,3 V (DS13311 §6.3.2)"
    ]
   },
@@ -1274,8 +1263,16 @@
    "footprint": "C_0402_1005Metric",
    "qty": "1",
    "notas": [
-    "sem MPN",
     "SMPS Cin/Cfilt (DS13311 §6.3.3)"
+   ]
+  },
+  {
+   "refs": "C42",
+   "value": "10uF",
+   "footprint": "C_0805_2012Metric",
+   "qty": "1",
+   "notas": [
+    "SMPS Cout 10 µF ESR 20 mΩ (DS13311 §6.3.3)"
    ]
   },
   {
@@ -1283,99 +1280,77 @@
    "value": "1uF",
    "footprint": "C_0402_1005Metric",
    "qty": "2",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "C60-C62,C65",
    "value": "4.7uF",
    "footprint": "C_0603_1608Metric",
    "qty": "4",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "C64",
    "value": "2.2uF",
    "footprint": "C_0402_1005Metric",
    "qty": "1",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "D1",
    "value": "SMAJ16CA-13-F",
    "footprint": "DIOM4325X250N",
    "qty": "1",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "D2",
    "value": "BAS40WS 43",
    "footprint": "D_SOD-323",
    "qty": "1",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "D5-D9",
    "value": "PESD2CAN,215",
    "footprint": "SOT95P230X110-3N",
    "qty": "5",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "D10",
    "value": "BAS70H 115",
    "footprint": "D_SOD-123F",
    "qty": "1",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "D11",
    "value": "B320AE-13",
    "footprint": "D_SMA",
    "qty": "1",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "D12",
    "value": "SM540C",
    "footprint": "D_SMC",
    "qty": "1",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "D13,D14",
    "value": "BAT54S",
    "footprint": "SOT-23",
    "qty": "2",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "D15",
    "value": "BZT52C12",
    "footprint": "D_SOD-123",
    "qty": "1",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "FB1",
@@ -1383,7 +1358,6 @@
    "footprint": "L_0603_1608Metric",
    "qty": "1",
    "notas": [
-    "sem MPN",
     "ferrite VDDA: PROVISÓRIO (ex. BLM18 600 Ω/100 MHz)"
    ]
   },
@@ -1392,9 +1366,7 @@
    "value": "SWD",
    "footprint": "PinHeader_2x05_P1.27mm_Vertical_SMD",
    "qty": "1",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "JP1",
@@ -1410,18 +1382,14 @@
    "value": "47uH 2A - SMMS0650-470M",
    "footprint": "IND-SMD_L7.3-W6.8",
    "qty": "1",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "L4",
    "value": "15uH",
    "footprint": "L_10.5x11.5_H4.0",
    "qty": "1",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "L5",
@@ -1429,7 +1397,6 @@
    "footprint": "L_Murata_DFE201610P",
    "qty": "1",
    "notas": [
-    "sem MPN",
     "DFE201610E 2,2 µH: Isat ≥ 1,7 A / DCR ≤ 150 mΩ (PROVISÓRIO)"
    ]
   },
@@ -1438,216 +1405,168 @@
    "value": "TYPE-C-31-M-04",
    "footprint": "USB-C-SMD_TYPE-C-USB-20",
    "qty": "1",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "Q1,Q2",
    "value": "DDTA143ECA-7-F P08",
    "footprint": "SOT23-3",
    "qty": "2",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "Q3",
    "value": "PDTC114EU",
    "footprint": "SOT-323_SC-70",
    "qty": "1",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "Q4",
    "value": "HY12P03C2",
    "footprint": "PowerPAK_SO-8_Single",
    "qty": "1",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "R1",
    "value": "10k",
    "footprint": "R_0603_1608Metric",
    "qty": "1",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "R2",
    "value": "1K",
    "footprint": "R_0402_1005Metric",
    "qty": "1",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "R3,R9,R23,R24,R26",
    "value": "10K",
    "footprint": "R_0402_1005Metric",
    "qty": "5",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "R5",
    "value": "10K (1%)",
    "footprint": "R_0402_1005Metric",
    "qty": "1",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "R6",
    "value": "3.16K (1%)",
    "footprint": "R_0603_1608Metric",
    "qty": "1",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "R14-R16,R28-R33",
    "value": "10k",
    "footprint": "R_0402_1005Metric",
    "qty": "9",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "R17",
    "value": "180R",
    "footprint": "R_0402_1005Metric",
    "qty": "1",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "R18",
    "value": "110R",
    "footprint": "R_0402_1005Metric",
    "qty": "1",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "R19",
    "value": "100R",
    "footprint": "R_0402_1005Metric",
    "qty": "1",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "R20,R21",
    "value": "22R",
    "footprint": "R_0402_1005Metric",
    "qty": "2",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "R27",
    "value": "2.4K",
    "footprint": "R_0402_1005Metric",
    "qty": "1",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "SW1",
    "value": "SW_Push",
    "footprint": "SW_SPST_SKQG_WithStem",
    "qty": "1",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "U1",
    "value": "AP22615AWU-7",
    "footprint": "SOT-23-6",
    "qty": "1",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "U3",
    "value": "10_0_QHHTZB6_3",
    "footprint": "USB-A-TH_10.0QHHTZB6.3",
    "qty": "1",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "U5",
    "value": "FM-B1921RGBA-SH",
    "footprint": "LED-ARRAY-SMD_4P-L2.2-W2.1-BR",
    "qty": "1",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "U6",
    "value": "TPS5450DDAR",
    "footprint": "CONV_TPS5450DDAR",
    "qty": "1",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "U7",
    "value": "STM32H725ZGT6",
    "footprint": "LQFP-144_20x20mm_P0.5mm",
    "qty": "1",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "U8-U11",
    "value": "TJA1042TK-3",
    "footprint": "DFN-8-1EP_3x3mm_P0.65mm_EP1.55x2.4mm",
    "qty": "4",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "U12",
    "value": "XL1509-3.3",
    "footprint": "Diodes_PSOP-8",
    "qty": "1",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "U13",
    "value": "USBLC6-2SC6",
    "footprint": "SOT-23-6",
    "qty": "1",
-   "notas": [
-    "sem MPN"
-   ]
+   "notas": []
   },
   {
    "refs": "Y1",
@@ -1655,12 +1574,11 @@
    "footprint": "Crystal_SMD_3225-4Pin_3.2x2.5mm",
    "qty": "1",
    "notas": [
-    "sem MPN",
     "25 MHz: CL = 2·(C_load − C_stray) — C de carga 15 pF PROVISÓRIO; validar com CL do cristal escolhido"
    ]
   }
  ],
- "seconds": 9.5,
+ "seconds": 10.8,
  "by_severity": {
   "ALTO": 9,
   "INFO": 18,

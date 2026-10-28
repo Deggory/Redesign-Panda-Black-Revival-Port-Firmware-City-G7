@@ -1,7 +1,7 @@
 {
     "$schema": "https://schemas.kicad.org/erc.v1.json",
     "coordinate_units": "mm",
-    "date": "2026-10-28T09:09:25",
+    "date": "2026-10-28T10:04:57",
     "ignored_checks": [
         {
             "description": "Global label only appears once in the schematic",
@@ -2347,6 +2347,112 @@
                     "type": "pin_to_pin"
                 },
                 {
+                    "description": "Symbol pin or wire end off connection grid",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR0223 Hidden pin 1 [GND, Power input, Line]",
+                            "pos": {
+                                "x": 247.523,
+                                "y": 53.721
+                            },
+                            "uuid": "9e6a0d27-b5d7-4a7e-a100-dd2958832399"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "endpoint_off_grid"
+                },
+                {
+                    "description": "Symbol 'GND' doesn't match copy in library 'power'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR0223 [GND]",
+                            "pos": {
+                                "x": 247.523,
+                                "y": 53.721
+                            },
+                            "uuid": "c627023c-e1fa-4c82-813b-f56dfb8823d9"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_mismatch"
+                },
+                {
+                    "description": "Pins of type Unspecified and Power input are connected",
+                    "items": [
+                        {
+                            "description": "Symbol U3 Pin 5 [5, Unspecified, Line]",
+                            "pos": {
+                                "x": 247.523,
+                                "y": 53.721
+                            },
+                            "uuid": "37a2c326-b6dc-4bcc-be0e-470a8e4d9df3"
+                        },
+                        {
+                            "description": "Symbol #PWR0223 Hidden pin 1 [GND, Power input, Line]",
+                            "pos": {
+                                "x": 247.523,
+                                "y": 53.721
+                            },
+                            "uuid": "9e6a0d27-b5d7-4a7e-a100-dd2958832399"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "pin_to_pin"
+                },
+                {
+                    "description": "Symbol pin or wire end off connection grid",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR0224 Hidden pin 1 [GND, Power input, Line]",
+                            "pos": {
+                                "x": 247.523,
+                                "y": 76.581
+                            },
+                            "uuid": "3645ad4f-f0f2-45cf-9970-e169c2d86cf8"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "endpoint_off_grid"
+                },
+                {
+                    "description": "Symbol 'GND' doesn't match copy in library 'power'",
+                    "items": [
+                        {
+                            "description": "Symbol #PWR0224 [GND]",
+                            "pos": {
+                                "x": 247.523,
+                                "y": 76.581
+                            },
+                            "uuid": "a514ffa8-3304-4e4c-b664-de637e04a25b"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_mismatch"
+                },
+                {
+                    "description": "Pins of type Unspecified and Power input are connected",
+                    "items": [
+                        {
+                            "description": "Symbol U3 Pin 6 [6, Unspecified, Line]",
+                            "pos": {
+                                "x": 247.523,
+                                "y": 76.581
+                            },
+                            "uuid": "8126ccce-9bec-4bd2-9749-4f4b572c355e"
+                        },
+                        {
+                            "description": "Symbol #PWR0224 Hidden pin 1 [GND, Power input, Line]",
+                            "pos": {
+                                "x": 247.523,
+                                "y": 76.581
+                            },
+                            "uuid": "3645ad4f-f0f2-45cf-9970-e169c2d86cf8"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "pin_to_pin"
+                },
+                {
                     "description": "Symbol 'GND' doesn't match copy in library 'power'",
                     "items": [
                         {
@@ -3400,7 +3506,7 @@
                                 "x": 330.454,
                                 "y": 86.614
                             },
-                            "uuid": "55843961-d7fb-44d4-8ad7-cddb48ae7e3a"
+                            "uuid": "28cca13c-7463-490b-ae29-ee5ce124bbb0"
                         },
                         {
                             "description": "Symbol #PWR014 Hidden pin 1 [GND, Power input, Line]",
@@ -4295,7 +4401,7 @@
                                 "x": 373.634,
                                 "y": 86.614
                             },
-                            "uuid": "6c83fc25-ff93-4787-aad4-1d6b1d145523"
+                            "uuid": "80a9d000-264d-461c-877e-b015e022e440"
                         },
                         {
                             "description": "Symbol #PWR016 Hidden pin 1 [GND, Power input, Line]",
@@ -4348,7 +4454,7 @@
                                 "x": 373.634,
                                 "y": 89.154
                             },
-                            "uuid": "db3db995-a8bf-4664-b9b6-5f5bc46c622f"
+                            "uuid": "87d02c96-42ee-452f-9ca1-1a2ea62c627f"
                         },
                         {
                             "description": "Symbol #PWR017 Hidden pin 1 [GND, Power input, Line]",

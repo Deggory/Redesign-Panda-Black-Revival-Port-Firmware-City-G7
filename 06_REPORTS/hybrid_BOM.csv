@@ -4,7 +4,7 @@
 "C4,C12","10uF","Capacitor_SMD:C_0805_2012Metric","2","","CL21A106KBYQNNE","Samsung",""
 "C6,C7","2.2uF","Capacitor_SMD:C_0805_2012Metric","2","","CC0805KKX7R9BB225","Yageo",""
 "C8","10uF","Capacitor_SMD:C_0402_1005Metric","1","","CL05A106MP5NUNC","Samsung",""
-"C23,C24","15pF","Capacitor_SMD:C_0402_1005Metric","2","","0402CG150J500NT","Fenghua",""
+"C23,C24","18pF","Capacitor_SMD:C_0402_1005Metric","2","","0402CG180J500NT","Fenghua",""
 "C34","0.1uF","Capacitor_SMD:C_0402_1005Metric","1","","CL05B104KB54PNC","Samsung",""
 "C37","10nF (LOW ESR)","Capacitor_SMD:C_0402_1005Metric","1","","CL05B103KB5NNNC","Samsung",""
 "C38,C44-C59","100nF","Capacitor_SMD:C_0402_1005Metric","17","","CL05B104KB54PNC","Samsung",""
